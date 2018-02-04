@@ -20,19 +20,19 @@ public class Annonce
    private String sex ; 
    private String race ; 
    private String message_complementaire ; 
-   private String TypeAnimal  ; 
+   private String type  ; 
 
     public Annonce() {
     }
 
-    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String TypeAnimal) {
+    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type) {
         this.id=id ; 
         this.age = age;
         this.couleur = couleur;
         this.sex = sex;
         this.race = race;
         this.message_complementaire = message_complementaire;
-        this.TypeAnimal = TypeAnimal;
+        this.type = type;
     }
 
     public int getAge() {
@@ -75,8 +75,8 @@ public class Annonce
         this.message_complementaire = message_complementaire;
     }
 
-    public String getTypeAnimal() {
-        return TypeAnimal;
+    public String getType() {
+        return type;
     }
 
     public int getId() {
@@ -87,13 +87,13 @@ public class Annonce
         this.id = id;
     }
 
-    public void setTypeAnimal(String TypeAnimal) {
-        this.TypeAnimal = TypeAnimal;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Annonce{" + "id=" + id + ", age=" + age + ", couleur=" + couleur + ", sex=" + sex + ", race=" + race + ", message_complementaire=" + message_complementaire + ", TypeAnimal=" + TypeAnimal + '}';
+        return "Annonce{" + "id=" + id + ", age=" + age + ", couleur=" + couleur + ", sex=" + sex + ", race=" + race + ", message_complementaire=" + message_complementaire + ", type=" + type + '}';
     }
 
    
@@ -106,7 +106,7 @@ public class Annonce
         hash = 61 * hash + Objects.hashCode(this.sex);
         hash = 61 * hash + Objects.hashCode(this.race);
         hash = 61 * hash + Objects.hashCode(this.message_complementaire);
-        hash = 61 * hash + Objects.hashCode(this.TypeAnimal);
+        hash = 61 * hash + Objects.hashCode(this.type);
         return hash;
     }
 
@@ -140,7 +140,7 @@ public class Annonce
         if (!Objects.equals(this.message_complementaire, other.message_complementaire)) {
             return false;
         }
-        if (!Objects.equals(this.TypeAnimal, other.TypeAnimal)) {
+        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         return true;

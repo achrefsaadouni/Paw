@@ -36,8 +36,11 @@ public class UtilisateurServices {
             ste.setString(2,p.getPrenom()) ;
             ste.setString(3,p.getEmail()) ; 
             ste.setString(4,p.getUsername()) ; 
+            
+            
+            //
             ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
-            ste.setString(6,p.getAdresse()) ; 
+            ste.setString(6,p.getAddresse()) ; 
             ste.setInt(7,p.getNumero()) ; 
             ste.setString(8,p.getRole()) ; 
             
@@ -68,7 +71,7 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                System.out.println("333"+rs.getString("password"));
+                System.out.println("*"+password+"*");
                 String role = rs.getString("role");
                 int numero = rs.getInt("numero");
                 System.out.println("    Hani hne mriguel");
@@ -92,7 +95,7 @@ public class UtilisateurServices {
             ste.setString(3,p.getEmail()) ; 
             ste.setString(4,p.getUsername()) ; 
             ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
-            ste.setString(6,p.getAdresse()) ; 
+            ste.setString(6,p.getAddresse()) ; 
             ste.setString(8,p.getRole()) ; 
             ste.setInt(7,p.getNumero()) ;
             ste.setInt(9,p.getId()) ;

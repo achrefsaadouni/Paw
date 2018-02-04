@@ -36,9 +36,6 @@ public class FXMLAnnonceController implements Initializable {
 
 
     @FXML
-    private JFXTextField idInsertion;
-
-    @FXML
     private JFXTextField sexInsertion;
 
     @FXML
@@ -62,8 +59,6 @@ public class FXMLAnnonceController implements Initializable {
     @FXML
     private JFXTextField raceModification;
 
-    @FXML
-    private JFXTextField typeModification;
 
     @FXML
     private JFXTextField ageModification;
@@ -94,17 +89,19 @@ public class FXMLAnnonceController implements Initializable {
 
     @FXML
     private TableColumn<Annonce, String> typeCol;
+    
     @FXML
     private ChoiceBox<String> choixInsertion;
+    @FXML
+    private ChoiceBox<String> choixModification;
 @FXML
     void actionInsertion2(ActionEvent event) {
-         if ((!"".equals(idInsertion.getText()))&&(!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
+         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
         {
             AnnonceServices as = new AnnonceServices();
-            as.insererAnnonce(new Annonce(Integer.parseInt(idInsertion.getText()),Integer.parseInt(ageInsertion.getText()),couleurInsertion.getText(),sexInsertion.getText(),
+            as.insererAnnonce(new Annonce(0,Integer.parseInt(ageInsertion.getText()),couleurInsertion.getText(),sexInsertion.getText(),
             raceInsertion.getText(),msgInsertion.getText(),choixInsertion.getValue()));
-            idInsertion.setText("");
             ageInsertion.setText("");
             sexInsertion.setText("");
             raceInsertion.setText("");
@@ -113,10 +110,7 @@ public class FXMLAnnonceController implements Initializable {
             choixInsertion.setValue("Chien");
             loadTable();
         }
-        else
-        {
-            
-        }
+
 
     }
 
@@ -127,15 +121,19 @@ public class FXMLAnnonceController implements Initializable {
             
         
             if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(typeModification.getText())))
+                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(choixModification.getValue())))
         {
             AnnonceServices as = new AnnonceServices();
             
-            as.updateAnnonce(new Annonce(
-                    Integer.parseInt(idModification.getText()),
-                    
-                    Integer.parseInt(ageModification.getText()),couleurModification.getText(),sexModification.getText(),
-            raceModification.getText(),msgModification.getText(),typeModification.getText()),Integer.parseInt(idModification.getText()));
+            as.updateAnnonce(new 
+             Annonce(Integer.parseInt(idModification.getText()),
+                    Integer.parseInt(ageModification.getText()),
+                    couleurModification.getText(),
+                    sexModification.getText(),
+                    raceModification.getText(),
+                    msgModification.getText(),
+                    choixModification.getValue()),
+                    Integer.parseInt(idModification.getText()));
            
             
             
@@ -147,14 +145,11 @@ public class FXMLAnnonceController implements Initializable {
          sexModification.setText("");
            raceModification.setText("");
            msgModification.setText("");
-             typeModification.setText("");
+             choixModification.setValue("Chien");
             loadTable();
                    
         }
-        else
-        {
-            
-        }
+
     }
 
     @FXML
@@ -178,6 +173,8 @@ public class FXMLAnnonceController implements Initializable {
         loadTable();
         choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixInsertion.setValue("Chien");
+        choixModification.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
+        choixModification.setValue("Chien");
     }    
     
 
@@ -185,10 +182,11 @@ public class FXMLAnnonceController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         ageCol.setCellValueFactory(new PropertyValueFactory<>("age"));
         sexCol.setCellValueFactory(new PropertyValueFactory<>("sex"));
-          raceCol.setCellValueFactory(new PropertyValueFactory<>("race"));
-            msgCol.setCellValueFactory(new PropertyValueFactory<>("message_complementaire"));
-              typeCol.setCellValueFactory(new PropertyValueFactory<>("TypeAnimal"));
-                couleurCol.setCellValueFactory(new PropertyValueFactory<>("couleur"));
+        raceCol.setCellValueFactory(new PropertyValueFactory<>("race"));
+        msgCol.setCellValueFactory(new PropertyValueFactory<>("message_complementaire"));
+        couleurCol.setCellValueFactory(new PropertyValueFactory<>("couleur"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+
     }
 
     private void loadTable() {
