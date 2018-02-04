@@ -13,18 +13,18 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    private String adresse;
+    private String addresse;
     private String email;
     private String username;
     private String password;
     private String role;
     private int numero;
 
-    public Utilisateur(int id, String nom, String prenom,  String email, String username, String password,String adresse, int numero, String role) {
+    public Utilisateur(int id, String nom, String prenom,  String email, String username, String password,String addresse, int numero, String role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.adresse = adresse;
+        this.addresse = addresse;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -72,12 +72,12 @@ public class Utilisateur {
         this.prenom = prenom;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getAddresse() {
+        return addresse;
     }
 
     public void setAdresse(String adresse) {
-        this.adresse = adresse;
+        this.addresse = adresse;
     }
 
     public String getEmail() {

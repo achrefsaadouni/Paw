@@ -78,6 +78,9 @@
                         <TableColumn fx:id="numeroCol" prefWidth="75.0" text="NUMERO" />
                         <TableColumn fx:id="roleCol" prefWidth="75.0" text="ROLE" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </VBox>

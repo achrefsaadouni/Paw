@@ -149,6 +149,7 @@ public class FXMLutilisateurController implements Initializable {
         prenomCol.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
         usernameCol.setCellValueFactory(new PropertyValueFactory<>("username"));
+        passwordCol.setCellValueFactory(new PropertyValueFactory<>("password"));
         addresseCol.setCellValueFactory(new PropertyValueFactory<>("addresse"));
         numeroCol.setCellValueFactory(new PropertyValueFactory<>("numero"));
         roleCol.setCellValueFactory(new PropertyValueFactory<>("role"));

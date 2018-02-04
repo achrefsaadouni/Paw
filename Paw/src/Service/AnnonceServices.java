@@ -28,20 +28,19 @@ public class AnnonceServices {
     }
     public void insererAnnonce (Annonce a)
     {
-        String req="INSERT INTO annonce VALUES(?,?,?,?,?,?,?)" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type) VALUES(?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,a.getId()) ; 
-            ste.setInt(2,a.getAge()) ; 
-            ste.setString(3,a.getCouleur()) ; 
-            ste.setString(4,a.getSex()) ; 
-             ste.setString(5,a.getRace()) ;
-              ste.setString(6,a.getMessage_complementaire()) ;
-               ste.setString(7,a.getTypeAnimal()) ;
+            ste.setInt(1,a.getAge()) ; 
+            ste.setString(2,a.getCouleur()) ; 
+            ste.setString(3,a.getSex()) ; 
+            ste.setString(4,a.getRace()) ;
+            ste.setString(5,a.getMessage_complementaire()) ;
+            ste.setString(6,a.getType()) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème insertion Personne");
+            System.out.println("Problème insertion annonce");
         }
         
     
@@ -62,8 +61,9 @@ public class AnnonceServices {
                 String  sex= rs.getString("sex");
                 String  race= rs.getString("race");
                 String  message_complementaire= rs.getString("message_complementaire");
-                String  TypeAnimal= rs.getString("TypeAnimal");
-                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,TypeAnimal));
+                String  type= rs.getString("type");
+                System.out.println(type);
+                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type));
             }
 
         } catch (SQLException ex) {
@@ -74,7 +74,7 @@ public class AnnonceServices {
      
     public void updateAnnonce (Annonce a, int id )
     {
-    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,TypeAnimal=?  WHERE id =?" ; 
+    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              ste.setInt(7,id) ;
@@ -83,7 +83,7 @@ public class AnnonceServices {
             ste.setString(3,a.getSex()) ; 
            ste.setString(4,a.getRace()) ; 
            ste.setString(5,a.getMessage_complementaire()) ; 
-           ste.setString(6,a.getTypeAnimal()) ; 
+           ste.setString(6,a.getType()) ; 
            
             ste.executeUpdate() ; 
             
