@@ -80,10 +80,6 @@ public class FXMLuserController implements Initializable {
             prenomInsertion.setText("");
             loadTable();
         }
-        else
-        {
-            
-        }
     }
 
     @FXML
@@ -96,10 +92,6 @@ public class FXMLuserController implements Initializable {
             nomModification.setText("");
             prenomModification.setText("");
             loadTable();
-        }
-        else
-        {
-            
         }
     }
 
