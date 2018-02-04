@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.boutique.produit.ajouter.FXMLAjouterController">
+   <children>
+      <JFXTabPane layoutX="176.0" layoutY="27.0" prefHeight="581.0" prefWidth="732.0" style="-fx-background-color: #B0BEC5;">
+         <tabs>
+            <Tab text="Ajouter">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="710.0">
+                     <children>
+                        <JFXTextField fx:id="libelle" labelFloat="true" layoutX="15.0" layoutY="29.0" prefHeight="41.0" prefWidth="249.0" promptText="Libelle" unFocusColor="#f2e9f7" />
+                        <JFXTextField fx:id="prix" labelFloat="true" layoutX="15.0" layoutY="93.0" prefHeight="41.0" prefWidth="249.0" promptText="Prix" unFocusColor="#f2e9f7" />
+                        <JFXTextField fx:id="quantite" labelFloat="true" layoutX="15.0" layoutY="158.0" prefHeight="41.0" prefWidth="249.0" promptText="Quantite" unFocusColor="#f2e9f7" />
+                        <JFXTextArea fx:id="description" labelFloat="true" layoutX="14.0" layoutY="237.0" prefHeight="89.0" prefWidth="419.0" promptText="Description" unFocusColor="#f2e9f7" />
+                        <JFXComboBox fx:id="type" layoutX="14.0" layoutY="374.0" prefHeight="25.0" prefWidth="203.0" promptText="Type Du Produit" unFocusColor="#f2e9f7" />
+                        <JFXButton fx:id="upload" buttonType="RAISED" layoutX="216.0" layoutY="426.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #69F0AE;" text="Choisir premiere image .." textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" />
+                        <JFXButton fx:id="ajouter" buttonType="RAISED" layoutX="558.0" layoutY="494.0" onAction="#ajouterProduit" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #EDB1F1;" text="Ajouter" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" />
+                        <JFXButton fx:id="upload1" buttonType="RAISED" layoutX="412.0" layoutY="426.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #69F0AE;" text="Choisir dexieme image .." textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Consulter">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTreeTableView fx:id="produitsTableView" layoutY="33.0" prefHeight="513.0" prefWidth="732.0">
+                           <columns>
+                              <TreeTableColumn fx:id="id_view" prefWidth="26.0" text="ID" />
+                              <TreeTableColumn fx:id="libelle_view" prefWidth="124.0" text="LIBELLE" />
+                              <TreeTableColumn fx:id="prix_view" prefWidth="75.0" text="PRIX" />
+                              <TreeTableColumn fx:id="quantite_view" prefWidth="66.0" text="QUANTITE" />
+                              <TreeTableColumn fx:id="description_view" prefWidth="197.0" text="DESCRIPTION" />
+                              <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="83.0" text="TYPE" />
+                              <TreeTableColumn fx:id="images_view" prefWidth="160.0" text="IMAGES" />
+                           </columns>
+                        </JFXTreeTableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Modifier">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Supprimer">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>
