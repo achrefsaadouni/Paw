@@ -90,7 +90,7 @@
             </Label>
             <JFXButton fx:id="acheter2" buttonType="RAISED" layoutX="15.0" layoutY="182.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #8ef6e4;" text="Acheter">
                <graphic>
-                  <ImageView fx:id="acheter_produit1" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="acheter_produit4" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/cart.png" />
                      </image>
@@ -139,7 +139,7 @@
             </Label>
             <JFXButton fx:id="acheter3" buttonType="RAISED" layoutX="15.0" layoutY="182.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #8ef6e4;" text="Acheter">
                <graphic>
-                  <ImageView fx:id="acheter_produit1" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="acheter_produit2" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/cart.png" />
                      </image>
@@ -188,7 +188,7 @@
             </Label>
             <JFXButton fx:id="acheter4" layoutX="15.0" layoutY="182.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #8ef6e4;" text="Acheter">
                <graphic>
-                  <ImageView fx:id="acheter_produit1" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="acheter_produit3" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/cart.png" />
                      </image>
