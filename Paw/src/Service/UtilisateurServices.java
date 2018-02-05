@@ -60,10 +60,8 @@ public class UtilisateurServices {
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ResultSet rs = ste.executeQuery(); 
-            System.out.println("    Hani hne mriguel");
             while (rs.next())
             {
-                System.out.println("    fel lawel");
                 int id = rs.getInt("id");
                 String nom = rs.getString("nom");
                 String prenom = rs.getString("prenom");
@@ -71,10 +69,8 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                System.out.println("*"+password+"*");
                 String role = rs.getString("role");
                 int numero = rs.getInt("numero");
-                System.out.println("    Hani hne mriguel");
                 list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
             }
 
