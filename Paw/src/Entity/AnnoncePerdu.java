@@ -9,6 +9,6 @@ package Entity;
  *
  * @author Guideinfo
  */
-public class AnnoncePerdu extends Annonce{
+public class AnnoncePerdu extends Annonce {
     
 }
