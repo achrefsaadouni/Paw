@@ -194,11 +194,14 @@ public class FXMLAjouterController {
             return property;
         });
          myproduits = produitservice.findAll();
-           System.out.println(myproduits);
+         if (myproduits!=null){
+                        System.out.println(myproduits);
         ObservableList<Produit> articles = FXCollections.observableArrayList(myproduits);
         TreeItem<Produit> root = new RecursiveTreeItem<Produit>(articles, RecursiveTreeObject::getChildren);
         produitsTableView.setRoot(root);
         produitsTableView.setShowRoot(false);
+         }
+
         
   
     }

@@ -21,15 +21,12 @@ import javafx.stage.Stage;
 public class ProduitUI extends Application {
     
    @Override
-    public void start(Stage stage) {
-         try {
+    public void start(Stage stage) throws IOException {
+
             Parent root = FXMLLoader.load(getClass().getResource("/paw/boutique/produit/FXMLProduit.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } catch (IOException ex) {
-             System.out.println("erreur");
-        }
     }
 
     /**
