@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -14,18 +15,37 @@ import java.util.Objects;
 public class Annonce
 
 {
-    private int id  ; 
+   private int id  ; 
    private int age ; 
    private String couleur ;
    private String sex ; 
    private String race ; 
    private String message_complementaire ; 
    private String type  ; 
+   private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public Annonce() {
     }
 
-    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type) {
+    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
+        this.id=id ; 
+        this.age = age;
+        this.couleur = couleur;
+        this.sex = sex;
+        this.race = race;
+        this.message_complementaire = message_complementaire;
+        this.type = type;
+        this.date=date;
+    }
+      public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type) {
         this.id=id ; 
         this.age = age;
         this.couleur = couleur;
