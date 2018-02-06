@@ -5,7 +5,7 @@
  */
 package Service;
 
-import Entity.Utilisateur;
+import Entity.Veterinaire;
 import Utility.DbHandler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,35 +14,34 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
-
 /**
  *
- * @author AYOUB
+ * @author gmehd
  */
-public class UtilisateurServices {
+public class VeterinaireServices {
     protected Connection connection;
     private DbHandler handler;
     
-    public UtilisateurServices (){
+    public VeterinaireServices (){
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
-    public void insererUtilisateur (Utilisateur p)
+    public void insererVeterinaire (Veterinaire p)
     {
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role) VALUES(?,?,?,?,?,?,?,?)" ; 
+        String req="INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email) VALUES(?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom()) ; 
             ste.setString(2,p.getPrenom()) ;
-            ste.setString(3,p.getEmail()) ; 
-            ste.setString(4,p.getUsername()) ; 
+            ste.setString(3,p.getAdresse()) ;
+            ste.setString(4,p.getRegion()) ;
+            ste.setInt(5,p.getNumero()) ; 
+            ste.setString(6,p.getEmail()) ; 
+            
             
             
             //
-            ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
-            ste.setString(6,p.getAddresse()) ; 
-            ste.setInt(7,p.getNumero()) ; 
-            ste.setString(8,p.getRole()) ; 
+            
             
             ste.executeUpdate() ; 
             
@@ -53,9 +52,9 @@ public class UtilisateurServices {
     
     }
     
-    public ObservableList<Utilisateur> getAll(){
-        String req="SELECT * FROM utilisateur" ;
-        ObservableList<Utilisateur> list = FXCollections.observableArrayList();
+    public ObservableList<Veterinaire> getAll(){
+        String req="SELECT * FROM Veterinaire" ;
+        ObservableList<Veterinaire> list = FXCollections.observableArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -64,52 +63,51 @@ public class UtilisateurServices {
             while (rs.next())
             {
                 System.out.println("    fel lawel");
+                
                 int id = rs.getInt("id");
                 String nom = rs.getString("nom");
                 String prenom = rs.getString("prenom");
-                String addresse = rs.getString("addresse");
-                String email = rs.getString("email");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                System.out.println("*"+password+"*");
-                String role = rs.getString("role");
+                String adresse = rs.getString("adresse");
+                String region = rs.getString("region");
                 int numero = rs.getInt("numero");
+                String email = rs.getString("email");
+                
+                
                 System.out.println("    Hani hne mriguel");
-                list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
+                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Utilisateur");
+            System.out.println("Problème importation liste Veterinaire");
         }
         return list;
     }
      
-    public void updateUtilisateur (Utilisateur p, int id )
+    public void updateVeterinaire (Veterinaire p, int id )
     {
-    String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,adresse=?,numero=?,role=? WHERE id =?" ; 
+    String req="UPDATE Veterinaire SET nom=?,prenom=?, adresse=?, region=?, numero=?,email=? WHERE id=?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
             ste.setString(1,p.getNom()) ; 
-            ste.setString(2,p.getPrenom()) ; 
-            ste.setString(3,p.getEmail()) ; 
-            ste.setString(4,p.getUsername()) ; 
-            ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
-            ste.setString(6,p.getAddresse()) ; 
-            ste.setString(8,p.getRole()) ; 
-            ste.setInt(7,p.getNumero()) ;
-            ste.setInt(9,p.getId()) ;
+            ste.setString(2,p.getPrenom()) ;
+            ste.setString(3,p.getAdresse()) ;
+            ste.setString(4,p.getRegion()) ;
+            ste.setInt(5,p.getNumero()) ; 
+            ste.setString(6,p.getEmail()) ;
+            ste.setInt(7,id) ;
+            
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème update Utilisateur");
+            System.out.println("Problème update Veterinaire");
         }
     
     }
     
-     public void DeleteUtilisateur (int id )
+     public void DeleteVeterinaire (int id )
     {
-    String req="DELETE  from utilisateur where  id =?" ; 
+    String req="DELETE  from Veterinaire where  id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
@@ -118,7 +116,7 @@ public class UtilisateurServices {
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème delete Utilisateur");
+            System.out.println("Problème delete Veterinaire");
         }
     
       }
