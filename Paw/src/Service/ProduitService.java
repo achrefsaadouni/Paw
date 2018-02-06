@@ -10,7 +10,6 @@ import Utility.DbHandler;
 import com.mysql.jdbc.StringUtils;
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,8 +49,6 @@ public class ProduitService {
     {
         String images="";
         images = p.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
-        System.out.println(p);
-        System.out.println(images);
         String req="INSERT INTO `produit` (`libelle`,`prix`,`quantite`,`description`,`type`,`images`) VALUES(?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;

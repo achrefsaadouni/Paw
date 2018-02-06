@@ -15,10 +15,8 @@ import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.File;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -32,18 +30,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
+import paw.MyNotifications;
 public class FXMLAjouterController {
     private File file ;
+  
     private List<File> files = new ArrayList<>() ;
+    Image img =null;
     private ProduitService produitservice;
     private List<Produit> myproduits;
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
 
     @FXML
     private JFXTextField libelle;
@@ -92,7 +91,7 @@ public class FXMLAjouterController {
     private TreeTableColumn<Produit, String> type_view;
 
     @FXML
-    private TreeTableColumn<Produit, JFXButton> images_view;
+    private TreeTableColumn<Produit, ImageView> images_view;
 
         @FXML
     void ajouterProduit(ActionEvent event) {
@@ -104,7 +103,10 @@ public class FXMLAjouterController {
         else {
         Produit produit = new Produit(libelle.getText(),Float.valueOf(prix.getText()),Integer.valueOf(quantite.getText()),description.getText(),files,type.getValue());
         produitservice = ProduitService.getProduitService();
-        produitservice.addProduit(produit);}
+        produitservice.addProduit(produit);
+        MyNotifications.infoNotification("Ajout","Produit ajouter avec success");
+        }
+        
                
     }
 
@@ -123,27 +125,9 @@ public class FXMLAjouterController {
            files.add(file);
        }
     }
-    
-    @FXML
-    void initialize() {
-        ObservableList<String> items = FXCollections.observableArrayList(
-                "Laisse, Collier et Harnais",
-                "Lits et Couvertures",
-                "Shampoings et Conditionneurs",
-                "Vetements",
-                "Bols",
-                "Cadeaux",
-                "Gâteries",
-                "Jouets"        
-                );
-        type.setItems(items);
-        initTreeTableView();
-    }
 
     
-    
-    
-       void initTreeTableView() {
+      void initTreeTableView() {
         
         produitsTableView.setEditable(true);
         
@@ -186,26 +170,46 @@ public class FXMLAjouterController {
             property.set(produit.getType());
             return property;
         });
+         images_view.setCellValueFactory(param -> {
+            SimpleObjectProperty property = new SimpleObjectProperty();
+            Produit produit = (Produit) param.getValue().getValue();
+           ImageView im = new ImageView();  
+         try{
+         img =new Image("file:///"+produit.getImages().get(0).toPath().toString());
+         im.setFitHeight(100);
+         im.setFitWidth(100);
+         im.setImage(img);
          
-          images_view.setCellValueFactory(param -> {
-            SimpleObjectProperty<JFXButton> property = new SimpleObjectProperty<>();
-            JFXButton button = new JFXButton("Upload images");
-            property.set(button);
+         }
+         catch(Exception ex)
+             {
+                 System.out.println("image non charger");
+             }
+            property.set(im);
             return property;
         });
-         myproduits = produitservice.findAll();
-           System.out.println(myproduits);
+            
+        myproduits = produitservice.findAll();
         ObservableList<Produit> articles = FXCollections.observableArrayList(myproduits);
         TreeItem<Produit> root = new RecursiveTreeItem<Produit>(articles, RecursiveTreeObject::getChildren);
         produitsTableView.setRoot(root);
-        produitsTableView.setShowRoot(false);
-        
-  
+         produitsTableView.setShowRoot(false);
+      }
+           
+      @FXML
+    void initialize() {
+        ObservableList<String> items = FXCollections.observableArrayList(
+                "Laisse, Collier et Harnais",
+                "Lits et Couvertures",
+                "Shampoings et Conditionneurs",
+                "Vetements",
+                "Bols",
+                "Cadeaux",
+                "Gâteries",
+                "Jouets"        
+                );
+        type.setItems(items);
+        initTreeTableView();
     }
-       
-       
-       
-       
-    
 
 }
