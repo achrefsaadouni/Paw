@@ -7,7 +7,6 @@ package paw.annonce;
 import Entity.Annonce;
 
 import Service.AnnonceServices;
-import Service.PersonneServices;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.Date;

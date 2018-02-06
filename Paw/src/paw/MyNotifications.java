@@ -18,7 +18,7 @@ import org.controlsfx.control.Notifications;
 public class MyNotifications {
     
     public static void infoNotification(String title, String message) {
-        Image img = new Image("/resources/img/customer-service.png") ;
+        Image img = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/customer-service.png") ;
         ImageView image = new ImageView(img);
         image.setFitHeight(64);
         image.setFitWidth(64);
@@ -34,7 +34,7 @@ public class MyNotifications {
     }
     
     public static void ErrorNotification(String title, String message) {
-        Image img = new Image("/resources/img/cancel.png") ;
+        Image img = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/cancel.png") ;
         ImageView image = new ImageView(img);
         image.setFitHeight(64);
         image.setFitWidth(64);
@@ -50,7 +50,7 @@ public class MyNotifications {
     }
     
     public static void WarningNotification(String title, String message) {
-        Image img = new Image("/resources/img/warning.png") ;
+        Image img = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/warning.png") ;
         ImageView image = new ImageView(img);
         image.setFitHeight(64);
         image.setFitWidth(64);
