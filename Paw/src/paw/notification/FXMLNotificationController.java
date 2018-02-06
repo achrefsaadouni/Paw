@@ -7,6 +7,7 @@ package paw.notification;
 
 import Entity.Notification;
 import Service.NotificationServices;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
@@ -68,6 +70,10 @@ public class FXMLNotificationController implements Initializable {
     private TitledPane INSERTION;
     @FXML
     private TableColumn<Notification, String> typeCol;
+    @FXML
+    private JFXRadioButton rad1;
+    @FXML
+    private JFXRadioButton rad2;
 
     /**
      * Initializes the controller class.
@@ -78,6 +84,7 @@ public class FXMLNotificationController implements Initializable {
         choixInsert.setValue("DEMANDE ADOPTION");
         choixModif.getItems().setAll("DEMANDE ADOPTION","DEMANDE ACCOUPLEMENT");
         choixModif.setValue("DEMANDE ADOPTION");
+
         initCol();
         loadTable();
     }    

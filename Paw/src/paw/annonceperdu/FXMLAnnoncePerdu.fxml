@@ -26,7 +26,7 @@
                               <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="819.0" layoutY="38.0" promptText="LIEUX_PERDU" />
                               <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="44.0" layoutY="103.0" prefHeight="23.0" prefWidth="169.0" promptText="RACE" />
                               <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="276.0" layoutY="104.0" promptText="COULEUR" />
-                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="480.0" layoutY="103.0" promptText="SEX" />
+                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="480.0" layoutY="103.0" promptText="SEXE" />
                               <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="696.0" layoutY="103.0" promptText="MESSAGE_COMPLEMENTAIRE" />
                               <JFXDatePicker fx:id="dateinsertionp" layoutX="953.0" layoutY="104.0" />
                               <JFXButton layoutX="1069.0" layoutY="30.0" onAction="#actionInsertion2" style="-fx-background-color: #1976D2;" text="INSERER" />
@@ -41,7 +41,7 @@
                               <JFXTextField fx:id="idModification" labelFloat="true" layoutX="38.0" layoutY="14.0" promptText="ID" />
                               <ChoiceBox fx:id="choixModification" layoutX="261.0" layoutY="21.0" prefWidth="150.0" />
                               <JFXTextField fx:id="ageModification" labelFloat="true" layoutX="452.0" layoutY="14.0" promptText="AGE" />
-                              <JFXTextField fx:id="sexModification" labelFloat="true" layoutX="677.0" layoutY="14.0" promptText="SEX" />
+                              <JFXTextField fx:id="sexModification" labelFloat="true" layoutX="677.0" layoutY="14.0" promptText="SEXE" />
                               <JFXTextField fx:id="lieuModification1" labelFloat="true" layoutX="936.0" layoutY="21.0" promptText="LIEUX_PERDU" />
                               <JFXTextField fx:id="msgModification" labelFloat="true" layoutX="38.0" layoutY="78.0" promptText="MESSAGE_COMLEMENTAIRE" />
                               <JFXTextField fx:id="raceModification" labelFloat="true" layoutX="242.0" layoutY="78.0" promptText="RACE" />
@@ -69,7 +69,7 @@
                   <TableColumn fx:id="idCol" prefWidth="60.0" text="ID" />
                   <TableColumn fx:id="ageCol" prefWidth="50.0" text="AGE" />
                   <TableColumn fx:id="couleurCol" prefWidth="112.0" text="COULEUR" />
-                  <TableColumn fx:id="sexCol" prefWidth="110.0" text="SEX" />
+                  <TableColumn fx:id="sexCol" prefWidth="110.0" text="SEXE" />
                   <TableColumn fx:id="raceCol" prefWidth="126.0" text="RACE" />
                   <TableColumn fx:id="msgCol" prefWidth="247.0" text="MESSAGE_COMPLEMENTAIRE" />
                   <TableColumn fx:id="typeCol" prefWidth="116.0" text="TYPE_ANIMAL" />
