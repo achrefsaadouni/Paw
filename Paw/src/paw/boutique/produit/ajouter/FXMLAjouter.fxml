@@ -42,7 +42,13 @@
                               <TreeTableColumn fx:id="quantite_view" prefWidth="66.0" text="QUANTITE" />
                               <TreeTableColumn fx:id="description_view" prefWidth="197.0" text="DESCRIPTION" />
                               <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="83.0" text="TYPE" />
-                              <TreeTableColumn fx:id="images_view" prefWidth="428.0" text="IMAGES" />
+                              <TreeTableColumn fx:id="images_view" prefWidth="428.0" text="IMAGES">
+                                 <columns>
+                                    <TreeTableColumn fx:id="image1" prefWidth="155.0" text="image 1" />
+                                    <TreeTableColumn fx:id="modif1" minWidth="0.0" prefWidth="63.0" text="Modifier" />
+                                    <TreeTableColumn fx:id="image2" minWidth="0.0" prefWidth="152.0" text="image 2" />
+                                    <TreeTableColumn fx:id="modif2" prefWidth="58.0" text="Modifier" />
+                                 </columns></TreeTableColumn>
                            </columns>
                         </JFXTreeTableView>
                      </children>

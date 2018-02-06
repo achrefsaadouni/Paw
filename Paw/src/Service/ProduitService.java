@@ -9,7 +9,10 @@ import Entity.Produit;
 import Utility.DbHandler;
 import com.mysql.jdbc.StringUtils;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,13 +74,22 @@ public class ProduitService {
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,id) ;
+            Produit p = rechercher(id);
             ste.executeUpdate() ; 
-            
-        } catch (SQLException ex) {
+            Files.delete(p.getImages().get(0).toPath());
+            Files.delete(p.getImages().get(1).toPath());
+        } catch (NoSuchFileException x) {
+           System.err.format("no such file or directory");
+       } catch (DirectoryNotEmptyException x) {
+           System.err.format("not empty");
+       } catch (IOException x) {
+           System.err.println(x);
+        }catch (SQLException ex1) {
             System.out.println("Problème delete produit");
         }
     
     }
+    
 
      public void updateProduit (Produit p)
     {
@@ -134,7 +146,7 @@ public class ProduitService {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\images\\" + imageName + extension;
+            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\imagesBoutique\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;
@@ -142,6 +154,25 @@ public class ProduitService {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    public Produit rechercher(int id)
+    {
+        Produit produit =null;
+        String sql = "SELECT * FROM `produit` where id=?";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+              statement.setInt(1,id) ;
+             ResultSet results =  statement.executeQuery();
+             
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+             }
+             
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return produit;
     }
     
 }
