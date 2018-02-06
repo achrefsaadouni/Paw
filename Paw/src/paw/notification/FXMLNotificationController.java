@@ -27,7 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class FXMLNotificationController implements Initializable {
 
     @FXML
-    private TitledPane destinataireInsert;
+    private JFXTextField destinataireInsert;
     @FXML
     private JFXTextField emetteurInsert;
     @FXML
@@ -64,16 +64,20 @@ public class FXMLNotificationController implements Initializable {
     private TableColumn<Notification, String> texteCol;
     @FXML
     private TableColumn<Notification, String> dateCol;
+    @FXML
+    private TitledPane INSERTION;
+    @FXML
+    private TableColumn<Notification, String> typeCol;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        choixInsert.getItems().setAll("DEMANDE ADOPTION","DEMANDE ACCOUPLEMENT","");
-        choixInsert.setValue("MEMBRE");
-        choixModif.getItems().setAll("MEMBRE","ADMIN");
-        choixModif.setValue("MEMBRE");
+        choixInsert.getItems().setAll("DEMANDE ADOPTION","DEMANDE ACCOUPLEMENT");
+        choixInsert.setValue("DEMANDE ADOPTION");
+        choixModif.getItems().setAll("DEMANDE ADOPTION","DEMANDE ACCOUPLEMENT");
+        choixModif.setValue("DEMANDE ADOPTION");
         initCol();
         loadTable();
     }    
@@ -81,7 +85,6 @@ public class FXMLNotificationController implements Initializable {
     @FXML
     private void actionInsertion(ActionEvent event) {
         NotificationServices service = new NotificationServices();
-       // service.insererNotification(new Notification(0, 0, 0, "aa", "aaa", "aaaa"));
         service.insererNotification(new Notification(0,Integer.parseInt(destinataireInsert.getText()), Integer.parseInt(emetteurInsert.getText()),titreInsert.getText(), texteInsert.getText(), choixInsert.getValue()));
         destinataireInsert.setText("");
         emetteurInsert.setText("");
@@ -94,20 +97,21 @@ public class FXMLNotificationController implements Initializable {
     @FXML
     private void actionModification(ActionEvent event) {
         NotificationServices service = new NotificationServices();
+        
         service.updateNotification(new Notification(0, Integer.parseInt(destinataireInsert.getText()), Integer.parseInt(emetteurInsert.getText()), titreInsert.getText(), texteInsert.getText(), choixInsert.getValue()),Integer.parseInt(idModif.getText()));
-        destinataireInsert.setText("");
-        emetteurInsert.setText("");
-        texteInsert.setText("");
-        titreInsert.setText("");
-        choixInsert.setValue("");
+        destinataireModif.setText("");
+        emetteurModif.setText("");
+        texteModif.setText("");
+        titreModif.setText("");
+        choixModif.setValue("");
         loadTable();
     }
 
     @FXML
     private void actionSupression(ActionEvent event) {
         NotificationServices service = new NotificationServices();
-        service.DeleteNotification(Integer.parseInt(idModif.getText()));
-        idModif.setText("");
+        service.DeleteNotification(Integer.parseInt(idSupression.getText()));
+        idSupression.setText("");
         loadTable();
     }
 
@@ -118,6 +122,7 @@ public class FXMLNotificationController implements Initializable {
         titreCol.setCellValueFactory(new PropertyValueFactory<>("titre"));
         texteCol.setCellValueFactory(new PropertyValueFactory<>("text"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
 
     }
 

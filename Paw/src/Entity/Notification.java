@@ -11,6 +11,7 @@ import java.util.Date;
  *
  * @author Guideinfo
  */
+
 public class Notification {
     private int id;
     private int id_destinataire;
@@ -19,8 +20,9 @@ public class Notification {
     private String text;
     private String type;
     private Date date;
+    private String etat;
 
-    public Notification(int id, int id_destinataire, int id_emetteur, String titre, String text, String type, Date date) {
+    public Notification(int id, int id_destinataire, int id_emetteur, String titre, String text, String type, Date date, String e) {
         this.id = id;
         this.id_destinataire = id_destinataire;
         this.id_emetteur = id_emetteur;
@@ -28,6 +30,7 @@ public class Notification {
         this.text = text;
         this.type = type;
         this.date = date;
+        this.etat=e;
     }
 
     public Notification(int id, int id_destinataire, int id_emetteur, String titre, String text, String type) {
