@@ -32,6 +32,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
@@ -41,6 +42,7 @@ public class FXMLAjouterController {
   
     private List<File> files = new ArrayList<>() ;
     Image img =null;
+    Image img1 =null;
     private ProduitService produitservice;
     private List<Produit> myproduits;
 
@@ -89,9 +91,21 @@ public class FXMLAjouterController {
 
     @FXML
     private TreeTableColumn<Produit, String> type_view;
+    
+       @FXML
+    private TreeTableColumn<Produit, ImageView> image1;
 
     @FXML
-    private TreeTableColumn<Produit, ImageView> images_view;
+    private TreeTableColumn<Produit, JFXButton> modif1;
+
+    @FXML
+    private TreeTableColumn<Produit, ImageView> image2;
+
+    @FXML
+    private TreeTableColumn<Produit, JFXButton> modif2;
+
+    @FXML
+    private TreeTableColumn<Produit, ?> images_view;
 
         @FXML
     void ajouterProduit(ActionEvent event) {
@@ -107,6 +121,7 @@ public class FXMLAjouterController {
         MyNotifications.infoNotification("Ajout","Produit ajouter avec success");
         }
         
+         refresh();
                
     }
 
@@ -170,7 +185,7 @@ public class FXMLAjouterController {
             property.set(produit.getType());
             return property;
         });
-         images_view.setCellValueFactory(param -> {
+         image1.setCellValueFactory(param -> {
             SimpleObjectProperty property = new SimpleObjectProperty();
             Produit produit = (Produit) param.getValue().getValue();
            ImageView im = new ImageView();  
@@ -189,13 +204,56 @@ public class FXMLAjouterController {
             return property;
         });
             
-        myproduits = produitservice.findAll();
+          image2.setCellValueFactory(param -> {
+            SimpleObjectProperty property = new SimpleObjectProperty();
+            Produit produit = (Produit) param.getValue().getValue();
+           ImageView im = new ImageView();  
+         try{
+         img1 =new Image("file:///"+produit.getImages().get(0).toPath().toString());
+         im.setFitHeight(100);
+         im.setFitWidth(100);
+         im.setImage(img1);
+         
+         }
+         catch(Exception ex)
+             {
+                 System.out.println("image non charger");
+             }
+            property.set(im);
+            return property;
+        });
+        modif1.setCellValueFactory(param -> {
+        SimpleObjectProperty property = new SimpleObjectProperty();
+        Produit produit = (Produit) param.getValue().getValue();
+        JFXButton b1 = new JFXButton("image1");
+        b1.setStyle("-fx-background-color:#43A047;");
+        property.set(b1);
+        return property;
+        });
+          modif2.setCellValueFactory(param -> {
+        SimpleObjectProperty property = new SimpleObjectProperty();
+        Produit produit = (Produit) param.getValue().getValue();
+        JFXButton b2 = new JFXButton("image2");
+        b2.setStyle("-fx-background-color:#607D8B;");
+        property.set(b2);
+        return property;
+        });
+        
+         refresh();
+      }
+         
+      
+       public void refresh()
+      {
+           myproduits = produitservice.findAll();
         ObservableList<Produit> articles = FXCollections.observableArrayList(myproduits);
         TreeItem<Produit> root = new RecursiveTreeItem<Produit>(articles, RecursiveTreeObject::getChildren);
         produitsTableView.setRoot(root);
          produitsTableView.setShowRoot(false);
       }
-           
+      
+      
+      
       @FXML
     void initialize() {
         ObservableList<String> items = FXCollections.observableArrayList(
@@ -210,6 +268,8 @@ public class FXMLAjouterController {
                 );
         type.setItems(items);
         initTreeTableView();
+       
+           
     }
 
 }

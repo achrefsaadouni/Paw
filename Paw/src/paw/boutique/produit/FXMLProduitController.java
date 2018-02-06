@@ -125,7 +125,7 @@ public class FXMLProduitController {
          prix_produit2.setText(String.valueOf(p1.getPrix()+" DT"));
          Image img1 =null;
          try{
-         img1 =new Image("file:///"+p1.getImages().get(0).toPath().toString());}
+         img1 =new Image("file:///"+p1.getImages().get(1).toPath().toString());}
          catch(Exception ex)
              {
                  System.out.println("image non charger");
