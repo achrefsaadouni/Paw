@@ -41,7 +41,7 @@ public class NotificationServices {
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème d'insertion Notification");
+            System.out.println(ex);
         }
         
     
@@ -57,17 +57,18 @@ public class NotificationServices {
             while (rs.next())
             {
                 int id = rs.getInt("id");
-                int id_destinataire = rs.getInt("id_destinataires");
+                int id_destinataire = rs.getInt("id_destinataire");
                 int id_emetteur = rs.getInt("id_emetteur");
                 String titre = rs.getString("titre");
                 String text= rs.getString("text");
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
-                list.add(new Notification(id,id_destinataire,id_emetteur,titre,text,type,date));
+                String etat = rs.getString("etat");
+                list.add(new Notification(id,id_destinataire,id_emetteur,titre,text,type,date,etat));
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Notification");
+            System.out.println(ex);
         }
         return list;
     }
@@ -87,7 +88,7 @@ public class NotificationServices {
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème update Notification");
+            System.out.println(ex);
         }
     }
     
@@ -100,7 +101,7 @@ public class NotificationServices {
             ste.executeUpdate() ;    
         } 
         catch (SQLException ex) {
-            System.out.println("Problème delete Notification");
+            System.out.println(ex);
         }
     
     }

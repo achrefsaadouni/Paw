@@ -116,7 +116,7 @@ public class FXMLutilisateurController implements Initializable {
             passwordInsertion1.setText("");
             addresseInsertion1.setText("");
             numeroInsertion1.setText("");
-            roleInsertion1.setValue("MEMBRE");
+            roleInsertion1.setValue("MEMBREdada");
             loadTable();
         }
     }
