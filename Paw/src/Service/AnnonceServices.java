@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -28,7 +29,7 @@ public class AnnonceServices {
     }
     public void insererAnnonce (Annonce a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type) VALUES(?,?,?,?,?,?)" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date) VALUES(?,?,?,?,?,?,now())" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -62,8 +63,10 @@ public class AnnonceServices {
                 String  race= rs.getString("race");
                 String  message_complementaire= rs.getString("message_complementaire");
                 String  type= rs.getString("type");
-                System.out.println(type);
-                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type));
+                System.out.println("avant");
+                Date date=rs.getDate("date");
+                System.out.println(date);
+                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type,date));
             }
 
         } catch (SQLException ex) {

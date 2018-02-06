@@ -10,6 +10,7 @@ import Service.AnnonceServices;
 import Service.PersonneServices;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,6 +95,8 @@ public class FXMLAnnonceController implements Initializable {
     private ChoiceBox<String> choixInsertion;
     @FXML
     private ChoiceBox<String> choixModification;
+    @FXML
+    private TableColumn<Annonce, String> dateCol;
 @FXML
     void actionInsertion2(ActionEvent event) {
          if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
@@ -186,7 +189,7 @@ public class FXMLAnnonceController implements Initializable {
         msgCol.setCellValueFactory(new PropertyValueFactory<>("message_complementaire"));
         couleurCol.setCellValueFactory(new PropertyValueFactory<>("couleur"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
-
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
     }
 
     private void loadTable() {

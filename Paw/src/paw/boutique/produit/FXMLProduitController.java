@@ -105,7 +105,10 @@ public class FXMLProduitController {
     void initialize() {
         produitservice = ProduitService.getProduitService();
          myproduits=produitservice.findAll();
-         Produit p = myproduits.get(0);
+         
+         if (myproduits!=null)
+         {
+                      Produit p = myproduits.get(0);
          Produit p1 = myproduits.get(1);
          libelle_produit1.setText(p.getLibelle());
          prix_produit1.setText(String.valueOf(p.getPrix()+" DT"));
@@ -128,6 +131,7 @@ public class FXMLProduitController {
                  System.out.println("image non charger");
              }
          im2.setImage(img1);
+         }
 
     }
      

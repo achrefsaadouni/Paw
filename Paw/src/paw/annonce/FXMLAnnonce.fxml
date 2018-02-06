@@ -67,6 +67,7 @@
                   <TableColumn fx:id="raceCol" prefWidth="171.0" text="RACE" />
                   <TableColumn fx:id="msgCol" prefWidth="180.0" text="MESSAGE_COMPLEMENTAIRE" />
                   <TableColumn fx:id="typeCol" prefWidth="100.0" text="TYPE_ANIMAL" />
+                  <TableColumn fx:id="dateCol" prefWidth="100.0" text="DATE" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
