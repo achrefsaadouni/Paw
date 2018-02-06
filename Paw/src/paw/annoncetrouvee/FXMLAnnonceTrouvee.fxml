@@ -19,15 +19,15 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="156.0" prefWidth="1028.0">
                            <children>
-                              <JFXButton layoutX="1075.0" layoutY="72.0" onAction="#actionInsertion2" style="-fx-background-color: #1976D2;" text="INSERER" />
-                              <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="817.0" layoutY="103.0" promptText="MESSAGE_COMPLEMENTAIRE" />
-                              <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="299.0" layoutY="30.0" promptText="AGE" />
-                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="564.0" layoutY="103.0" promptText="SEX" />
-                              <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="321.0" layoutY="103.0" promptText="COULEUR" />
-                              <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="44.0" layoutY="103.0" prefHeight="23.0" prefWidth="169.0" promptText="RACE" />
                               <ChoiceBox fx:id="choixInsertion" layoutX="34.0" layoutY="30.0" prefWidth="150.0" />
-                              <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="817.0" layoutY="23.0" promptText="LIEUX_TROUVE" />
+                              <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="299.0" layoutY="30.0" promptText="AGE" />
                               <JFXTextField fx:id="colierInsertion3" labelFloat="true" layoutX="564.0" layoutY="23.0" promptText="COLIER" />
+                              <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="817.0" layoutY="23.0" promptText="LIEUX_TROUVE" />
+                              <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="44.0" layoutY="103.0" prefHeight="23.0" prefWidth="169.0" promptText="RACE" />
+                              <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="321.0" layoutY="103.0" promptText="COULEUR" />
+                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="564.0" layoutY="103.0" promptText="SEX" />
+                              <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="817.0" layoutY="103.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+                              <JFXButton layoutX="1075.0" layoutY="72.0" onAction="#actionInsertion2" style="-fx-background-color: #1976D2;" text="INSERER" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -36,16 +36,16 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1000.0">
                            <children>
-                              <JFXButton layoutX="1027.0" layoutY="109.0" onAction="#actionModification2" style="-fx-background-color: #1976D2;" text="MODIFIER" />
                               <JFXTextField fx:id="idModification" labelFloat="true" layoutX="38.0" layoutY="14.0" promptText="ID" />
-                              <JFXTextField fx:id="couleurModification" labelFloat="true" layoutX="462.0" layoutY="78.0" promptText="COULEUR" />
+                              <ChoiceBox fx:id="choixModification" layoutX="261.0" layoutY="21.0" prefWidth="150.0" />
+                              <JFXTextField fx:id="ageModification" labelFloat="true" layoutX="452.0" layoutY="14.0" promptText="AGE" />
                               <JFXTextField fx:id="sexModification" labelFloat="true" layoutX="677.0" layoutY="14.0" promptText="SEX" />
+                              <JFXTextField fx:id="lieuModification1" labelFloat="true" layoutX="936.0" layoutY="21.0" promptText="LIEUX_TROUVE" />
                               <JFXTextField fx:id="msgModification" labelFloat="true" layoutX="38.0" layoutY="78.0" promptText="MESSAGE_COMLEMENTAIRE" />
                               <JFXTextField fx:id="raceModification" labelFloat="true" layoutX="242.0" layoutY="78.0" promptText="RACE" />
-                              <JFXTextField fx:id="ageModification" labelFloat="true" layoutX="452.0" layoutY="14.0" promptText="AGE" />
-                              <ChoiceBox fx:id="choixModification" layoutX="261.0" layoutY="21.0" prefWidth="150.0" />
+                              <JFXTextField fx:id="couleurModification" labelFloat="true" layoutX="462.0" layoutY="78.0" promptText="COULEUR" />
                               <JFXTextField fx:id="colierModification" labelFloat="true" layoutX="677.0" layoutY="78.0" promptText="COLIER" />
-                              <JFXTextField fx:id="lieuModification1" labelFloat="true" layoutX="936.0" layoutY="21.0" promptText="LIEUX_TROUVE" />
+                              <JFXButton layoutX="1027.0" layoutY="109.0" onAction="#actionModification2" style="-fx-background-color: #1976D2;" text="MODIFIER" />
                            </children>
                         </AnchorPane>
                      </content>
