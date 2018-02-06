@@ -93,7 +93,7 @@ public class AnnoncePerduServices
      
     public void updateAnnoncePerdu (AnnoncePerdu a, int id )
     {
-    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perte=?,  WHERE id =?" ; 
+    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perdu=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
            ste.setInt(9,id) ;
