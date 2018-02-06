@@ -16,15 +16,24 @@ public class AnnoncePerdu extends Annonce
 {
  private String colier  ; 
  private Date date_perte ; 
-
+ private String lieu_perdu ;  
     public AnnoncePerdu() {
       
     }
 
-    public AnnoncePerdu(String colier, Date date_perte, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
+    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
         this.colier = colier;
         this.date_perte = date_perte;
+        this.lieu_perdu=lieu_perdu ; 
+    }
+
+    public String getLieu_perdu() {
+        return lieu_perdu;
+    }
+
+    public void setLieu_perdu(String lieu_perdu) {
+        this.lieu_perdu = lieu_perdu;
     }
 
     public String getColier() {
@@ -45,9 +54,9 @@ public class AnnoncePerdu extends Annonce
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.colier);
-        hash = 13 * hash + Objects.hashCode(this.date_perte);
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.colier);
+        hash = 59 * hash + Objects.hashCode(this.date_perte);
         return hash;
     }
 
@@ -66,15 +75,19 @@ public class AnnoncePerdu extends Annonce
         if (!Objects.equals(this.colier, other.colier)) {
             return false;
         }
+        if (!Objects.equals(this.lieu_perdu, other.lieu_perdu)) {
+            return false;
+        }
         if (!Objects.equals(this.date_perte, other.date_perte)) {
             return false;
         }
         return true;
     }
 
+   
     @Override
     public String toString() {
-        return "AnnoncePerdu{" +super.toString() +"colier=" + colier + ", date_perte=" + date_perte + '}';
+        return "AnnoncePerdu{" +super.toString() +"colier=" + colier + ", date_perte=" + date_perte + ",lieu_perdu" +lieu_perdu +'}';
     }
  
     

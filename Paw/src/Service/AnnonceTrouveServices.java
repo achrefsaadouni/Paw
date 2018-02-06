@@ -32,7 +32,7 @@ public class AnnonceTrouveServices
     }
     public void insererAnnonceTrouvee (AnnonceTrouvee a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_trouvee,lieu_perdu) VALUES(?,?,?,?,?,?,now(),?,?,now(),?)" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_trouvee,lieu_trouve) VALUES(?,?,?,?,?,?,now(),?,?,now(),?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -43,13 +43,13 @@ public class AnnonceTrouveServices
             ste.setString(6,a.getType()) ;
             ste.setString(7,"annonce_trouvee");
             ste.setString(8, a.getColier());
-            ste.setString(9,a.getLieu_perdu());
+            ste.setString(9,a.getLieu_trouve());
             
                             System.out.println("avant");
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème insertion annonce");
+            System.out.println(ex);
         }
         
     
@@ -75,11 +75,11 @@ public class AnnonceTrouveServices
                 String  type_annonce= rs.getString("type_annonce");
                 String  colier= rs.getString("colier");         
                 Date date_trouvee=rs.getDate("date_trouvee");
-                String lieu_perdu=rs.getString("lieu_perdu") ;
+                String lieu_trouve=rs.getString("lieu_trouve") ;
 
                
         
-              list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+              list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
             }
 
         } catch (SQLException ex) {
@@ -90,7 +90,7 @@ public class AnnonceTrouveServices
      
     public void updateAnnonceTrouvee (AnnonceTrouvee a, int id )
     {
-    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perdu=?  WHERE id =?" ; 
+    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_trouve=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
            ste.setInt(9,id) ;
@@ -101,7 +101,7 @@ public class AnnonceTrouveServices
            ste.setString(5,a.getMessage_complementaire()) ; 
            ste.setString(6,a.getType()) ; 
            ste.setString(7,a.getColier()) ; 
-           ste.setString(8,a.getLieu_perdu()) ; 
+           ste.setString(8,a.getLieu_trouve()) ; 
            ste.executeUpdate() ; 
             
         } catch (SQLException ex) {

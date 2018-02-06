@@ -205,7 +205,7 @@ public class FXMLAnnonceTrouveeController implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         colierCol1.setCellValueFactory(new PropertyValueFactory<>("colier"));
         dateTrouveeCol1.setCellValueFactory(new PropertyValueFactory<>("date_trouvee"));
-        lieuCol1.setCellValueFactory(new PropertyValueFactory<>("lieu_perdu"));
+        lieuCol1.setCellValueFactory(new PropertyValueFactory<>("lieu_trouve"));
     
     }
 
