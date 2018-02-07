@@ -10,9 +10,9 @@
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.produit.ajouter.FXMLAjouterController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.produit.ajouter.FXMLAjouterController">
    <children>
-      <JFXTabPane prefHeight="651.0" prefWidth="1000.0" style="-fx-background-color: #B0BEC5;">
+      <JFXTabPane prefHeight="651.0" prefWidth="1200.0" style="-fx-background-color: #B0BEC5;">
          <tabs>
             <Tab text="Ajouter">
               <content>
@@ -34,35 +34,26 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <JFXTreeTableView fx:id="produitsTableView" layoutY="2.0" prefHeight="615.0" prefWidth="1000.0">
+                        <JFXTreeTableView fx:id="produitsTableView" layoutY="1.0" prefHeight="615.0" prefWidth="1214.0">
                            <columns>
                               <TreeTableColumn fx:id="id_view" prefWidth="26.0" text="ID" />
                               <TreeTableColumn fx:id="libelle_view" prefWidth="124.0" text="LIBELLE" />
                               <TreeTableColumn fx:id="prix_view" prefWidth="75.0" text="PRIX" />
                               <TreeTableColumn fx:id="quantite_view" prefWidth="66.0" text="QUANTITE" />
                               <TreeTableColumn fx:id="description_view" prefWidth="197.0" text="DESCRIPTION" />
-                              <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="83.0" text="TYPE" />
-                              <TreeTableColumn fx:id="images_view" prefWidth="428.0" text="IMAGES">
+                              <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="82.0" text="TYPE" />
+                              <TreeTableColumn fx:id="images_view" maxWidth="6000.0" prefWidth="486.0" text="IMAGES">
                                  <columns>
                                     <TreeTableColumn fx:id="image1" prefWidth="155.0" text="image 1" />
                                     <TreeTableColumn fx:id="modif1" minWidth="0.0" prefWidth="63.0" text="Modifier" />
                                     <TreeTableColumn fx:id="image2" minWidth="0.0" prefWidth="152.0" text="image 2" />
                                     <TreeTableColumn fx:id="modif2" prefWidth="58.0" text="Modifier" />
                                  </columns></TreeTableColumn>
+                              <TreeTableColumn fx:id="supprimer" prefWidth="199.0" text="Supprimer" />
                            </columns>
                         </JFXTreeTableView>
                      </children>
                   </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Modifier">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Supprimer">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
          </tabs>
