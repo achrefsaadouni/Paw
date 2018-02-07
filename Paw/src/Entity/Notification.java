@@ -42,6 +42,14 @@ public class Notification {
         this.type = type;
     }
 
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
     public int getId() {
         return id;
     }

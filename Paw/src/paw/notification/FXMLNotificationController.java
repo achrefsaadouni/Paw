@@ -71,9 +71,15 @@ public class FXMLNotificationController implements Initializable {
     @FXML
     private TableColumn<Notification, String> typeCol;
     @FXML
-    private JFXRadioButton rad1;
+    private JFXRadioButton lu;
     @FXML
-    private JFXRadioButton rad2;
+    private JFXRadioButton nnlu;
+    @FXML
+    private JFXRadioButton lu1;
+    @FXML
+    private JFXRadioButton nnlu1;
+    @FXML
+    private TableColumn<Notification,String> etatCol;
 
     /**
      * Initializes the controller class.
@@ -84,7 +90,13 @@ public class FXMLNotificationController implements Initializable {
         choixInsert.setValue("DEMANDE ADOPTION");
         choixModif.getItems().setAll("DEMANDE ADOPTION","DEMANDE ACCOUPLEMENT");
         choixModif.setValue("DEMANDE ADOPTION");
+        ToggleGroup groupi = new ToggleGroup();
+        ToggleGroup groupm = new ToggleGroup();
+        lu.setToggleGroup(groupi);
+        nnlu.setToggleGroup(groupi);
 
+        lu1.setToggleGroup(groupm);
+        nnlu1.setToggleGroup(groupm);
         initCol();
         loadTable();
     }    
@@ -92,7 +104,12 @@ public class FXMLNotificationController implements Initializable {
     @FXML
     private void actionInsertion(ActionEvent event) {
         NotificationServices service = new NotificationServices();
-        service.insererNotification(new Notification(0,Integer.parseInt(destinataireInsert.getText()), Integer.parseInt(emetteurInsert.getText()),titreInsert.getText(), texteInsert.getText(), choixInsert.getValue()));
+        String etat="Non Lu";
+        if (lu.isSelected())
+        {
+            etat="Lu";
+        }
+        service.insererNotification(new Notification(0,Integer.parseInt(destinataireInsert.getText()), Integer.parseInt(emetteurInsert.getText()),titreInsert.getText(), texteInsert.getText(), choixInsert.getValue(),null,etat));
         destinataireInsert.setText("");
         emetteurInsert.setText("");
         texteInsert.setText("");
@@ -104,13 +121,18 @@ public class FXMLNotificationController implements Initializable {
     @FXML
     private void actionModification(ActionEvent event) {
         NotificationServices service = new NotificationServices();
-        
-        service.updateNotification(new Notification(0, Integer.parseInt(destinataireInsert.getText()), Integer.parseInt(emetteurInsert.getText()), titreInsert.getText(), texteInsert.getText(), choixInsert.getValue()),Integer.parseInt(idModif.getText()));
+        String etat="Non Lu";
+        if (lu1.isSelected())
+        {
+            etat="Lu";
+        }
+        service.updateNotification(new Notification(0, Integer.parseInt(destinataireModif.getText()), Integer.parseInt(emetteurModif.getText()), titreModif.getText(), texteModif.getText(), choixModif.getValue(),null,etat),Integer.parseInt(idModif.getText()));
         destinataireModif.setText("");
         emetteurModif.setText("");
         texteModif.setText("");
         titreModif.setText("");
         choixModif.setValue("");
+        idModif.setText("");
         loadTable();
     }
 
@@ -130,6 +152,7 @@ public class FXMLNotificationController implements Initializable {
         texteCol.setCellValueFactory(new PropertyValueFactory<>("text"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+        etatCol.setCellValueFactory(new PropertyValueFactory<>("etat"));
 
     }
 

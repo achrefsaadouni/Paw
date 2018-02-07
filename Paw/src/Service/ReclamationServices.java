@@ -5,7 +5,7 @@
  */
 package Service;
 
-import Entity.Notification;
+import Entity.Reclamation;
 import Utility.DbHandler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,25 +19,24 @@ import javafx.collections.ObservableList;
  *
  * @author AYOUB
  */
-public class NotificationServices {
+public class ReclamationServices {
+    
     protected Connection connection;
     private DbHandler handler;
     
-    public NotificationServices (){
+    public ReclamationServices (){
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
-    public void insererNotification (Notification p)
+    public void insererReclamation (Reclamation p)
     {
-        String req="INSERT INTO notification (id_destinataire,id_emetteur,titre,text,type,date,etat) VALUES(?,?,?,?,?,now(),?)" ; 
+        String req="INSERT INTO Reclamation (utilisateur,objet,text,type,date) VALUES(?,?,?,?,now())" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,p.getId_destinataire()) ; 
-            ste.setInt(2,p.getId_emetteur()) ;
-            ste.setString(3,p.getTitre()) ; 
-            ste.setString(4,p.getText()) ; 
-            ste.setString(5,p.getType()) ;         
-            ste.setString(6,p.getEtat()) ;  
+            ste.setInt(1,p.getUtilisateur()) ; 
+            ste.setString(2,p.getObjet()) ;
+            ste.setString(3,p.getText()) ; 
+            ste.setString(4,p.getType()) ;           
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -47,9 +46,9 @@ public class NotificationServices {
     
     }
     
-    public ObservableList<Notification> getAll(){
-        String req="SELECT * FROM notification" ;
-        ObservableList<Notification> list = FXCollections.observableArrayList();
+    public ObservableList<Reclamation> getAll(){
+        String req="SELECT * FROM Reclamation" ;
+        ObservableList<Reclamation> list = FXCollections.observableArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -57,14 +56,13 @@ public class NotificationServices {
             while (rs.next())
             {
                 int id = rs.getInt("id");
-                int id_destinataire = rs.getInt("id_destinataire");
-                int id_emetteur = rs.getInt("id_emetteur");
-                String titre = rs.getString("titre");
+                String objet = rs.getString("objet");
                 String text= rs.getString("text");
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
-                String etat = rs.getString("etat");
-                list.add(new Notification(id,id_destinataire,id_emetteur,titre,text,type,date,etat));
+                int utilisateur= rs.getInt("utilisateur");
+                              
+                list.add(new Reclamation(id,utilisateur, objet, text, type, date));
             }
 
         } catch (SQLException ex) {
@@ -73,19 +71,15 @@ public class NotificationServices {
         return list;
     }
      
-    public void updateNotification (Notification p, int id )
+    public void updateReclamation (Reclamation p, int id )
     {
-    String req="UPDATE notification SET id_destinataire=?,id_emetteur=?, titre=?, text=?, type=?, etat=? WHERE id =?" ; 
+    String req="UPDATE Reclamation SET objet=?, text=?, type=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
-            ste.setInt(1,p.getId_destinataire()) ; 
-            ste.setInt(2,p.getId_emetteur()) ; 
-            ste.setString(3,p.getTitre()) ; 
-            ste.setString(4,p.getText()) ; 
-            ste.setString(5,p.getType()) ;  
-            ste.setString(6,p.getEtat()) ;  
-            ste.setInt(7,id) ;
+            ste.setString(1,p.getObjet()) ; 
+            ste.setString(2, p.getText());
+            ste.setString(3,p.getType()) ;  
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -93,9 +87,9 @@ public class NotificationServices {
         }
     }
     
-     public void DeleteNotification (int id )
+     public void DeleteReclamation (int id )
     {
-        String req="DELETE  from notification where  id =?" ; 
+        String req="DELETE  from Reclamation where  id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,id) ;
