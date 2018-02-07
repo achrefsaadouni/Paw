@@ -136,7 +136,7 @@ public class FXMLAnnonceTrainingController implements Initializable {
     @FXML
     private TableColumn<AnnonceTraining, String> dateCol;
 @FXML
-    void actionInsertion2(ActionEvent event) {
+   /* void actionInsertion2(ActionEvent event) {
          if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateTrInsertion.getValue())))&& (!"".equals(typeTrInsertion.getText()))&& (!"".equals(dureTrInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
         {
@@ -214,7 +214,7 @@ public class FXMLAnnonceTrainingController implements Initializable {
             loadTable();
         }
    
-    }
+    }*/
 
   
    

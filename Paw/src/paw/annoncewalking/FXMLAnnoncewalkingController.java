@@ -149,7 +149,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
     }
 
     @FXML
-    void actionModification2(ActionEvent event) 
+    /*void actionModification2(ActionEvent event) 
     {
 
             
@@ -205,7 +205,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
     }
 
   
-   
+   */
     
     @Override
       public void initialize(URL url, ResourceBundle rb) {

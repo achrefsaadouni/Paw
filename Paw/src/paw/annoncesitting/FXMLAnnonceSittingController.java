@@ -13,6 +13,8 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.skins.JFXDatePickerContent;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -74,7 +76,7 @@ public class FXMLAnnonceSittingController implements Initializable {
     private JFXTextField ageModification;
     
     @FXML
-    private JFXDatePickerContent dateSitModification;
+    private JFXDatePicker dateSitModification;
 
     @FXML
     private JFXTextField typeSitModification;
@@ -148,20 +150,20 @@ public class FXMLAnnonceSittingController implements Initializable {
     }
 
     @FXML
-    void actionModification2(ActionEvent event) 
+    /*void actionModification2(ActionEvent event) 
     {
 
             
         
             if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(java.sql.Date.valueOf(dateSitModification.getValue())))&& (!"".equals(typeSitModification.getText())) && (!"".equals(typeModification.getText())))
+                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateSitModification.getValue()))&& (!"".equals(typeSitModification.getText())) && (!"".equals(typeModification.getText())))
         {
             AnnonceServices as = new AnnonceServices();
             
             as.updateAnnonceSitting(new 
              AnnonceSitting(
                     
-                    null,
+                   // dateSitModification.Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                     typeSitModification.getText(),
                     Integer.parseInt(idModification.getText()),
                     Integer.parseInt(ageModification.getText()),
@@ -169,8 +171,8 @@ public class FXMLAnnonceSittingController implements Initializable {
                     sexModification.getText(),
                     raceModification.getText(),
                     msgModification.getText(),
-                    typeModification.getText()),
-                    null);
+                    typeModification.getText(),
+                    dateModification.getValue()));
                     
             
             
@@ -204,7 +206,7 @@ public class FXMLAnnonceSittingController implements Initializable {
     }
 
   
-   
+   */
     
     @Override
       public void initialize(URL url, ResourceBundle rb) {
