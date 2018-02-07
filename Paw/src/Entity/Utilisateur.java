@@ -34,7 +34,7 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return ("{"+id+":"+nom+":"+prenom+":"+addresse+":"+email+":"+username+":"+password+":"+role+":"+numero+"}");
     }
 
     @Override

@@ -36,9 +36,6 @@ public class UtilisateurServices {
             ste.setString(2,p.getPrenom()) ;
             ste.setString(3,p.getEmail()) ; 
             ste.setString(4,p.getUsername()) ; 
-            
-            
-            //
             ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
             ste.setString(6,p.getAddresse()) ; 
             ste.setInt(7,p.getNumero()) ; 
@@ -60,10 +57,8 @@ public class UtilisateurServices {
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ResultSet rs = ste.executeQuery(); 
-            System.out.println("    Hani hne mriguel");
             while (rs.next())
             {
-                System.out.println("    fel lawel");
                 int id = rs.getInt("id");
                 String nom = rs.getString("nom");
                 String prenom = rs.getString("prenom");
@@ -71,22 +66,20 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                System.out.println("*"+password+"*");
                 String role = rs.getString("role");
                 int numero = rs.getInt("numero");
-                System.out.println("    Hani hne mriguel");
                 list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Utilisateur");
+            System.out.println(ex);
         }
         return list;
     }
      
     public void updateUtilisateur (Utilisateur p, int id )
     {
-    String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,adresse=?,numero=?,role=? WHERE id =?" ; 
+    String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,addresse=?,numero=?,role=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
@@ -98,11 +91,11 @@ public class UtilisateurServices {
             ste.setString(6,p.getAddresse()) ; 
             ste.setString(8,p.getRole()) ; 
             ste.setInt(7,p.getNumero()) ;
-            ste.setInt(9,p.getId()) ;
+            ste.setInt(9,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème update Utilisateur");
+            System.out.println(ex);
         }
     
     }
@@ -118,7 +111,7 @@ public class UtilisateurServices {
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème delete Utilisateur");
+            System.out.println(ex);
         }
     
       }

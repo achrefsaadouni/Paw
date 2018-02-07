@@ -1,0 +1,76 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Service;
+
+import Entity.Utilisateur;
+import Utility.DbHandler;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.apache.commons.codec.digest.DigestUtils;
+
+/**
+ *
+ * @author AYOUB
+ */
+public class LoginServices {
+    protected Connection connection;
+    private DbHandler handler;
+    
+    public LoginServices (){
+        handler = DbHandler.getDBHandler();
+        connection =handler.getConnection();
+    }
+    public int Valide (String usern,String passw)
+    {
+        String req="SELECT * FROM utilisateur where username=? and password=?" ;
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,usern) ; 
+            ste.setString(2,DigestUtils.shaHex(passw)) ;     
+            ResultSet rs = ste.executeQuery(); 
+            if (rs.next())
+            {
+                return rs.getInt("id");
+            }
+            else
+            {
+                return 0;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return -1;
+        }
+    }
+    public Utilisateur Information (int i)
+    {
+        String req="SELECT * FROM utilisateur where id=?" ;
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,i) ;      
+            ResultSet rs = ste.executeQuery(); 
+            rs.next();
+            int id=rs.getInt("id");
+            String nom=rs.getString("nom");
+            String prenom=rs.getString("prenom");
+            String addresse=rs.getString("addresse");
+            String email=rs.getString("email");
+            String username=rs.getString("username");
+            String password=rs.getString("password");
+            String role=rs.getString("role");
+            int numero=rs.getInt("numero");
+            return new Utilisateur(id, nom, prenom, email, username, password, addresse, numero, role);
+        } 
+        catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+   
+}
