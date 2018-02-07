@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,8 +5,7 @@
  */
 package Service;
 
-import Entity.AnnoncePerdu;
-//import Entity.Annonce ;
+import Entity.AnnonceAccouplement;
 import Utility.DbHandler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,20 +18,19 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Guideinfo
+ * @author gmehd
  */
-public class AnnoncePerduServices
-{
+public class AnnonceAccouplementServices {
     protected Connection connection;
     private DbHandler handler;
     
-    public AnnoncePerduServices (){
+    public AnnonceAccouplementServices (){
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
-    public void insererAnnoncePerdu (AnnoncePerdu a)
+    public void insererAnnonceAccouplement (AnnonceAccouplement a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu) VALUES(?,?,?,?,?,?,now(),?,?,?,?)" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,type_poil,vaccin,dossier) VALUES(?,?,?,?,?,?,now(),?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -42,10 +39,10 @@ public class AnnoncePerduServices
             ste.setString(4,a.getRace()) ;
             ste.setString(5,a.getMessage_complementaire()) ;
             ste.setString(6,a.getType()) ;
-            ste.setString(7,"annonce_perte");
-            ste.setString(8, a.getColier());
-            ste.setDate(9, (java.sql.Date) a.getDate_perte());
-            ste.setString(10, a.getLieu_perdu());
+            ste.setString(7,"annonce_accouplement");
+            ste.setString(8, a.getType_poil());
+            ste.setString(9, a.getVaccin());
+            ste.setString(10, a.getDossier());
             
                             System.out.println("avant");
             ste.executeUpdate() ; 
@@ -57,9 +54,9 @@ public class AnnoncePerduServices
     
     }
     
-    public ObservableList<AnnoncePerdu> getAll1(){
-        String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_perte'" ;
-        ObservableList<AnnoncePerdu> list = FXCollections.observableArrayList();
+    public ObservableList<AnnonceAccouplement> getAll1(){
+        String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_accouplement'" ;
+        ObservableList<AnnonceAccouplement> list = FXCollections.observableArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -75,14 +72,15 @@ public class AnnoncePerduServices
                 String  type= rs.getString("type");
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
-                String  colier= rs.getString("colier");         
-                Date date_trouvee=rs.getDate("date_perte");
-                Timestamp date_perte=rs.getTimestamp("date_perte");
-                String lieu_perdu=rs.getString("lieu_perdu") ;
+                String  type_poil= rs.getString("type_poil");
+                String  vaccin= rs.getString("vaccin");
+                String  dossier= rs.getString("dossier");
+                
+                
                 
                
         
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+              list.add(new AnnonceAccouplement( type_poil,  vaccin,  dossier,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
             }
 
         } catch (SQLException ex) {
@@ -91,29 +89,32 @@ public class AnnoncePerduServices
         return list;
     }
      
-    public void updateAnnoncePerdu (AnnoncePerdu a, int id )
+    public void updateAnnonceAccouplement (AnnonceAccouplement a, int id )
     {
-    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perdu=?  WHERE id =?" ; 
+    String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,type_poil=?,vaccin=?,dossier=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-           ste.setInt(9,id) ;
+           
            ste.setInt(1,a.getAge()) ; 
            ste.setString(2,a.getCouleur()) ; 
            ste.setString(3,a.getSex()) ; 
            ste.setString(4,a.getRace()) ; 
            ste.setString(5,a.getMessage_complementaire()) ; 
            ste.setString(6,a.getType()) ; 
-           ste.setString(7,a.getColier()) ; 
-             ste.setString(8,a.getLieu_perdu()) ; 
+           ste.setString(7,a.getType_poil()) ; 
+           ste.setString(8,a.getVaccin()) ;
+           ste.setString(9,a.getDossier()) ;
+           
+           ste.setInt(10,id) ;
            ste.executeUpdate() ; 
-            
+            System.out.println("Services mrigla frère");
         } catch (SQLException ex) {
             System.out.println(ex);
         }
     
     }
     
-     public void DeleteAnnoncePerdu (int id )
+     public void DeleteAnnonceAccouplement (int id )
     {
     String req="DELETE  from annonce where  id =?" ; 
         try { 
@@ -128,6 +129,5 @@ public class AnnoncePerduServices
         }
     
       }
-
     
 }
