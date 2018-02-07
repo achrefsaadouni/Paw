@@ -75,7 +75,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
     private JFXTextField ageModification;
     
     @FXML
-    private JFXDatePickerContent dateWalkModification;
+    private JFXDatePicker dateWalkModification;
 
     @FXML
     private JFXTextField dureWalkModification;
@@ -149,29 +149,29 @@ public class FXMLAnnoncewalkingController implements Initializable {
     }
 
     @FXML
-    /*void actionModification2(ActionEvent event) 
+    void actionModification2(ActionEvent event) 
     {
 
             
         
             if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(java.sql.Date.valueOf(dateWalkModification.getTypeSelector())))&& (!"".equals(dureWalkModification.getText())) && (!"".equals(typeModification.getText())))
+                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateWalkModification.getValue()))&& (!"".equals(dureWalkModification.getText())) && (!"".equals(typeModification.getText())))
         {
             AnnonceWalkingServices as = new AnnonceWalkingServices();
             
             as.updateAnnonceWalking(new 
-             AnnonceWalking(
-                    
-                    dateWalkModification.getTypeSelector(),
-                    dureWalkModification.getText(),
+             AnnonceWalking(                    
+                    java.sql.Date.valueOf(dateWalkModification.getValue()),
+                    Integer.parseInt(dureWalkModification.getText()),
                     Integer.parseInt(idModification.getText()),
                     Integer.parseInt(ageModification.getText()),
                     couleurModification.getText(),
                     sexModification.getText(),
                     raceModification.getText(),
                     msgModification.getText(),
-                    typeModification.getText()),
-                    null);
+                    typeModification.getText(),
+                    java.sql.Date.valueOf(dateModification.getValue())),Integer.parseInt(idModification.getText()));
+                    
                     
             
             
@@ -185,7 +185,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
             msgModification.setText("");
             typeModification.setText("Chien");
             dureWalkModification.setText("");
-             
+            dateWalkModification.setValue(LocalDate.of(1, 3, 2018)); 
             loadTable();
                    
         }
@@ -205,7 +205,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
     }
 
   
-   */
+   
     
     @Override
       public void initialize(URL url, ResourceBundle rb) {

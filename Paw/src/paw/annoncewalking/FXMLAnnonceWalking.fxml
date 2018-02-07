@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.FXMLAnnoncePerduController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncewalking.FXMLAnnoncewalkingController">
    <children>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -73,8 +73,8 @@
                   <TableColumn fx:id="msgCol" prefWidth="247.0" text="MESSAGE_COMPLEMENTAIRE" />
                   <TableColumn fx:id="typeCol" prefWidth="116.0" text="TYPE_ANIMAL" />
                   <TableColumn fx:id="dateCol" prefWidth="90.0" text="DATE" />
-                  <TableColumn fx:id="dateTrouveeCol1" prefWidth="114.0" text="DATE_Walking" />
-                  <TableColumn fx:id="lieuCol1" prefWidth="120.0" text="DURE_Walking" />
+                  <TableColumn fx:id="dateWalkCol" prefWidth="114.0" text="DATE_Walking" />
+                  <TableColumn fx:id="dureWalkCol" prefWidth="120.0" text="DURE_Walking" />
                </columns>
             </TableView>
          </children>

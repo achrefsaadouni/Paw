@@ -90,7 +90,7 @@ public class AnnonceTrainingServices {
     String req="UPDATE annoncetr SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?, dateTr=?,dureTr=?,typeTr=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-           ste.setInt(9,id) ;
+           ste.setInt(10,id) ;
            ste.setInt(1,a.getAge()) ; 
            ste.setString(2,a.getCouleur()) ; 
            ste.setString(3,a.getSex()) ; 

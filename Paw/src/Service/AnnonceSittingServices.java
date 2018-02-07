@@ -10,11 +10,12 @@ import Entity.AnnonceSitting;
 //import Entity.Annonce ;
 import Utility.DbHandler;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 /**
@@ -41,7 +42,7 @@ public class AnnonceSittingServices {
             ste.setString(4,a.getRace()) ;
             ste.setString(5,a.getMessage_complementaire()) ;
             ste.setString(6,a.getType()) ;
-            ste.setDate(7, (java.sql.Date) a.getDateSit());
+            ste.setDate(7, a.getDateSit());
             ste.setString(8,a.getTypeSit());
             
                 System.out.println("avant");
@@ -49,7 +50,9 @@ public class AnnonceSittingServices {
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème insertion annonce");
+            
+            System.out.println(ex);
+            System.out.println("Insertion");
         }
         
     
@@ -70,7 +73,7 @@ public class AnnonceSittingServices {
                 String  race= rs.getString("race");
                 String  message_complementaire= rs.getString("message_complementaire");
                 String  type= rs.getString("type");
-                Timestamp date=rs.getTimestamp("date");
+                Date date=rs.getDate("date");
                 Date  dateSit= rs.getDate("dateSit");
                 String  typeSit= rs.getString("typeSit");
                 
@@ -81,7 +84,7 @@ public class AnnonceSittingServices {
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Annonce");
+            System.out.println(ex);
         }
         return list;
     }
@@ -98,7 +101,7 @@ public class AnnonceSittingServices {
            ste.setString(4,a.getRace()) ; 
            ste.setString(5,a.getMessage_complementaire()) ; 
            ste.setString(6,a.getType()) ; 
-           ste.setDate(7, (java.sql.Date) a.getDateSit()) ; 
+           ste.setDate(7,a.getDateSit()) ; 
            ste.setString(8,a.getTypeSit()) ; 
            ste.executeUpdate() ; 
             

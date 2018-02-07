@@ -49,14 +49,10 @@ public class FXMLAnnonceTrainingController implements Initializable {
     @FXML
     private JFXTextField raceInsertion;
     
-    @FXML
     private JFXDatePicker  dateTrInsertion;
 
-    @FXML
     private JFXTextField typeTrInsertion;
     
-    @FXML
-    private JFXTextField dureTrInsertion;
 
     @FXML
     private JFXTextField idModification;
@@ -77,13 +73,10 @@ public class FXMLAnnonceTrainingController implements Initializable {
     @FXML
     private JFXTextField ageModification;
     
-    @FXML
-    private JFXDatePickerContent dateTrModification;
+    private JFXDatePicker dateTrModification;
 
-    @FXML
     private JFXTextField typeTrModification;
     
-    @FXML
     private JFXTextField dureTrModification;
     
     @FXML
@@ -135,24 +128,34 @@ public class FXMLAnnonceTrainingController implements Initializable {
     
     @FXML
     private TableColumn<AnnonceTraining, String> dateCol;
+    @FXML
+    private JFXTextField typeInsertion;
+    @FXML
+    private JFXDatePicker dateInsertion;
+    @FXML
+    private JFXTextField dureeInsertion;
+    @FXML
+    private ChoiceBox<String> choixModification;
+    @FXML
+    private JFXTextField dureeModification;
 @FXML
-   /* void actionInsertion2(ActionEvent event) {
-         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
-                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateTrInsertion.getValue())))&& (!"".equals(typeTrInsertion.getText()))&& (!"".equals(dureTrInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
-        {
+    void actionInsertion2(ActionEvent event) {
+//         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
+//                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateTrInsertion.getValue())))&& (!"".equals(typeTrInsertion.getText()))&& (!"".equals(dureTrInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
+//        {
             AnnonceTrainingServices as = new AnnonceTrainingServices();
-              as.insererAnnonceTraining(new AnnonceTraining(java.sql.Date.valueOf(dateTrInsertion.getValue()),, Integer.parseInt(dureTrInsertion.getText()), typeTrInsertion.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
-            dateTrInsertion.setValue(LocalDate.now());
-            typeTrInsertion.setText("");
-              
-             ageInsertion.setText("");
+              as.insererAnnonceTraining(new AnnonceTraining(java.sql.Date.valueOf(dateInsertion.getValue()), Integer.parseInt(dureeInsertion.getText()), typeInsertion.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
+            dateInsertion.setValue(LocalDate.now());
+            typeInsertion.setText("");
+              dateInsertion.setValue(LocalDate.now());
+            ageInsertion.setText("");
             sexInsertion.setText("");
             raceInsertion.setText("");
             msgInsertion.setText("");
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
             loadTable();
-        }
+//        }
 
 
     }
@@ -162,26 +165,26 @@ public class FXMLAnnonceTrainingController implements Initializable {
     {
 
             
-        
-            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(java.sql.Date.valueOf(dateTrModification.getTypeSelector())))&& (!"".equals(dureTrModification.getText())) &&(!"".equals(typeTrModification.getText())) && (!"".equals(typeModification.getText())))
-        {
+//        
+//            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
+//                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateTrModification.getValue()))&& (!"".equals(dureTrModification.getText())) &&(!"".equals(typeTrModification.getText())) && (!"".equals(typeModification.getText())))
+//        {
             AnnonceTrainingServices as = new AnnonceTrainingServices();
             
             as.updateAnnonceTraining(new 
              AnnonceTraining(
                     
-                    dateTrModification.getText(),
-                    Integer.parseInt(dureTrModification.getText()),
-                    typeTrModification.getText(),
-                    Integer.parseInt(idModification.getText()),
+                    java.sql.Date.valueOf(dateModification.getValue()),
+                    Integer.parseInt(dureeModification.getText()),
+                    typeModification.getText(),
+                    0,
                     Integer.parseInt(ageModification.getText()),
                     couleurModification.getText(),
                     sexModification.getText(),
                     raceModification.getText(),
                     msgModification.getText(),
-                    typeModification.getText()),
-                    null);
+                    typeModification.getText(),
+                    java.sql.Date.valueOf(dateModification.getValue())),Integer.parseInt(idModification.getText()));
                     
             
             
@@ -189,18 +192,18 @@ public class FXMLAnnonceTrainingController implements Initializable {
             
             idModification.setText("");
             ageModification.setText("");
-         couleurModification.setText("");
-         sexModification.setText("");
-           raceModification.setText("");
-           msgModification.setText("");
+            couleurModification.setText("");
+            sexModification.setText("");
+            raceModification.setText("");
+            msgModification.setText("");
              typeModification.setText("Chien");
-             dateTrModification.getText("");
-             dureTrModification.setText("");
-             typeTrModification.setText("");
+             dateModification.setValue(LocalDate.now());
+             dureeModification.setText("");
+             typeModification.setText("");
              
             loadTable();
-                   
-        }
+//                   
+//        }
 
     }
 
@@ -214,7 +217,7 @@ public class FXMLAnnonceTrainingController implements Initializable {
             loadTable();
         }
    
-    }*/
+    }
 
   
    
@@ -225,8 +228,9 @@ public class FXMLAnnonceTrainingController implements Initializable {
         loadTable();
         choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixInsertion.setValue("Chien");
-        
-        typeModification.setText("Chien");
+        choixModification.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
+        choixModification.setValue("Chien");
+        //typeModification.setText("Chien");
     }    
     
 

@@ -8,6 +8,7 @@ import Entity.AnnonceSitting;
 
 import Service.AnnonceServices;
 import Service.AnnonceSittingServices;
+import Service.AnnonceWalkingServices;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.skins.JFXDatePickerContent;
@@ -81,10 +82,8 @@ public class FXMLAnnonceSittingController implements Initializable {
     @FXML
     private JFXTextField typeSitModification;
     
-    @FXML
     private JFXTextField typeModification;
     
-    @FXML
     private JFXDatePicker dateModification;
 
     
@@ -127,13 +126,24 @@ public class FXMLAnnonceSittingController implements Initializable {
     
     @FXML
     private TableColumn<AnnonceSitting, String> dateCol;
+    @FXML
+    private ChoiceBox<String> choixModification;
 @FXML
     void actionInsertion2(ActionEvent event) {
-         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
-                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateSitInsertion.getValue())))&& (!"".equals(typeSitInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
-        {
+//         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
+//                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(typeSitInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
+//        {
             AnnonceSittingServices as = new AnnonceSittingServices();
-              as.insererAnnonceSitting(new AnnonceSitting(java.sql.Date.valueOf(dateSitInsertion.getValue()), typeSitInsertion.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
+              as.insererAnnonceSitting(new AnnonceSitting(java.sql.Date.valueOf(dateSitInsertion.getValue()), 
+                      typeSitInsertion.getText(),
+                      0 , 
+                      Integer.parseInt(ageInsertion.getText()), 
+                      couleurInsertion.getText(), 
+                      sexInsertion.getText(), 
+                      raceInsertion.getText(), 
+                      msgInsertion.getText(),
+                      choixInsertion.getValue(), 
+                      null));
             dateSitInsertion.setValue(LocalDate.now());
             typeSitInsertion.setText("");
               
@@ -144,35 +154,35 @@ public class FXMLAnnonceSittingController implements Initializable {
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
             loadTable();
-        }
+//        }
 
 
     }
 
     @FXML
-    /*void actionModification2(ActionEvent event) 
+    void actionModification2(ActionEvent event) 
     {
 
             
         
-            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateSitModification.getValue()))&& (!"".equals(typeSitModification.getText())) && (!"".equals(typeModification.getText())))
-        {
-            AnnonceServices as = new AnnonceServices();
+//            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
+//                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateSitModification.getValue()))&& (!"".equals(typeSitModification.getText())) && (!"".equals(typeModification.getText())))
+//        {
+            AnnonceSittingServices as = new AnnonceSittingServices();
             
             as.updateAnnonceSitting(new 
              AnnonceSitting(
                     
-                   // dateSitModification.Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                    java.sql.Date.valueOf(dateSitModification.getValue()),
                     typeSitModification.getText(),
-                    Integer.parseInt(idModification.getText()),
+                    0,
                     Integer.parseInt(ageModification.getText()),
                     couleurModification.getText(),
                     sexModification.getText(),
                     raceModification.getText(),
                     msgModification.getText(),
-                    typeModification.getText(),
-                    dateModification.getValue()));
+                    choixModification.getValue(),
+                    java.sql.Date.valueOf(dateSitModification.getValue())),Integer.parseInt(idModification.getText()));
                     
             
             
@@ -184,12 +194,12 @@ public class FXMLAnnonceSittingController implements Initializable {
          sexModification.setText("");
            raceModification.setText("");
            msgModification.setText("");
-             typeModification.setText("Chien");
+             choixModification.setValue("Chien");
              typeSitModification.setText("");
              
             loadTable();
                    
-        }
+//        }
 
     }
 
@@ -206,7 +216,7 @@ public class FXMLAnnonceSittingController implements Initializable {
     }
 
   
-   */
+   
     
     @Override
       public void initialize(URL url, ResourceBundle rb) {
@@ -214,8 +224,9 @@ public class FXMLAnnonceSittingController implements Initializable {
         loadTable();
         choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixInsertion.setValue("Chien");
-        
-        typeModification.setText("Chien");
+        choixModification.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
+        choixModification.setValue("Chien");
+//        typeModification.setText("Chien");
     }    
     
 
@@ -230,6 +241,9 @@ public class FXMLAnnonceSittingController implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         typeSitCol.setCellValueFactory(new PropertyValueFactory<>("typeSit"));
         dateSitCol.setCellValueFactory(new PropertyValueFactory<>("dateSit"));
+        
+        
+	//id 	age 	couleur 	sex 	race 	message_complementaire 	type 	date 	dateSit 	typeSit 
     }
 
     private void loadTable() {
