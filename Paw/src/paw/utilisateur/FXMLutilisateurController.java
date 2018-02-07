@@ -108,7 +108,9 @@ public class FXMLutilisateurController implements Initializable {
         if ((!"".equals(idInsertion1.getText()))&&(!"".equals(emailInsertion1.getText()))&&(!"".equals(nomInsertion1.getText()))&& (!"".equals(prenomInsertion1.getText()))&&(!"".equals(usernameInsertion1.getText()))&&(!"".equals(passwordInsertion1.getText()))&&(!"".equals(addresseInsertion1.getText()))&&(!"".equals(numeroInsertion1.getText())))
         {
             UtilisateurServices service = new UtilisateurServices();
-            service.updateUtilisateur(new Utilisateur(0,nomInsertion1.getText(),prenomInsertion1.getText(),emailInsertion1.getText(),usernameInsertion1.getText(),passwordInsertion1.getText(),addresseInsertion1.getText(),Integer.parseInt(numeroInsertion1.getText()),roleInsertion1.getValue()),Integer.parseInt(idInsertion1.getText()));
+            Utilisateur x =new Utilisateur(0,nomInsertion1.getText(),prenomInsertion1.getText(),emailInsertion1.getText(),usernameInsertion1.getText(),passwordInsertion1.getText(),addresseInsertion1.getText(),Integer.parseInt(numeroInsertion1.getText()),roleInsertion1.getValue());
+            System.out.println(x.toString());
+            service.updateUtilisateur(x,Integer.parseInt(idInsertion1.getText()));
             emailInsertion1.setText("");
             nomInsertion1.setText("");
             prenomInsertion1.setText("");

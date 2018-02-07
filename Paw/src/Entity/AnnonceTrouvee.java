@@ -16,13 +16,13 @@ public class AnnonceTrouvee extends Annonce {
     
     private String colier ; 
     private Date date_trouvee ; 
-    private String lieu_perdu ; 
+    private String lieu_trouve ; 
 
-    public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_perdu, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
+    public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_trouve, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
         this.colier = colier;
         this.date_trouvee = date_trouvee;
-        this.lieu_perdu = lieu_perdu;
+        this.lieu_trouve = lieu_trouve;
     }
 
 
@@ -44,12 +44,12 @@ public class AnnonceTrouvee extends Annonce {
         this.date_trouvee = date_trouvee;
     }
 
-    public String getLieu_perdu() {
-        return lieu_perdu;
+    public String getLieu_trouve() {
+        return lieu_trouve;
     }
 
-    public void setLieu_perdu(String lieu_perdu) {
-        this.lieu_perdu = lieu_perdu;
+    public void setLieu_trouve(String lieu_trouve) {
+        this.lieu_trouve = lieu_trouve;
     }
 
     @Override
@@ -57,7 +57,7 @@ public class AnnonceTrouvee extends Annonce {
         int hash = 7;
         hash = 61 * hash + Objects.hashCode(this.colier);
         hash = 61 * hash + Objects.hashCode(this.date_trouvee);
-        hash = 61 * hash + Objects.hashCode(this.lieu_perdu);
+        hash = 61 * hash + Objects.hashCode(this.lieu_trouve);
         return hash;
     }
 
@@ -76,7 +76,7 @@ public class AnnonceTrouvee extends Annonce {
         if (!Objects.equals(this.colier, other.colier)) {
             return false;
         }
-        if (!Objects.equals(this.lieu_perdu, other.lieu_perdu)) {
+        if (!Objects.equals(this.lieu_trouve, other.lieu_trouve)) {
             return false;
         }
         if (!Objects.equals(this.date_trouvee, other.date_trouvee)) {
@@ -87,7 +87,7 @@ public class AnnonceTrouvee extends Annonce {
 
     @Override
     public String toString() {
-        return "AnnonceTrouvee{" +super.toString()+  "colier=" + colier + ", date_trouvee=" + date_trouvee + ", lieu_perdu=" + lieu_perdu + '}';
+        return "AnnonceTrouvee{" +super.toString()+  "colier=" + colier + ", date_trouvee=" + date_trouvee + ", lieu_perdu=" + lieu_trouve + '}';
     }
 
 

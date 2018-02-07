@@ -29,7 +29,7 @@ public class NotificationServices {
     }
     public void insererNotification (Notification p)
     {
-        String req="INSERT INTO notification (id_destinataire,id_emetteur,titre,text,type,date) VALUES(?,?,?,?,?,now())" ; 
+        String req="INSERT INTO notification (id_destinataire,id_emetteur,titre,text,type,date,etat) VALUES(?,?,?,?,?,now(),?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,p.getId_destinataire()) ; 
@@ -37,11 +37,11 @@ public class NotificationServices {
             ste.setString(3,p.getTitre()) ; 
             ste.setString(4,p.getText()) ; 
             ste.setString(5,p.getType()) ;         
-            
+            ste.setString(6,p.getEtat()) ;  
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème d'insertion Notification");
+            System.out.println(ex);
         }
         
     
@@ -57,24 +57,25 @@ public class NotificationServices {
             while (rs.next())
             {
                 int id = rs.getInt("id");
-                int id_destinataire = rs.getInt("id_destinataires");
+                int id_destinataire = rs.getInt("id_destinataire");
                 int id_emetteur = rs.getInt("id_emetteur");
                 String titre = rs.getString("titre");
                 String text= rs.getString("text");
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
-                list.add(new Notification(id,id_destinataire,id_emetteur,titre,text,type,date));
+                String etat = rs.getString("etat");
+                list.add(new Notification(id,id_destinataire,id_emetteur,titre,text,type,date,etat));
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Notification");
+            System.out.println(ex);
         }
         return list;
     }
      
     public void updateNotification (Notification p, int id )
     {
-    String req="UPDATE notification SET id_destinataire=?,id_emetteur=?, titre=?, text=?, type=? WHERE id =?" ; 
+    String req="UPDATE notification SET id_destinataire=?,id_emetteur=?, titre=?, text=?, type=?, etat=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
@@ -83,11 +84,12 @@ public class NotificationServices {
             ste.setString(3,p.getTitre()) ; 
             ste.setString(4,p.getText()) ; 
             ste.setString(5,p.getType()) ;  
-            ste.setInt(6,id) ;
+            ste.setString(6,p.getEtat()) ;  
+            ste.setInt(7,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
-            System.out.println("Problème update Notification");
+            System.out.println(ex);
         }
     }
     
@@ -100,7 +102,7 @@ public class NotificationServices {
             ste.executeUpdate() ;    
         } 
         catch (SQLException ex) {
-            System.out.println("Problème delete Notification");
+            System.out.println(ex);
         }
     
     }

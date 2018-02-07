@@ -5,31 +5,80 @@
  */
 package paw;
 
+import Entity.Utilisateur;
+import Service.LoginServices;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import paw.mainUI.FXMLCnxController;
 
 /**
  *
- * @author vinga
+ * @author AYOUB
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
-    private Label label;
-    
+    private JFXTextField usern;
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    private JFXPasswordField passw;
     
+    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void connexionButton(ActionEvent event) throws IOException {
+        LoginServices service = new LoginServices();
+        int x =service.Valide(usern.getText(), passw.getText());
+        if(x!=-1 && x!=0)
+        {
+            closeStage();
+            loadMain(service.Information(x));
+            
+        }
+        else{
+            
+            
+        }
+    }
+
+    @FXML
+    private void inscriptionButton(ActionEvent event) {
+    }
+
+    private void closeStage() {
+        ((Stage)usern.getScene().getWindow()).close();
+    }
+
+    private void loadMain(Utilisateur u) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/paw/mainUI/FXMLDocument.fxml"));
+        loader.load();
+        FXMLCnxController cnt = loader.getController();
+        
+        cnt.settext(u.getNom(), u.getPrenom(), u.getUsername(), u.getEmail(), String.valueOf(u.getNumero()));
+        Parent root = loader.getRoot();
+        Stage stage=new Stage();
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+    }
+
     
 }

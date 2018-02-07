@@ -19,13 +19,13 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXButton layoutX="869.0" layoutY="110.0" onAction="#actionInsertion2" style="-fx-background-color: #1976D2;" text="INSERER" />
-                              <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="57.0" layoutY="110.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+                              <ChoiceBox fx:id="choixInsertion" layoutX="67.0" layoutY="47.0" prefWidth="150.0" />
                               <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="322.0" layoutY="38.0" promptText="AGE" />
-                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="823.0" layoutY="38.0" promptText="SEX" />
                               <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="573.0" layoutY="38.0" promptText="COULEUR" />
+                              <JFXButton layoutX="869.0" layoutY="110.0" onAction="#actionInsertion2" style="-fx-background-color: #1976D2;" text="INSERER" />
+                              <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="823.0" layoutY="38.0" promptText="SEXE" />
+                              <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="57.0" layoutY="110.0" promptText="MESSAGE_COMPLEMENTAIRE" />
                               <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="322.0" layoutY="110.0" promptText="RACE" />
-                              <ChoiceBox fx:id="choixInsertion" layoutX="580.0" layoutY="110.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -34,14 +34,14 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1000.0">
                            <children>
-                              <JFXButton layoutX="875.0" layoutY="110.0" onAction="#actionModification2" style="-fx-background-color: #1976D2;" text="MODIFIER" />
                               <JFXTextField fx:id="idModification" labelFloat="true" layoutX="61.0" layoutY="40.0" promptText="ID" />
+                              <JFXTextField fx:id="ageModification" labelFloat="true" layoutX="283.0" layoutY="40.0" promptText="AGE" />
                               <JFXTextField fx:id="couleurModification" labelFloat="true" layoutX="499.0" layoutY="40.0" promptText="COULEUR" />
-                              <JFXTextField fx:id="sexModification" labelFloat="true" layoutX="765.0" layoutY="40.0" promptText="SEX" />
+                              <JFXTextField fx:id="sexModification" labelFloat="true" layoutX="765.0" layoutY="40.0" promptText="SEXE" />
                               <JFXTextField fx:id="msgModification" labelFloat="true" layoutX="61.0" layoutY="110.0" promptText="MESSAGE_COMLEMENTAIRE" />
                               <JFXTextField fx:id="raceModification" labelFloat="true" layoutX="283.0" layoutY="110.0" promptText="RACE" />
-                              <JFXTextField fx:id="ageModification" labelFloat="true" layoutX="283.0" layoutY="40.0" promptText="AGE" />
                               <ChoiceBox fx:id="choixModification" layoutX="580.0" layoutY="110.0" prefWidth="150.0" />
+                              <JFXButton layoutX="875.0" layoutY="110.0" onAction="#actionModification2" style="-fx-background-color: #1976D2;" text="MODIFIER" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -63,7 +63,7 @@
                   <TableColumn fx:id="idCol" prefWidth="83.0" text="ID" />
                   <TableColumn fx:id="ageCol" prefWidth="583.0" text="AGE" />
                   <TableColumn fx:id="couleurCol" prefWidth="131.0" text="COULEUR" />
-                  <TableColumn fx:id="sexCol" prefWidth="114.0" text="SEX" />
+                  <TableColumn fx:id="sexCol" prefWidth="114.0" text="SEXE" />
                   <TableColumn fx:id="raceCol" prefWidth="171.0" text="RACE" />
                   <TableColumn fx:id="msgCol" prefWidth="180.0" text="MESSAGE_COMPLEMENTAIRE" />
                   <TableColumn fx:id="typeCol" prefWidth="100.0" text="TYPE_ANIMAL" />

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="363.0" prefHeight="600.0" prefWidth="363.0" style="-fx-background-color: #1565C0;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLCnxController">
+   <children>
+      <AnchorPane layoutX="20.0" layoutY="24.0" prefHeight="553.0" prefWidth="324.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <ImageView fitHeight="201.0" fitWidth="250.0" layoutX="59.0" layoutY="-10.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/logo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nom" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="230.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="prenom" alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="230.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="350.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="email" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="410.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="numero" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="470.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="nom1" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="230.0" text="Bienvenue">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
