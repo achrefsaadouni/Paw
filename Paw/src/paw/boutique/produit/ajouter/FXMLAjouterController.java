@@ -32,7 +32,6 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
@@ -51,6 +50,9 @@ public class FXMLAjouterController {
 
     @FXML
     private JFXTextField prix;
+    
+    @FXML
+    private TreeTableColumn<Produit, JFXButton> supprimer;
 
     @FXML
     private JFXTextField quantite;
@@ -70,6 +72,7 @@ public class FXMLAjouterController {
 
     @FXML
     private JFXButton ajouter;
+  
     
      @FXML
     private JFXTreeTableView<Produit> produitsTableView;
@@ -118,11 +121,10 @@ public class FXMLAjouterController {
         Produit produit = new Produit(libelle.getText(),Float.valueOf(prix.getText()),Integer.valueOf(quantite.getText()),description.getText(),files,type.getValue());
         produitservice = ProduitService.getProduitService();
         produitservice.addProduit(produit);
-        MyNotifications.infoNotification("Ajout","Produit ajouter avec success");
+        MyNotifications.infoNotification("Ajout","Produit ajouté avec success");
         }
         
-         refresh();
-               
+         refresh();         
     }
 
   @FXML
@@ -140,10 +142,26 @@ public class FXMLAjouterController {
            files.add(file);
        }
     }
+    
+    void modifierImage(ActionEvent event,int index,int id){
+        Node source = (Node) event.getSource();
+        Window theStage = source.getScene().getWindow();
+        FileChooser fileChoser = new FileChooser();
+        fileChoser.setTitle("Sélectionnez Des images");
+        fileChoser.getExtensionFilters().addAll(
+         new ExtensionFilter("Image Files","*.png","*.jpg","*.bmp","*.jpeg","*.gif")
+        );
+        file = fileChoser.showOpenDialog(theStage);
+       if(file !=null)
+       {
+           produitservice.updateImage(file, index,id);
+       }
+    }
 
     
       void initTreeTableView() {
         
+        produitsTableView.setEditable(true);
         produitsTableView.setEditable(true);
         
         produitservice = ProduitService.getProduitService();
@@ -209,7 +227,7 @@ public class FXMLAjouterController {
             Produit produit = (Produit) param.getValue().getValue();
            ImageView im = new ImageView();  
          try{
-         img1 =new Image("file:///"+produit.getImages().get(0).toPath().toString());
+         img1 =new Image("file:///"+produit.getImages().get(1).toPath().toString());
          im.setFitHeight(100);
          im.setFitWidth(100);
          im.setImage(img1);
@@ -222,32 +240,68 @@ public class FXMLAjouterController {
             property.set(im);
             return property;
         });
+          
         modif1.setCellValueFactory(param -> {
         SimpleObjectProperty property = new SimpleObjectProperty();
         Produit produit = (Produit) param.getValue().getValue();
-        JFXButton b1 = new JFXButton("image1");
+          JFXButton b1 = new JFXButton("image1");
         b1.setStyle("-fx-background-color:#43A047;");
+        b1.setOnAction((ActionEvent e) -> {
+            modifierImage(e,0,produit.getId_produit());
+            refresh();
+        });
         property.set(b1);
         return property;
         });
-          modif2.setCellValueFactory(param -> {
+        
+        
+        modif2.setCellValueFactory(param -> {
         SimpleObjectProperty property = new SimpleObjectProperty();
         Produit produit = (Produit) param.getValue().getValue();
         JFXButton b2 = new JFXButton("image2");
         b2.setStyle("-fx-background-color:#607D8B;");
+        b2.setOnAction((ActionEvent e) -> {
+            modifierImage(e,1,produit.getId_produit());
+            refresh();
+        });
         property.set(b2);
         return property;
         });
+        
+        supprimer.setCellValueFactory(param -> {
+        SimpleObjectProperty property = new SimpleObjectProperty();
+        Produit produit = (Produit) param.getValue().getValue();
+        JFXButton supp = new JFXButton("Supprimer");
+        supp.setStyle("-fx-background-color:#D50000;");
+        supp.setOnAction((ActionEvent e) -> {
+            produitservice.deleteProduit(produit.getId_produit());
+            MyNotifications.infoNotification("Suppression","Produit Supprimé avec success");
+            refresh();
+        });
+        
+         property.set(supp);
+        return property;
+          });
+        
+        
+        
+        
+        
+        
         
          refresh();
       }
          
       
+      
+      
+      
+      
        public void refresh()
       {
            myproduits = produitservice.findAll();
         ObservableList<Produit> articles = FXCollections.observableArrayList(myproduits);
-        TreeItem<Produit> root = new RecursiveTreeItem<Produit>(articles, RecursiveTreeObject::getChildren);
+        TreeItem<Produit> root = new RecursiveTreeItem<>(articles, RecursiveTreeObject::getChildren);
         produitsTableView.setRoot(root);
          produitsTableView.setShowRoot(false);
       }

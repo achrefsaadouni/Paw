@@ -76,41 +76,92 @@ public class ProduitService {
             ste.setInt(1,id) ;
             Produit p = rechercher(id);
             ste.executeUpdate() ; 
-            Files.delete(p.getImages().get(0).toPath());
-            Files.delete(p.getImages().get(1).toPath());
-        } catch (NoSuchFileException x) {
-           System.err.format("no such file or directory");
-       } catch (DirectoryNotEmptyException x) {
-           System.err.format("not empty");
-       } catch (IOException x) {
-           System.err.println(x);
+            deleteImage(p.getImages().get(0));
+            deleteImage(p.getImages().get(1));
+            
         }catch (SQLException ex1) {
             System.out.println("Problème delete produit");
         }
     
     }
-    
-
-     public void updateProduit (Produit p)
+    public void updateImage(File f,int index,int id)
     {
-    String req="UPDATE personne SET libelle=?,prix=?,quantite=?,description=?,type=?,images=? WHERE id =?" ; 
+        imageSave(f);
+        Produit p =rechercher(id);
+        String images="";
+        if (index ==0)
+        {
+          images = f.getPath()+";"+p.getImages().get(1).toPath().toString();
+          deleteImage(p.getImages().get(0));
+        }
+        else 
+        {
+            images =p.getImages().get(0).toPath().toString()+";"+f.getPath();
+            deleteImage(p.getImages().get(1));
+        }
+        String req="UPDATE `produit` set images=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-             
-            ste.setString(1,p.getLibelle()) ;
-            ste.setFloat(2,p.getPrix());
-            ste.setInt(3,p.getQuantite()) ; 
-            ste.setString(4,p.getDescription()) ; 
-            ste.setString(5,p.getType()) ; 
-            ste.setString(6,"aa") ;
-            ste.setInt(7,p.getId_produit());
-            ste.executeUpdate() ; 
+            ste.setString(1,images) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ;
             
         } catch (SQLException ex) {
-            System.out.println("Problème update Personne");
+            System.out.println(ex);
         }
     
     }
+
+     public void updateChamp (String champ,String valeur,int id)
+    {
+    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+             
+            ste.setString(1,champ) ;
+            ste.setString(2,valeur) ;
+            ste.setInt(3,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }
+     
+     public void updateChamp (String champ,Float valeur,int id)
+    {
+    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+             
+            ste.setString(1,champ) ;
+            ste.setFloat(2,valeur) ;
+            ste.setInt(3,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }
+     public void updateChamp (String champ,int valeur,int id)
+    {
+    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+             
+            ste.setString(1,champ) ;
+            ste.setInt(2,valeur) ;
+            ste.setInt(3,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }
+     
      
         public ArrayList<Produit> findAll() {
         String sql = "SELECT * FROM `produit`";
@@ -175,4 +226,17 @@ public class ProduitService {
         return produit;
     }
     
+    public void deleteImage(File f)
+    {
+        try { 
+            Files.delete(f.toPath());
+            
+        } catch (NoSuchFileException x) {
+           System.err.format("no such file or directory");
+       } catch (DirectoryNotEmptyException x) {
+           System.err.format("not empty");
+       } catch (IOException x) {
+           System.err.println(x); 
+    }
+    }
 }
