@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.produit.ajouter.FXMLAjouterController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.admin.produit.FXMLAjouterController">
    <children>
       <JFXTabPane prefHeight="651.0" prefWidth="1200.0" style="-fx-background-color: #B0BEC5;">
          <tabs>

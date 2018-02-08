@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.boutique.produit.ajouter;
+package paw.boutique.admin.produit;
 
 import Entity.Produit;
 import Service.ProduitService;
