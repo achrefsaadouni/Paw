@@ -213,6 +213,7 @@ public class FXMLAjouterController {
          im.setFitWidth(100);
          im.setImage(img);
          
+         
          }
          catch(Exception ex)
              {
@@ -283,19 +284,11 @@ public class FXMLAjouterController {
         return property;
           });
         
-        
-        
-        
-        
-        
-        
+
          refresh();
       }
          
-      
-      
-      
-      
+
       
        public void refresh()
       {

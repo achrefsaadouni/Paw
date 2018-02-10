@@ -86,18 +86,20 @@ public class ProduitService {
     }
     public void updateImage(File f,int index,int id)
     {
-        imageSave(f);
+        
         Produit p =rechercher(id);
         String images="";
         if (index ==0)
         {
-          images = f.getPath()+";"+p.getImages().get(1).toPath().toString();
           deleteImage(p.getImages().get(0));
+          images = imageSave(f)+";"+p.getImages().get(1).toPath().toString();
+          
         }
-        else 
+        else if(index==1)
         {
-            images =p.getImages().get(0).toPath().toString()+";"+f.getPath();
             deleteImage(p.getImages().get(1));
+            images =p.getImages().get(0).toPath().toString()+";"+imageSave(f);
+            
         }
         String req="UPDATE `produit` set images=?  WHERE id =?" ; 
         try { 
@@ -181,6 +183,30 @@ public class ProduitService {
          }
         return null;
     }
+        
+         public ArrayList<Produit> findAllFiltrer(String filtre) {
+        String sql = "SELECT * FROM `produit` where type=?";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setString(1,filtre);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+        
+        
+        
+        
         public List<File> getFiles(String path)
         {
             List<File> res = new ArrayList<>();
