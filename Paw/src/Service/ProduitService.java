@@ -114,15 +114,13 @@ public class ProduitService {
     
     }
 
-     public void updateChamp (String champ,String valeur,int id)
+     public void updatelibelle (String valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET libelle=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-             
-            ste.setString(1,champ) ;
-            ste.setString(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -131,15 +129,45 @@ public class ProduitService {
     
     }
      
-     public void updateChamp (String champ,Float valeur,int id)
+    
+     public void updatedescription (String valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET description=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    } 
+        public void updatetype (String valeur,int id)
+    {
+    String req="UPDATE `produit` SET type=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    } 
+     
+     
+     public void updateprix(Float valeur,int id)
+    {
+    String req="UPDATE `produit` SET prix=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
-            ste.setString(1,champ) ;
-            ste.setFloat(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setFloat(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -147,15 +175,13 @@ public class ProduitService {
         }
     
     }
-     public void updateChamp (String champ,int valeur,int id)
+     public void updatequantite (int valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET quantite=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-             
-            ste.setString(1,champ) ;
-            ste.setInt(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setInt(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {

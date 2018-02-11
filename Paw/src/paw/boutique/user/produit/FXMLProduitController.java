@@ -363,7 +363,7 @@ public class FXMLProduitController {
         }
             else  if (Gâteries.isSelected())
         {
-            all_articles = produitservice.findAllFiltrer("Gâteries");
+            all_articles = produitservice.findAllFiltrer("Gâteries Et Nourritures");
            if (all_articles.size()==0)
         {
           boutiqueVide();

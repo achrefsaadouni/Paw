@@ -19,25 +19,26 @@ import javafx.stage.Stage;
  * @author vinga
  */
 public class AjouterUI extends Application {
-    
-   @Override
-    public void start(Stage stage){
 
-       try {
-           Parent root = FXMLLoader.load(getClass().getResource("/paw/boutique/admin/produit/FXMLAjouter.fxml"));
-           Scene scene = new Scene(root);
-           stage.setScene(scene);
-           stage.show();
-       } catch (IOException ex) {
-           Logger.getLogger(AjouterUI.class.getName()).log(Level.SEVERE, null, ex);
-       }
+    @Override
+    public void start(Stage stage) {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/paw/boutique/admin/produit/FXMLAjouter.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();           
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
