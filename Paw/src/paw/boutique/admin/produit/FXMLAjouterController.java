@@ -41,7 +41,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
-import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.NumberStringConverter;
 import paw.MyNotifications;
 

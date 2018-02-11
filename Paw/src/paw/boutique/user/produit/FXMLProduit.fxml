@@ -37,10 +37,10 @@
                   <JFXRadioButton fx:id="Shampoings" layoutY="89.0" prefHeight="17.0" prefWidth="163.0" text="Shampoings" toggleGroup="$type" />
                   <JFXRadioButton fx:id="vetement" layoutY="120.0" prefHeight="17.0" prefWidth="163.0" text="Vetements" toggleGroup="$type" />
                   <JFXRadioButton fx:id="Bols" layoutY="146.0" prefHeight="17.0" prefWidth="163.0" text="Bols" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Gâteries" layoutY="176.0" prefHeight="17.0" prefWidth="163.0" text="Cadeaux" toggleGroup="$type" />
-                  <JFXButton fx:id="filter" buttonType="RAISED" layoutX="45.0" layoutY="267.0" onAction="#filtrerBoutique" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #1E88E5;" text="Filtrer" />
+                  <JFXRadioButton fx:id="Cadeaux" layoutY="176.0" prefHeight="17.0" prefWidth="163.0" text="Cadeaux" toggleGroup="$type" />
+                  <JFXButton fx:id="filter" buttonType="RAISED" layoutX="45.0" layoutY="270.0" onAction="#filtrerBoutique" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #1E88E5;" text="Filtrer" />
                   <JFXRadioButton fx:id="Gâteries" layoutY="210.0" prefHeight="17.0" prefWidth="163.0" text="Gâteries Et Nourritures" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Jouets" layoutY="240.0" prefHeight="17.0" prefWidth="163.0" text="Jouets" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Jouets" layoutY="237.0" prefHeight="17.0" prefWidth="163.0" text="Jouets" toggleGroup="$type" />
                </children>
             </Pane>
          </children>
