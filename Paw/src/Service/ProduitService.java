@@ -86,18 +86,20 @@ public class ProduitService {
     }
     public void updateImage(File f,int index,int id)
     {
-        imageSave(f);
+        
         Produit p =rechercher(id);
         String images="";
         if (index ==0)
         {
-          images = f.getPath()+";"+p.getImages().get(1).toPath().toString();
           deleteImage(p.getImages().get(0));
+          images = imageSave(f)+";"+p.getImages().get(1).toPath().toString();
+          
         }
-        else 
+        else if(index==1)
         {
-            images =p.getImages().get(0).toPath().toString()+";"+f.getPath();
             deleteImage(p.getImages().get(1));
+            images =p.getImages().get(0).toPath().toString()+";"+imageSave(f);
+            
         }
         String req="UPDATE `produit` set images=?  WHERE id =?" ; 
         try { 
@@ -112,15 +114,13 @@ public class ProduitService {
     
     }
 
-     public void updateChamp (String champ,String valeur,int id)
+     public void updatelibelle (String valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET libelle=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-             
-            ste.setString(1,champ) ;
-            ste.setString(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -129,15 +129,45 @@ public class ProduitService {
     
     }
      
-     public void updateChamp (String champ,Float valeur,int id)
+    
+     public void updatedescription (String valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET description=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    } 
+        public void updatetype (String valeur,int id)
+    {
+    String req="UPDATE `produit` SET type=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    } 
+     
+     
+     public void updateprix(Float valeur,int id)
+    {
+    String req="UPDATE `produit` SET prix=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
-            ste.setString(1,champ) ;
-            ste.setFloat(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setFloat(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -145,15 +175,13 @@ public class ProduitService {
         }
     
     }
-     public void updateChamp (String champ,int valeur,int id)
+     public void updatequantite (int valeur,int id)
     {
-    String req="UPDATE `produit` SET ?=? WHERE id =?" ; 
+    String req="UPDATE `produit` SET quantite=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-             
-            ste.setString(1,champ) ;
-            ste.setInt(2,valeur) ;
-            ste.setInt(3,id) ;
+            ste.setInt(1,valeur) ;
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -181,6 +209,30 @@ public class ProduitService {
          }
         return null;
     }
+        
+         public ArrayList<Produit> findAllFiltrer(String filtre) {
+        String sql = "SELECT * FROM `produit` where type=?";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setString(1,filtre);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+        
+        
+        
+        
         public List<File> getFiles(String path)
         {
             List<File> res = new ArrayList<>();
