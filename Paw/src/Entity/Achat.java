@@ -20,6 +20,7 @@ public class Achat extends RecursiveTreeObject<Achat>{
     private List<LigneAchat> list;
     private Date date_achat;
     private float prix;
+    private String etat;
 
     public List<LigneAchat> getList() {
         return list;
@@ -27,6 +28,14 @@ public class Achat extends RecursiveTreeObject<Achat>{
 
     public void setList(List<LigneAchat> list) {
         this.list = list;
+    }
+
+    public Achat(int id_achat, int id_client, Date date_achat, float prix, String etat) {
+        this.id_achat = id_achat;
+        this.id_client = id_client;
+        this.date_achat = date_achat;
+        this.prix = prix;
+        this.etat = etat;
     }
 
     public float getPrix() {
@@ -37,18 +46,20 @@ public class Achat extends RecursiveTreeObject<Achat>{
         this.prix = prix;
     }
 
-    public Achat(int id_achat, int id_client, List<LigneAchat> list, Date date_achat, float prix) {
+    public Achat(int id_achat, int id_client, List<LigneAchat> list, Date date_achat, float prix,String etat) {
         this.id_achat = id_achat;
         this.id_client = id_client;
         this.list = list;
         this.date_achat = date_achat;
         this.prix = prix;
+        this.etat=etat;
     }
 
 
-    public Achat(int id_client, float prix) {
+    public Achat(int id_client, float prix,String etat) {
         this.id_client = id_client;
         this.prix = prix;
+        this.etat=etat;
     }
 
     
@@ -80,6 +91,14 @@ public class Achat extends RecursiveTreeObject<Achat>{
     public Achat(int id_client, Date date_achat) {
         this.id_client = id_client;
         this.date_achat = date_achat;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
     }
     
     

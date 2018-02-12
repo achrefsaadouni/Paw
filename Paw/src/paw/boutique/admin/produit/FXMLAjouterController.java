@@ -47,6 +47,7 @@ import paw.MyNotifications;
 public class FXMLAjouterController {
 
     private File file;
+    
     ObservableList<String> items = FXCollections.observableArrayList(
             "Laisse, Collier et Harnais",
             "Lits et Couvertures",
@@ -57,6 +58,7 @@ public class FXMLAjouterController {
             "Gâteries Et Nourritures",
             "Jouets"
     );
+
     private List<File> files = new ArrayList<>();
     Image img = null;
     Image img1 = null;
@@ -201,7 +203,6 @@ public class FXMLAjouterController {
 
     void initTreeTableView() {
 
-        produitsTableView.setEditable(true);
         produitsTableView.setEditable(true);
 
         produitservice = ProduitService.getProduitService();

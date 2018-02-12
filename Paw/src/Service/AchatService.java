@@ -65,17 +65,19 @@ public class AchatService {
     
     }
      
-        public ArrayList<Achat> findAll() {
-        String sql = "SELECT * FROM `ligneachat`";
+        public ArrayList<Achat> findAll(int id) {
+        String sql = "SELECT * FROM `achat` where id_client=?";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setInt(1, id);
              ResultSet results =  statement.executeQuery();
              ArrayList<Achat> achats = new ArrayList<>();
-             ArrayList<LigneAchat> ligneachats ;
+             ArrayList<LigneAchat> ligneachats =null;
              Achat a;
              while (results.next()) {
-                 ligneachats = LigneAchatService.getLigneService().findAll(results.getInt("id_achat"));
-                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),ligneachats,results.getDate("date_achat"),results.getFloat("prix"));
+                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),results.getDate("date_achat"),results.getFloat("prix"),results.getString("etat"));
+                 ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
+                 a.setList(ligneachats);
                  achats.add(a);
              }
              return achats;
