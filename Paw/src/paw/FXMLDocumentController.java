@@ -5,7 +5,6 @@
  */
 package paw;
 
-import Entity.Utilisateur;
 import Service.LoginServices;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -19,7 +18,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import paw.mainUI.FXMLCnxController;
 
 /**
@@ -47,7 +45,8 @@ public class FXMLDocumentController implements Initializable {
         if(x!=-1 && x!=0)
         {
             closeStage();
-            loadMain(service.Information(x));
+            Paw.session=service.Information(x);
+            loadMain();
             
         }
         else{
@@ -64,13 +63,13 @@ public class FXMLDocumentController implements Initializable {
         ((Stage)usern.getScene().getWindow()).close();
     }
 
-    private void loadMain(Utilisateur u) throws IOException {
+    private void loadMain() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/paw/mainUI/FXMLDocument.fxml"));
         loader.load();
         FXMLCnxController cnt = loader.getController();
         
-        cnt.settext(u.getNom(), u.getPrenom(), u.getUsername(), u.getEmail(), String.valueOf(u.getNumero()));
+        
         Parent root = loader.getRoot();
         Stage stage=new Stage();
         

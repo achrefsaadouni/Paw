@@ -5,15 +5,19 @@
  */
 package paw.mainUI;
 
-import Service.LoginServices;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
+import Entity.Utilisateur;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import static paw.Paw.session;
 
 /**
  *
@@ -22,29 +26,47 @@ import javafx.scene.control.Label;
 public class FXMLCnxController implements Initializable {
 
     @FXML
-    private Label nom;
+    private ImageView avatar;
     @FXML
-    private Label prenom;
+    private ImageView avatar1;
+    @FXML
+    private AnchorPane window;
+     
     @FXML
     private Label username;
     @FXML
     private Label email;
-    @FXML
-    private Label numero;
-    
-    
-    public void settext(String n,String p,String u,String e,String num){
-        nom.setText(n);
-        prenom.setText(p);
-        username.setText(u);
-        email.setText(e);
-        numero.setText(num);
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        username.setText(session.getUsername());
+        email.setText(session.getEmail());
     }    
+
+
+    @FXML
+    private void goToGris(ActionEvent event) throws IOException {
+        //window.getChildren().setAll(FXMLLoader.load(getClass().getResource("FXMLutilisateur.fxml")));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLGris.fxml"));
+        window.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToRed(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLRed.fxml"));
+        window.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToProfile(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToNotification(MouseEvent event) {
+    }
+
+    public void initialisation(Utilisateur x) {
+        session=x;  
+    }
 
     
 }

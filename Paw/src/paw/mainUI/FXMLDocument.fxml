@@ -1,51 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1000.0" minHeight="600.0" minWidth="363.0" prefHeight="600.0" prefWidth="363.0" style="-fx-background-color: #1565C0;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLCnxController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLCnxController">
    <children>
-      <AnchorPane layoutX="20.0" layoutY="24.0" prefHeight="553.0" prefWidth="324.0" style="-fx-background-color: FFFFFF;">
+      <AnchorPane prefHeight="50.0" prefWidth="1100.0" styleClass="headerbar" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="201.0" fitWidth="250.0" layoutX="59.0" layoutY="-10.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="avatar" fitHeight="45.0" fitWidth="45.0" layoutX="98.0" layoutY="2.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Ressource/images/logo.png" />
+                  <Image url="@../../Ressource/images/user.png" />
                </image>
             </ImageView>
-            <Label fx:id="nom" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="230.0" text="Label">
+            <Label fx:id="username" layoutX="155.0" layoutY="8.0" text="Label" textFill="WHITE">
                <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="prenom" alignment="CENTER" contentDisplay="CENTER" layoutX="241.0" layoutY="230.0" text="Label">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="username" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="350.0" text="Label">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="email" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="410.0" text="Label">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="numero" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="470.0" text="Label">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="nom1" alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="230.0" text="Bienvenue">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <ImageView fx:id="avatar1" fitHeight="40.0" fitWidth="40.0" layoutX="980.0" layoutY="5.0" onMouseClicked="#goToNotification" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/ic_notifications_white_48dp_1x.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="email" layoutX="155.0" layoutY="24.0" text="Label" textFill="#bfb3b3" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="window" layoutX="250.0" layoutY="50.0" prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #272928;" />
+      <JFXButton layoutX="100.0" layoutY="134.0" onAction="#goToRed" text="Go To Red" />
+      <JFXButton layoutX="100.0" layoutY="207.0" onAction="#goToGris" text="Go To Gris" />
    </children>
 </AnchorPane>
