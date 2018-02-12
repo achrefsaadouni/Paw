@@ -68,13 +68,16 @@ public class ProduitService {
         
     }
     
+    
     public void deleteProduit (int id )
     {
     String req="DELETE  from produit where  id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,id) ;
+            System.out.println(id);
             Produit p = rechercher(id);
+            System.out.println(p);
             ste.executeUpdate() ; 
             deleteImage(p.getImages().get(0));
             deleteImage(p.getImages().get(1));

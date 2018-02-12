@@ -364,7 +364,7 @@ public class FXMLProduitController {
             });
             
             libelle_produit1.setText(article_page.get(0).getLibelle());
-            tool1 = new Tooltip(article_page.get(0).getLibelle());
+            tool1.setText(article_page.get(0).getLibelle());
             prix_produit1.setText(String.valueOf(article_page.get(0).getPrix()) + " DT");
             
         } else {
@@ -395,7 +395,7 @@ public class FXMLProduitController {
             });
             
             libelle_produit2.setText(article_page.get(1).getLibelle());
-            tool2 = new Tooltip(article_page.get(1).getLibelle());
+            tool2.setText(article_page.get(1).getLibelle());
             prix_produit2.setText(String.valueOf(article_page.get(1).getPrix()) + " DT");
             
         } else {
@@ -426,7 +426,7 @@ public class FXMLProduitController {
             });
             
             libelle_produit3.setText(article_page.get(2).getLibelle());
-            tool3 = new Tooltip(article_page.get(2).getLibelle());
+            tool3.setText(article_page.get(2).getLibelle());
             prix_produit3.setText(String.valueOf(article_page.get(2).getPrix()) + " DT");
             
         } else {

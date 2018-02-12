@@ -68,6 +68,7 @@ public class LigneAchatService {
      
         public ArrayList<LigneAchat> findAll(int id_achat) {
         String sql = "SELECT * FROM `ligneachat` where id_achat=?";
+           ProduitService serviceproduit = ProduitService.getProduitService();
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              statement.setInt(1,id_achat) ;
@@ -75,7 +76,7 @@ public class LigneAchatService {
              ArrayList<LigneAchat> ligneachats = new ArrayList<>();
              LigneAchat a;
              while (results.next()) {
-                 a = new LigneAchat(results.getInt("id_ligne"),results.getInt("id_produit"),results.getInt("nbr_produit"));
+                 a = new LigneAchat(results.getInt("id_ligne"),serviceproduit.rechercher(results.getInt("id_produit")),results.getInt("nbr_produit"),id_achat);
                  ligneachats.add(a);
              }
              return ligneachats;
