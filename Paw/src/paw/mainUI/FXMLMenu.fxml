@@ -6,6 +6,6 @@
 <AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #272928;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLMenuController">
    <children>
       <JFXButton layoutX="11.0" layoutY="166.0" prefHeight="25.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="ANNONCE" textFill="WHITE" />
-      <JFXButton layoutX="14.0" layoutY="215.0" onAction="#goToVeterinaire" prefHeight="25.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Veterinaire" textFill="WHITE" />
+      <JFXButton accessibleText="veterinaire" layoutX="14.0" layoutY="215.0" onAction="#goToVeterinaire" prefHeight="25.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Veterinaire" textFill="WHITE" />
    </children>
 </AnchorPane>

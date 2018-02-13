@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,7 +33,7 @@ import static paw.Paw.session;
 public class FXMLCnxController implements Initializable {
 
     @FXML
-    public static AnchorPane window;
+    public AnchorPane window;
     @FXML
     private JFXDrawer drawer;     
     @FXML
@@ -56,7 +57,23 @@ public class FXMLCnxController implements Initializable {
             username.setText(session.getUsername());
             email.setText(session.getEmail());
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-             AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
+            AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
+            for(Node node : menu.getChildren()){
+                if (node.getAccessibleText()!=null){
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED,e ->{
+                        switch(node.getAccessibleText()){
+                            case "veterinaire" : {
+                                try {
+                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
+                                    window.getChildren().setAll(pane);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    });
+                }
+            }
             drawer.setSidePane(menu);
             drawer.setMouseTransparent(true);
             transition.setRate(-1);
@@ -100,6 +117,6 @@ public class FXMLCnxController implements Initializable {
     private void openDrawer(JFXDrawerEvent event) {
         drawer.setMouseTransparent(false);
     }
-
+    
     
 }
