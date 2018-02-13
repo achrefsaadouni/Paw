@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,8 +12,7 @@
    <children>
       <AnchorPane prefHeight="50.0" prefWidth="1100.0" styleClass="headerbar" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="avatar" fitHeight="45.0" fitWidth="45.0" layoutX="98.0" layoutY="2.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profile" fitHeight="45.0" fitWidth="45.0" layoutX="98.0" layoutY="2.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/user.png" />
                </image>
@@ -21,15 +21,25 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fx:id="avatar1" fitHeight="40.0" fitWidth="40.0" layoutX="980.0" layoutY="5.0" onMouseClicked="#goToNotification" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="notification" fitHeight="40.0" fitWidth="40.0" layoutX="980.0" layoutY="5.0" onMouseClicked="#goToNotification" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/ic_notifications_white_48dp_1x.png" />
                </image>
             </ImageView>
             <Label fx:id="email" layoutX="155.0" layoutY="24.0" text="Label" textFill="#bfb3b3" />
+            <JFXHamburger fx:id="hamburger" layoutX="25.0" layoutY="14.0" />
+            <ImageView fx:id="settings" fitHeight="40.0" fitWidth="40.0" layoutX="1020.0" layoutY="5.0" onMouseClicked="#goToSettings" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/ic_settings_applications_white_48dp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="chat" fitHeight="40.0" fitWidth="40.0" layoutX="940.0" layoutY="5.0" onMouseClicked="#goToChat" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/ic_chat_white_48dp.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="window" layoutX="250.0" layoutY="50.0" prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #272928;" />
-      <JFXButton layoutX="100.0" layoutY="134.0" onAction="#goToRed" text="Go To Red" />
-      <JFXButton layoutX="100.0" layoutY="207.0" onAction="#goToGris" text="Go To Gris" />
+      <AnchorPane fx:id="window" layoutY="50.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" mouseTransparent="true" prefHeight="650.0" prefWidth="250.0" />
    </children>
 </AnchorPane>
