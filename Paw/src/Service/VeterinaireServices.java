@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -55,6 +56,37 @@ public class VeterinaireServices {
     public ObservableList<Veterinaire> getAll(){
         String req="SELECT * FROM Veterinaire" ;
         ObservableList<Veterinaire> list = FXCollections.observableArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            System.out.println("    Hani hne mriguel");
+            while (rs.next())
+            {
+                System.out.println("    fel lawel");
+                
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String adresse = rs.getString("adresse");
+                String region = rs.getString("region");
+                int numero = rs.getInt("numero");
+                String email = rs.getString("email");
+                
+                
+                System.out.println("    Hani hne mriguel");
+                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Problème importation liste Veterinaire");
+        }
+        return list;
+    }
+    
+    public ArrayList<Veterinaire> getList(){
+        String req="SELECT * FROM Veterinaire" ;
+        ArrayList<Veterinaire> list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
