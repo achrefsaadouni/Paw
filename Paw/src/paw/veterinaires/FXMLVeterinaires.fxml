@@ -15,7 +15,6 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.FXMLVeterinairesController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" spacing="30.0">
@@ -62,7 +61,7 @@
                   <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../material-dashboard-fx-master/src/icons/avatar.png" />
+                        <Image url="@../../Ressource/images/avatar.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="mail1" layoutX="34.0" layoutY="96.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="EMAIL">
@@ -113,7 +112,7 @@
                   <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../material-dashboard-fx-master/src/icons/avatar.png" />
+                        <Image url="@../../Ressource/images/avatar.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="mail2" layoutX="34.0" layoutY="96.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="EMAIL">
@@ -169,7 +168,7 @@
                   <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../material-dashboard-fx-master/src/icons/avatar.png" />
+                        <Image url="@../../Ressource/images/avatar.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="mail3" layoutX="34.0" layoutY="96.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="EMAIL">
@@ -220,7 +219,7 @@
                   <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="339.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../material-dashboard-fx-master/src/icons/avatar.png" />
+                        <Image url="@../../Ressource/images/avatar.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="mail4" layoutX="34.0" layoutY="96.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="EMAIL">
