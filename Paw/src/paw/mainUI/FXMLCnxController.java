@@ -56,7 +56,7 @@ public class FXMLCnxController implements Initializable {
             username.setText(session.getUsername());
             email.setText(session.getEmail());
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-            AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
+             AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
             drawer.setSidePane(menu);
             drawer.setMouseTransparent(true);
             transition.setRate(-1);
