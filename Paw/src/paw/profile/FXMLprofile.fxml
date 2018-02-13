@@ -1,41 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.profile.FXMLprofileController">
    <children>
-      <ImageView fx:id="avatar" fitHeight="430.0" fitWidth="235.0" layoutX="811.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Ressource/avatar/001-man-13.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="nom" layoutX="150.0" layoutY="80.0" text="Nom" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <Label fx:id="prenom" layoutX="150.0" layoutY="140.0" text="Prenom" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <Label fx:id="username" layoutX="150.0" layoutY="200.0" text="Username" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <Label fx:id="email" layoutX="150.0" layoutY="260.0" text="Email" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <Label fx:id="adresse" layoutX="150.0" layoutY="320.0" text="Adresse" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <Label fx:id="numero" layoutX="150.0" layoutY="380.0" text="Numero" textFill="#6b6b6b" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
+      <AnchorPane layoutX="17.0" layoutY="165.0" prefHeight="470.0" prefWidth="350.0" styleClass="shadowPanes" stylesheets="@../../css/Master.css">
+         <children>
+            <ImageView fx:id="avatar" fitHeight="185.0" fitWidth="191.0" layoutX="84.0" layoutY="-97.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+               <image>
+                  <Image url="@../../Ressource/png/user-14.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nom" alignment="TOP_CENTER" contentDisplay="CENTER" layoutY="117.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../css/Master.css" text="Nom" textFill="#6b6b6b">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <VBox layoutY="250.0" prefHeight="190.0" prefWidth="350.0">
+               <children>
+                  <Label fx:id="adresse" prefHeight="50.0" prefWidth="330.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Nairobi,Kenya">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="numero" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Software developer">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="PHONE" size="17.0" wrappingWidth="22.000005185604095" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="email" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="www.danmlayah.co.ke">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="EMAIL" size="17.0" wrappingWidth="20.666692197322845" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

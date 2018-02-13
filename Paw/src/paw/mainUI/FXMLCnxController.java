@@ -32,7 +32,7 @@ import static paw.Paw.session;
 public class FXMLCnxController implements Initializable {
 
     @FXML
-    private AnchorPane window;
+    public static AnchorPane window;
     @FXML
     private JFXDrawer drawer;     
     @FXML

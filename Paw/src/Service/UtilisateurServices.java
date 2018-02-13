@@ -29,7 +29,7 @@ public class UtilisateurServices {
     }
     public void insererUtilisateur (Utilisateur p)
     {
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role) VALUES(?,?,?,?,?,?,?,?)" ; 
+        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe) VALUES(?,?,?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom()) ; 
