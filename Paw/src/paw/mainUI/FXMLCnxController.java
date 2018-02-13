@@ -8,6 +8,7 @@ package paw.mainUI;
 import Entity.Utilisateur;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.events.JFXDrawerEvent;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import java.io.IOException;
 import java.net.URL;
@@ -55,13 +56,12 @@ public class FXMLCnxController implements Initializable {
             username.setText(session.getUsername());
             email.setText(session.getEmail());
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-            transition.setRate(-1);
             AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
             drawer.setSidePane(menu);
+            drawer.setMouseTransparent(true);
             hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
-                transition.setRate(transition.getRate()* -1);
                 transition.play();
-                drawer.toggle();
+                drawer.toggle();            
             });
         } catch (IOException ex) {
             Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,19 +71,9 @@ public class FXMLCnxController implements Initializable {
         session=x;  
     }
 
-//    private void goToGris(ActionEvent event) throws IOException {
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLGris.fxml"));
-//        window.getChildren().setAll(pane);
-//    }
-//
-//    private void goToRed(ActionEvent event) throws IOException {
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLRed.fxml"));
-//        window.getChildren().setAll(pane);
-//    }
-
     @FXML
     private void goToProfile(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLRed.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/profile/FXMLprofile.fxml"));
         window.getChildren().setAll(pane);
     }
 
@@ -97,6 +87,16 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void goToChat(MouseEvent event) {
+    }
+
+    @FXML
+    private void closeDrawer(JFXDrawerEvent event) {
+        drawer.setMouseTransparent(true);
+    }
+
+    @FXML
+    private void openDrawer(JFXDrawerEvent event) {
+        drawer.setMouseTransparent(false);
     }
 
     

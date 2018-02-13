@@ -3,18 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.mainUI;
+package paw.profile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLGrisController implements Initializable {
+public class FXMLprofileController implements Initializable {
+
+    @FXML
+    private ImageView avatar;
+    @FXML
+    private Label nom;
+    @FXML
+    private Label prenom;
+    @FXML
+    private Label username;
+    @FXML
+    private Label email;
+    @FXML
+    private Label adresse;
+    @FXML
+    private Label numero;
 
     /**
      * Initializes the controller class.

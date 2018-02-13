@@ -5,6 +5,8 @@
  */
 package Entity;
 
+import java.util.Date;
+
 /**
  *
  * @author AYOUB
@@ -19,6 +21,8 @@ public class Utilisateur {
     private String password;
     private String role;
     private int numero;
+    private String avatar;
+    private Date dateInscription;
 
     public Utilisateur(int id, String nom, String prenom,  String email, String username, String password,String addresse, int numero, String role) {
         this.id = id;
@@ -31,6 +35,22 @@ public class Utilisateur {
         this.role = role;
         this.numero = numero;
     }
+
+    public Utilisateur(int id, String nom, String prenom, String addresse, String email, String username, String password, String role, int numero, String avatar, Date dateInscription) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.addresse = addresse;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.numero = numero;
+        this.avatar = avatar;
+        this.dateInscription = dateInscription;
+    }
+
+   
 
     @Override
     public String toString() {
@@ -118,6 +138,22 @@ public class Utilisateur {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Date getDateInscription() {
+        return dateInscription;
+    }
+
+    public void setDateInscription(Date dateInscription) {
+        this.dateInscription = dateInscription;
     }
     
     

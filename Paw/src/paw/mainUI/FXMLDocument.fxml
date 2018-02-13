@@ -40,6 +40,6 @@
             </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="window" layoutY="50.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" />
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" mouseTransparent="true" prefHeight="650.0" prefWidth="250.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" onDrawerClosed="#closeDrawer" onDrawerOpened="#openDrawer" prefHeight="650.0" prefWidth="250.0" />
    </children>
 </AnchorPane>

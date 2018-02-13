@@ -14,13 +14,12 @@ and open the template in the editor.
 
 .headerbar{
     -fx-background-color : #5b5bd7;
- ;
 }
 
 .buttons:hover{
     -fx-background-color: transparent;
     -fx-background-radius : 0px;
-    -fx-border-color:  #66BB6A;
+    -fx-border-color:  #5b5bd7;
     -fx-border-width: 0px 0px 0px 15px;
     -fx-border-style:solid;
 }
