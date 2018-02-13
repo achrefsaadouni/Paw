@@ -47,6 +47,25 @@ public class FXMLVeterinairesController implements Initializable {
     private Label adr4;
     @FXML
     private Label mail4;
+    @FXML
+    private Label tel1;
+    @FXML
+    private Label tel2;
+    @FXML
+    private Label tel3;
+    @FXML
+    private Label tel4;
+    @FXML
+    private Label reg1;
+
+    @FXML
+    private Label reg2;
+
+    @FXML
+    private Label reg3;
+
+    @FXML
+    private Label reg4;
 
     /**
      * Initializes the controller class.
@@ -56,7 +75,30 @@ public class FXMLVeterinairesController implements Initializable {
         // TODO
         VeterinaireServices service = new VeterinaireServices();
         ArrayList<Veterinaire> list = service.getList();
-        nom1.setText(list.get(0).getNom());
+        
+        nom1.setText(list.get(0).getNom()+" "+list.get(0).getPrenom());
+        mail1.setText(list.get(0).getEmail());
+        tel1.setText(String.valueOf(list.get(0).getNumero()));
+        adr1.setText(list.get(0).getAdresse());
+        reg1.setText(list.get(0).getRegion());
+        
+        nom2.setText(list.get(1).getNom()+" "+list.get(1).getPrenom());
+        mail2.setText(list.get(1).getEmail());
+        tel2.setText(String.valueOf(list.get(1).getNumero()));
+        adr2.setText(list.get(1).getAdresse());
+        reg2.setText(list.get(1).getRegion());
+        
+        nom3.setText(list.get(2).getNom()+" "+list.get(2).getPrenom());
+        mail3.setText(list.get(2).getEmail());
+        tel3.setText(String.valueOf(list.get(2).getNumero()));
+        adr3.setText(list.get(2).getAdresse());
+        reg3.setText(list.get(2).getRegion());
+        
+        nom4.setText(list.get(3).getNom()+" "+list.get(3).getPrenom());
+        mail4.setText(list.get(3).getEmail());
+        tel4.setText(String.valueOf(list.get(3).getNumero()));
+        adr4.setText(list.get(3).getAdresse());
+        reg4.setText(list.get(3).getRegion());
     }    
     
 }
