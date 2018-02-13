@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -48,7 +49,7 @@ public class LoginServices {
             return -1;
         }
     }
-    public Utilisateur Information (int i)
+    public Utilisateur getInformation (int i)
     {
         String req="SELECT * FROM utilisateur where id=?" ;
         try { 
@@ -64,8 +65,10 @@ public class LoginServices {
             String username=rs.getString("username");
             String password=rs.getString("password");
             String role=rs.getString("role");
+            String avatar=rs.getString("avatar");
+            Date dateInscription=rs.getDate("dateInscription");
             int numero=rs.getInt("numero");
-            return new Utilisateur(id, nom, prenom, email, username, password, addresse, numero, role);
+            return new Utilisateur(id,nom,prenom,addresse,email,username, password, role, numero, avatar,dateInscription);
         } 
         catch (SQLException ex) {
             System.out.println(ex.getMessage());

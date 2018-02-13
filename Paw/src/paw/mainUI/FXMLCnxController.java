@@ -59,7 +59,9 @@ public class FXMLCnxController implements Initializable {
             AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
             drawer.setSidePane(menu);
             drawer.setMouseTransparent(true);
+            transition.setRate(-1);
             hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> {
+                transition.setRate(transition.getRate()*-1);
                 transition.play();
                 drawer.toggle();            
             });

@@ -46,9 +46,8 @@ public class FXMLDocumentController implements Initializable {
         if(x!=-1 && x!=0)
         {
             closeStage();
-            Paw.session=service.Information(x);
-            loadMain();
-            
+            Paw.session=service.getInformation(x);
+            loadMain();  
         }
         else{
             
