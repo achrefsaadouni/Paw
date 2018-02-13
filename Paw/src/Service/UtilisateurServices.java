@@ -8,6 +8,7 @@ package Service;
 import Entity.Utilisateur;
 import Utility.DbHandler;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class UtilisateurServices {
     }
     public void insererUtilisateur (Utilisateur p)
     {
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe) VALUES(?,?,?,?,?,?,?,?)" ; 
+        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar) VALUES(?,?,?,?,?,?,?,?,?,now(),?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom()) ; 
@@ -39,9 +40,11 @@ public class UtilisateurServices {
             ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
             ste.setString(6,p.getAddresse()) ; 
             ste.setInt(7,p.getNumero()) ; 
-            ste.setString(8,p.getRole()) ; 
+            ste.setString(8,p.getRole()) ;
+            ste.setString(9,p.getSexe()) ; 
+            ste.setString(10,p.getAvatar()) ;
             
-            ste.executeUpdate() ; 
+              ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
