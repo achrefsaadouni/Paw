@@ -32,7 +32,7 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void goToVeterinaire(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/Veterinaires/FXMLVeterinaires.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
         window.getChildren().setAll(pane);
     }
     
