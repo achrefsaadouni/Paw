@@ -20,6 +20,7 @@ public class Utilisateur {
     private String username;
     private String password;
     private String role;
+    private String sexe;
     private int numero;
     private String avatar;
     private Date dateInscription;
@@ -36,7 +37,7 @@ public class Utilisateur {
         this.numero = numero;
     }
 
-    public Utilisateur(int id, String nom, String prenom, String addresse, String email, String username, String password, String role, int numero, String avatar, Date dateInscription) {
+    public Utilisateur(int id, String nom, String prenom, String addresse, String email, String username, String password, String role, int numero, String avatar, Date dateInscription, String sexe) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -48,6 +49,7 @@ public class Utilisateur {
         this.numero = numero;
         this.avatar = avatar;
         this.dateInscription = dateInscription;
+        this.sexe = sexe;
     }
 
    
@@ -154,6 +156,14 @@ public class Utilisateur {
 
     public void setDateInscription(Date dateInscription) {
         this.dateInscription = dateInscription;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
     }
     
     

@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13 févr. 2018, 20:45:40
+    Author     : AYOUB
+*/
+
+.shadowPanes{
+    -fx-effect : dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);
+    -fx-background-color: white;
+}
+
+.names{
+    -fx-text-fill: #6a7d9a;
+    -fx-font-size:27px;
+    -fx-font-weight:bolds;
+}

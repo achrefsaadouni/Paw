@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -24,10 +25,6 @@ public class FXMLprofileController implements Initializable {
     @FXML
     private Label nom;
     @FXML
-    private Label prenom;
-    @FXML
-    private Label username;
-    @FXML
     private Label email;
     @FXML
     private Label adresse;
@@ -39,7 +36,11 @@ public class FXMLprofileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        nom.setText(session.getNom().toUpperCase()+" "+session.getPrenom());
+        adresse.setText(session.getAddresse());
+        email.setText(session.getEmail());
+        numero.setText(String.valueOf(session.getNumero()));
     }    
     
 }
