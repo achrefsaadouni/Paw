@@ -72,5 +72,19 @@ public class FXMLprofileController implements Initializable {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void goToAnnonce(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCours(MouseEvent event) {
+        try {
+            AnchorPane a = FXMLLoader.load(getClass().getResource("/paw/reclamation/FXMLReclamation.fxml"));
+            pane.getChildren().setAll(a);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
