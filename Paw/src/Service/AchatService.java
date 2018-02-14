@@ -91,7 +91,7 @@ public class AchatService {
              ArrayList<LigneAchat> ligneachats =null;
              Achat a;
              while (results.next()) {
-                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),results.getDate("date_achat"),results.getFloat("prix"),results.getString("etat"));
+                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),results.getTimestamp("date_achat"),results.getFloat("prix"),results.getString("etat"));
                  ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
                  a.setList(ligneachats);
                  achats.add(a);
