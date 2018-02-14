@@ -50,6 +50,20 @@ public class AchatService {
         }
         
     }
+    public int nombreAchat(int id_client)
+    {
+         String sql = "SELECT count(*) as nbr FROM `achat` where id_client=?";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setInt(1, id_client);
+             ResultSet results =  statement.executeQuery();
+             return results.getInt("nbr");
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage nombre");
+         }
+        return 0;
+    }
+    
     
     public void deleteLigneAchat (int id )
     {
