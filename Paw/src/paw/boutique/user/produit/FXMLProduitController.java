@@ -11,11 +11,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXRadioButton;
-import java.io.IOException;
 import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ToggleGroup;
@@ -66,11 +64,6 @@ public class FXMLProduitController {
     @FXML
     private ImageView image_2;
     
-    @FXML
-    private JFXButton up;
-    
-    @FXML
-    private JFXButton down;
     
     @FXML
     private Label etat_detail;
@@ -164,7 +157,7 @@ public class FXMLProduitController {
     private JFXButton detail4;
     
     @FXML
-    private Label info;
+    private StackPane info;
     
     @FXML
     private JFXRadioButton tous;
@@ -196,21 +189,9 @@ public class FXMLProduitController {
     @FXML
     private Pane div_articles;
     @FXML
-    private ImageView acheter_produit;
-    @FXML
     private ImageView acheter_produit1;
     @FXML
-    private ImageView acheter_produit4;
-    @FXML
     private ImageView acheter_produit11;
-    @FXML
-    private ImageView acheter_produit2;
-    @FXML
-    private ImageView acheter_produit13;
-    @FXML
-    private ImageView acheter_produit3;
-    @FXML
-    private ImageView acheter_produit14;
     @FXML
     private Pane filter_type;
     @FXML
@@ -219,8 +200,15 @@ public class FXMLProduitController {
     private ToggleGroup type;
     @FXML
     private JFXButton filter;
-
     @FXML
+    private ImageView acheter_produit114;
+    @FXML
+    private ImageView acheter_produit111;
+    @FXML
+    private ImageView acheter_produit112;
+    @FXML
+    private ImageView acheter_produit113;
+     @FXML
     void initialize() {
         
         produitservice = ProduitService.getProduitService();
@@ -320,7 +308,7 @@ public class FXMLProduitController {
             }            
         } else if (Gâteries.isSelected()) {
             all_articles = produitservice.findAllFiltrer("Gâteries Et Nourritures");
-            if (all_articles.size() == 0) {
+            if (all_articles.isEmpty()) {
                 boutiqueVide();
             } else {
                 setNbPages();
@@ -328,7 +316,7 @@ public class FXMLProduitController {
             }            
         } else if (Jouets.isSelected()) {
             all_articles = produitservice.findAllFiltrer("Jouets");
-            if (all_articles.size() == 0) {
+            if (all_articles.isEmpty()) {
                 boutiqueVide();
             } else {
                 setNbPages();
@@ -467,8 +455,7 @@ public class FXMLProduitController {
         }
     }
     
-    public void boutiqueVide() {
-        info.setText("Aucun Article Dans Le Boutique Avec Ce Type");        
+    public void boutiqueVide() {      
         pagination.setPageCount(1);
         info.setVisible(true);
         div1.setVisible(false);

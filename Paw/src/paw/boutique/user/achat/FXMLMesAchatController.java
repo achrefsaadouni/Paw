@@ -9,6 +9,7 @@ import Entity.Achat;
 import Entity.LigneAchat;
 import Entity.Utilisateur;
 import Service.AchatService;
+import Service.LoginServices;
 import Service.ProduitService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -16,10 +17,8 @@ import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import java.net.URL;
 import javafx.scene.control.TreeTableColumn;
 import java.util.List;
-import java.util.ResourceBundle;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -29,15 +28,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
+import static paw.Paw.session;
 public class FXMLMesAchatController {
     AchatService achatservice;
     Utilisateur user ;
@@ -147,7 +143,7 @@ public class FXMLMesAchatController {
     @FXML
     void initialize() {
         achatservice = AchatService.getAchatService();
-        mes_achat = achatservice.findAll(1);
+        mes_achat = achatservice.findAll(session.getId());
 
         if (mes_achat.isEmpty()) {
             achatVide();

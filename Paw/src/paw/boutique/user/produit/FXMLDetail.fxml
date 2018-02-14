@@ -1,74 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDialogLayout?>
-<?import javafx.geometry.Rectangle2D?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<StackPane fx:id="dialogPane" prefHeight="501.0" prefWidth="629.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.produit.FXMLProduitController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXDialogLayout fx:id="layout" prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="div1" layoutX="14.0" layoutY="14.0" prefHeight="219.0" prefWidth="248.0" style="-fx-border-color: #3498DB; -fx-background-color: white;">
          <children>
-            <AnchorPane prefHeight="405.0" prefWidth="629.0">
-               <children>
-                  <ImageView fx:id="image_id" fitHeight="210.0" fitWidth="214.0" layoutX="295.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
+            <JFXButton fx:id="acheter1" buttonType="RAISED" layoutX="15.0" layoutY="182.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #8ef6e4;" text="Acheter">
+               <graphic>
+                  <ImageView fx:id="acheter_produit" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../Pictures/images.jpg" />
+                        <Image url="@../../../../Ressource/images/cart.png" />
                      </image>
                   </ImageView>
-                  <Pane layoutX="212.0" layoutY="228.0" prefHeight="219.0" prefWidth="404.0" style="-fx-border-color: #0091EA;">
-                     <children>
-                        <Label fx:id="libelle_detail" layoutX="14.0" layoutY="29.0" prefHeight="29.0" prefWidth="225.0" style="-fx-background-color: #1ABC9C; -fx-font-weight: bold;" text="Libelle Article" textFill="#ecf0f1" />
-                        <Label fx:id="prix_detail" layoutX="274.0" layoutY="29.0" prefHeight="29.0" prefWidth="125.0" style="-fx-background-color: #F39C12;" text="150 TND" textFill="#ecf0f1" />
-                        <Text fx:id="description_detail" layoutX="-1.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Text" wrappingWidth="403.9999951720238" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="imageBox" layoutX="14.0" layoutY="28.0" prefHeight="361.0" prefWidth="182.0" style="-fx-border-color: #0091EA;">
-                     <children>
-                        <Pane layoutX="27.0" layoutY="14.0" prefHeight="121.0" prefWidth="125.0" style="-fx-border-color: #004D40;">
-                           <children>
-                              <ImageView fx:id="image_1" fitHeight="104.0" fitWidth="144.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../../Pictures/3ee3fdad7387f4d40cf11af9f720de96.610x397x1.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="27.0" layoutY="190.0" prefHeight="121.0" prefWidth="125.0" style="-fx-border-color: #004D40;">
-                           <children>
-                              <ImageView fx:id="image_2" fitHeight="104.0" fitWidth="144.0" layoutX="20.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../../Pictures/3ee3fdad7387f4d40cf11af9f720de96.610x397x1.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </Pane>
-                  <JFXButton fx:id="acheter" buttonType="RAISED" layoutX="315.0" layoutY="458.0" style="-fx-background-color: #9B59B6;" text="Acheter" textFill="#ecf0f1">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="fermer" buttonType="RAISED" layoutX="414.0" layoutY="458.0" style="-fx-background-color: #3498DB;" text="Fermer" textFill="#ecf0f1">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </JFXButton>
-                  <Label fx:id="etat_detail" layoutX="51.0" layoutY="458.0" prefHeight="29.0" prefWidth="225.0" style="-fx-background-color: #FF3D00; -fx-font-weight: bold;" text="Libelle Article" textFill="#ecf0f1" />
-               </children>
-            </AnchorPane>
+               </graphic>
+            </JFXButton>
          </children>
-      </JFXDialogLayout>
+      </Pane>
+      <AnchorPane layoutX="404.0" layoutY="47.0" prefHeight="244.0" prefWidth="356.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <Separator layoutX="55.0" layoutY="164.0" prefHeight="4.0" prefWidth="244.0" />
+            <JFXButton buttonType="RAISED" layoutX="275.0" layoutY="196.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #3C8DBC;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="detail1" buttonType="RAISED" layoutX="177.0" layoutY="196.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Détails">
+               <graphic>
+                  <ImageView fx:id="acheter_produit1" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Ressource/images/more-options.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Label fx:id="libelle_produit1" layoutX="14.0" layoutY="168.0" prefHeight="32.0" prefWidth="113.0" text="Label">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Ressource/images/libelle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip fx:id="tool1" text="Empty Tooltip" />
+               </tooltip>
+            </Label>
+            <Label fx:id="prix_produit1" layoutX="15.0" layoutY="198.0" prefHeight="30.0" prefWidth="81.0" text="Prix :">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Ressource/images/priceeee.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="323.0" layoutX="22.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="452.0" layoutY="381.0" prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+         <children>
+            <Label layoutX="34.0" layoutY="52.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Daudi Kabaka" />
+            <Label layoutX="34.0" layoutY="82.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="About: webdesigner/UX/" />
+            <Label layoutX="34.0" layoutY="155.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact #">
+               <graphic>
+                  <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+               </graphic>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="Digital Strategist">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="125.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Address">
+               <graphic>
+                  <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+               </graphic>
+            </Label>
+            <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+               <children>
+                  <JFXButton layoutX="372.0" layoutY="9.0" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="View Profile">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Circle fill="#e5e8eb" layoutX="399.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+            <ImageView fx:id="im1" fitHeight="117.0" fitWidth="152.0" layoutX="334.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Ressource/images/Sans%20titre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
-</StackPane>
+</AnchorPane>
