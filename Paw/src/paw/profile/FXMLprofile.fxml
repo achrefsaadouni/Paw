@@ -69,12 +69,12 @@
       </AnchorPane>
       <AnchorPane layoutX="385.0" layoutY="165.0" prefHeight="200.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Participation" />
+            <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes Participations" />
             <HBox layoutX="10.0" layoutY="57.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
                <children>
                   <Pane onMouseClicked="#goToAchat" prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                      <children>
-                        <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00C0EF;" />
+                        <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #337AB7;" />
                         <VBox layoutX="70.0" layoutY="25.0">
                            <children>
                               <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Mes achats" />
@@ -83,7 +83,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                  <Pane onMouseClicked="#goToAnnonce" prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                      <children>
                         <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00A65A;" />
                         <VBox layoutX="70.0" layoutY="25.0">
@@ -94,7 +94,7 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                  <Pane onMouseClicked="#goToCours" prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                      <children>
                         <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #F39C12;" />
                         <VBox layoutX="70.0" layoutY="25.0">
