@@ -58,6 +58,7 @@ public class AchatService {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              statement.setInt(1, id_client);
              ResultSet results =  statement.executeQuery();
+             while(results.next())
             y= results.getInt("nbr");
          } catch (SQLException ex) {
              System.out.println("erreur affichage nombre");

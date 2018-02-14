@@ -50,7 +50,7 @@ public class FXMLprofileController implements Initializable {
         numero.setText(String.valueOf(session.getNumero()));
         date.setText("Inscris depuis : "+String.valueOf((session.getDateInscription())));
         AchatService s = new AchatService();
-        achats.setText(s.nombreAchat());
+        achats.setText(String.valueOf(s.nombreAchat(session.getId())));
     }    
     
 }
