@@ -72,7 +72,7 @@
             <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Participation" />
             <HBox layoutX="10.0" layoutY="57.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
                <children>
-                  <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                  <Pane onMouseClicked="#goToAchat" prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                      <children>
                         <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00C0EF;" />
                         <VBox layoutX="70.0" layoutY="25.0">

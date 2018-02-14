@@ -45,6 +45,8 @@ public class FXMLprofileController implements Initializable {
     private Label annonces;
     @FXML
     private AnchorPane pane;
+    @FXML
+    private Label nom1;
 
     /**
      * Initializes the controller class.
@@ -63,7 +65,6 @@ public class FXMLprofileController implements Initializable {
 
     @FXML
     private void goToAchat(MouseEvent event) {
-        
         try {
             AnchorPane a = FXMLLoader.load(getClass().getResource("/paw/boutique/user/achat/FXMLMesAchat.fxml"));
             pane.getChildren().setAll(a);
