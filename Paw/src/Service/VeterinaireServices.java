@@ -6,12 +6,16 @@
 package Service;
 
 import Entity.Veterinaire;
+import Entity.Vets;
 import Utility.DbHandler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -84,18 +88,17 @@ public class VeterinaireServices {
         return list;
     }
     
-    public ArrayList<Veterinaire> getList(){
+//    HashMap<Veterinaire,Float>
+//    
+    public ArrayList<Vets> getList(){
         String req="SELECT * FROM Veterinaire" ;
-        ArrayList<Veterinaire> list = new ArrayList();
+        ArrayList list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ResultSet rs = ste.executeQuery(); 
-            System.out.println("    Hani hne mriguel");
             while (rs.next())
             {
-                System.out.println("    fel lawel");
-                
                 int id = rs.getInt("id");
                 String nom = rs.getString("nom");
                 String prenom = rs.getString("prenom");
@@ -103,16 +106,19 @@ public class VeterinaireServices {
                 String region = rs.getString("region");
                 int numero = rs.getInt("numero");
                 String email = rs.getString("email");
-                
-                
-                System.out.println("    Hani hne mriguel");
+
                 list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
             }
 
         } catch (SQLException ex) {
             System.out.println("Problème importation liste Veterinaire");
         }
-        return list;
+        ArrayList<Vets> listeRates = new ArrayList();
+        for (Iterator<Veterinaire> iterator = list.iterator(); iterator.hasNext();) {
+            Veterinaire x=iterator.next();
+            listeRates.add(new Vets(x,getVote(x.getId())));
+        }
+        return listeRates;
     }
      
     public void updateVeterinaire (Veterinaire p, int id )
@@ -152,4 +158,23 @@ public class VeterinaireServices {
         }
     
       }
+
+    private Float getVote(int id) {
+        String req="SELECT avg(valeur) FROM rating where id_veterinaire=?" ;
+        Float y= 0f;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ; 
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+               y=rs.getFloat(1);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Problème importation liste Veterinaire");
+        }
+        return y ;
+    }
 }
