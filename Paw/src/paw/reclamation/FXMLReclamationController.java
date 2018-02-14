@@ -183,7 +183,7 @@ public class FXMLReclamationController implements Initializable {
             }
             titre2.setText(TroisReclamations.get(1).getObjet());
             text2.setText(TroisReclamations.get(1).getText());
-            date2.setText(String.valueOf(TroisReclamations.get(1).getDate()));
+            date2.setText(String.valueOf(TroisReclamations.get(1).getDate()).substring(0, 16));
         } 
         else{
             box2.setVisible(false);
@@ -202,7 +202,7 @@ public class FXMLReclamationController implements Initializable {
             }
             titre3.setText(TroisReclamations.get(2).getObjet());
             text3.setText(TroisReclamations.get(2).getText());
-            date3.setText(String.valueOf(TroisReclamations.get(2).getDate()));
+            date3.setText(String.valueOf(TroisReclamations.get(2).getDate()).substring(0, 16));
         } 
         else{
             box3.setVisible(false); 

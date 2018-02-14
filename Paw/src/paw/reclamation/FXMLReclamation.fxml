@@ -22,21 +22,21 @@
                <children>
                   <Label fx:id="titre1" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text1" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
-                  <Label fx:id="date1" layoutX="500.0" layoutY="4.0" prefHeight="30.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date1" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="box2" layoutX="15.0" layoutY="134.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
                <children>
                   <Label fx:id="titre2" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text2" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
-                  <Label fx:id="date2" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date2" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="box3" layoutX="15.0" layoutY="216.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
                <children>
                   <Label fx:id="titre3" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text3" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable AZEEEEEEEEA A A A AAZEAZEZAEZAE ZAEAZEAZEZA AZEAZEZAE AZEAZE" wrapText="true" />
-                  <Label fx:id="date3" layoutX="520.0" layoutY="4.0" prefHeight="30.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date3" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
          </children>
