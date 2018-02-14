@@ -5,6 +5,7 @@
  */
 package paw.profile;
 
+import Service.AchatService;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -30,6 +31,12 @@ public class FXMLprofileController implements Initializable {
     private Label adresse;
     @FXML
     private Label numero;
+    @FXML
+    private Label date;
+    @FXML
+    private Label achats;
+    @FXML
+    private Label annonces;
 
     /**
      * Initializes the controller class.
@@ -41,6 +48,9 @@ public class FXMLprofileController implements Initializable {
         adresse.setText(session.getAddresse());
         email.setText(session.getEmail());
         numero.setText(String.valueOf(session.getNumero()));
+        date.setText("Inscris depuis : "+String.valueOf((session.getDateInscription())));
+        AchatService s = new AchatService();
+        achats.setText(s.nombreAchat());
     }    
     
 }
