@@ -6,12 +6,18 @@
 package paw.profile;
 
 import Service.AchatService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import static paw.Paw.session;
 
 /**
@@ -37,6 +43,8 @@ public class FXMLprofileController implements Initializable {
     private Label achats;
     @FXML
     private Label annonces;
+    @FXML
+    private AnchorPane pane;
 
     /**
      * Initializes the controller class.
@@ -52,5 +60,16 @@ public class FXMLprofileController implements Initializable {
         AchatService s = new AchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
     }    
+
+    @FXML
+    private void goToAchat(MouseEvent event) {
+        
+        try {
+            AnchorPane a = FXMLLoader.load(getClass().getResource("/paw/boutique/user/achat/FXMLMesAchat.fxml"));
+            pane.getChildren().setAll(a);
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

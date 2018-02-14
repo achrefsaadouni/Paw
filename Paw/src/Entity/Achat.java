@@ -6,6 +6,7 @@
 package Entity;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Achat extends RecursiveTreeObject<Achat>{
     private int id_achat;
     private int id_client;
     private List<LigneAchat> list;
-    private Date date_achat;
+    private Timestamp date_achat;
     private float prix;
     private String etat;
 
@@ -30,7 +31,7 @@ public class Achat extends RecursiveTreeObject<Achat>{
         this.list = list;
     }
 
-    public Achat(int id_achat, int id_client, Date date_achat, float prix, String etat) {
+    public Achat(int id_achat, int id_client, Timestamp date_achat, float prix, String etat) {
         this.id_achat = id_achat;
         this.id_client = id_client;
         this.date_achat = date_achat;
@@ -46,7 +47,7 @@ public class Achat extends RecursiveTreeObject<Achat>{
         this.prix = prix;
     }
 
-    public Achat(int id_achat, int id_client, List<LigneAchat> list, Date date_achat, float prix,String etat) {
+    public Achat(int id_achat, int id_client, List<LigneAchat> list, Timestamp date_achat, float prix,String etat) {
         this.id_achat = id_achat;
         this.id_client = id_client;
         this.list = list;
@@ -84,11 +85,11 @@ public class Achat extends RecursiveTreeObject<Achat>{
         return date_achat;
     }
 
-    public void setDate_achat(Date date_achat) {
+    public void setDate_achat(Timestamp date_achat) {
         this.date_achat = date_achat;
     }
 
-    public Achat(int id_client, Date date_achat) {
+    public Achat(int id_client, Timestamp date_achat) {
         this.id_client = id_client;
         this.date_achat = date_achat;
     }

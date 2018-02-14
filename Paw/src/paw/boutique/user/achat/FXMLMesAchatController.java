@@ -48,8 +48,6 @@ public class FXMLMesAchatController {
     @FXML
     private StackPane stackPane;
 
-    @FXML
-    private StackPane stackpane;
 
     @FXML
     private JFXDialogLayout layout;
@@ -71,22 +69,8 @@ public class FXMLMesAchatController {
     
     
     @FXML
-    private ResourceBundle resources;
+    private VBox box1;
 
-    @FXML
-    private URL location;
-    
-    @FXML
-    private AnchorPane anchorPane;
-
-    @FXML
-    private ScrollPane MesArticles;
-
-    @FXML
-    private HBox box1;
-
-    @FXML
-    private VBox boxArticle1;
 
     @FXML
     private Label etatBox1;
@@ -103,12 +87,16 @@ public class FXMLMesAchatController {
 
     @FXML
     private JFXButton payer1;
-
+    @FXML
+    private Label nbrArticlebox1;
+    @FXML
+    private Label nbrArticlebox2;
+    @FXML
+    private Label nbrArticlebox3;
     @FXML
     private JFXButton consulter1;
-
     @FXML
-    private HBox box2;
+    private VBox box2;
 
     @FXML
     private Label etatBox2;
@@ -127,9 +115,8 @@ public class FXMLMesAchatController {
 
     @FXML
     private JFXButton consulter2;
-
     @FXML
-    private HBox box3;
+    private VBox box3;
 
     @FXML
     private Label etatBox3;
@@ -156,6 +143,7 @@ public class FXMLMesAchatController {
     private StackPane stackPaneconsulter;
    @FXML
     private JFXButton fermer;
+   
     @FXML
     void initialize() {
         achatservice = AchatService.getAchatService();
@@ -214,10 +202,11 @@ public class FXMLMesAchatController {
             consulter1.setOnAction((event) -> {
                 consulter(article_page.get(0).getList());
             });
-        
+            
+            nbrArticlebox1.setText("NOMBRE ARTICLE : "+String.valueOf(article_page.get(0).getList().size()));
             etatBox1.setText(article_page.get(0).getEtat());
             dateBox1.setText(article_page.get(0).getDate_achat().toString());
-            prixBox1.setText(String.valueOf(article_page.get(0).getPrix()) + " DT");
+            prixBox1.setText("PRIX TOTAL : "+String.valueOf(article_page.get(0).getPrix()) + " DT");
             
         } else {
             
@@ -242,7 +231,8 @@ public class FXMLMesAchatController {
         
             etatBox2.setText(article_page.get(1).getEtat());
             dateBox2.setText(article_page.get(1).getDate_achat().toString());
-            prixBox2.setText(String.valueOf(article_page.get(1).getPrix()) + " DT");
+            prixBox2.setText("PRIX TOTAL : "+String.valueOf(article_page.get(1).getPrix()) + " DT");
+            nbrArticlebox2.setText("NOMBRE ARTICLE : "+String.valueOf(article_page.get(1).getList().size()));
             
         } else {
             
@@ -267,7 +257,8 @@ public class FXMLMesAchatController {
         
             etatBox3.setText(article_page.get(2).getEtat());
             dateBox3.setText(article_page.get(2).getDate_achat().toString());
-            prixBox3.setText(String.valueOf(article_page.get(2).getPrix()) + " DT");
+            prixBox3.setText("PRIX TOTAL : "+String.valueOf(article_page.get(2).getPrix()) + " DT");
+            nbrArticlebox3.setText("NOMBRE ARTICLE : "+String.valueOf(article_page.get(2).getList().size()));
             
         } else {
             
