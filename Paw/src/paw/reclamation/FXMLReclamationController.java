@@ -3,31 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.mainUI;
+package paw.reclamation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLMenuController implements Initializable {
+public class FXMLReclamationController implements Initializable {
 
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void goToVeterinaire(ActionEvent event) {
-    }
-
     
 }
