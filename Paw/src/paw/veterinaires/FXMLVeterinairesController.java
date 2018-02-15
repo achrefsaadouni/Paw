@@ -1,32 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paw.veterinaires;
 
-//import Entity.Veterinaire;
 import Entity.Vets;
 import Service.VeterinaireServices;
-import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-//import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Rating;
 
-/**
- * FXML Controller class
- *
- * @author gmehd
- */
+
 public class FXMLVeterinairesController implements Initializable {
 
     @FXML
@@ -88,72 +78,162 @@ public class FXMLVeterinairesController implements Initializable {
     private Label note3;
     @FXML
     private Label note4;
+    @FXML
+    private AnchorPane box1;
+    @FXML
+    private AnchorPane box2;
+    @FXML
+    private AnchorPane box3;
+    @FXML
+    private AnchorPane box4;
+    @FXML
+    private Pagination paginator;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<Vets> list;
+    @FXML
+    private StackPane vide;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
         VeterinaireServices service = new VeterinaireServices();
-        ArrayList<Vets> list = service.getList();
+
+        list = service.getList();
+        System.out.println(list);
+        if (list.isEmpty()) {
+            box1.setVisible(false);
+            box2.setVisible(false);
+            box3.setVisible(false);
+            box4.setVisible(false);
+            vide.setVisible(true);
+        } else {
+            setNbPages();
+            initVeterinairePage(0);
+            vide.setVisible(false);
+        }
+
+
+    }
+
+    private void setNbPages() {
+        if (list.size() % 4 != 0) {
+            paginator.setPageCount((list.size() / 4) + 1);
+        } else {
+            paginator.setPageCount(list.size() / 4);
+        }
+
+        paginator.currentPageIndexProperty().addListener((obs, oldIndex, newIndex) -> {
+            initVeterinairePage(newIndex.intValue());
+        });
+    }
+
+    public List<Vets> getVeterinairesPage(int index) {
+
+        int start = 4 * index;
+        int fin = start + 4;
+        if (list.size() > start) {
+            if (list.size() > fin) {
+                return list.subList(start, fin);
+            } else {
+                return list.subList(start, list.size());
+            }
+        }
+        return list.subList(0, 3);
+    }
+
+    private void initVeterinairePage(int index) {
         DecimalFormat df = new DecimalFormat("#.#");
+        paginator.setCurrentPageIndex(index);
+        List<Vets> QuatreVeterinaires = getVeterinairesPage(index);
+        if (QuatreVeterinaires.size() >= 1) {
+            box1.setVisible(true);
 
-        nom1.setText(list.get(0).getNom() + " " + list.get(0).getPrenom());
-        mail1.setText(list.get(0).getEmail());
-        tel1.setText(String.valueOf(list.get(0).getNumero()));
-        adr1.setText(list.get(0).getAdresse());
-        reg1.setText(list.get(0).getRegion());
-        rate1.setRating(list.get(0).getRate());
-        if ((list.get(0).getRate() != 0) && (list.get(0).getRate() != 1) && (list.get(0).getRate() != 2) && (list.get(0).getRate() != 3) && (list.get(0).getRate() != 4) && (list.get(0).getRate() != 5)) {
-            note1.setText(String.valueOf(df.format(list.get(0).getRate())) + "/5");
+            nom1.setText(QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
+            mail1.setText(QuatreVeterinaires.get(0).getEmail());
+            tel1.setText(String.valueOf(QuatreVeterinaires.get(0).getNumero()));
+            adr1.setText(QuatreVeterinaires.get(0).getAdresse());
+            reg1.setText(QuatreVeterinaires.get(0).getRegion());
+            rate1.setRating(QuatreVeterinaires.get(0).getRate());
+            if ((QuatreVeterinaires.get(0).getRate() != 0) && (QuatreVeterinaires.get(0).getRate() != 1) && (QuatreVeterinaires.get(0).getRate() != 2) && (QuatreVeterinaires.get(0).getRate() != 3) && (QuatreVeterinaires.get(0).getRate() != 4) && (QuatreVeterinaires.get(0).getRate() != 5)) {
+                note1.setText(String.valueOf(df.format(QuatreVeterinaires.get(0).getRate())) + "/5");
+            } else {
+                note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
+            }
+
         } else {
-            note1.setText(String.valueOf((list.get(0).getRate()).intValue()) + "/5");
+            box1.setVisible(false);
         }
 
-        nom2.setText(list.get(1).getNom() + " " + list.get(1).getPrenom());
-        mail2.setText(list.get(1).getEmail());
-        tel2.setText(String.valueOf(list.get(1).getNumero()));
-        adr2.setText(list.get(1).getAdresse());
-        reg2.setText(list.get(1).getRegion());
-        rate2.setRating(list.get(1).getRate());
-        if ((list.get(1).getRate() != 0) && (list.get(1).getRate() != 1) && (list.get(1).getRate() != 2) && (list.get(1).getRate() != 3) && (list.get(1).getRate() != 4) && (list.get(1).getRate() != 5)) {
-            note2.setText(String.valueOf(df.format(list.get(1).getRate())) + "/5");
+        ///////////////////////////////////////////////////////
+        if (QuatreVeterinaires.size() >= 2) {
+            box2.setVisible(true);
+
+            nom2.setText(QuatreVeterinaires.get(1).getNom() + " " + QuatreVeterinaires.get(1).getPrenom());
+            mail2.setText(QuatreVeterinaires.get(1).getEmail());
+            tel2.setText(String.valueOf(QuatreVeterinaires.get(1).getNumero()));
+            adr2.setText(QuatreVeterinaires.get(1).getAdresse());
+            reg2.setText(QuatreVeterinaires.get(1).getRegion());
+            rate2.setRating(QuatreVeterinaires.get(1).getRate());
+            if ((QuatreVeterinaires.get(1).getRate() != 0) && (QuatreVeterinaires.get(1).getRate() != 1) && (QuatreVeterinaires.get(1).getRate() != 2) && (QuatreVeterinaires.get(1).getRate() != 3) && (QuatreVeterinaires.get(1).getRate() != 4) && (QuatreVeterinaires.get(1).getRate() != 5)) {
+                note2.setText(String.valueOf(df.format(QuatreVeterinaires.get(1).getRate())) + "/5");
+            } else {
+                note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
+            }
+
         } else {
-            note2.setText(String.valueOf((list.get(1).getRate()).intValue()) + "/5");
+            box2.setVisible(false);
+        }
+        ///////////////////////////////////////////////////////////
+
+        if (QuatreVeterinaires.size() >= 3) {
+            box3.setVisible(true);
+
+            nom3.setText(QuatreVeterinaires.get(2).getNom() + " " + QuatreVeterinaires.get(2).getPrenom());
+            mail3.setText(QuatreVeterinaires.get(2).getEmail());
+            tel3.setText(String.valueOf(QuatreVeterinaires.get(2).getNumero()));
+            adr3.setText(QuatreVeterinaires.get(2).getAdresse());
+            reg3.setText(QuatreVeterinaires.get(2).getRegion());
+            rate3.setRating(QuatreVeterinaires.get(2).getRate());
+            if ((QuatreVeterinaires.get(2).getRate() != 0) && (QuatreVeterinaires.get(2).getRate() != 1) && (QuatreVeterinaires.get(2).getRate() != 2) && (QuatreVeterinaires.get(2).getRate() != 3) && (QuatreVeterinaires.get(2).getRate() != 4) && (QuatreVeterinaires.get(2).getRate() != 5)) {
+                note3.setText(String.valueOf(df.format(QuatreVeterinaires.get(2).getRate())) + "/5");
+            } else {
+                note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
+            }
+
+        } else {
+            box3.setVisible(false);
         }
 
-        nom3.setText(list.get(2).getNom() + " " + list.get(2).getPrenom());
-        mail3.setText(list.get(2).getEmail());
-        tel3.setText(String.valueOf(list.get(2).getNumero()));
-        adr3.setText(list.get(2).getAdresse());
-        reg3.setText(list.get(2).getRegion());
-        rate3.setRating(list.get(2).getRate());
-        if ((list.get(2).getRate() != 0) && (list.get(2).getRate() != 1) && (list.get(2).getRate() != 2) && (list.get(2).getRate() != 3) && (list.get(2).getRate() != 4) && (list.get(2).getRate() != 5)) {
-            note3.setText(String.valueOf(df.format(list.get(2).getRate())) + "/5");
+        ///////////////////////////////////////////////////////////
+        if (QuatreVeterinaires.size() >= 4) {
+            box4.setVisible(true);
+
+            nom4.setText(QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
+            mail4.setText(QuatreVeterinaires.get(3).getEmail());
+            tel4.setText(String.valueOf(QuatreVeterinaires.get(3).getNumero()));
+            adr4.setText(QuatreVeterinaires.get(3).getAdresse());
+            reg4.setText(QuatreVeterinaires.get(3).getRegion());
+            rate4.setRating(QuatreVeterinaires.get(3).getRate());
+            if ((QuatreVeterinaires.get(3).getRate() != 0) && (QuatreVeterinaires.get(3).getRate() != 1) && (QuatreVeterinaires.get(3).getRate() != 2) && (QuatreVeterinaires.get(3).getRate() != 3) && (QuatreVeterinaires.get(3).getRate() != 4) && (QuatreVeterinaires.get(3).getRate() != 5)) {
+                note4.setText(String.valueOf(df.format(QuatreVeterinaires.get(3).getRate())) + "/5");
+            } else {
+                note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
+            }
+
         } else {
-            note3.setText(String.valueOf((list.get(2).getRate()).intValue()) + "/5");
+            box4.setVisible(false);
         }
 
-        nom4.setText(list.get(3).getNom() + " " + list.get(3).getPrenom());
-        mail4.setText(list.get(3).getEmail());
-        tel4.setText(String.valueOf(list.get(3).getNumero()));
-        adr4.setText(list.get(3).getAdresse());
-        reg4.setText(list.get(3).getRegion());
-        rate4.setRating(list.get(3).getRate());
-        if ((list.get(3).getRate() != 0) && (list.get(3).getRate() != 1) && (list.get(3).getRate() != 2) && (list.get(3).getRate() != 3) && (list.get(3).getRate() != 4) && (list.get(3).getRate() != 5)) {
-            note4.setText(String.valueOf(df.format(list.get(3).getRate())) + "/5");
-        } else {
-            note4.setText(String.valueOf((list.get(3).getRate()).intValue()) + "/5");
-        }
     }
 
     @FXML
     private void actionProfil(ActionEvent event) {
+        
     }
 
     @FXML
     private void actionRate(ActionEvent event) {
+        
     }
 
 }

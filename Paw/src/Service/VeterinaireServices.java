@@ -13,12 +13,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -79,8 +76,7 @@ public class VeterinaireServices {
         return list;
     }
 
-//    HashMap<Veterinaire,Float>
-//    
+
     public ArrayList<Vets> getList() {
         String req = "SELECT * FROM Veterinaire";
         ArrayList list = new ArrayList();
