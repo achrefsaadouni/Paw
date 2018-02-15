@@ -52,6 +52,15 @@ public class Utilisateur {
         this.sexe = sexe;
     }
 
+    public Utilisateur(int id_u, String nom_u, String prenom_u, int numero_u, String email_u, String adresse_u) {
+        this.id = id_u;
+        this.nom = nom_u;
+        this.prenom = prenom_u;
+        this.addresse = adresse_u;
+        this.email = email_u;
+        this.numero = numero_u;
+    }
+
    
 
     @Override

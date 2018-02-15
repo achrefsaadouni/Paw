@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceperdu.mesAnnonce;
+package paw.annonceperdu.user;
 
 import Entity.AnnoncePerdu;
 import Entity.Utilisateur;
@@ -111,6 +111,7 @@ public class FXMLMesAnnonceController implements Initializable {
         //ArrayList<AnnoncePerdu> list= service.getList();
        // ArrayList<Utilisateur> list1= service.getNomPrenom();        
         list = service.getList();
+        
         if (list.isEmpty()) {
             box1.setVisible(false);
             box2.setVisible(false);
@@ -185,14 +186,16 @@ public class FXMLMesAnnonceController implements Initializable {
         
         paginator.setCurrentPageIndex(index);
         List<AnnoncePerdu> QuatreAnnoncePerdus = getAnnoncePerdusPage(index);
+        AnnoncePerduServices service = new AnnoncePerduServices();
+        list1= service.getUtilisateurs(QuatreAnnoncePerdus.get(0).getId_utilisateur());
         if (QuatreAnnoncePerdus.size() >= 1) {
             box1.setVisible(true);
 
-           //nom1.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
-       // mail1.setText(list1.get(0).getEmail());
-       // tel1.setText(String.valueOf(list1.get(0).getNumero()));
+        nom1.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
+       mail1.setText(list1.get(0).getEmail());
+       tel1.setText(String.valueOf(list1.get(0).getNumero()));
         adr1.setText(QuatreAnnoncePerdus.get(0).getLieu_perdu());
-       datedepo.setText(String.valueOf(QuatreAnnoncePerdus.get(0).getDate_perte()));
+       datedepo.setText(String.valueOf(QuatreAnnoncePerdus.get(0).getDate_perte()).substring(0, 10));
      type1.setText(QuatreAnnoncePerdus.get(0).getType());
 
         } else {
@@ -201,13 +204,14 @@ public class FXMLMesAnnonceController implements Initializable {
 
         ///////////////////////////////////////////////////////
         if (QuatreAnnoncePerdus.size() >= 2) {
+            list1= service.getUtilisateurs(QuatreAnnoncePerdus.get(1).getId_utilisateur());
             box2.setVisible(true);
-            
-           // nom2.setText(list1.get(1).getNom()+" "+list1.get(1).getPrenom());
-       // mail2.setText(list1.get(1).getEmail());
-       // tel2.setText(String.valueOf(list1.get(1).getNumero()));
+            System.out.println(list1.size());
+            nom2.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
+        mail2.setText(list1.get(0).getEmail());
+        tel2.setText(String.valueOf(list1.get(0).getNumero()));
         adr2.setText(QuatreAnnoncePerdus.get(1).getLieu_perdu());
-           datedepo2.setText(String.valueOf(QuatreAnnoncePerdus.get(1).getDate_perte()));
+           datedepo2.setText(String.valueOf(QuatreAnnoncePerdus.get(1).getDate_perte()).substring(0, 10));
      type2.setText(QuatreAnnoncePerdus.get(1).getType());
             
 
@@ -217,13 +221,14 @@ public class FXMLMesAnnonceController implements Initializable {
         ///////////////////////////////////////////////////////////
 
         if (QuatreAnnoncePerdus.size() >= 3) {
+            list1= service.getUtilisateurs(QuatreAnnoncePerdus.get(2).getId_utilisateur());
             box3.setVisible(true);
 
-           // nom3.setText(list1.get(2).getNom()+" "+list1.get(2).getPrenom());
-       //mail3.setText(list1.get(2).getEmail());
-        //tel3.setText(String.valueOf(list1.get(2).getNumero()));
+            nom3.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
+       mail3.setText(list1.get(0).getEmail());
+        tel3.setText(String.valueOf(list1.get(0).getNumero()));
        adr3.setText(QuatreAnnoncePerdus.get(2).getLieu_perdu());
-          datedepo3.setText(String.valueOf(QuatreAnnoncePerdus.get(2).getDate_perte()));
+          datedepo3.setText(String.valueOf(QuatreAnnoncePerdus.get(2).getDate_perte()).substring(0, 10));
      type3.setText(QuatreAnnoncePerdus.get(2).getType());
 
         } else {
@@ -232,13 +237,14 @@ public class FXMLMesAnnonceController implements Initializable {
 
         ///////////////////////////////////////////////////////////
         if (QuatreAnnoncePerdus.size() >= 4) {
+            list1= service.getUtilisateurs(QuatreAnnoncePerdus.get(3).getId_utilisateur());
             box4.setVisible(true);
 
-           // nom4.setText(list1.get(3).getNom()+" "+list1.get(3).getPrenom());
-       //mail4.setText(list1.get(3).getEmail());
-        //tel4.setText(String.valueOf(list1.get(3).getNumero()));
+            nom4.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
+       mail4.setText(list1.get(0).getEmail());
+        tel4.setText(String.valueOf(list1.get(0).getNumero()));
        adr4.setText(QuatreAnnoncePerdus.get(3).getLieu_perdu());
-       datedepo4.setText(String.valueOf(QuatreAnnoncePerdus.get(3).getDate_perte()));
+       datedepo4.setText(String.valueOf(QuatreAnnoncePerdus.get(3).getDate_perte()).substring(0, 10));
      type4.setText(QuatreAnnoncePerdus.get(3).getType());
 
         } else {
