@@ -79,10 +79,9 @@ public class FXMLCnxController implements Initializable {
                         switch(node.getAccessibleText()){
                             case "AnnoncePerdus" : {
                                 try {
-                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/annonceperdu/user/FXMLListeAnnoncesPerdus.fxml"));
-                                    window.getChildren().setAll(pane);
+                                    loadSplashScreen("/paw/annonceperdu/user/FXMLListeAnnoncesPerdus.fxml");
                                     break;
-                                } catch (IOException ex) {
+                                } catch (Exception ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
