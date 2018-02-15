@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +26,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import static paw.Paw.session;
 
 /**
@@ -76,31 +79,41 @@ public class FXMLCnxController implements Initializable {
                         switch(node.getAccessibleText()){
                             case "veterinaire" : {
                                 try {
-                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
-                                    window.getChildren().setAll(pane);
+                                   // AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
+                                   // window.getChildren().setAll(pane);
+                                   loadSplashScreen("/paw/veterinaires/FXMLVeterinaires.fxml");
                                     break;
-                                } catch (IOException ex) {
+                                } catch (Exception ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
                             case "boutique": {
                                 try {
-                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/user/produit/FXMLProduit.fxml"));
-                                    window.getChildren().setAll(pane);
+                                    loadSplashScreen("/paw/boutique/user/produit/FXMLProduit.fxml");
                                     break;
-                                } catch (IOException ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                } catch (Exception ex) {
+                                    System.out.println(ex);
                                 }
                             }
                              case "gerer_produit": {
                                 try {
-                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/admin/produit/FXMLAjouter.fxml"));
-                                    window.getChildren().setAll(pane);
+                          
+                                    loadSplashScreen("/paw/boutique/admin/produit/FXMLAjouter.fxml");
                                     break;
-                                } catch (IOException ex) {
+                                } catch (Exception ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
+                             
+                             case "gerer_achat": {
+                                try {
+                                    loadSplashScreen("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                    break;
+                                } catch (Exception ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                             
                         }
                     });
                 }
@@ -124,8 +137,7 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void goToProfile(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/profile/FXMLprofile.fxml"));
-        window.getChildren().setAll(pane);
+        loadSplashScreen("/paw/profile/FXMLprofile.fxml");
     }
 
     @FXML
@@ -149,7 +161,44 @@ public class FXMLCnxController implements Initializable {
     private void openDrawer(JFXDrawerEvent event) {
     drawer.setMouseTransparent(false);
     }
+    
+    private void loadSplashScreen(String location)
+    {
+         try {
+            StackPane pane = FXMLLoader.load(getClass().getResource(("/paw/FXMLSplash.fxml")));
+            window.getChildren().setAll(pane);
 
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), pane);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            fadeIn.setCycleCount(1);
+
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), pane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+
+            fadeIn.play();
+
+            fadeIn.setOnFinished((e) -> {
+                fadeOut.play();
+            });
+
+            fadeOut.setOnFinished((e) -> {
+                try {
+                    AnchorPane parentContent = FXMLLoader.load(getClass().getResource((location)));
+                    window.getChildren().setAll(parentContent);
+
+                } catch (IOException ex) {
+                    System.out.println(ex);
+                }
+            });
+
+        } catch (IOException ex) {
+             System.out.println(ex);
+        }
+        
+    }
     
     
 }

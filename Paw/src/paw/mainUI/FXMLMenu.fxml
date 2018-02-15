@@ -49,5 +49,17 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXButton accessibleText="gerer_achat" layoutX="14.0" layoutY="567.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="GERER Achat" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/ic_autorenew_black_48dp.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
