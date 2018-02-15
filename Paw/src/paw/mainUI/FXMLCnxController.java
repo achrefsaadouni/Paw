@@ -66,6 +66,7 @@ public class FXMLCnxController implements Initializable {
                                 try {
                                     AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
                                     window.getChildren().setAll(pane);
+                                    break;
                                 } catch (IOException ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
@@ -74,6 +75,7 @@ public class FXMLCnxController implements Initializable {
                                 try {
                                     AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/user/produit/FXMLProduit.fxml"));
                                     window.getChildren().setAll(pane);
+                                    break;
                                 } catch (IOException ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
