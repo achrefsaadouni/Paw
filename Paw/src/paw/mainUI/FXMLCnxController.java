@@ -6,6 +6,7 @@
 package paw.mainUI;
 
 import Entity.Utilisateur;
+import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.events.JFXDrawerEvent;
@@ -15,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -53,11 +55,21 @@ public class FXMLCnxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
+
+        
             username.setText(session.getUsername());
             email.setText(session.getEmail());
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-            AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));         
+         try {   
+            AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));       
+            window.setOnMouseClicked(e -> {
+                if (drawer.isHidden() || drawer.isHiding()) {} 
+                else {
+                    transition.setRate(transition.getRate()*-1);
+                    transition.play();
+                    drawer.toggle(); 
+                }
+            });
             for(Node node : menu.getChildren()){
                 if (node.getAccessibleText()!=null){
                     node.addEventHandler(MouseEvent.MOUSE_CLICKED,e ->{
@@ -104,6 +116,7 @@ public class FXMLCnxController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }    
     public void initialisation(Utilisateur x) {
         session=x;  
@@ -134,8 +147,9 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void openDrawer(JFXDrawerEvent event) {
-        drawer.setMouseTransparent(false);
+    drawer.setMouseTransparent(false);
     }
+
     
     
 }
