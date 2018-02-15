@@ -2,6 +2,7 @@ package paw.veterinaires;
 
 import Entity.Vets;
 import Service.VeterinaireServices;
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -15,7 +16,6 @@ import javafx.scene.control.Pagination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Rating;
-
 
 public class FXMLVeterinairesController implements Initializable {
 
@@ -92,6 +92,16 @@ public class FXMLVeterinairesController implements Initializable {
     ArrayList<Vets> list;
     @FXML
     private StackPane vide;
+    @FXML
+    private StackPane evaluer;
+    @FXML
+    private AnchorPane evaldoc;
+    @FXML
+    private Rating evaluation;
+    @FXML
+    private Label docteur;
+    @FXML
+    private JFXButton eval1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,13 +115,15 @@ public class FXMLVeterinairesController implements Initializable {
             box2.setVisible(false);
             box3.setVisible(false);
             box4.setVisible(false);
+            paginator.setVisible(false);
             vide.setVisible(true);
         } else {
+            paginator.setVisible(true);
             setNbPages();
             initVeterinairePage(0);
             vide.setVisible(false);
-        }
 
+        }
 
     }
 
@@ -228,12 +240,14 @@ public class FXMLVeterinairesController implements Initializable {
 
     @FXML
     private void actionProfil(ActionEvent event) {
-        
+
     }
 
     @FXML
     private void actionRate(ActionEvent event) {
-        
+
+        evaluer.setVisible(true);
+
     }
 
 }
