@@ -65,6 +65,14 @@ public class FXMLCnxController implements Initializable {
             HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
          try {   
             AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));       
+            menu.setOnMouseClicked(e -> {
+                if (drawer.isHidden() || drawer.isHiding()) {} 
+                else {
+                    transition.setRate(transition.getRate()*-1);
+                    transition.play();
+                    drawer.toggle(); 
+                }
+            });    
             window.setOnMouseClicked(e -> {
                 if (drawer.isHidden() || drawer.isHiding()) {} 
                 else {

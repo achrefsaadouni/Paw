@@ -99,9 +99,6 @@ public class FXMLReclamationController implements Initializable {
             t="Remerciment";
         }
         service.insererReclamation(new Reclamation(session.getId(), titre.getText(), msg.getText(), t));
-                                    //////////////////////////////////
-                                    ///affichage d'une notification///
-                                    //////////////////////////////////
         Notifications.create()
               .title("Reclamation envoyée")
               .text("Merci pour votre collaboration !")
@@ -156,16 +153,7 @@ public class FXMLReclamationController implements Initializable {
             titre1.setText(TroisReclamations.get(0).getObjet());
             text1.setText(TroisReclamations.get(0).getText());
             date1.setText(String.valueOf(TroisReclamations.get(0).getDate()).substring(0, 16));
-            //heure1.setText(String.valueOf(TroisReclamations.get(0).getDate()).substring(12, 16));
-//            consulter1.setOnAction((event) -> {
-//                consulter(TroisReclamations.get(0).getList());
-//            });
-//            
-//            nbrArticlebox1.setText("NOMBRE ARTICLE : "+String.valueOf(TroisReclamations.get(0).getList().size()));
-//            etatBox1.setText(TroisReclamations.get(0).getEtat());
-//            dateBox1.setText(TroisReclamations.get(0).getDate_achat().toString());
-//            prixBox1.setText("PRIX TOTAL : "+String.valueOf(TroisReclamations.get(0).getPrix()) + " DT");
-            
+
         } 
         else { 
             box1.setVisible(false);
