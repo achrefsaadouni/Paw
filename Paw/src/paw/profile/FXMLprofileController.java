@@ -6,6 +6,7 @@
 package paw.profile;
 
 import Service.AchatService;
+import Service.AnnonceServices;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,6 +60,8 @@ public class FXMLprofileController implements Initializable {
         email.setText(session.getEmail());
         numero.setText(String.valueOf(session.getNumero()));
         date.setText("Inscris depuis : "+String.valueOf((session.getDateInscription())));
+        AnnonceServices a = new AnnonceServices();
+        annonces.setText(String.valueOf(a.getMesAnnonces(session.getId()).size()));
         AchatService s = new AchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
     }    

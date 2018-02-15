@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.annonceperdu.user.FXMLinterfacePrincipalPerduController">
+   <children>
+      <VBox layoutX="181.0" layoutY="119.0" prefHeight="490.0" prefWidth="806.0">
+         <children>
+            <AnchorPane fx:id="reclamations" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <JFXButton prefHeight="163.0" prefWidth="813.0" style="-fx-background-color: #EEEEEE;" text="Vérifiez dans nos annonces si votre animal n'y est pas présent.">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="72.0" fitWidth="67.0" layoutX="62.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_sort_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations1" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <JFXButton prefHeight="163.0" prefWidth="813.0" style="-fx-background-color: #90A4AE;" text="Déposez une annonce dans la section &quot;perdus&quot;">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="72.0" fitWidth="67.0" layoutX="90.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/contract.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations11" layoutX="10.0" layoutY="141.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <JFXButton prefHeight="164.0" prefWidth="813.0" style="-fx-background-color: #607D8B;" text="Quelles démarches engager pour retrouver votre animal de compagnie ? Consultez notre page d'aide">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="317.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_input_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Label layoutX="194.0" layoutY="33.0" prefHeight="54.0" prefWidth="813.0" text=" Vous avez perdu votre animal de compagnie">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Line endX="600.0" layoutX="282.0" layoutY="94.0" startX="-100.0" />
+      <Line endX="600.0" layoutX="288.0" layoutY="32.0" startX="-105.0" />
+      <ImageView fitHeight="67.0" fitWidth="81.0" layoutX="883.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" rotate="-93.6">
+         <image>
+            <Image url="@../../../Ressource/icons/ic_reply_black_48dp.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="164.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Ressource/images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
