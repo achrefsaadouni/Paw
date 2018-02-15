@@ -103,4 +103,25 @@ public class AchatService {
         return null;
     }
         
+          public ArrayList<Achat> All() {
+        String sql = "SELECT * FROM `achat`";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Achat> achats = new ArrayList<>();
+             ArrayList<LigneAchat> ligneachats =null;
+             Achat a;
+             while (results.next()) {
+                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),results.getTimestamp("date_achat"),results.getFloat("prix"),results.getString("etat"));
+                 ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
+                 a.setList(ligneachats);
+                 achats.add(a);
+             }
+             return achats;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage LigneAchat");
+         }
+        return null;
+    }
+        
 }
