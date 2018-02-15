@@ -5,14 +5,12 @@
  */
 package paw.mainUI;
 
-import java.io.IOException;
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 
 
 /**
@@ -22,17 +20,18 @@ import javafx.scene.layout.AnchorPane;
  */
 public class FXMLMenuController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private JFXButton boutique;
+    @FXML
+    private JFXButton gererProduit;
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
-    @FXML
-    private void goToVeterinaire(ActionEvent event) {
-    }
+    
 
     
 }

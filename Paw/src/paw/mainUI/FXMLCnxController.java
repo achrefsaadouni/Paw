@@ -70,6 +70,22 @@ public class FXMLCnxController implements Initializable {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
+                            case "boutique": {
+                                try {
+                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/user/produit/FXMLProduit.fxml"));
+                                    window.getChildren().setAll(pane);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                            /* case "gerer_produit": {
+                                try {
+                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/admin/produit/FXMLAjouter.fxml"));
+                                    window.getChildren().setAll(pane);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }*/
                         }
                     });
                 }
