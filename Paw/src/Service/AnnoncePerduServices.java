@@ -7,6 +7,9 @@
 package Service;
 
 import Entity.AnnoncePerdu;
+import Entity.Utilisateur;
+import Entity.Veterinaire;
+import Entity.Vets;
 //import Entity.Annonce ;
 import Utility.DbHandler;
 import java.sql.Connection;
@@ -14,7 +17,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -91,6 +96,74 @@ public class AnnoncePerduServices
         return list;
     }
      
+    public ArrayList<AnnoncePerdu> getList(){
+        String req="SELECT * FROM annonce" ;
+        ArrayList list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+               // String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date
+               int id = rs.getInt("id");
+                int age = rs.getInt("age");
+                String couleur = rs.getString("couleur");
+                String  sex= rs.getString("sex");
+                String  race= rs.getString("race");
+                String  message_complementaire= rs.getString("message_complementaire");
+                String  type= rs.getString("type");
+                Timestamp date=rs.getTimestamp("date");
+                String  type_annonce= rs.getString("type_annonce");
+                String  colier= rs.getString("colier");         
+                Date date_trouvee=rs.getDate("date_perte");
+                Timestamp date_perte=rs.getTimestamp("date_perte");
+                String lieu_perdu=rs.getString("lieu_perdu") ;
+                
+               
+        
+              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Problème importation liste annonce perdu ");
+        }
+       
+       return list ; 
+    }
+     
+     public ArrayList<Utilisateur> getNomPrenom(){
+        String req="SELECT * FROM utilisateur" ;
+       ArrayList list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String addresse = rs.getString("addresse");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                int numero = rs.getInt("numero");
+                list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+     
+    
+    
+    
+    
+    
     public void updateAnnoncePerdu (AnnoncePerdu a, int id )
     {
     String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perdu=?  WHERE id =?" ; 

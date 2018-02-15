@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.reclamation.FXMLReclamationController">
+   <children>
+      <AnchorPane fx:id="reclamations" layoutX="385.0" layoutY="289.0" prefHeight="347.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+         <children>
+            <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes reclamations" />
+            <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
+            <Pagination fx:id="paginator" layoutX="181.0" layoutY="294.0" pageCount="300" prefHeight="47.0" prefWidth="344.0" />
+            <AnchorPane fx:id="box1" layoutX="15.0" layoutY="52.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+               <children>
+                  <Label fx:id="titre1" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
+                  <Label fx:id="text1" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
+                  <Label fx:id="date1" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="box2" layoutX="15.0" layoutY="134.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+               <children>
+                  <Label fx:id="titre2" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
+                  <Label fx:id="text2" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
+                  <Label fx:id="date2" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="box3" layoutX="15.0" layoutY="216.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+               <children>
+                  <Label fx:id="titre3" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
+                  <Label fx:id="text3" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable AZEEEEEEEEA A A A AAZEAZEZAEZAE ZAEAZEAZEZA AZEAZEZAE AZEAZE" wrapText="true" />
+                  <Label fx:id="date3" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="17.0" prefHeight="261.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Ajouter une reclamation" />
+            <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
+            <JFXTextArea fx:id="msg" layoutX="210.0" layoutY="105.0" prefHeight="62.0" prefWidth="825.0" />
+            <JFXTextField fx:id="titre" layoutX="210.0" layoutY="66.0" prefHeight="25.0" prefWidth="825.0" />
+            <Label layoutX="87.0" layoutY="66.0" text="Titre">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="142.0" text="Message">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXButton alignment="CENTER" layoutX="275.0" layoutY="209.0" onAction="#envoyerReclamation" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Envoyer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXToggleButton fx:id="type" layoutX="536.0" layoutY="195.0" text="Remerciment" unToggleColor="#e42323" unToggleLineColor="#e42323">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXToggleButton>
+            <Label layoutX="455.0" layoutY="212.0" text="Reclamation">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="20.0" layoutY="289.0" prefHeight="347.0" prefWidth="353.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" AnchorPane.leftAnchor="15.0">
+         <children>
+            <Label fx:id="nom12" alignment="CENTER" layoutX="24.0" layoutY="8.0" prefHeight="39.0" prefWidth="226.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes statistiques" />
+            <Separator layoutX="8.0" layoutY="43.0" prefHeight="4.0" prefWidth="337.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -7,6 +7,7 @@ package paw.reclamation;
 
 import Entity.Reclamation;
 import Service.ReclamationServices;
+import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;

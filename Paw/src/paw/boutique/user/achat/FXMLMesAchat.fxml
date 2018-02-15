@@ -19,11 +19,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.achat.FXMLMesAchatController">
+<AnchorPane id="AnchorPane" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.achat.FXMLMesAchatController">
    <children>
       <Label layoutX="19.0" layoutY="17.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Mes Achats" />
-      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
-      <GridPane hgap="10.0" layoutX="100.0" layoutY="120.0" prefHeight="541.0" prefWidth="964.0">
+      <Separator layoutX="10.0" layoutY="55.0" prefHeight="4.0" prefWidth="1080.0" />
+      <GridPane hgap="10.0" layoutX="100.0" layoutY="120.0" maxHeight="520.0" minHeight="520.0" prefHeight="520.0" prefWidth="964.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -33,7 +33,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <VBox fx:id="box1" prefHeight="541.0" prefWidth="320.0" spacing="10.0">
+            <VBox fx:id="box1" maxHeight="520.0" minHeight="520.0" prefHeight="520.0" prefWidth="0.0" spacing="10.0">
                <children>
                   <Pane prefHeight="132.0" prefWidth="267.0" style="-fx-background-color: #1ABB9C; -fx-background-radius: 0;">
                      <children>
@@ -47,7 +47,7 @@
                   </Pane>
                   <Pane prefHeight="472.0" prefWidth="252.0" style="-fx-background-radius: 2; -fx-background-color: #EFEFEF;">
                      <children>
-                        <Separator layoutY="352.0" prefHeight="4.0" prefWidth="289.0" />
+                        <Separator layoutY="320.0" prefHeight="4.0" prefWidth="289.0" />
                         <VBox layoutX="9.0" layoutY="14.0" prefHeight="336.0" prefWidth="234.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="248.0">
@@ -82,7 +82,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer1" layoutX="10.0" layoutY="365.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
+                        <JFXButton fx:id="payer1" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -90,7 +90,7 @@
                                  </image>
                               </ImageView>
                            </graphic></JFXButton>
-                        <JFXButton fx:id="consulter1" layoutX="160.0" layoutY="365.0" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter1" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -102,7 +102,7 @@
                   </Pane>
                </children>
             </VBox>
-            <VBox fx:id="box2" prefWidth="315.0" spacing="10.0" GridPane.columnIndex="1">
+            <VBox fx:id="box2" maxHeight="520.0" minHeight="520.0" prefHeight="520.0" prefWidth="0.0" spacing="10.0" GridPane.columnIndex="1">
                <children>
                   <Pane prefHeight="132.0" prefWidth="267.0" style="-fx-background-color: #1ABB9C; -fx-background-radius: 0;">
                      <children>
@@ -116,7 +116,7 @@
                   </Pane>
                   <Pane prefHeight="472.0" prefWidth="252.0" style="-fx-background-radius: 2; -fx-background-color: #EFEFEF;">
                      <children>
-                        <Separator layoutY="352.0" prefHeight="4.0" prefWidth="289.0" />
+                        <Separator layoutY="320.0" prefHeight="4.0" prefWidth="289.0" />
                         <VBox layoutX="9.0" layoutY="14.0" prefHeight="336.0" prefWidth="234.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="248.0">
@@ -151,7 +151,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer2" layoutX="10.0" layoutY="365.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
+                        <JFXButton fx:id="payer2" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -159,7 +159,7 @@
                                  </image>
                               </ImageView>
                            </graphic></JFXButton>
-                        <JFXButton fx:id="consulter2" layoutX="160.0" layoutY="365.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter2" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -171,7 +171,7 @@
                   </Pane>
                </children>
             </VBox>
-            <VBox fx:id="box3" prefHeight="541.0" prefWidth="313.0" spacing="10.0" GridPane.columnIndex="2">
+            <VBox fx:id="box3" maxHeight="520.0" minHeight="520.0" prefHeight="520.0" prefWidth="0.0" spacing="10.0" GridPane.columnIndex="2">
                <children>
                   <Pane prefHeight="132.0" prefWidth="267.0" style="-fx-background-color: #1ABB9C; -fx-background-radius: 0;">
                      <children>
@@ -185,7 +185,7 @@
                   </Pane>
                   <Pane prefHeight="472.0" prefWidth="252.0" style="-fx-background-radius: 2; -fx-background-color: #EFEFEF;">
                      <children>
-                        <Separator layoutY="352.0" prefHeight="4.0" prefWidth="289.0" />
+                        <Separator layoutY="320.0" prefHeight="4.0" prefWidth="289.0" />
                         <VBox layoutX="9.0" layoutY="14.0" prefHeight="336.0" prefWidth="234.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="248.0">
@@ -220,7 +220,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer3" layoutX="10.0" layoutY="365.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
+                        <JFXButton fx:id="payer3" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
                            <graphic>
                               <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -228,7 +228,7 @@
                                  </image>
                               </ImageView>
                            </graphic></JFXButton>
-                        <JFXButton fx:id="consulter3" layoutX="160.0" layoutY="365.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter3" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -242,7 +242,7 @@
             </VBox>
          </children>
       </GridPane>
-      <Pagination fx:id="paginator" layoutX="393.0" layoutY="57.0" pageCount="200" prefHeight="56.0" prefWidth="357.0" />
+      <Pagination fx:id="paginator" layoutX="393.0" layoutY="66.0" pageCount="200" prefHeight="39.0" prefWidth="357.0" />
       <StackPane fx:id="stackPane" prefHeight="528.0" prefWidth="954.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label style="-fx-background-color: #ECF0F1;" text="Vous n'avez aucun achat!" textFill="#001686">
