@@ -74,6 +74,15 @@ public class FXMLCnxController implements Initializable {
                 if (node.getAccessibleText()!=null){
                     node.addEventHandler(MouseEvent.MOUSE_CLICKED,e ->{
                         switch(node.getAccessibleText()){
+                            case "AnnoncePerdus" : {
+                                try {
+                                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/annonceperdu/user/FXMLListeAnnoncesPerdus.fxml"));
+                                    window.getChildren().setAll(pane);
+                                    break;
+                                } catch (IOException ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
                             case "veterinaire" : {
                                 try {
                                     AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));

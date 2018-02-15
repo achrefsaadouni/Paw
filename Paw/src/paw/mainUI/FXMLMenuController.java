@@ -20,10 +20,6 @@ import javafx.fxml.Initializable;
  */
 public class FXMLMenuController implements Initializable {
 
-    @FXML
-    private JFXButton boutique;
-    @FXML
-    private JFXButton gererProduit;
 
 
     @Override

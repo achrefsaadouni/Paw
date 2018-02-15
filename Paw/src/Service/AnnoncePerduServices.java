@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,7 +39,7 @@ public class AnnoncePerduServices
     }
     public void insererAnnoncePerdu (AnnoncePerdu a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu) VALUES(?,?,?,?,?,?,now(),?,?,?,?)" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -51,7 +52,7 @@ public class AnnoncePerduServices
             ste.setString(8, a.getColier());
             ste.setDate(9, (java.sql.Date) a.getDate_perte());
             ste.setString(10, a.getLieu_perdu());
-            
+            ste.setInt(11, a.getId_utilisateur());
                             System.out.println("avant");
             ste.executeUpdate() ; 
             
@@ -84,10 +85,10 @@ public class AnnoncePerduServices
                 Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
-                
+                int id_utilisateur=rs.getInt("id_utilisateur");
                
         
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date, id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -97,8 +98,8 @@ public class AnnoncePerduServices
     }
      
     public ArrayList<AnnoncePerdu> getList(){
-        String req="SELECT * FROM annonce" ;
-        ArrayList list = new ArrayList();
+        String req="SELECT * FROM annonce a where a.type_annonce LIKE 'annonce_perte'" ;
+        ArrayList<AnnoncePerdu> list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -119,50 +120,47 @@ public class AnnoncePerduServices
                 Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
+                int id_utilisateur=rs.getInt("utilisateur_id");
+                //////////////////////////////////////////////////
                 
-               
+
         
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste annonce perdu ");
+            System.out.println(ex);
         }
        
        return list ; 
     }
-     
-     public ArrayList<Utilisateur> getNomPrenom(){
-        String req="SELECT * FROM utilisateur" ;
+    
+    
+    
+     public ArrayList<Utilisateur> getUtilisateurs(int id){
+        String req="SELECT * FROM utilisateur where id =?" ;
        ArrayList list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
-                int id = rs.getInt("id");
-                String nom = rs.getString("nom");
-                String prenom = rs.getString("prenom");
-                String addresse = rs.getString("addresse");
-                String email = rs.getString("email");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                String role = rs.getString("role");
-                int numero = rs.getInt("numero");
-                list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
+                int id_u=rs.getInt("id");
+               String nom_u = rs.getString("nom");
+               String prenom_u= rs.getString("prenom");
+               int numero_u =rs.getInt("numero");
+               String email_u=rs.getString("email");
+               String adresse_u=rs.getString("addresse");
+                list.add(new Utilisateur(id_u,nom_u,prenom_u,numero_u,email_u,adresse_u));
             }
 
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         return list;
-    }
-     
-    
-    
-    
-    
+    }    
     
     public void updateAnnoncePerdu (AnnoncePerdu a, int id )
     {
