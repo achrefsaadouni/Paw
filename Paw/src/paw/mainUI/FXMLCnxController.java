@@ -80,14 +80,15 @@ public class FXMLCnxController implements Initializable {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
-                            /* case "gerer_produit": {
+                             case "gerer_produit": {
                                 try {
                                     AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/boutique/admin/produit/FXMLAjouter.fxml"));
                                     window.getChildren().setAll(pane);
+                                    break;
                                 } catch (IOException ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
-                            }*/
+                            }
                         }
                     });
                 }

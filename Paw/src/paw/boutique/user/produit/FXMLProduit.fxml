@@ -18,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.produit.FXMLProduitController">
+<AnchorPane fx:id="anchorPane" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.produit.FXMLProduitController">
    <children>
-      <Separator layoutX="13.0" layoutY="65.0" prefHeight="4.0" prefWidth="1213.0" />
+      <Separator layoutX="10.0" layoutY="65.0" prefHeight="4.0" prefWidth="1080.0" />
       <Pane fx:id="filter_type" layoutX="14.0" layoutY="246.0" prefHeight="379.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
             <Label fx:id="filt" layoutX="14.0" layoutY="22.0" prefHeight="17.0" prefWidth="50.0" text="Filtrer :">
@@ -55,7 +55,7 @@
             </Pane>
          </children>
       </Pane>
-        <Pane fx:id="div_articles" layoutX="217.0" layoutY="75.0" prefHeight="570.0" prefWidth="970.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+        <Pane fx:id="div_articles" layoutX="217.0" layoutY="75.0" prefHeight="570.0" prefWidth="852.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
          <children>
             <AnchorPane fx:id="div1" layoutX="34.0" layoutY="7.0" prefHeight="244.0" prefWidth="338.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
                <children>
@@ -112,7 +112,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="div2" layoutX="570.0" layoutY="7.0" prefHeight="244.0" prefWidth="271.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+            <AnchorPane fx:id="div2" layoutX="453.0" layoutY="7.0" prefHeight="244.0" prefWidth="271.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
                <children>
                   <Separator layoutX="70.0" layoutY="164.0" prefHeight="4.0" prefWidth="244.0" />
                   <JFXButton fx:id="acheter2" buttonType="RAISED" layoutX="275.0" layoutY="196.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #3C8DBC;" text="Panier" textFill="WHITE">
@@ -222,7 +222,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="div4" layoutX="570.0" layoutY="273.0" prefHeight="244.0" prefWidth="338.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+            <AnchorPane fx:id="div4" layoutX="453.0" layoutY="273.0" prefHeight="244.0" prefWidth="338.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
                <children>
                   <Separator layoutX="70.0" layoutY="164.0" prefHeight="4.0" prefWidth="244.0" />
                   <JFXButton fx:id="acheter4" buttonType="RAISED" layoutX="275.0" layoutY="196.0" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #3C8DBC;" text="Panier" textFill="WHITE">
@@ -277,7 +277,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Pagination fx:id="pagination" layoutX="351.0" layoutY="527.0" maxPageIndicatorCount="0" pageCount="0" prefHeight="47.0" prefWidth="275.0" />
+            <Pagination fx:id="pagination" layoutX="280.0" layoutY="523.0" maxPageIndicatorCount="0" pageCount="0" prefHeight="47.0" prefWidth="275.0" />
          </children>
       </Pane>
       <StackPane fx:id="dialogPane" layoutX="299.0" layoutY="60.0" prefHeight="501.0" prefWidth="629.0" visible="false">
