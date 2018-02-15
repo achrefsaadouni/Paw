@@ -39,23 +39,20 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <Rating fx:id="rate1" layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <Rating fx:id="rate1" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
                            <graphic>
                               <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton layoutX="261.0" layoutY="9.0" prefHeight="32.0" prefWidth="53.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text=" ">
+                        <JFXButton layoutX="245.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
-                              <HBox alignment="CENTER" spacing="3.0">
-                                 <children>
-                                    <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
-                                    <MaterialDesignIconView fill="WHITE" glyphName="EYE" size="16.0" />
-                                 </children>
-                              </HBox>
+                              <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
                         </JFXButton>
+                        <Label fx:id="note1" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
+                        <FontAwesomeIconView fill="#fffdfd" glyphName="STAR" layoutX="249.0" layoutY="30.0" size="14" wrappingWidth="18.0" />
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
@@ -71,7 +68,7 @@
                   </Label>
                   <Label fx:id="reg1" layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Gouvernorat">
                      <graphic>
-                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                        <MaterialDesignIconView fill="#73879c" glyphName="MAP_MARKER" size="16.0" wrappingWidth="21.0" />
                      </graphic>
                   </Label>
                </children>
@@ -96,23 +93,20 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <Rating fx:id="rate2" layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <Rating fx:id="rate2" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
                            <graphic>
                               <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton layoutX="261.0" layoutY="9.0" prefHeight="32.0" prefWidth="53.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text=" ">
+                        <Label fx:id="note2" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
+                        <JFXButton layoutX="245.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
-                              <HBox alignment="CENTER" spacing="3.0">
-                                 <children>
-                                    <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
-                                    <MaterialDesignIconView fill="WHITE" glyphName="EYE" size="16.0" />
-                                 </children>
-                              </HBox>
+                              <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
                         </JFXButton>
+                        <FontAwesomeIconView fill="#fffdfd" glyphName="STAR" layoutX="248.0" layoutY="30.0" size="14" wrappingWidth="18.0" />
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
@@ -128,7 +122,7 @@
                   </Label>
                   <Label fx:id="reg2" layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Gouvernorat">
                      <graphic>
-                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                        <MaterialDesignIconView fill="#73879c" glyphName="MAP_MARKER" size="16.0" wrappingWidth="21.0" />
                      </graphic>
                   </Label>
                </children>
@@ -157,23 +151,20 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <Rating fx:id="rate3" layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <Rating fx:id="rate3" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
                            <graphic>
                               <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton layoutX="261.0" layoutY="9.0" prefHeight="32.0" prefWidth="53.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text=" ">
+                        <Label fx:id="note3" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
+                        <JFXButton layoutX="246.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
-                              <HBox alignment="CENTER" spacing="3.0">
-                                 <children>
-                                    <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
-                                    <MaterialDesignIconView fill="WHITE" glyphName="EYE" size="16.0" />
-                                 </children>
-                              </HBox>
+                              <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
                         </JFXButton>
+                        <FontAwesomeIconView fill="#fffdfd" glyphName="STAR" layoutX="250.0" layoutY="30.0" size="14" wrappingWidth="18.0" />
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
@@ -189,7 +180,7 @@
                   </Label>
                   <Label fx:id="reg3" layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Gouvernorat">
                      <graphic>
-                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                        <MaterialDesignIconView fill="#73879c" glyphName="MAP_MARKER" size="16.0" wrappingWidth="21.0" />
                      </graphic>
                   </Label>
                </children>
@@ -214,23 +205,20 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <Rating fx:id="rate4" layoutX="14.0" layoutY="9.0" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <Rating fx:id="rate4" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
+                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
                            <graphic>
                               <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton layoutX="261.0" layoutY="9.0" prefHeight="32.0" prefWidth="53.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text=" ">
+                        <Label fx:id="note4" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
+                        <JFXButton layoutX="246.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
-                              <HBox alignment="CENTER" spacing="3.0">
-                                 <children>
-                                    <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
-                                    <MaterialDesignIconView fill="WHITE" glyphName="EYE" size="16.0" />
-                                 </children>
-                              </HBox>
+                              <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
                         </JFXButton>
+                        <FontAwesomeIconView fill="#fffdfd" glyphName="STAR" layoutX="250.0" layoutY="30.0" size="14" wrappingWidth="18.0" />
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
@@ -246,7 +234,7 @@
                   </Label>
                   <Label fx:id="reg4" layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Gouvernorat">
                      <graphic>
-                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                        <MaterialDesignIconView fill="#73879c" glyphName="MAP_MARKER" size="16.0" wrappingWidth="21.0" />
                      </graphic>
                   </Label>
                </children>

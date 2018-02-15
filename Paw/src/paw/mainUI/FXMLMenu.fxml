@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #272928;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLMenuController">
    <children>
-      <JFXButton layoutX="11.0" layoutY="147.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="ANNONCE" textFill="WHITE" />
-      <JFXButton accessibleText="veterinaire" layoutX="11.0" layoutY="215.0" onAction="#goToVeterinaire" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="VETERINAIRE" textFill="WHITE" />
+      <JFXButton layoutX="11.0" layoutY="147.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="ANNONCE" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/contract.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton accessibleText="veterinaire" layoutX="11.0" layoutY="215.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="VETERINAIRE" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic></JFXButton>
+      <JFXButton accessibleText="boutique" layoutX="13.0" layoutY="297.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="BOUTIQUE" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/edit-1105049_960_720.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton accessibleText="gerer_produit" layoutX="14.0" layoutY="504.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="GERER PRODUIT" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/ic_autorenew_black_48dp.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

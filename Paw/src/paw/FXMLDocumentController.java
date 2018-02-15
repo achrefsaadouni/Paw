@@ -76,6 +76,8 @@ public class FXMLDocumentController implements Initializable {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setHeight(700);
+        stage.setWidth(1100);
         stage.show();
     }
 

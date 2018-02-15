@@ -5,6 +5,7 @@
  */
 package paw.mainUI;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -19,15 +20,18 @@ import javafx.fxml.Initializable;
  */
 public class FXMLMenuController implements Initializable {
 
+    @FXML
+    private JFXButton boutique;
+    @FXML
+    private JFXButton gererProduit;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
-    @FXML
-    private void goToVeterinaire(ActionEvent event) {
-    }
+    
 
     
 }

@@ -356,8 +356,19 @@ public class FXMLAjouterController {
         supprimer.setCellValueFactory(param -> {
             SimpleObjectProperty property = new SimpleObjectProperty();
             Produit produit = (Produit) param.getValue().getValue();
-            JFXButton supp = new JFXButton("Supprimer");
-            supp.setStyle("-fx-background-color:#D50000;");
+           
+            ImageView im = new ImageView();
+            try {
+                img1 = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/cancel.png");
+                im.setFitHeight(20);
+                im.setFitWidth(20);
+                im.setImage(img1);
+
+            } catch (Exception ex) {
+                System.out.println("image non charger");
+            }
+             JFXButton supp = new JFXButton("",im);
+            supp.setStyle("-fx-background-color:white;");
             supp.setOnAction((ActionEvent e) -> {
                 produitservice.deleteProduit(produit.getId_produit());
                 MyNotifications.infoNotification("Suppression", "Produit Supprimé avec success");
