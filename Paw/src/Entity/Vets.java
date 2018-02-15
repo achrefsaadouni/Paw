@@ -10,6 +10,7 @@ package Entity;
  * @author gmehd
  */
 public class Vets {
+
     private int id;
     private String nom;
     private String prenom;
@@ -18,12 +19,11 @@ public class Vets {
     private int numero;
     private String email;
     private Float rate;
-    
-    public Vets(Veterinaire v , Float rate)
-    {
-        this.rate=rate;
+
+    public Vets(Veterinaire v, Float rate) {
+        this.rate = rate;
         this.id = v.getId();
-        this.nom =v.getNom();
+        this.nom = v.getNom();
         this.prenom = v.getPrenom();
         this.adresse = v.getAdresse();
         this.region = v.getRegion();
