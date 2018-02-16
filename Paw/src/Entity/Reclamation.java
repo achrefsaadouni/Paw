@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.util.Date;
 
 
@@ -13,7 +14,7 @@ import java.util.Date;
  *
  * @author AYOUB
  */
-public class Reclamation {
+public class Reclamation extends RecursiveTreeObject<Reclamation>{
     private int id;
     private int utilisateur;
     private String objet; 
