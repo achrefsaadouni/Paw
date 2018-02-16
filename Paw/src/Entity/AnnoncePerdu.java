@@ -23,7 +23,13 @@ public class AnnoncePerdu extends Annonce
     public AnnoncePerdu() {
       
     }
-
+    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur);
+        this.colier = colier;
+        this.date_perte = date_perte;
+        this.lieu_perdu=lieu_perdu ; 
+    }
+    
     public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,java.util.List<File> images) {
         super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur,images);
         this.colier = colier;

@@ -45,11 +45,8 @@ public class AnnoncePerduServices
     }
     public void insererAnnoncePerdu (AnnoncePerdu a)
     {
-<<<<<<< HEAD
-         String images="";
-=======
         String images="";
->>>>>>> cb960ab0174b5e66ca06706929f6964f5885096a
+
         images = a.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
         String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id,images) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
         try { 
@@ -65,11 +62,7 @@ public class AnnoncePerduServices
             ste.setDate(9, (java.sql.Date) a.getDate_perte());
             ste.setString(10, a.getLieu_perdu());
             ste.setInt(11, a.getId_utilisateur());
-<<<<<<< HEAD
-             ste.setString(12,images) ; 
-=======
             ste.setString(12,images) ; 
->>>>>>> cb960ab0174b5e66ca06706929f6964f5885096a
                             System.out.println("avant");
             ste.executeUpdate() ; 
             
@@ -115,14 +108,13 @@ public class AnnoncePerduServices
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 String  colier= rs.getString("colier");         
-                Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("id_utilisateur");
                 
                
         
-            //  list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date, id_utilisateur));
+            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -151,7 +143,6 @@ public class AnnoncePerduServices
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 String  colier= rs.getString("colier");         
-                Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("utilisateur_id");
@@ -159,7 +150,7 @@ public class AnnoncePerduServices
                 
 
         
-             // list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+             list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -169,32 +160,6 @@ public class AnnoncePerduServices
        return list ; 
     }
     
-    
-    
-     public ArrayList<Utilisateur> getUtilisateurs(int id){
-        String req="SELECT * FROM utilisateur where id =?" ;
-       ArrayList list = new ArrayList();
-        try 
-        { 
-            PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1, id);
-            ResultSet rs = ste.executeQuery(); 
-            while (rs.next())
-            {
-                int id_u=rs.getInt("id");
-               String nom_u = rs.getString("nom");
-               String prenom_u= rs.getString("prenom");
-               int numero_u =rs.getInt("numero");
-               String email_u=rs.getString("email");
-               String adresse_u=rs.getString("addresse");
-                list.add(new Utilisateur(id_u,nom_u,prenom_u,numero_u,email_u,adresse_u));
-            }
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        return list;
-    }    
     
     public void updateAnnoncePerdu (AnnoncePerdu a, int id )
     {
@@ -261,10 +226,8 @@ public class AnnoncePerduServices
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 //////////////////////////////////////////////////
                 
-
-        
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
-            }
+            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+        }
 
         } catch (SQLException ex) {
             System.out.println(ex);
