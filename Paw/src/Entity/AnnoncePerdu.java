@@ -5,6 +5,9 @@
  */
 package Entity;
 
+import java.awt.List;
+import java.io.File;
+import static java.nio.file.Files.list;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,8 +24,8 @@ public class AnnoncePerdu extends Annonce
       
     }
 
-    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur) {
-        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur);
+    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,java.util.List<File> images) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur,images);
         this.colier = colier;
         this.date_perte = date_perte;
         this.lieu_perdu=lieu_perdu ; 

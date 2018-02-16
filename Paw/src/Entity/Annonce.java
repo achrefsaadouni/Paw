@@ -5,7 +5,9 @@
  */
 package Entity;
 
+import java.io.File;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -23,6 +25,7 @@ public class Annonce
    private String message_complementaire ; 
    private String type  ; 
    private Date date;
+    private List<File> images;
    private int id_utilisateur;
 
     public Date getDate() {
@@ -47,7 +50,7 @@ public class Annonce
     }
     
     
-    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur) {
+    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,List<File> images) {
         this.id=id ; 
         this.age = age;
         this.couleur = couleur;
@@ -57,7 +60,11 @@ public class Annonce
         this.type = type;
         this.date=date;
         this.id_utilisateur=id_utilisateur;
+         this.images = images;
     }
+    
+    
+    
       public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, int id_utilisateur) {
         this.id=id ; 
         this.age = age;
@@ -91,6 +98,14 @@ public class Annonce
         return couleur;
     }
 
+      public List<File> getImages() {
+        return images;
+    }
+
+    public void setImages(List<File> images) {
+        this.images = images;
+    }
+    
     public void setCouleur(String couleur) {
         this.couleur = couleur;
     }

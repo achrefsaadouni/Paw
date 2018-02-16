@@ -66,7 +66,7 @@ public class AnnonceServices {
                 String  type= rs.getString("type");
                 Timestamp date= rs.getTimestamp("date");
                 int id_u = rs.getInt("utilisateur_id");
-                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type,date,id_u));
+               // list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type,date,id_u));
             }
 
         } catch (SQLException ex) {
@@ -94,7 +94,7 @@ public class AnnonceServices {
                 String  type= rs.getString("type");
                 Timestamp date= rs.getTimestamp("date");
                 int id_u = rs.getInt("utilisateur_id");
-                list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type,date,id_u));
+             //   list.add(new Annonce(id,age,couleur,sex,race,message_complementaire,type,date,id_u));
             }
 
         } catch (SQLException ex) {
