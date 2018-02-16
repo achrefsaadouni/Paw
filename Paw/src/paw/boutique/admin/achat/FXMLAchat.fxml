@@ -1,10 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.boutique.admin.achat.FXMLAchatController">
+<AnchorPane id="AnchorPane" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.admin.achat.FXMLAchatController">
     <stylesheets>
         <URL value="@fxmlachat.css" />
     </stylesheets>
+   <children>
+      <Pane layoutX="13.0" layoutY="118.0" prefHeight="483.0" prefWidth="603.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <JFXTextField fx:id="recherche_achat" labelFloat="true" layoutX="14.0" layoutY="31.0" prefHeight="41.0" prefWidth="190.0" promptText="Rechercher">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTreeTableView fx:id="achat" layoutX="1.0" layoutY="83.0" prefHeight="386.0" prefWidth="603.0">
+               <columns>
+                  <TreeTableColumn fx:id="nom_prenom" prefWidth="112.0" text="NOM ET PRENOM" />
+                  <TreeTableColumn fx:id="prixTotal" prefWidth="71.00003051757812" text="Prix Total" />
+                  <TreeTableColumn fx:id="date" prefWidth="165.0" text="Date" />
+                  <TreeTableColumn fx:id="status" prefWidth="53.0" text="Etat" />
+                  <TreeTableColumn fx:id="adresse" prefWidth="102.0" text="Adresse" />
+                  <TreeTableColumn fx:id="numero" prefWidth="98.0" text="numero" />
+               </columns>
+            </JFXTreeTableView>
+         </children>
+      </Pane>
+      <Pane layoutX="619.0" layoutY="118.0" prefHeight="483.0" prefWidth="475.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <JFXTextField fx:id="rechercher_ligneachat" labelFloat="true" layoutX="16.0" layoutY="33.0" prefHeight="41.0" prefWidth="190.0" promptText="Rechercher">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTreeTableView fx:id="ligneachat" layoutX="19.0" layoutY="83.0" prefHeight="386.0" prefWidth="437.0">
+               <columns>
+                  <TreeTableColumn fx:id="image" prefWidth="181.0" text="Image" />
+                  <TreeTableColumn fx:id="libelle" minWidth="0.0" prefWidth="98.0" text="Libelle" />
+                  <TreeTableColumn fx:id="nombre_achat" minWidth="0.0" prefWidth="64.0" text="Nombre" />
+                  <TreeTableColumn fx:id="prixunite" prefWidth="92.0" text="Prix" />
+               </columns>
+            </JFXTreeTableView>
+         </children>
+      </Pane>
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="1080.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Tous Les Achats" />
+      <Separator layoutX="10.0" layoutY="65.0" prefHeight="4.0" prefWidth="1080.0" />
+      <Label layoutX="209.0" layoutY="88.0" prefHeight="30.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Liste Achats" textAlignment="CENTER" />
+      <Label layoutX="734.0" layoutY="88.0" prefHeight="30.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Detail Achat" textAlignment="CENTER" />
+      <StackPane fx:id="info" layoutX="630.0" layoutY="180.0" prefHeight="353.0" prefWidth="462.0" visible="false">
+         <children>
+            <Label style="-fx-background-color: #ECF0F1;" text="Selectionnez un Achat" textFill="#001686">
+               <font>
+                  <Font name="System Bold" size="39.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </children>
 </AnchorPane>
