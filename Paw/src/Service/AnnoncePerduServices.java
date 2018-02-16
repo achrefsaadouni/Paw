@@ -45,7 +45,7 @@ public class AnnoncePerduServices
     }
     public void insererAnnoncePerdu (AnnoncePerdu a)
     {
-        String images="";
+         String images="";
 
         images = a.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
         String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id,images) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
@@ -62,7 +62,7 @@ public class AnnoncePerduServices
             ste.setDate(9, (java.sql.Date) a.getDate_perte());
             ste.setString(10, a.getLieu_perdu());
             ste.setInt(11, a.getId_utilisateur());
-            ste.setString(12,images) ; 
+             ste.setString(12,images) ; 
                             System.out.println("avant");
             ste.executeUpdate() ; 
             
@@ -160,6 +160,32 @@ public class AnnoncePerduServices
        return list ; 
     }
     
+    
+    
+     public ArrayList<Utilisateur> getUtilisateurs(int id){
+        String req="SELECT * FROM utilisateur where id =?" ;
+       ArrayList list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id_u=rs.getInt("id");
+               String nom_u = rs.getString("nom");
+               String prenom_u= rs.getString("prenom");
+               int numero_u =rs.getInt("numero");
+               String email_u=rs.getString("email");
+               String adresse_u=rs.getString("addresse");
+                list.add(new Utilisateur(id_u,nom_u,prenom_u,numero_u,email_u,adresse_u));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }    
     
     public void updateAnnoncePerdu (AnnoncePerdu a, int id )
     {
