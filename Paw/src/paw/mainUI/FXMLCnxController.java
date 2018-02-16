@@ -178,7 +178,7 @@ public class FXMLCnxController implements Initializable {
     drawer.setMouseTransparent(false);
     }
     
-    private void loadSplashScreen(String location)
+    public void loadSplashScreen(String location)
     {
          try {
             StackPane pane = FXMLLoader.load(getClass().getResource(("/paw/FXMLSplash.fxml")));
