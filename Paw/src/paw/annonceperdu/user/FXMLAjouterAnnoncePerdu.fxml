@@ -14,7 +14,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.FXMLAjouterAnnoncePerduController">
    <children>
       <AnchorPane layoutX="16.0" layoutY="261.0" prefHeight="381.0" prefWidth="1067.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
@@ -29,19 +28,14 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="20.0" layoutY="83.0" prefHeight="31.0" prefWidth="192.0" promptText="RACE" />
-            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="15.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
-            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="230.0" promptText="AGE" />
+            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="15.0" layoutY="88.0" prefHeight="31.0" prefWidth="205.0" promptText="RACE" />
+            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
+            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="205.0" promptText="AGE" />
             <Line endX="100.0" layoutX="313.0" layoutY="200.0" rotate="90.0" startX="-150.0" />
-            <JFXDatePicker fx:id="dateinsertionp" layoutX="412.0" layoutY="224.0" />
-            <Label layoutX="293.0" layoutY="240.0" text="Date disparition:" textFill="#000000af">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date disparition" />
             <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="341.0" layoutY="148.0" prefHeight="31.0" prefWidth="255.0" promptText="LIEUX_PERDU" />
-            <JFXTextField fx:id="colierInsertion3" labelFloat="true" layoutX="341.0" layoutY="88.0" prefHeight="31.0" prefWidth="245.0" promptText="COLIER" />
-            <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="14.0" layoutY="294.0" prefHeight="31.0" prefWidth="230.0" promptText="SEXE" />
+            <JFXTextField fx:id="colierInsertion3" labelFloat="true" layoutX="341.0" layoutY="88.0" prefHeight="31.0" prefWidth="255.0" promptText="COLIER" />
+            <JFXTextField fx:id="sexInsertion" labelFloat="true" layoutX="14.0" layoutY="294.0" prefHeight="31.0" prefWidth="205.0" promptText="SEXE" />
             <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="343.0" layoutY="296.0" prefHeight="31.0" prefWidth="255.0" promptText="MESSAGE_COMPLEMENTAIRE" />
             <Line endX="100.0" layoutX="709.0" layoutY="200.0" rotate="90.0" startX="-160.0" />
             <Pane layoutX="698.0" layoutY="90.0" prefHeight="200.0" prefWidth="369.0">
