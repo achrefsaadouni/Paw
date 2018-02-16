@@ -20,13 +20,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLprofileController implements Initializable {
+public class FXMLprofileController extends FXMLCnxController implements Initializable  {
 
     @FXML
     private ImageView avatar;
@@ -45,7 +46,7 @@ public class FXMLprofileController implements Initializable {
     @FXML
     private Label annonces;
     @FXML
-    private AnchorPane pane;
+    private AnchorPane window;
     @FXML
     private Label nom1;
 
@@ -69,9 +70,9 @@ public class FXMLprofileController implements Initializable {
     @FXML
     private void goToAchat(MouseEvent event) {
         try {
-            AnchorPane a = FXMLLoader.load(getClass().getResource("/paw/boutique/user/achat/FXMLMesAchat.fxml"));
-            pane.getChildren().setAll(a);
-        } catch (IOException ex) {
+            
+            loadSplashScreen("/paw/boutique/user/achat/FXMLMesAchat.fxml");
+        } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -83,9 +84,9 @@ public class FXMLprofileController implements Initializable {
     @FXML
     private void goToCours(MouseEvent event) {
         try {
-            AnchorPane a = FXMLLoader.load(getClass().getResource("/paw/reclamation/FXMLReclamation.fxml"));
-            pane.getChildren().setAll(a);
-        } catch (IOException ex) {
+           
+            loadSplashScreen("/paw/reclamation/FXMLReclamation.fxml");
+        } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
