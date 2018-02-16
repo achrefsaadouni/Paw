@@ -5,22 +5,17 @@
  */
 package paw.ayoubAdmin.reclamation;
 
-import Entity.Achat;
+import Entity.Produit;
 import Entity.Reclamation;
 import Entity.Utilisateur;
-import Service.AchatService;
 import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.Observable;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,9 +23,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
 import com.jfoenix.controls.JFXTreeTableView;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import paw.MyNotifications;
 
 /**
  * FXML Controller class
@@ -49,6 +47,8 @@ public class FXMLreclamationController implements Initializable {
     private TreeTableColumn<Reclamation, String> type;
     @FXML
     private TreeTableColumn<Reclamation, String> date;
+    @FXML
+    private TreeTableColumn<Reclamation,JFXButton> repondre;
     
 //    @FXML
 //    private JFXTreeTableView<Reclamation> ReclamationTable;
@@ -102,12 +102,29 @@ public class FXMLreclamationController implements Initializable {
             property.set(String.valueOf(r.getDate()).substring(0, 16));
             return property;
         });
+        
 //        repondre.setCellValueFactory(param -> {
-//            SimpleStringProperty property = new SimpleStringProperty();
+//            SimpleObjectProperty property = new SimpleObjectProperty();
+//            Produit produit = (Produit) param.getValue().getValue();
+//           Reclamation r = (Reclamation) param.getValue().getValue();
+////          Utilisateur u = null;
+////          u = serviceUtil.rechercher(r.getUtilisateur());
+//            JFXButton supp = new JFXButton("Répondre");
+//            supp.setStyle("-fx-background-color:white;");
+//            supp.setOnAction((ActionEvent e) -> {
+//                produitservice.deleteProduit(r.getUtilisateur());
+//                refresh();
+//            });
+//
+//            property.set(supp);
+//            return property;
+//        });
+//        repondre.setCellValueFactory(param -> {
+//            Simple property = new SimpleStringProperty();
 //            Reclamation r = (Reclamation) param.getValue().getValue();
 //            Utilisateur u = null;
 //            u = serviceUtil.rechercher(r.getUtilisateur());
-//            property.set(new JFXButton());
+//            property.set();
 //            return property;
 //        });
 

@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -103,11 +104,54 @@ public class FXMLMesAnnonceController implements Initializable {
      */
     ArrayList<AnnoncePerdu> list;
     ArrayList<Utilisateur> list1;
+    @FXML
+    private StackPane consulterAnnonce;
+    @FXML
+    private Label date2;
+    @FXML
+    private Label numero;
+    @FXML
+    private Label email;
+    @FXML
+    private Label date;
+    @FXML
+    private Label adresse;
+    @FXML
+    private Label date21;
+    @FXML
+    private Label date211;
+    @FXML
+    private Label date2111;
+    @FXML
+    private Label date21111;
+    @FXML
+    private Label nom;
+    @FXML
+    private Label nom21;
+    @FXML
+    private Label adresse1;
+    @FXML
+    private Label numero1;
+    @FXML
+    private Label email1;
+    @FXML
+    private Label email11;
+    @FXML
+    private Label email111;
+    @FXML
+    private Label email1111;
+    @FXML
+    private Label nom12;
+    @FXML
+    private Label nom11;
+    @FXML
+    private AnchorPane princi;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         AnnoncePerduServices service = new AnnoncePerduServices();
-           
+      
+             
         list = service.getList();
         
         if (list.isEmpty()) {
@@ -119,7 +163,8 @@ public class FXMLMesAnnonceController implements Initializable {
             setNbPages();
             initAnnoncePerduPage(0);
         }
-      
+        
+       
     }    
 
     
@@ -235,22 +280,15 @@ public class FXMLMesAnnonceController implements Initializable {
     
     
     @FXML
-    private void consulter1(ActionEvent event) {
+    private void consulter(ActionEvent event) {
         
-        
+         consulterAnnonce.setVisible(true);
         
     }
 
     @FXML
-    private void conuslter3(ActionEvent event) {
+    private void conuslter(ActionEvent event) {
     }
 
-    @FXML
-    private void conuslter2(ActionEvent event) {
-    }
-
-    @FXML
-    private void conuslter4(ActionEvent event) {
-    }
     
 }

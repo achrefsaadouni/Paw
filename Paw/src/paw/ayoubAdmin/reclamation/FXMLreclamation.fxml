@@ -8,10 +8,11 @@
    <children>
       <JFXTreeTableView fx:id="ReclamationTable" layoutX="50.0" layoutY="80.0" prefHeight="550.0" prefWidth="1000.0">
          <columns>
-            <TreeTableColumn fx:id="objet" prefWidth="147.33334350585938" text="Objet" />
-            <TreeTableColumn fx:id="text" minWidth="0.0" prefWidth="569.0" text="Text" />
-            <TreeTableColumn fx:id="type" prefWidth="134.0" text="Type" />
-            <TreeTableColumn fx:id="date" prefWidth="148.0" text="Date" />
+            <TreeTableColumn fx:id="objet" prefWidth="220.0" text="Objet" />
+            <TreeTableColumn fx:id="text" minWidth="0.0" prefWidth="395.0" text="Text" />
+            <TreeTableColumn fx:id="type" prefWidth="128.0" text="Type" />
+            <TreeTableColumn fx:id="date" prefWidth="128.0" text="Date" />
+            <TreeTableColumn fx:id="repondre" prefWidth="128.0" text="Répondre" />
          </columns>
       </JFXTreeTableView>
    </children>
