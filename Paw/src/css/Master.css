@@ -8,7 +8,17 @@ and open the template in the editor.
     Author     : AYOUB
 */
 
+.textnoir{
+    -fx-font-size:27;
+    -fx-font-weight:bold;
+    -fx-text-fill: #424242;
+}
 
+.contenunoir{
+    -fx-font-size:22;
+    -fx-font-weight:bold;
+    -fx-text-fill: #424242;
+}
 
 .names{
     -fx-font-size:27;

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.annonceadoption.FXMLlisteController">
+   <children>
+      <Label fx:id="nom11" alignment="CENTER" layoutX="16.0" layoutY="13.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Les offres d'adoption" />
+      <Separator layoutX="13.0" layoutY="48.0" prefHeight="4.0" prefWidth="1064.0" />
+      <AnchorPane fx:id="box" layoutX="15.0" layoutY="65.0" prefHeight="160.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+         <children>
+            <Label fx:id="typeAdoptiontypeAnimal" layoutX="25.0" layoutY="10.0" prefHeight="39.0" prefWidth="449.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="message" layoutX="348.0" layoutY="56.0" prefHeight="86.0" prefWidth="372.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Message" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="21.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="consulter" alignment="CENTER" layoutX="925.0" layoutY="68.0" onAction="#consulterOffre" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Consulter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <Label fx:id="date" layoutX="815.0" layoutY="20.0" prefHeight="30.0" prefWidth="231.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="race" layoutX="95.0" layoutY="75.0" prefHeight="43.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="43.0" fitWidth="74.0" layoutX="33.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/icons/male.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pagination fx:id="paginator" layoutX="6.0" layoutY="584.0" pageCount="100" prefHeight="57.0" prefWidth="1091.0" />
+   </children>
+</AnchorPane>
