@@ -29,6 +29,8 @@ public class FXMLinterfacePrincipalPerduController extends FXMLCnxController imp
     private AnchorPane reclamations1;
     @FXML
     private AnchorPane reclamations11;
+    @FXML
+    private AnchorPane window;
 
     /**
      * Initializes the controller class.

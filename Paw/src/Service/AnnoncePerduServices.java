@@ -153,7 +153,6 @@ public class AnnoncePerduServices
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
-               // String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date
                int id = rs.getInt("id");
                 int age = rs.getInt("age");
                 String couleur = rs.getString("couleur");

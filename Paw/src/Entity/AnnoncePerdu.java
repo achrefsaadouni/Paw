@@ -23,11 +23,12 @@ public class AnnoncePerdu extends Annonce
     public AnnoncePerdu() {
       
     }
-    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,File images) {
-        super(id, age, couleur, sex, race, message_complementaire, type, date,images);
+    public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,File images,int id_utilisateur ) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur,images);
         this.colier = colier;
         this.date_perte = date_perte;
         this.lieu_perdu=lieu_perdu ; 
+        System.out.println("1");
     }
     
     public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur) {
@@ -35,6 +36,7 @@ public class AnnoncePerdu extends Annonce
         this.colier = colier;
         this.date_perte = date_perte;
         this.lieu_perdu=lieu_perdu ; 
+        System.out.println("2");
     }
     
     public AnnoncePerdu(String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,File images) {
@@ -42,6 +44,7 @@ public class AnnoncePerdu extends Annonce
         this.colier = colier;
         this.date_perte = date_perte;
         this.lieu_perdu=lieu_perdu ; 
+        System.out.println("3");
     }
 
     public String getLieu_perdu() {

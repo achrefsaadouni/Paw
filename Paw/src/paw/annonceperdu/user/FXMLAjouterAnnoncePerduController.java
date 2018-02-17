@@ -118,7 +118,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
             {
                colier="non";
             }
-              as.insererAnnoncePerdu(new AnnoncePerdu(colier, java.sql.Date.valueOf(dateinsertionp.getValue()), lieuxInsertion3.getText(),session.getId() , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexe, raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null,file));
+              as.insererAnnoncePerdu(new AnnoncePerdu(colier, java.sql.Date.valueOf(dateinsertionp.getValue()), lieuxInsertion3.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexe, raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null,file,session.getId()));
 
             dateinsertionp.setValue(LocalDate.now());
            

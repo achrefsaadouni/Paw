@@ -13,6 +13,7 @@ import Service.AnnoncePerduServices;
 import Service.UtilisateurServices;
 import Service.AnnoncePerduServices;
 import Service.LigneAchatService;
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -111,8 +112,6 @@ public class FXMLMesAnnonceController implements Initializable {
     @FXML
     private StackPane consulterAnnonce;
     @FXML
-    private Label date2;
-    @FXML
     private Label numero;
     @FXML
     private Label email;
@@ -121,38 +120,46 @@ public class FXMLMesAnnonceController implements Initializable {
     @FXML
     private Label adresse;
     @FXML
-    private Label date21;
-    @FXML
-    private Label date211;
-    @FXML
-    private Label date2111;
-    @FXML
-    private Label date21111;
-    @FXML
     private Label nom;
     @FXML
     private Label nom21;
-    @FXML
-    private Label adresse1;
-    @FXML
-    private Label numero1;
-    @FXML
-    private Label email1;
-    @FXML
-    private Label email11;
-    @FXML
-    private Label email111;
-    @FXML
-    private Label email1111;
     @FXML
     private Label nom12;
     @FXML
     private Label nom11;
     @FXML
     private AnchorPane princi;
+    @FXML
+    private JFXButton btn1;
+    @FXML
+    private JFXButton btn3;
+    @FXML
+    private JFXButton btn2;
+    @FXML
+    private JFXButton btn4;
+    @FXML
+    private Label type;
+    @FXML
+    private Label sexe;
+    @FXML
+    private Label race;
+    @FXML
+    private Label couleur;
+    @FXML
+    private Label age;
+    @FXML
+    private Label datedisparition;
+    @FXML
+    private Label colier;
+    @FXML
+    private Label lieu;
+    @FXML
+    private Label prenom;
+    @FXML
+    private Label sexe1;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        consulterAnnonce.setVisible(false);
         AnnoncePerduServices service = new AnnoncePerduServices();
       
              
@@ -203,7 +210,6 @@ public class FXMLMesAnnonceController implements Initializable {
         UtilisateurServices utilisateurservice = new UtilisateurServices();
         paginator.setCurrentPageIndex(index);
         List<AnnoncePerdu> QuatreAnnoncePerdus = getAnnoncePerdusPage(index);
-        AnnoncePerduServices service = new AnnoncePerduServices();
         
         if (QuatreAnnoncePerdus.size() >= 1) {
             box1.setVisible(true);
@@ -219,6 +225,9 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal1.setFitHeight(100);
        imageanimal1.setFitWidth(100);
        imageanimal1.setImage(im);
+       btn1.setOnAction((ActionEvent e) -> {
+                    voirannonce(QuatreAnnoncePerdus.get(0),u);
+                });
 
         } else {
             box1.setVisible(false);
@@ -239,6 +248,9 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal2.setFitHeight(100);
        imageanimal2.setFitWidth(100);
        imageanimal2.setImage(im);
+       btn2.setOnAction((ActionEvent e) -> {
+                    voirannonce(QuatreAnnoncePerdus.get(1),u);
+                });
 
         } else {
             box2.setVisible(false);
@@ -259,24 +271,14 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal3.setFitHeight(100);
        imageanimal3.setFitWidth(100);
        imageanimal3.setImage(im);
+        btn3.setOnAction((ActionEvent e) -> {
+                    voirannonce(QuatreAnnoncePerdus.get(2),u);
+                });
 
         } else {
             box3.setVisible(false);
         }
         ///////////////////////////////////////////////////////////
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         if (QuatreAnnoncePerdus.size() >= 4) {
             box4.setVisible(true);
@@ -292,6 +294,9 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal4.setFitHeight(100);
        imageanimal4.setFitWidth(100);
        imageanimal4.setImage(im);
+        btn4.setOnAction((ActionEvent e) -> {
+                    voirannonce(QuatreAnnoncePerdus.get(3),u);
+                });
 
         } else {
             box4.setVisible(false);
@@ -313,15 +318,39 @@ public class FXMLMesAnnonceController implements Initializable {
     
     
     
-    @FXML
     private void consulter(ActionEvent event) {
         
          consulterAnnonce.setVisible(true);
         
     }
 
+    
+
+    private void voirannonce(AnnoncePerdu a, Utilisateur u) {
+        type.setText("Type : "+ a.getType());
+        sexe.setText("Son sexe est :  "+a.getSex());
+        race.setText("Sa race est :   "+a.getRace());
+        couleur.setText("Sa couleur est :  "+a.getCouleur());
+        age.setText("Son age est :  "+String.valueOf(a.getAge()));
+        datedisparition.setText("Cet Animal est disparu le :  "+String.valueOf(a.getDate_perte()).substring(0, 10));
+        colier.setText("Il porte un colier :   "+a.getColier());
+        date.setText("L'annonce a été deposée le :  "+String.valueOf(a.getDate()).substring(0,10));
+        lieu.setText("Le lieu de disparition est :  "+a.getLieu_perdu());
+        nom.setText("Le nom de son proprietaire :  "+u.getNom());
+        prenom.setText("Son prenom est :  "+u.getPrenom());
+        sexe1.setText("L'adresse du proprietaire est :  "+u.getAddresse());
+        email.setText("Son Email est :  "+u.getEmail());
+        numero.setText("Son numero est  :  "+String.valueOf(u.getNumero()));
+        adresse.setText("L'adresse du proprietaire est :   "+u.getAddresse()) ; 
+       
+        consulterAnnonce.setVisible(true);
+    }
+
     @FXML
-    private void conuslter(ActionEvent event) {
+    private void retour(ActionEvent event) {
+        
+         consulterAnnonce.setVisible(false);
+        
     }
 
     
