@@ -29,6 +29,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 import javax.swing.JOptionPane;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -218,9 +219,9 @@ public class FXMLAnnonceController implements Initializable {
      try {
 			// Construct data
 			String apiKey = "apikey=" + txtapi.getText();
-			String message = "&message=" + txtmess.getText();
-			String sender = "&sender=paw" ;
-			String numbers = "&numbers=" + txtnumber.getText();
+			String message = "&message=Bienvenue à Paw Votre Annonce a été deposée avec succés" ;
+			String sender = "&sender=PawFamily" ;
+			String numbers = "&numbers=" + session.getNumero();
 			
 			// Send data
 			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
@@ -238,11 +239,9 @@ public class FXMLAnnonceController implements Initializable {
 			}
 			rd.close();
 			
-			//return stringBuffer.toString();
-		} catch (Exception e) {
-			//System.out.println("Error SMS "+e);
-                        JOptionPane.showMessageDialog(null, e);
-			//return "Error "+e;
+				} catch (Exception e) {
+			                      JOptionPane.showMessageDialog(null, e);
+			
 		}
     
     

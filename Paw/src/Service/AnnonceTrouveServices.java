@@ -5,15 +5,23 @@
  */
 package Service;
 
+import Entity.AnnoncePerdu;
 import Entity.AnnonceTrouvee;
+import Utility.Checksum;
 //import Entity.Annonce ;
 import Utility.DbHandler;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -32,7 +40,11 @@ public class AnnonceTrouveServices
     }
     public void insererAnnonceTrouvee (AnnonceTrouvee a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_trouvee,lieu_trouve) VALUES(?,?,?,?,?,?,now(),?,?,now(),?)" ; 
+        
+         String images="";
+
+        images=a.getImages().getPath().toString();
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,lieu_trouve,utilisateur_id,images,date_trouvee) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -44,8 +56,9 @@ public class AnnonceTrouveServices
             ste.setString(7,"annonce_trouvee");
             ste.setString(8, a.getColier());
             ste.setString(9,a.getLieu_trouve());
-            
-                            System.out.println("avant");
+            ste.setInt(10,a.getId_utilisateur()); 
+             ste.setString(11,images) ;
+             ste.setDate(12, (java.sql.Date) a.getDate_trouvee());
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -54,6 +67,22 @@ public class AnnonceTrouveServices
         
     
     }
+    
+     public String imageSave(File file) {
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\imagesBoutique\\" + imageName + extension;
+            File dest = new File(filePath);
+            Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            return filePath;
+        } catch (Exception ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     
     public ObservableList<AnnonceTrouvee> getAll1(){
         String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_trouvee'" ;
@@ -76,10 +105,11 @@ public class AnnonceTrouveServices
                 String  colier= rs.getString("colier");         
                 Date date_trouvee=rs.getDate("date_trouvee");
                 String lieu_trouve=rs.getString("lieu_trouve") ;
-
+                int id_utilisateur=rs.getInt("id_utilisateur");
+                File images=new File(rs.getString("images"));
                
         
-              list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+              list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur,images));
             }
 
         } catch (SQLException ex) {
@@ -125,6 +155,44 @@ public class AnnonceTrouveServices
         }
     
       }
+     
+     public ArrayList<AnnonceTrouvee> getMesAnnoncesTrouve(int i){
+        String req="SELECT * FROM annonce where type_annonce LIKE 'annonce_trouvee' and utilisateur_id=?" ;
+        ArrayList<AnnonceTrouvee> list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                int age = rs.getInt("age");
+                String couleur = rs.getString("couleur");
+                String  sex= rs.getString("sex");
+                String  race= rs.getString("race");
+                String  message_complementaire= rs.getString("message_complementaire");
+                String  type= rs.getString("type");
+                Timestamp date=rs.getTimestamp("date");
+                String  type_annonce= rs.getString("type_annonce");
+                String  colier= rs.getString("colier");         
+                Date date_trouvee=rs.getDate("date_trouvee");
+                String lieu_trouve=rs.getString("lieu_trouve") ;
+
+                int id_utilisateur=rs.getInt("utilisateur_id");
+                //////////////////////////////////////////////////
+                
+            list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+        }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+       
+       return list ; 
+    }
+    
+
 
     
 }
