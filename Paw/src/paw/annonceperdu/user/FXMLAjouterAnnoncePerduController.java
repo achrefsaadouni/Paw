@@ -36,6 +36,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import paw.MyNotifications;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -117,7 +118,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
             {
                colier="non";
             }
-              as.insererAnnoncePerdu(new AnnoncePerdu(colier, java.sql.Date.valueOf(dateinsertionp.getValue()), lieuxInsertion3.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexe, raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null,file));
+              as.insererAnnoncePerdu(new AnnoncePerdu(colier, java.sql.Date.valueOf(dateinsertionp.getValue()), lieuxInsertion3.getText(),session.getId() , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexe, raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null,file));
 
             dateinsertionp.setValue(LocalDate.now());
            
