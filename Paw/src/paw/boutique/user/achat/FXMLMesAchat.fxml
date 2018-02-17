@@ -82,15 +82,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer1" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
-                           <graphic>
-                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../Ressource/images/credit-card.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></JFXButton>
-                        <JFXButton fx:id="consulter1" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter1" layoutX="100.0" layoutY="340.0" prefHeight="45.0" prefWidth="146.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -151,15 +143,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer2" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
-                           <graphic>
-                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../Ressource/images/credit-card.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></JFXButton>
-                        <JFXButton fx:id="consulter2" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter2" layoutX="100.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -220,15 +204,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <JFXButton fx:id="payer3" layoutX="10.0" layoutY="340.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Payer">
-                           <graphic>
-                              <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../Ressource/images/credit-card.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic></JFXButton>
-                        <JFXButton fx:id="consulter3" layoutX="160.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
+                        <JFXButton fx:id="consulter3" layoutX="100.0" layoutY="340.0" prefHeight="45.0" prefWidth="139.0" style="-fx-background-color: #1ABB9C; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;" text="Consulter">
                            <graphic>
                               <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

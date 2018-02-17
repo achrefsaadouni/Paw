@@ -47,7 +47,7 @@ public class LigneAchatService {
             ste.setInt(3,a.getId_achat()) ; 
             ste.executeUpdate() ; 
         } catch (SQLException ex) {
-            System.out.println("Problème insertion LigneAchat");
+            System.out.println(ex);
         }
         
     }

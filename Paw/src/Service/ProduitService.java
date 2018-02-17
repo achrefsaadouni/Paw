@@ -131,9 +131,7 @@ public class ProduitService {
             System.out.println(ex);
         }
     
-    }
-     
-    
+    }    
      public void updatedescription (String valeur,int id)
     {
     String req="UPDATE `produit` SET description=? WHERE id =?" ; 
@@ -161,9 +159,7 @@ public class ProduitService {
             System.out.println(ex);
         }
     
-    } 
-     
-     
+    }      
      public void updateprix(Float valeur,int id)
     {
     String req="UPDATE `produit` SET prix=? WHERE id =?" ; 
@@ -192,9 +188,7 @@ public class ProduitService {
             System.out.println(ex);
         }
     
-    }
-     
-     
+    }  
         public ArrayList<Produit> findAll() {
         String sql = "SELECT * FROM `produit`";
          try {
@@ -232,11 +226,7 @@ public class ProduitService {
              System.out.println("erreur affichage produit");
          }
         return null;
-    }
-        
-        
-        
-        
+    }       
         public List<File> getFiles(String path)
         {
             List<File> res = new ArrayList<>();

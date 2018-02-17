@@ -9,7 +9,7 @@ import Entity.Achat;
 import Entity.LigneAchat;
 import Entity.Utilisateur;
 import Service.AchatService;
-import Service.LoginServices;
+
 import Service.ProduitService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
@@ -19,12 +19,15 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.scene.control.TreeTableColumn;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
@@ -34,7 +37,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import static paw.Paw.session;
-public class FXMLMesAchatController {
+import paw.mainUI.FXMLCnxController;
+
+public class FXMLMesAchatController{
     AchatService achatservice;
     Utilisateur user ;
     List<Achat> mes_achat ;
@@ -139,8 +144,7 @@ public class FXMLMesAchatController {
     private StackPane stackPaneconsulter;
    @FXML
     private JFXButton fermer;
-   
-    @FXML
+   @FXML
     void initialize() {
         achatservice = AchatService.getAchatService();
         mes_achat = achatservice.findAll(session.getId());
@@ -186,15 +190,7 @@ public class FXMLMesAchatController {
         paginator.setCurrentPageIndex(index);
         List<Achat> article_page = getArticlesPage(index);       
         if (article_page.size() >= 1) {
-            box1.setVisible(true);
-            if ("payer".equals(article_page.get(0).getEtat())) {
-                payer1.setDisable(true);
-            } else {
-               payer1.setDisable(false);
-                payer1.setOnAction((event) -> {
-                    
-                });
-            }            
+            box1.setVisible(true);         
             consulter1.setOnAction((event) -> {
                 consulter(article_page.get(0).getList());
             });
@@ -213,14 +209,6 @@ public class FXMLMesAchatController {
         ///////////////////////////////////////////////////////
          if (article_page.size() >= 2) {
             box2.setVisible(true);
-            if ("payer".equals(article_page.get(1).getEtat())) {
-                payer2.setDisable(true);
-            } else {
-               payer2.setDisable(false);
-                payer2.setOnAction((event) -> {
-                    
-                });
-            }            
             consulter2.setOnAction((event) -> {
                 consulter(article_page.get(1).getList());
             });
@@ -238,15 +226,7 @@ public class FXMLMesAchatController {
         ///////////////////////////////////////////////////////////
         
          if (article_page.size() >= 3) {
-            box3.setVisible(true);
-            if ("payer".equals(article_page.get(2).getEtat())) {
-                payer3.setDisable(true);
-            } else {
-               payer3.setDisable(false);
-                payer3.setOnAction((event) -> {
-                    
-                });
-            }            
+            box3.setVisible(true);          
             consulter3.setOnAction((event) -> {
                 consulter(article_page.get(2).getList());
             });
@@ -332,6 +312,7 @@ public class FXMLMesAchatController {
             stackPaneconsulter.setVisible(false);
         });
     }
+
     
 
 

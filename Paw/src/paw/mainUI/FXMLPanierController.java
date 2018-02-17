@@ -11,6 +11,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -22,13 +24,14 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import paw.MyNotifications;
+import paw.profile.FXMLprofileController;
 
 /**
  * FXML Controller class
  *
  * @author vinga
  */
-public class FXMLPanierController {
+public class FXMLPanierController  extends FXMLCnxController {
 
     @FXML
     private TreeTableColumn<LigneAchat, ImageView> imagePanier;
@@ -41,17 +44,16 @@ public class FXMLPanierController {
     @FXML
     private TreeTableColumn<LigneAchat, JFXButton> cancel;
     @FXML
-    private JFXButton payer;
-    @FXML
     private JFXTreeTableView<LigneAchat> paniertree;
-
     @FXML
+    private JFXButton payerPanier;
+
     public void initialize() {
 
         initpanier();
     }
 
-    public void initpanier() {
+    public void initpanier(){
         paniertree.setEditable(true);
         quantite.setCellValueFactory(param -> {
             SimpleIntegerProperty property = new SimpleIntegerProperty();
@@ -162,5 +164,15 @@ public class FXMLPanierController {
         paniertree.setRoot(root);
         paniertree.setShowRoot(false);
     }
+
+    @FXML
+    private void payer(ActionEvent event) {
+     try{  
+            loadSplashScreen("/paw/boutique/user/achat/FXMLPayer.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 
 }
