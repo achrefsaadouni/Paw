@@ -33,8 +33,8 @@
             <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
             <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="205.0" promptText="AGE" />
             <Line endX="100.0" layoutX="313.0" layoutY="200.0" rotate="90.0" startX="-150.0" />
-            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date disparition" />
-            <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="341.0" layoutY="148.0" prefHeight="31.0" prefWidth="255.0" promptText="LIEUX_PERDU" />
+            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date Trouvé" />
+            <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="341.0" layoutY="148.0" prefHeight="31.0" prefWidth="255.0" promptText="LIEUX_Trouveé" />
             <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="343.0" layoutY="296.0" prefHeight="31.0" prefWidth="255.0" promptText="MESSAGE_COMPLEMENTAIRE" />
             <Line endX="100.0" layoutX="709.0" layoutY="200.0" rotate="90.0" startX="-160.0" />
             <Pane layoutX="698.0" layoutY="90.0" prefHeight="200.0" prefWidth="369.0">
@@ -71,9 +71,9 @@
       </AnchorPane>
       <AnchorPane layoutX="13.0" layoutY="22.0" prefHeight="185.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="850.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Vous avez PERDU un animal: Déposez une annonce " />
+            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="850.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Vous avez Trouvé un animal: Déposez une annonce " />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
-            <Label layoutX="35.0" layoutY="122.0" text="Quel animal avez-vous perdu ?" textFill="#0f0fa4" underline="true">
+            <Label layoutX="35.0" layoutY="122.0" text="Quel animal avez-vous trouvé ?" textFill="#0f0fa4" underline="true">
                <font>
                   <Font size="20.0" />
                </font>

@@ -15,7 +15,7 @@
          <children>
             <AnchorPane fx:id="reclamations" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #EEEEEE;" text="Vérifiez dans nos annonces si votre animal n'y est pas présent.">
+                  <JFXButton onAction="#goToListe" prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #EEEEEE;" text="Vérifiez dans nos annonces si votre animal n'y est pas présent.">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
@@ -29,7 +29,7 @@
             </AnchorPane>
             <AnchorPane fx:id="reclamations1" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #90A4AE;" text="Déposez une annonce dans la section &quot;perdus&quot;">
+                  <JFXButton onAction="#goToAjout" prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #90A4AE;" text="Déposez une annonce dans la section &quot;perdus&quot;">
                      <font>
                         <Font name="System Bold Italic" size="17.0" />
                      </font>
@@ -43,7 +43,7 @@
             </AnchorPane>
             <AnchorPane fx:id="reclamations11" layoutX="10.0" layoutY="141.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton prefHeight="164.0" prefWidth="1000.0" style="-fx-background-color: #607D8B;" text="Quelles démarches engager pour retrouver votre animal de compagnie ? Consultez notre page d'aide" textAlignment="RIGHT">
+                  <JFXButton onAction="#goToConseils" prefHeight="164.0" prefWidth="1000.0" style="-fx-background-color: #607D8B;" text="Quelles démarches engager pour retrouver votre animal de compagnie ? Consultez notre page d'aide" textAlignment="RIGHT">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
