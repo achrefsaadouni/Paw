@@ -9,6 +9,8 @@ import java.io.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Random;
 
 public class Checksum {
@@ -50,5 +52,14 @@ public class Checksum {
             e.printStackTrace();
         }
         return generatedPassword;
+    }
+    
+    public static String genererCode()throws
+            Exception {
+    
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        String code=sdf.format(cal.getTime());
+        return createChecksum(code);
     }
 }

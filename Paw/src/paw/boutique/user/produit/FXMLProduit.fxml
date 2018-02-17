@@ -20,6 +20,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.user.produit.FXMLProduitController">
    <children>
+      <StackPane fx:id="payement" layoutX="300.0" layoutY="200.0" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" />
       <Separator layoutX="10.0" layoutY="65.0" prefHeight="4.0" prefWidth="1080.0" />
       <Pane fx:id="filter_type" layoutX="14.0" layoutY="246.0" prefHeight="379.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>

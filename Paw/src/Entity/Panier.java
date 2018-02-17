@@ -58,5 +58,13 @@ import java.util.List;
         }
         return 0;
     }
-    
+    public static double prixtotal()
+    {
+        double prix = 0;
+        for (LigneAchat ligneAchat : panier) {
+            prix +=(double) (ligneAchat.getNbr_produit()*ligneAchat.getProduit().getPrix());
+            
+        }
+        return prix;
+    }
 }
