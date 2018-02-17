@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -91,6 +92,15 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         try {
            
             loadSplashScreen("/paw/reclamation/FXMLReclamation.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToStatistiques(ActionEvent event) {
+        try {
+            loadSplashScreen("/paw/ayoubAdmin/statistiques/FXMLstatistiques.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }

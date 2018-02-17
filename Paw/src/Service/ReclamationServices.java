@@ -143,4 +143,79 @@ public class ReclamationServices {
             System.out.println(ex);
         }
     }
+
+    public double getRemerciment() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE type=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Remerciment");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;
+    }
+
+    public double getReclamation() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE type=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Reclamation");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+
+    public double getTraitee() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE etat=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Traitée");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+
+    public double getNonTraitee() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE etat=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Non traitée");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;        }
 }
