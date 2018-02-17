@@ -21,6 +21,11 @@ public class LigneAchat extends RecursiveTreeObject<LigneAchat>{
         return id_ligne;
     }
 
+    public LigneAchat(Produit produit, int nbr_produit) {
+        this.produit = produit;
+        this.nbr_produit = nbr_produit;
+    }
+
     public int getId_produit() {
         return produit.getId_produit();
     }

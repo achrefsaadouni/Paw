@@ -43,7 +43,6 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Window;
 import javafx.util.converter.NumberStringConverter;
 import paw.MyNotifications;
-
 public class FXMLAjouterController {
 
     private File file;
