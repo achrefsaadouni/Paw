@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import paw.mainUI.FXMLCnxController;
 
 /**
@@ -47,6 +48,8 @@ public class FXMLDocumentController implements Initializable {
         {
             closeStage();
             Paw.session=service.getInformation(x);
+//            ConnexionServices s=new ConnexionServices();
+//            s.updateConnexion(x);
             loadMain();  
         }
         else{
@@ -72,7 +75,7 @@ public class FXMLDocumentController implements Initializable {
         
         Parent root = loader.getRoot();
         Stage stage=new Stage();
-        
+        stage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

@@ -5,12 +5,14 @@
  */
 package paw.ayoubAdmin.reclamation;
 
-import Entity.Produit;
 import Entity.Reclamation;
+import Entity.RepRec;
 import Entity.Utilisateur;
 import Service.ReclamationServices;
+import Service.RepRecServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.net.URL;
@@ -26,9 +28,9 @@ import javafx.scene.control.TreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import paw.MyNotifications;
+import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -49,11 +51,31 @@ public class FXMLreclamationController implements Initializable {
     private TreeTableColumn<Reclamation, String> date;
     @FXML
     private TreeTableColumn<Reclamation,JFXButton> repondre;
+    @FXML
+    private Label titrer;
+    @FXML
+    private Label textr;
+    @FXML
+    private Label dater;
+    @FXML
+    private Label utilisateurr;
+    @FXML
+    private JFXTextArea reponser;
+    @FXML
+    private AnchorPane rep;
+    @FXML
+    private Separator separator;
+    @FXML
+    private Label reptext;
+    @FXML
+    private JFXButton btnEnregistrer;
+    @FXML
+    private Label lab;
+    @FXML
+    private Label datereponse;
+    @FXML
+    private JFXButton btnAnnuler;
     
-//    @FXML
-//    private JFXTreeTableView<Reclamation> ReclamationTable;
-//    @FXML
-//    private TreeTableColumn<Reclamation, JFXButton> repondre;
 
     /**
      * Initializes the controller class.
@@ -61,13 +83,15 @@ public class FXMLreclamationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationServices serviceRec = new ReclamationServices();
-        liste= serviceRec.getAll();
+        
+        rep.setVisible(false);
         
         initReclamation();
     }    
 
     private void initReclamation() {
         ReclamationServices serviceRec = new ReclamationServices();
+        liste= serviceRec.getAll();
         UtilisateurServices serviceUtil = new UtilisateurServices();
 
         text.setCellValueFactory(param -> {
@@ -103,35 +127,96 @@ public class FXMLreclamationController implements Initializable {
             return property;
         });
         
-//        repondre.setCellValueFactory(param -> {
-//            SimpleObjectProperty property = new SimpleObjectProperty();
-//            Produit produit = (Produit) param.getValue().getValue();
-//           Reclamation r = (Reclamation) param.getValue().getValue();
-////          Utilisateur u = null;
-////          u = serviceUtil.rechercher(r.getUtilisateur());
-//            JFXButton supp = new JFXButton("Répondre");
-//            supp.setStyle("-fx-background-color:white;");
-//            supp.setOnAction((ActionEvent e) -> {
-//                produitservice.deleteProduit(r.getUtilisateur());
-//                refresh();
-//            });
-//
-//            property.set(supp);
-//            return property;
-//        });
-//        repondre.setCellValueFactory(param -> {
-//            Simple property = new SimpleStringProperty();
-//            Reclamation r = (Reclamation) param.getValue().getValue();
-//            Utilisateur u = null;
-//            u = serviceUtil.rechercher(r.getUtilisateur());
-//            property.set();
-//            return property;
-//        });
+        repondre.setCellValueFactory(param -> {
+            SimpleObjectProperty property = new SimpleObjectProperty();
+            Reclamation r = (Reclamation) param.getValue().getValue();
+            System.out.println(r.getEtat());
+            if (r.getEtat().equals("Non traitée"))
+            {
+                JFXButton rep = new JFXButton("Répondre");
+                rep.setStyle("-fx-background-color:white;");
+                rep.setOnAction((ActionEvent e) -> {
+                    reponseReclamation(r);
+                });
+                property.set(rep);
+                return property;
+            }
+            else
+            {
+                JFXButton rep = new JFXButton("Voir réponse");
+                rep.setStyle("-fx-background-color:white;");
+
+                rep.setOnAction((ActionEvent e) -> {
+                    voirReponseReclamation(r);
+                });
+
+                property.set(rep);
+                return property;
+            }
+            
+        });
 
         ObservableList<Reclamation> reclamations = FXCollections.observableArrayList(liste);
         TreeItem<Reclamation> root = new RecursiveTreeItem<>(reclamations, RecursiveTreeObject::getChildren);
         ReclamationTable.setRoot(root);
         ReclamationTable.setShowRoot(false);
+    }
+
+    private void reponseReclamation(Reclamation r) {
+            Utilisateur u = null;
+            UtilisateurServices serviceUtil = new UtilisateurServices();
+            u = serviceUtil.rechercher(r.getUtilisateur());
+            
+            dater.setText(String.valueOf(r.getDate()).substring(0,16));
+            titrer.setText(r.getType()+" : "+r.getObjet());
+            textr.setText(r.getText());
+            utilisateurr.setText(u.getEsm());
+            reponser.setText("");
+            lab.setText(String.valueOf(r.getId()));
+            reponser.setVisible(true);
+            btnAnnuler.setLayoutX(150);
+            reptext.setVisible(false);
+            datereponse.setVisible(false);
+            btnEnregistrer.setVisible(true);
+            separator.setVisible(false);
+            rep.setVisible(true);
+    }
+
+    @FXML
+    private void enregistrer(ActionEvent event) {
+        RepRecServices s=new RepRecServices();
+        s.insererRepReclamation(new RepRec (Integer.parseInt(lab.getText()),reponser.getText()));
+        ReclamationServices r= new ReclamationServices();
+        r.traiterReclamation(Integer.parseInt(lab.getText()));
+        initReclamation();
+        rep.setVisible(false);
+    }
+
+    @FXML
+    private void annuler(ActionEvent event) {
+        rep.setVisible(false);
+    }
+
+    private void voirReponseReclamation(Reclamation r) {
+            Utilisateur u = null;
+            UtilisateurServices serviceUtil = new UtilisateurServices();
+            RepRecServices reponseService = new RepRecServices();
+            u = serviceUtil.rechercher(r.getUtilisateur());
+            
+            dater.setText(String.valueOf(r.getDate()).substring(0,16));
+            titrer.setText(r.getType()+" : "+r.getObjet());
+            textr.setText(r.getText());
+            RepRec x=reponseService.getReponse(r.getId());
+            datereponse.setText("Réponse ecrite le : "+String.valueOf(x.getDate()).substring(0, 16));
+            utilisateurr.setText(u.getEsm());
+            reponser.setVisible(false);
+            btnAnnuler.setLayoutX(325);
+            btnEnregistrer.setVisible(false);
+            datereponse.setVisible(true);
+            separator.setVisible(true);
+            reptext.setVisible(true);
+            reptext.setText(x.getText());
+            rep.setVisible(true);
     }
 
     

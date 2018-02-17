@@ -110,5 +110,6 @@
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
          </children>
       </AnchorPane>
+      <JFXButton layoutX="578.0" layoutY="449.0" onAction="#goToStatistiques" text="Statistiques" />
    </children>
 </AnchorPane>

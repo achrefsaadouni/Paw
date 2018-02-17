@@ -5,6 +5,7 @@
  */
 package paw.boutique.user.produit;
 
+import Entity.Panier;
 import Entity.Produit;
 import Service.ProduitService;
 import com.jfoenix.controls.JFXButton;
@@ -24,6 +25,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
+import paw.mainUI.FXMLCnxController;
 
 public class FXMLProduitController {
 
@@ -338,6 +340,7 @@ public class FXMLProduitController {
             } else {
                 acheter1.setDisable(false);
                 acheter1.setOnAction((event) -> {
+                    Panier.addProduit(article_page.get(0));
                     
                 });
             }            
@@ -369,7 +372,7 @@ public class FXMLProduitController {
             } else {
                 acheter2.setDisable(false);
                 acheter2.setOnAction((event) -> {
-                    
+                    Panier.addProduit(article_page.get(1));
                 });
             }            
             detail2.setOnAction((event) -> {
@@ -400,7 +403,7 @@ public class FXMLProduitController {
             } else {
                 acheter3.setDisable(false);
                 acheter3.setOnAction((event) -> {
-                    
+                Panier.addProduit(article_page.get(2));    
                 });
             }            
             detail3.setOnAction((event) -> {
@@ -431,7 +434,7 @@ public class FXMLProduitController {
             } else {
                 acheter4.setDisable(false);
                 acheter4.setOnAction((event) -> {
-                    
+                    Panier.addProduit(article_page.get(3));
                 });
             }            
             detail4.setOnAction((event) -> {
@@ -489,7 +492,7 @@ public class FXMLProduitController {
             etat_detail.setVisible(false);
         }
         acheter.setOnAction((event) -> {
-            
+           Panier.addProduit(article);  
         });
         
         Image img = new Image("file:///" + article.getImages().get(0).toPath().toString());

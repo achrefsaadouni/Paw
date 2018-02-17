@@ -1,0 +1,12 @@
+/*TablPane styling*/
+.tab{
+    -fx-pref-width : 200;
+    -fx-pref-height : 60;
+    -fx-background-color:  #3C8DBC;
+    
+}
+
+.tab-header-background{
+    -fx-background-color: #3C8DBC;
+}
+
