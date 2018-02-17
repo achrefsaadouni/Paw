@@ -281,33 +281,36 @@
                         <Label fx:id="nom21" alignment="CENTER" layoutX="5.0" layoutY="38.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="de l'annimal en question" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="391.0" layoutY="15.0" prefHeight="629.0" prefWidth="353.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+                  <AnchorPane layoutX="391.0" layoutY="15.0" prefHeight="629.0" prefWidth="416.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                      <children>
-                        <VBox layoutY="84.0" prefHeight="545.0" prefWidth="350.0">
+                        <VBox layoutY="84.0" prefHeight="347.0" prefWidth="409.0">
                            <children>
-                              <Label fx:id="nom" prefHeight="42.0" prefWidth="353.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Nom : ">
+                              <Label fx:id="nom" prefHeight="42.0" prefWidth="445.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Nom : ">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="prenom" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Prenom : ">
+                              <Label fx:id="prenom" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="424.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Prenom : ">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="sexe1" contentDisplay="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Sexe : " />
-                              <Label fx:id="adresse" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Adresse:" />
-                              <Label fx:id="email" layoutX="10.0" prefHeight="50.0" prefWidth="373.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Email:">
+                              <Label fx:id="adresse" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="416.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Adresse:" />
+                              <Label fx:id="email" layoutX="10.0" prefHeight="50.0" prefWidth="421.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Email:">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label fx:id="numero" layoutX="10.0" layoutY="152.0" prefHeight="50.0" prefWidth="400.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Son numero : " />
-                              <JFXButton onAction="#retour" prefHeight="75.0" prefWidth="350.0" style="-fx-background-color: #B0BEC5;" text="Retour a la page d'acceuil " />
+                              <Label fx:id="numero" layoutX="10.0" layoutY="152.0" prefHeight="50.0" prefWidth="414.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Son numero : " />
                            </children>
                         </VBox>
                         <Label fx:id="nom12" alignment="CENTER" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Voici tout les coordonnés " />
                         <Label fx:id="nom11" alignment="CENTER" layoutX="3.0" layoutY="39.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="de son propriétaire " />
+                        <JFXButton layoutY="554.0" onAction="#retour" prefHeight="75.0" prefWidth="418.0" style="-fx-background-color: #B0BEC5;" text="Retour a la page des annonces">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </AnchorPane>
                </children>

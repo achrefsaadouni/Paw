@@ -336,9 +336,8 @@ public class FXMLMesAnnonceController implements Initializable {
         colier.setText("Il porte un colier :   "+a.getColier());
         date.setText("L'annonce a été deposée le :  "+String.valueOf(a.getDate()).substring(0,10));
         lieu.setText("Le lieu de disparition est :  "+a.getLieu_perdu());
-        nom.setText("Le nom de son proprietaire :  "+u.getNom());
+        nom.setText("Le nom de son proprietaire :  "+u.getSexe()+". "+u.getNom());
         prenom.setText("Son prenom est :  "+u.getPrenom());
-        sexe1.setText("L'adresse du proprietaire est :  "+u.getAddresse());
         email.setText("Son Email est :  "+u.getEmail());
         numero.setText("Son numero est  :  "+String.valueOf(u.getNumero()));
         adresse.setText("L'adresse du proprietaire est :   "+u.getAddresse()) ; 
