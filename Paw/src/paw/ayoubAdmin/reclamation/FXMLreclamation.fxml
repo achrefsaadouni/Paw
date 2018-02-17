@@ -22,22 +22,22 @@
       </JFXTreeTableView>
       <AnchorPane fx:id="rep" layoutX="150.0" layoutY="100.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
          <children>
-            <Label fx:id="titrer" layoutX="100.0" layoutY="21.0" prefHeight="15.0" prefWidth="364.0" styleClass="titre" stylesheets="@../../../css/Master.css" text="Objet">
+            <Label fx:id="titrer" layoutX="100.0" layoutY="21.0" prefHeight="39.0" prefWidth="468.0" styleClass="titre" stylesheets="@../../../css/Master.css" text="Objet">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="textr" layoutX="100.0" layoutY="95.0" prefHeight="100.0" prefWidth="600.0" text="Label">
+            <Label fx:id="textr" layoutX="100.0" layoutY="95.0" prefHeight="100.0" prefWidth="600.0" text="Label" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
             <Label fx:id="dater" layoutX="583.0" layoutY="21.0" prefHeight="32.0" prefWidth="198.0" styleClass="date" stylesheets="@../../../css/Master.css" text="Label" />
-            <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="15.0" prefWidth="364.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Label" textFill="#575454" />
-            <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" />
+            <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="39.0" prefWidth="425.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Label" textFill="#575454" />
+            <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
             <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="386.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
             <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="386.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
-            <Label fx:id="reptext" layoutX="150.0" layoutY="260.0" prefHeight="100.0" prefWidth="500.0" text="Label">
+            <Label fx:id="reptext" layoutX="150.0" layoutY="260.0" prefHeight="100.0" prefWidth="500.0" text="Label" wrapText="true">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>

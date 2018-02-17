@@ -5,11 +5,15 @@
  */
 package paw;
 
+import Entity.Connexion;
+import Service.ConnexionServices;
 import Service.LoginServices;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,6 +51,8 @@ public class FXMLDocumentController implements Initializable {
         {
             closeStage();
             Paw.session=service.getInformation(x);
+//            ConnexionServices s=new ConnexionServices();
+//            s.updateConnexion(x);
             loadMain();  
         }
         else{

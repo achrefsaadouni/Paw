@@ -88,7 +88,7 @@ public class FXMLreclamationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationServices serviceRec = new ReclamationServices();
-        liste= serviceRec.getAll();
+        
         rep.setVisible(false);
         
         initReclamation();
@@ -96,6 +96,7 @@ public class FXMLreclamationController implements Initializable {
 
     private void initReclamation() {
         ReclamationServices serviceRec = new ReclamationServices();
+        liste= serviceRec.getAll();
         UtilisateurServices serviceUtil = new UtilisateurServices();
 
         text.setCellValueFactory(param -> {
@@ -192,6 +193,7 @@ public class FXMLreclamationController implements Initializable {
         s.insererRepReclamation(new RepRec (Integer.parseInt(lab.getText()),reponser.getText()));
         ReclamationServices r= new ReclamationServices();
         r.traiterReclamation(Integer.parseInt(lab.getText()));
+        initReclamation();
         rep.setVisible(false);
     }
 
