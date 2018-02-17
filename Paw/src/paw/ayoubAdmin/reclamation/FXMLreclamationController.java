@@ -5,7 +5,6 @@
  */
 package paw.ayoubAdmin.reclamation;
 
-import Entity.Produit;
 import Entity.Reclamation;
 import Entity.RepRec;
 import Entity.Utilisateur;
@@ -31,11 +30,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javax.xml.bind.ParseConversionEvent;
-import paw.MyNotifications;
 
 /**
  * FXML Controller class

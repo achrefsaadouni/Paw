@@ -118,7 +118,6 @@ public class ReclamationServices {
                 String text= rs.getString("text");
                 String type = rs.getString("type");
                 String etat = rs.getString("etat");
-                String sexe = rs.getString("sexe");
                 java.sql.Timestamp date = rs.getTimestamp("date");
                               
                 list.add(new Reclamation(id,i, objet, text, type, date,etat));
