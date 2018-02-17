@@ -25,7 +25,7 @@ public class Annonce
    private String message_complementaire ; 
    private String type  ; 
    private Date date;
-   private List<File> images;
+   private File images;
    private int id_utilisateur;
 
     public Date getDate() {
@@ -38,6 +38,17 @@ public class Annonce
 
     public Annonce() {
     }
+     public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,File images) {
+        this.id=id ; 
+        this.age = age;
+        this.couleur = couleur;
+        this.sex = sex;
+        this.race = race;
+        this.message_complementaire = message_complementaire;
+        this.type = type;
+        this.date=date;
+        this.images=images ; 
+    }
     public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         this.id=id ; 
         this.age = age;
@@ -49,7 +60,7 @@ public class Annonce
         this.date=date;
     }
     
-    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,List<File> images) {
+    public Annonce(int id , int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,File images) {
         this.id=id ; 
         this.age = age;
         this.couleur = couleur;
@@ -109,11 +120,11 @@ public class Annonce
         return couleur;
     }
 
-      public List<File> getImages() {
+      public File getImages() {
         return images;
     }
 
-    public void setImages(List<File> images) {
+    public void setImages(File images) {
         this.images = images;
     }
     

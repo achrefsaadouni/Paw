@@ -7,11 +7,13 @@
 package Service;
 
 import Entity.AnnoncePerdu;
+import Entity.Produit;
 import Entity.Utilisateur;
 import Entity.Veterinaire;
 import Entity.Vets;
 //import Entity.Annonce ;
 import Utility.DbHandler;
+import com.mysql.jdbc.StringUtils;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -43,11 +46,29 @@ public class AnnoncePerduServices
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
+    
+     
+    
+        public List<File> getFiles(String path)
+        {
+            List<File> res = new ArrayList<>();
+            List<String>list = StringUtils.split(path,";",true);
+            list.stream().map((p) -> new File(p)).forEachOrdered((file) -> {
+                res.add(file);
+        });
+           
+            return res;
+        }
+        
+      
+    
+    
+    
     public void insererAnnoncePerdu (AnnoncePerdu a)
     {
          String images="";
 
-        images = a.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
+        images=a.getImages().getPath().toString();
         String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id,images) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -63,7 +84,7 @@ public class AnnoncePerduServices
             ste.setString(10, a.getLieu_perdu());
             ste.setInt(11, a.getId_utilisateur());
              ste.setString(12,images) ; 
-                            System.out.println("avant");
+                           
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -146,11 +167,12 @@ public class AnnoncePerduServices
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("utilisateur_id");
+                File images=new File(rs.getString("images"));
                 //////////////////////////////////////////////////
                 
 
         
-             list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+             list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur,images));
             }
 
         } catch (SQLException ex) {

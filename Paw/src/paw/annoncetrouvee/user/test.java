@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceperdu.user;
+package paw.annoncetrouvee.user;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -19,19 +19,17 @@ import javafx.stage.Stage;
  *
  * @author Guideinfo
  */
-public class Test extends Application {
+public class test extends Application {
     
-    
-         @Override
+        @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLListeAnnoncesPerdus.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLAjout.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.show();
     }
-
 
     /**
      * @param args the command line arguments
