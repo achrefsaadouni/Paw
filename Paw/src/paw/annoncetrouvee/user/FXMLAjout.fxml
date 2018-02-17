@@ -1,49 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncetrouvee.user.FXMLAjoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.FXMLAjouterAnnoncePerduController">
    <children>
       <AnchorPane layoutX="16.0" layoutY="261.0" prefHeight="381.0" prefWidth="1067.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="755.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Renseignez ces informations concernant l'animal PERDU" />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
+            <JFXButton alignment="CENTER" layoutX="867.0" layoutY="336.0" onAction="#actionInsertion2" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../mainUI/style.css" text="Valider" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="15.0" layoutY="88.0" prefHeight="31.0" prefWidth="205.0" promptText="RACE" />
+            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
+            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="205.0" promptText="AGE" />
             <Line endX="100.0" layoutX="313.0" layoutY="200.0" rotate="90.0" startX="-150.0" />
+            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date Trouvé" />
+            <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="341.0" layoutY="148.0" prefHeight="31.0" prefWidth="255.0" promptText="LIEUX_Trouveé" />
+            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="343.0" layoutY="296.0" prefHeight="31.0" prefWidth="255.0" promptText="MESSAGE_COMPLEMENTAIRE" />
             <Line endX="100.0" layoutX="709.0" layoutY="200.0" rotate="90.0" startX="-160.0" />
             <Pane layoutX="698.0" layoutY="90.0" prefHeight="200.0" prefWidth="369.0">
                <children>
-                  <JFXButton layoutX="193.0" layoutY="202.0" onAction="#actionInsertion2" prefHeight="87.0" prefWidth="160.0" style="-fx-background-color: #1976D2;" text="INSERER" />
+                  <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="35.0" layoutY="78.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="117.0" ripplerFill="#f5e5ff" style="-fx-background-color: #00C0EF;" text="Image 1" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Ressource/images/icon-image-128.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <ImageView fx:id="imajout1" fitHeight="150.0" fitWidth="200.0" layoutX="185.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/logo.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="365.0" layoutY="93.0" prefHeight="23.0" prefWidth="169.0" promptText="RACE" />
-            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="361.0" layoutY="251.0" promptText="COULEUR" />
-            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="366.0" layoutY="174.0" promptText="AGE" />
-            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="710.0" layoutY="127.0" prefHeight="87.0" prefWidth="238.0" promptText="MESSAGE_COMPLEMENTAIRE" />
-            <JFXRadioButton fx:id="male" layoutX="51.0" layoutY="154.0" prefHeight="21.0" prefWidth="169.0" selected="true" text="Male" />
-            <JFXRadioButton fx:id="female" layoutX="51.0" layoutY="190.0" prefHeight="21.0" prefWidth="182.0" text="Female" />
-            <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="54.0" layoutY="94.0" promptText="LIEUX_TROUVE" />
-            <JFXTextField fx:id="colierInsertion3" labelFloat="true" layoutX="51.0" layoutY="242.0" promptText="COLIER" />
+            <JFXRadioButton fx:id="female" layoutX="7.0" layoutY="315.0" prefHeight="21.0" prefWidth="182.0" text="Female" />
+            <JFXRadioButton fx:id="male" layoutX="9.0" layoutY="284.0" prefHeight="21.0" prefWidth="169.0" selected="true" text="Male" />
+            <JFXRadioButton fx:id="ColierN" layoutX="486.0" layoutY="119.0" prefHeight="21.0" prefWidth="169.0" selected="true" text="Non" />
+            <JFXRadioButton fx:id="ColierO" layoutX="486.0" layoutY="93.0" prefHeight="21.0" prefWidth="182.0" text="Oui" />
+            <Label layoutX="340.0" layoutY="97.0" prefHeight="39.0" prefWidth="168.0" text="Porte t'il un colier">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="13.0" layoutY="22.0" prefHeight="185.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="850.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Vous avez TROUVE un animal: Déposez une annonce " />
+            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="850.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Vous avez Trouvé un animal: Déposez une annonce " />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
-            <Label layoutX="35.0" layoutY="122.0" text="Quel animal avez-vous perdu ?" textFill="#0f0fa4" underline="true">
+            <Label layoutX="35.0" layoutY="122.0" text="Quel animal avez-vous trouvé ?" textFill="#0f0fa4" underline="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="choixInsertion" layoutX="371.0" layoutY="122.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choixInsertion" layoutX="380.0" layoutY="125.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>
