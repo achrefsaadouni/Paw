@@ -61,8 +61,9 @@ public class ReclamationServices {
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
                 int utilisateur= rs.getInt("id_utilisateur");
+                String etat = rs.getString("etat");
                               
-                list.add(new Reclamation(id,utilisateur, objet, text, type, date));
+                list.add(new Reclamation(id,utilisateur, objet, text, type, date,etat));
             }
 
         } catch (SQLException ex) {
@@ -103,7 +104,7 @@ public class ReclamationServices {
     }
 
     public ArrayList<Reclamation> getReclamationUtilisateur(int i) {
-       String req="SELECT * FROM Reclamation WHERE id_utilisateur=?" ;
+        String req="SELECT * FROM Reclamation WHERE id_utilisateur=?" ;
         ArrayList<Reclamation> list = new ArrayList();
         try 
         { 
@@ -116,14 +117,31 @@ public class ReclamationServices {
                 String objet = rs.getString("objet");
                 String text= rs.getString("text");
                 String type = rs.getString("type");
+                String etat = rs.getString("etat");
+                String sexe = rs.getString("sexe");
                 java.sql.Timestamp date = rs.getTimestamp("date");
                               
-                list.add(new Reclamation(id,i, objet, text, type, date));
+                list.add(new Reclamation(id,i, objet, text, type, date,etat));
             }
 
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         return list;
+    }
+
+    public void traiterReclamation(int i) 
+    {
+    String req="UPDATE Reclamation SET etat=? WHERE id=?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            
+            ste.setString(1, "Traitée");
+            ste.setInt(2, i);
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
     }
 }

@@ -136,8 +136,9 @@ public class UtilisateurServices {
                 String username = rs.getString("username");
                 String password = rs.getString("password");
                 String role = rs.getString("role");
+                String sexe = rs.getString("sexe");
                 int numero = rs.getInt("numero");
-                return new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role);
+                return new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role,sexe);
             }
 
         } catch (SQLException ex) {

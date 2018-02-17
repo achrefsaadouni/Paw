@@ -19,6 +19,7 @@ public class Reclamation extends RecursiveTreeObject<Reclamation>{
     private int utilisateur;
     private String objet; 
     private String text;
+    private String etat;
     private String type; //remerciment ou reclamation
     private Date date;
 
@@ -29,13 +30,21 @@ public class Reclamation extends RecursiveTreeObject<Reclamation>{
         this.type = type;
     }
 
-    public Reclamation(int id, int utilisateur, String objet, String text, String type, Date date) {
+//    public Reclamation(int utilisateur, String objet, String text, String type) {
+//        this.utilisateur = utilisateur;
+//        this.objet = objet;
+//        this.text = text;
+//        this.type = type;
+//    }
+    
+    public Reclamation(int id, int utilisateur, String objet, String text, String type, Date date,String etat) {
         this.id = id;
         this.utilisateur = utilisateur;
         this.objet = objet;
         this.text = text;
         this.type = type;
         this.date = date;
+        this.etat=etat;
     }
 
     public int getId() {
@@ -84,6 +93,14 @@ public class Reclamation extends RecursiveTreeObject<Reclamation>{
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
     }
     
 }

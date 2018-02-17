@@ -9,13 +9,22 @@ and open the template in the editor.
 */
 
 
+
 .names{
     -fx-font-size:27;
     -fx-font-weight:bold;
     -fx-text-fill: #6a7d9a;
 }
-
-
+.titre{
+    -fx-font-size:27;
+    -fx-font-weight:bold;
+    -fx-text-fill: #6a7d9a;
+}
+.date{
+    -fx-font-size:22;
+    -fx-font-weight:bold;
+    -fx-text-fill: #78909C;
+}
 
 /*******************************************************************************
 *                                                                              *
