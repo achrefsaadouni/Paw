@@ -12,6 +12,9 @@ import Entity.Veterinaire;
 import Entity.Vets;
 //import Entity.Annonce ;
 import Utility.DbHandler;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,8 +24,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import utility.Checksum;
 
 /**
  *
@@ -39,7 +45,10 @@ public class AnnoncePerduServices
     }
     public void insererAnnoncePerdu (AnnoncePerdu a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?)" ; 
+         String images="";
+
+        images = a.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
+        String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id,images) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -53,6 +62,7 @@ public class AnnoncePerduServices
             ste.setDate(9, (java.sql.Date) a.getDate_perte());
             ste.setString(10, a.getLieu_perdu());
             ste.setInt(11, a.getId_utilisateur());
+             ste.setString(12,images) ; 
                             System.out.println("avant");
             ste.executeUpdate() ; 
             
@@ -62,7 +72,23 @@ public class AnnoncePerduServices
         
     
     }
+     public String imageSave(File file) {
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\imagesBoutique\\" + imageName + extension;
+            File dest = new File(filePath);
+            Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            return filePath;
+        } catch (Exception ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
+     
+     
     public ObservableList<AnnoncePerdu> getAll1(){
         String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_perte'" ;
         ObservableList<AnnoncePerdu> list = FXCollections.observableArrayList();
@@ -82,13 +108,13 @@ public class AnnoncePerduServices
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 String  colier= rs.getString("colier");         
-                Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("id_utilisateur");
+                
                
         
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date, id_utilisateur));
+            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -117,7 +143,6 @@ public class AnnoncePerduServices
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 String  colier= rs.getString("colier");         
-                Date date_trouvee=rs.getDate("date_perte");
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("utilisateur_id");
@@ -125,7 +150,7 @@ public class AnnoncePerduServices
                 
 
         
-              list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+             list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -199,6 +224,44 @@ public class AnnoncePerduServices
         }
     
       }
+
+       public ArrayList<AnnoncePerdu> getMesAnnoncesPerdus(int i){
+        String req="SELECT * FROM annonce where type_annonce LIKE 'annonce_perte' and utilisateur_id=?" ;
+        ArrayList<AnnoncePerdu> list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+               // String colier, Date date_perte,String lieu_perdu , int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date
+               int id = rs.getInt("id");
+                int age = rs.getInt("age");
+                String couleur = rs.getString("couleur");
+                String  sex= rs.getString("sex");
+                String  race= rs.getString("race");
+                String  message_complementaire= rs.getString("message_complementaire");
+                String  type= rs.getString("type");
+                Timestamp date=rs.getTimestamp("date");
+                String  type_annonce= rs.getString("type_annonce");
+                String  colier= rs.getString("colier");         
+                Date date_trouvee=rs.getDate("date_perte");
+                Timestamp date_perte=rs.getTimestamp("date_perte");
+                String lieu_perdu=rs.getString("lieu_perdu") ;
+                int id_utilisateur=rs.getInt("utilisateur_id");
+                //////////////////////////////////////////////////
+                
+            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+        }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+       
+       return list ; 
+    }
+    
 
     
 }

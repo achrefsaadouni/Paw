@@ -131,9 +131,7 @@ public class FXMLAnnoncePerduController implements Initializable {
    if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(choixInsertion.getValue()))&& (!"".equals(colierInsertion3.getText()))&& (!"".equals(lieuxInsertion3.getText())))
         {
-// String colier, Date date_trouvee, String lieu_perdu, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date           
               AnnoncePerduServices  as = new AnnoncePerduServices();
-              //as.insererAnnoncePerdu(new AnnoncePerdu(colierInsertion3.getText(),java.sql.Date.valueOf(dateinsertionp.getValue()), lieuxInsertion3.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
             
             dateinsertionp.setValue(LocalDate.now());
             colierInsertion3.setText("");

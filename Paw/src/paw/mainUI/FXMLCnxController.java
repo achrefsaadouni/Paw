@@ -92,7 +92,7 @@ public class FXMLCnxController implements Initializable {
                         switch (node.getAccessibleText()) {
                             case "AnnoncePerdus": {
                                 try {
-                                    loadSplashScreen("/paw/annonceperdu/user/FXMLListeAnnoncesPerdus.fxml");
+                                    loadSplashScreen("/paw/annonceperdu/user/FXMLinterfacePrincipalPerdu.fxml");
                                     break;
                                 } catch (Exception ex) {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);

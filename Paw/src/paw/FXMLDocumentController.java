@@ -48,6 +48,8 @@ public class FXMLDocumentController implements Initializable {
         {
             closeStage();
             Paw.session=service.getInformation(x);
+//            ConnexionServices s=new ConnexionServices();
+//            s.updateConnexion(x);
             loadMain();  
         }
         else{

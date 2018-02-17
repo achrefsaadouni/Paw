@@ -6,11 +6,13 @@
 package paw.profile;
 
 import Service.AchatService;
+import Service.AnnonceServices;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -60,6 +62,8 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         email.setText(session.getEmail());
         numero.setText(String.valueOf(session.getNumero()));
         date.setText("Inscris depuis : "+String.valueOf((session.getDateInscription())));
+        AnnonceServices a = new AnnonceServices();
+        annonces.setText(String.valueOf(a.getMesAnnonces(session.getId()).size()));
         AchatService s = new AchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
     }    
@@ -76,6 +80,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
 
     @FXML
     private void goToAnnonce(MouseEvent event) {
+        try{
+            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -83,6 +92,15 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         try {
            
             loadSplashScreen("/paw/reclamation/FXMLReclamation.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToStatistiques(ActionEvent event) {
+        try {
+            loadSplashScreen("/paw/ayoubAdmin/statistiques/FXMLstatistiques.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }

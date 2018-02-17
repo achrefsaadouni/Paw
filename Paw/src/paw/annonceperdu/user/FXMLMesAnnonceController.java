@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -103,13 +104,54 @@ public class FXMLMesAnnonceController implements Initializable {
      */
     ArrayList<AnnoncePerdu> list;
     ArrayList<Utilisateur> list1;
+    @FXML
+    private StackPane consulterAnnonce;
+    @FXML
+    private Label date2;
+    @FXML
+    private Label numero;
+    @FXML
+    private Label email;
+    @FXML
+    private Label date;
+    @FXML
+    private Label adresse;
+    @FXML
+    private Label date21;
+    @FXML
+    private Label date211;
+    @FXML
+    private Label date2111;
+    @FXML
+    private Label date21111;
+    @FXML
+    private Label nom;
+    @FXML
+    private Label nom21;
+    @FXML
+    private Label adresse1;
+    @FXML
+    private Label numero1;
+    @FXML
+    private Label email1;
+    @FXML
+    private Label email11;
+    @FXML
+    private Label email111;
+    @FXML
+    private Label email1111;
+    @FXML
+    private Label nom12;
+    @FXML
+    private Label nom11;
+    @FXML
+    private AnchorPane princi;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         AnnoncePerduServices service = new AnnoncePerduServices();
       
-        //ArrayList<AnnoncePerdu> list= service.getList();
-       // ArrayList<Utilisateur> list1= service.getNomPrenom();        
+             
         list = service.getList();
         
         if (list.isEmpty()) {
@@ -122,36 +164,7 @@ public class FXMLMesAnnonceController implements Initializable {
             initAnnoncePerduPage(0);
         }
         
-        /*nom1.setText(list1.get(0).getNom()+" "+list1.get(0).getPrenom());
-        mail1.setText(list1.get(0).getEmail());
-        tel1.setText(String.valueOf(list1.get(0).getNumero()));
-        adr1.setText(list.get(0).getLieu_perdu());
-       datedepo.setText(String.valueOf(list.get(0).getDate_perte()));
-     type1.setText(list.get(0).getType());
        
-        
-       nom2.setText(list1.get(1).getNom()+" "+list1.get(1).getPrenom());
-        mail2.setText(list1.get(1).getEmail());
-        tel2.setText(String.valueOf(list1.get(1).getNumero()));
-        adr2.setText(list.get(1).getLieu_perdu());
-           datedepo2.setText(String.valueOf(list.get(1).getDate_perte()));
-     type2.setText(list.get(1).getType());
-        
-        
-        nom3.setText(list1.get(2).getNom()+" "+list1.get(2).getPrenom());
-       mail3.setText(list1.get(2).getEmail());
-        tel3.setText(String.valueOf(list1.get(2).getNumero()));
-       adr3.setText(list.get(2).getLieu_perdu());
-          datedepo3.setText(String.valueOf(list.get(2).getDate_perte()));
-     type3.setText(list.get(2).getType());   
-        
-       nom4.setText(list1.get(3).getNom()+" "+list1.get(3).getPrenom());
-       mail4.setText(list1.get(3).getEmail());
-        tel4.setText(String.valueOf(list1.get(3).getNumero()));
-       adr4.setText(list.get(3).getLieu_perdu());
-       datedepo4.setText(String.valueOf(list.get(3).getDate_perte()));
-     type4.setText(list.get(3).getType());*/
-      
     }    
 
     
@@ -267,22 +280,15 @@ public class FXMLMesAnnonceController implements Initializable {
     
     
     @FXML
-    private void consulter1(ActionEvent event) {
+    private void consulter(ActionEvent event) {
         
-        
+         consulterAnnonce.setVisible(true);
         
     }
 
     @FXML
-    private void conuslter3(ActionEvent event) {
+    private void conuslter(ActionEvent event) {
     }
 
-    @FXML
-    private void conuslter2(ActionEvent event) {
-    }
-
-    @FXML
-    private void conuslter4(ActionEvent event) {
-    }
     
 }

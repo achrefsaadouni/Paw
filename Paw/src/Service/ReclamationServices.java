@@ -61,8 +61,9 @@ public class ReclamationServices {
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
                 int utilisateur= rs.getInt("id_utilisateur");
+                String etat = rs.getString("etat");
                               
-                list.add(new Reclamation(id,utilisateur, objet, text, type, date));
+                list.add(new Reclamation(id,utilisateur, objet, text, type, date,etat));
             }
 
         } catch (SQLException ex) {
@@ -103,7 +104,7 @@ public class ReclamationServices {
     }
 
     public ArrayList<Reclamation> getReclamationUtilisateur(int i) {
-       String req="SELECT * FROM Reclamation WHERE id_utilisateur=?" ;
+        String req="SELECT * FROM Reclamation WHERE id_utilisateur=?" ;
         ArrayList<Reclamation> list = new ArrayList();
         try 
         { 
@@ -116,9 +117,10 @@ public class ReclamationServices {
                 String objet = rs.getString("objet");
                 String text= rs.getString("text");
                 String type = rs.getString("type");
+                String etat = rs.getString("etat");
                 java.sql.Timestamp date = rs.getTimestamp("date");
                               
-                list.add(new Reclamation(id,i, objet, text, type, date));
+                list.add(new Reclamation(id,i, objet, text, type, date,etat));
             }
 
         } catch (SQLException ex) {
@@ -126,4 +128,94 @@ public class ReclamationServices {
         }
         return list;
     }
+
+    public void traiterReclamation(int i) 
+    {
+    String req="UPDATE Reclamation SET etat=? WHERE id=?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            
+            ste.setString(1, "Traitée");
+            ste.setInt(2, i);
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public double getRemerciment() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE type=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Remerciment");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;
+    }
+
+    public double getReclamation() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE type=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Reclamation");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+
+    public double getTraitee() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE etat=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Traitée");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+
+    public double getNonTraitee() {
+        String req="SELECT count(*) as a FROM Reclamation WHERE etat=?" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, "Non traitée");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;        }
 }

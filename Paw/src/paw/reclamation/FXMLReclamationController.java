@@ -7,7 +7,6 @@ package paw.reclamation;
 
 import Entity.Reclamation;
 import Service.ReclamationServices;
-import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -21,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Notifications;
 import static paw.Paw.session;
 
@@ -74,6 +74,10 @@ public class FXMLReclamationController implements Initializable {
     private AnchorPane box2;
     @FXML
     private AnchorPane box3;
+    @FXML
+    private Label nom12;
+    @FXML
+    private StackPane vide;
     /**
      * Initializes the controller class.
      */
@@ -82,10 +86,14 @@ public class FXMLReclamationController implements Initializable {
         ReclamationServices service= new ReclamationServices();
         mesReclamations = service.getReclamationUtilisateur(session.getId());
         if (mesReclamations.isEmpty()) {
-//            box1.setVisible(false);
-//            box2.setVisible(false);
-//            box3.setVisible(false);
+            box1.setVisible(false);
+            box2.setVisible(false);
+            box3.setVisible(false);
+            vide.setVisible(true);
+            paginator.setVisible(false);
         } else {
+            paginator.setVisible(true);
+            vide.setVisible(false);
             setNbPages();
             initReclamationPage(0);
         }       
