@@ -15,11 +15,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.FXMLAjouterAnnoncePerduController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncetrouvee.user.FXMLAjoutController">
    <children>
       <AnchorPane layoutX="16.0" layoutY="261.0" prefHeight="381.0" prefWidth="1067.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <Label alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="755.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Renseignez ces informations concernant l'animal PERDU" />
+            <Label alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="755.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Renseignez ces informations concernant l'animal TROUVEE" />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
             <JFXButton alignment="CENTER" layoutX="867.0" layoutY="336.0" onAction="#actionInsertion2" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../mainUI/style.css" text="Valider" textFill="WHITE">
                <font>

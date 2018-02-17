@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
@@ -17,6 +18,20 @@ public class AnnonceTrouvee extends Annonce {
     private String colier ; 
     private Date date_trouvee ; 
     private String lieu_trouve ; 
+    
+    
+    public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_trouve, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,File images) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur,images);
+        this.colier = colier;
+        this.date_trouvee = date_trouvee;
+        this.lieu_trouve = lieu_trouve;
+    }
+ public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_trouve, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur);
+        this.colier = colier;
+        this.date_trouvee = date_trouvee;
+        this.lieu_trouve = lieu_trouve;
+    }
 
     public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_trouve, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
