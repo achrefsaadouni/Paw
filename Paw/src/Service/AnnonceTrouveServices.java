@@ -105,7 +105,7 @@ public class AnnonceTrouveServices
                 String  colier= rs.getString("colier");         
                 Date date_trouvee=rs.getDate("date_trouvee");
                 String lieu_trouve=rs.getString("lieu_trouve") ;
-                int id_utilisateur=rs.getInt("id_utilisateur");
+                int id_utilisateur=rs.getInt("utilisateur_id");
                 File images=new File(rs.getString("images"));
                
         
@@ -184,6 +184,43 @@ public class AnnonceTrouveServices
                 
             list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
         }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+       
+       return list ; 
+    }
+    public ArrayList<AnnonceTrouvee> getList(){
+        String req="SELECT * FROM annonce a where a.type_annonce LIKE 'annonce_trouvee'" ;
+        ArrayList<AnnonceTrouvee> list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+               int id = rs.getInt("id");
+                int age = rs.getInt("age");
+                String couleur = rs.getString("couleur");
+                String  sex= rs.getString("sex");
+                String  race= rs.getString("race");
+                String  message_complementaire= rs.getString("message_complementaire");
+                String  type= rs.getString("type");
+                Timestamp date=rs.getTimestamp("date");
+                String  type_annonce= rs.getString("type_annonce");
+                String  colier= rs.getString("colier");         
+               Date date_trouvee=rs.getDate("date_trouvee");
+                String lieu_trouve=rs.getString("lieu_trouve") ;
+                int id_utilisateur=rs.getInt("utilisateur_id");
+                File images=new File(rs.getString("images"));
+               
+         //////////////////////////////////////////////////
+                
+
+        
+             list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur,images));
+            }
 
         } catch (SQLException ex) {
             System.out.println(ex);

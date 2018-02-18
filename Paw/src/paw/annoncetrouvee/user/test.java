@@ -23,7 +23,7 @@ public class test extends Application {
     
         @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLAjout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLListeAnimauxTrouve.fxml"));
         
         Scene scene = new Scene(root);
         

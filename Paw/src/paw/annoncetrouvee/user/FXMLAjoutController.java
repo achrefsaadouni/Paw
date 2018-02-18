@@ -19,6 +19,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
@@ -27,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javax.mail.Session;
+import paw.MyNotifications;
 import static paw.Paw.session;
 
 /**
@@ -69,8 +72,13 @@ public class FXMLAjoutController implements Initializable {
 
     @FXML
     void actionInsertion2(ActionEvent event) {
+        if (!file.exists()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image ou bien des  donnes concernant l'annonce ", ButtonType.CLOSE);
+            alert.show();
+            upload.requestFocus();
+        } 
         
-         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))
+        else if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))
                  && (!"".equals(choixInsertion.getValue()))&& (!"".equals(lieuxInsertion3.getText())))
         {       
@@ -106,7 +114,39 @@ public class FXMLAjoutController implements Initializable {
             msgInsertion.setText("");
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
-        
+         MyNotifications.infoNotification("Ajout", "Votre annonce est  ajouté avec Succès");
+         
+         
+         /*   
+             try {
+			// Construct data
+			String apiKey = "apikey=Mc0FY4FFYfk-s7lu0Ki30K11zFT1mWSH4LTMttmPV5";
+			String message = "&message=Bienvenue à Paw Votre Annonce a été deposée avec succés" ;
+			String sender = "&sender=PawFamily" ;
+			String numbers = "&numbers=+216" + session.getNumero();
+			
+			// Send data
+			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
+			String data = apiKey + numbers + message + sender;
+			conn.setDoOutput(true);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+			conn.getOutputStream().write(data.getBytes("UTF-8"));
+			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			final StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = rd.readLine()) != null) {
+				//stringBuffer.append(line);
+                                JOptionPane.showMessageDialog(null, "message"+line);
+			}
+			rd.close();
+			
+				} catch (Exception e) {
+			                      JOptionPane.showMessageDialog(null, e);
+			
+		}
+    
+    */
         }
 
 
