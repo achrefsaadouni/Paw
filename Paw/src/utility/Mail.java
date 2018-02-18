@@ -42,7 +42,7 @@ public class Mail {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("pawzcorporation@gmail.com")); // same email id
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("pawzcorporation@gmail.com"));// whome u have to send mails that person id
+				InternetAddress.parse(recepteur));// whome u have to send mails that person id
 			message.setSubject("test");
 			message.setText("Pour Confimer votre Commande vueillez Utiliser se code : "+code);
 
