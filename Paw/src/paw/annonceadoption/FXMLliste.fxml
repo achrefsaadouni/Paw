@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLlisteController">
    <children>
+      <Pagination fx:id="paginator" layoutX="6.0" layoutY="584.0" pageCount="100" prefHeight="57.0" prefWidth="1091.0" />
       <Label fx:id="nom11" alignment="CENTER" layoutX="16.0" layoutY="13.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Les offres d'adoption" />
       <Separator layoutX="13.0" layoutY="48.0" prefHeight="4.0" prefWidth="1064.0" />
       <AnchorPane fx:id="box" layoutX="15.0" layoutY="65.0" prefHeight="135.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
@@ -28,7 +31,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <Label fx:id="date" layoutX="825.0" layoutY="14.0" prefHeight="30.0" prefWidth="231.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date" layoutX="850.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
@@ -42,9 +45,9 @@
                <children>
                   <ScrollPane prefHeight="79.0" prefWidth="433.0">
                     <content>
-                      <AnchorPane prefHeight="91.0" prefWidth="412.0">
+                      <AnchorPane prefHeight="38.0" prefWidth="412.0">
                            <children>
-                              <Label fx:id="message" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="372.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
+                              <Label fx:id="message" alignment="TOP_LEFT" prefHeight="79.0" prefWidth="414.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="21.0" />
                                  </font>
@@ -57,7 +60,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Pagination fx:id="paginator" layoutX="6.0" layoutY="584.0" pageCount="100" prefHeight="57.0" prefWidth="1091.0" />
       <AnchorPane fx:id="box1" layoutX="15.0" layoutY="220.0" prefHeight="135.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimal1" layoutX="37.0" layoutY="10.0" prefHeight="39.0" prefWidth="412.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
@@ -73,7 +75,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <Label fx:id="date1" layoutX="825.0" layoutY="14.0" prefHeight="30.0" prefWidth="231.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date1" layoutX="850.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
@@ -117,7 +119,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <Label fx:id="date11" layoutX="825.0" layoutY="14.0" prefHeight="30.0" prefWidth="231.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date11" layoutX="850.0" layoutY="14.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
@@ -144,6 +146,41 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="vide" layoutX="150.0" layoutY="250.0" prefHeight="149.0" prefWidth="800.0">
+         <children>
+            <Label text="Aucune offre d'adoption à afficher !" textAlignment="CENTER" textFill="#42a5f5">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" visible="false">
+         <children>
+            <Label fx:id="titrer" layoutX="100.0" layoutY="21.0" prefHeight="39.0" prefWidth="468.0" styleClass="titre" stylesheets="@../../css/Master.css" text="Objet">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="textr" layoutX="100.0" layoutY="95.0" prefHeight="100.0" prefWidth="600.0" text="Label" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="dater" layoutX="583.0" layoutY="21.0" prefHeight="32.0" prefWidth="198.0" styleClass="date" stylesheets="@../../css/Master.css" text="Label" />
+            <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="39.0" prefWidth="425.0" styleClass="names" stylesheets="@../../css/Master.css" text="Label" textFill="#575454" />
+            <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
+            <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="386.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
+            <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="386.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
+            <Label fx:id="reptext" layoutX="150.0" layoutY="260.0" prefHeight="100.0" prefWidth="500.0" text="Label" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Separator fx:id="separator" layoutX="53.0" layoutY="207.0" prefHeight="4.0" prefWidth="696.0" />
+            <Label fx:id="datereponse" layoutX="369.0" layoutY="226.0" prefHeight="32.0" prefWidth="414.0" styleClass="date" stylesheets="@../../css/Master.css" text="Label" />
          </children>
       </AnchorPane>
    </children>

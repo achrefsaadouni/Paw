@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #272928;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLMenuController">
    <children>
-      <JFXButton accessibleText="AnnoncePerdus" layoutX="11.0" layoutY="147.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="ANNONCES PERDUS" textFill="WHITE">
+      <JFXButton accessibleText="AnnoncePerdus" layoutX="11.0" layoutY="156.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Perdus" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="16.0" />
          </font>
@@ -19,14 +19,14 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton accessibleText="veterinaire" layoutX="11.0" layoutY="215.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="VETERINAIRE" textFill="WHITE">
+      <JFXButton accessibleText="veterinaire" layoutX="11.0" layoutY="218.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
          </graphic></JFXButton>
-      <JFXButton accessibleText="boutique" layoutX="13.0" layoutY="297.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="BOUTIQUE" textFill="WHITE">
+      <JFXButton accessibleText="boutique" layoutX="13.0" layoutY="297.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Boutique" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
@@ -57,6 +57,18 @@
             <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/ic_autorenew_black_48dp.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton accessibleText="AnnonceTrouvées" layoutX="11.0" layoutY="91.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Trouvés" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/contract.png" />
                </image>
             </ImageView>
          </graphic>
