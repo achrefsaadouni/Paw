@@ -110,6 +110,14 @@
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="578.0" layoutY="449.0" onAction="#goToStatistiques" text="Statistiques" />
+      <JFXButton layoutX="440.0" layoutY="424.0" onAction="#goToStatistiques" prefHeight="50.0" prefWidth="185.0" ripplerFill="#4f52ff" style="-fx-background-color: #6A7D9A;" text="Statistiques">
+         <font>
+            <Font size="20.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="617.0" layoutY="541.0" onAction="#goToListeAdoption" prefHeight="62.0" prefWidth="139.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Liste Adoption">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

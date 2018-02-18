@@ -105,5 +105,14 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void goToListeAdoption(ActionEvent event) {
+        try {                    
+            loadSplashScreen("/paw/annonceadoption/FXMLliste.fxml");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
     
 }

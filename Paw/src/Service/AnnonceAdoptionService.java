@@ -135,7 +135,7 @@ public class AnnonceAdoptionService {
 
     public ArrayList<AnnonceAdoption> getAnnonceAdoptionUtilisateur(int i) {
         
-            String req="SELECT * FROM annonce WHERE id_utilisateur=? and type_annonce like 'Annonce_adoption'" ;
+            String req="SELECT * FROM annonce WHERE utilisateur_id=? and type_annonce like 'Annonce_adoption'" ;
             ArrayList<AnnonceAdoption> list = new ArrayList();
             try {
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -154,11 +154,12 @@ public class AnnonceAdoptionService {
                 String  type_annonce= rs.getString("type_annonce");
                 File images=new File(rs.getString("images"));
                 String etatAdoption=rs.getString("etatAdoption");
+                int id_utilisateur=rs.getInt("utilisateur_id");
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
                               
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, finAdoption, age, images,etatAdoption));
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));
             }
             
             
@@ -193,7 +194,6 @@ public class AnnonceAdoptionService {
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1, req);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -206,14 +206,16 @@ public class AnnonceAdoptionService {
                 String  type= rs.getString("type");
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
-                File images=new File(rs.getString("images"));
+                //File images=new File(rs.getString("images"));
+                //File images=new File("C://Users//AYOUB//Desktop//ayoub.png");
+                int id_utilisateur=rs.getInt("utilisateur_id");
                 String etatAdoption=rs.getString("etatAdoption");
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
+                System.out.println(typeAdoption);
                               
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, finAdoption, age, images,etatAdoption));
-            }
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));            }
 
         } catch (SQLException ex) {
              Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
@@ -228,7 +230,6 @@ public class AnnonceAdoptionService {
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1, req);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -241,15 +242,15 @@ public class AnnonceAdoptionService {
                 String  type= rs.getString("type");
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
-                File images=new File(rs.getString("images"));
+                //File images=new File(rs.getString("images"));
+                File images=new File("C://Users//AYOUB//Desktop//ayoub.png");
+                int id_utilisateur=rs.getInt("utilisateur_id");
                 String etatAdoption=rs.getString("etatAdoption");
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
-                              
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, finAdoption, age, images,etatAdoption));
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));
             }
-
         } catch (SQLException ex) {
              Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
              System.out.println("getAnnonceAdoptionNonDisponible");
