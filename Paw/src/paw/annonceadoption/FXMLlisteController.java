@@ -9,6 +9,7 @@ import Entity.AnnonceAdoption;
 import Entity.Reclamation;
 import Service.AnnonceAdoptionService;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
+import javafx.scene.control.Separator;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -71,6 +75,30 @@ public class FXMLlisteController implements Initializable {
     private Label message11;
     @FXML
     private AnchorPane window;
+    @FXML
+    private StackPane vide;
+    @FXML
+    private AnchorPane details;
+    @FXML
+    private Label titrer;
+    @FXML
+    private Label textr;
+    @FXML
+    private Label dater;
+    @FXML
+    private Label utilisateurr;
+    @FXML
+    private JFXTextArea reponser;
+    @FXML
+    private JFXButton btnEnregistrer;
+    @FXML
+    private JFXButton btnAnnuler;
+    @FXML
+    private Label reptext;
+    @FXML
+    private Separator separator;
+    @FXML
+    private Label datereponse;
 
     /**
      * Initializes the controller class.
@@ -78,18 +106,18 @@ public class FXMLlisteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         AnnonceAdoptionService service= new AnnonceAdoptionService();
-        System.out.println("Mehdi Machfer");
+        details.setVisible(false);
+        liste= new ArrayList<>();
         liste = service.getAnnonceAdoptionDisponible();
-        System.out.println(liste.size());
         if (liste.isEmpty()) {
             box.setVisible(false);
             box1.setVisible(false);
             box11.setVisible(false);
-            //vide.setVisible(true);
+            vide.setVisible(true);
             paginator.setVisible(false);
         } else {
             paginator.setVisible(true);
-            //vide.setVisible(false);
+            vide.setVisible(false);
             setNbPages();
             initAnnoncePage(0);
         }       
@@ -121,6 +149,9 @@ public class FXMLlisteController implements Initializable {
             message.setText(TroisAnnonces.get(0).getMessage_complementaire());
             date.setText(String.valueOf(TroisAnnonces.get(0).getDate()).substring(0, 16));
             race.setText(TroisAnnonces.get(0).getRace());
+            box.setOnMouseClicked((MouseEvent e) -> {
+                details.setVisible(true);
+            });
             
         } 
         else { 
@@ -165,6 +196,15 @@ public class FXMLlisteController implements Initializable {
             }
         }
         return liste.subList(0, 2);    
+    }
+
+    @FXML
+    private void enregistrer(ActionEvent event) {
+    }
+
+    @FXML
+    private void annuler(ActionEvent event) {
+        details.setVisible(false);
     }
     
 }

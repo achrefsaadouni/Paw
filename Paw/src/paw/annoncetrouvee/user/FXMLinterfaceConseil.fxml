@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="59.0" layoutY="110.0" prefHeight="535.0" prefWidth="997.0">
+         <children>
+            <AnchorPane fx:id="reclamations1" layoutX="10.0" layoutY="10.0" prefHeight="124.0" prefWidth="969.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label layoutX="14.0" prefHeight="35.0" prefWidth="962.0" text="1.  Vérifiez les annonces ou déposez en une sur le site" textFill="#8e0e85b2" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="34.0" prefHeight="35.0" prefWidth="962.0" text="Consultez les annonces &quot;perdus&quot; du site ." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="71.0" prefHeight="35.0" prefWidth="962.0" text="S'il n'est pas présent, déposez une annonce . " textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="13.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="11.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations11" layoutX="10.0" layoutY="141.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label layoutX="41.0" layoutY="32.0" prefHeight="42.0" prefWidth="962.0" text="S'il a fugué en partant de chez vous, il y a de fortes chances pour qu'il se ballade pas très loin.. Etablissez un cercle autour " textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="132.0" prefHeight="35.0" prefWidth="962.0" text="N'hésitez pas à questionnez les gens que vous croisez ou vos voisins en laissant vos coordonnées ou cas ou." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="17.0" layoutY="-3.0" prefHeight="35.0" prefWidth="962.0" text="2.  Faites une recherche auprès de chez vous :" textFill="#8e0e85b2" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="61.0" prefHeight="42.0" prefWidth="974.0" text=" de votre habitation (en vélo c'est l'idéal) et agrandissez le cercle progressivement. Si vos amis peuvent vous donner un coup " textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="90.0" prefHeight="42.0" prefWidth="962.0" text="de main, c'est d'autant mieux." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="165.0" prefHeight="35.0" prefWidth="962.0" text="Si vous venez d'aménager, et qui plus est dans une maison, un chien ou un chat qui ne connait pas encore les limites de" textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="193.0" prefHeight="35.0" prefWidth="962.0" text="son territoire a très envie d'aller visiter les environ et dans certains cas se perdre" textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="3.0" layoutY="238.0" prefHeight="35.0" prefWidth="962.0" text="3.  Vérifier auprès :" textFill="#8e0e85b2" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="3.0" layoutY="232.0" prefHeight="1.0" prefWidth="990.0" />
+                  <Label layoutX="35.0" layoutY="266.0" prefHeight="35.0" prefWidth="962.0" text="Des vétérinaires : Une personne trouvant un animal perdu, pensera avec raison (surtout s'il possède lui même un animal) " textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="287.0" prefHeight="35.0" prefWidth="962.0" text=" qu'il est peut être soigné par le vétérinaire le plus proche. Celui ci pourra alors vous donner l'adresse du propriétaire." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="316.0" prefHeight="35.0" prefWidth="962.0" text="Les commercants : Tout comme le facteur, les commerces de proximités peuvent être une source de renseignements." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="340.0" prefHeight="35.0" prefWidth="962.0" text=" Profitez en pour y poser des petites affiches." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="365.0" prefHeight="35.0" prefWidth="962.0" text="Le Facteur : ll pourra poser la question aux personnes de votre quartier, et il est possible que quelqu'un ayant recueilli " textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="393.0" prefHeight="35.0" prefWidth="962.0" text="votre animal lui en ai parlé." textFill="#080808cc">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Line endX="50.0" layoutX="115.0" layoutY="294.0" startX="-80.0" />
+                  <Line endX="50.0" layoutX="125.0" layoutY="346.0" startX="-90.0" />
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="5.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="10.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="10.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="9.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_send_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations" prefHeight="0.0" prefWidth="866.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" />
+         </children>
+      </VBox>
+      <Label layoutX="157.0" layoutY="14.0" prefHeight="54.0" prefWidth="813.0" text="J'ai  mon animal de compagnie : que faire ?">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Line endX="700.0" layoutX="229.0" layoutY="14.0" startX="-100.0" />
+      <Line endX="615.0" layoutX="319.0" layoutY="68.0" startX="-190.0" />
+      <Label layoutX="133.0" layoutY="68.0" prefHeight="42.0" prefWidth="911.0" text="Perdre son petit compagnon est toujours douloureux. Voici quelque démarches pour vous aider à le retrouver." textFill="#ba2f2f" underline="true">
+         <font>
+            <Font name="System Italic" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="106.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Ressource/images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

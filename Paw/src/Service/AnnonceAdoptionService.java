@@ -213,8 +213,7 @@ public class AnnonceAdoptionService {
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
-                System.out.println(typeAdoption);
-                              
+                            
                 list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));            }
 
         } catch (SQLException ex) {

@@ -136,7 +136,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
             MyNotifications.infoNotification("Ajout", "Votre annonce est  ajouté avec Succès");
        
             
-            
+         /*   
              try {
 			// Construct data
 			String apiKey = "apikey=Mc0FY4FFYfk-s7lu0Ki30K11zFT1mWSH4LTMttmPV5";
@@ -165,7 +165,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
 			
 		}
     
-    
+    */
             
             
         }

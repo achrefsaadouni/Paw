@@ -130,7 +130,6 @@ public class FXMLreclamationController implements Initializable {
         repondre.setCellValueFactory(param -> {
             SimpleObjectProperty property = new SimpleObjectProperty();
             Reclamation r = (Reclamation) param.getValue().getValue();
-            System.out.println(r.getEtat());
             if (r.getEtat().equals("Non traitée"))
             {
                 JFXButton rep = new JFXButton("Répondre");
