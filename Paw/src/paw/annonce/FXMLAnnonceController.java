@@ -8,6 +8,9 @@ import Entity.Annonce;
 
 import Service.AnnonceServices;
 import com.jfoenix.controls.JFXTextField;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -19,6 +22,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
+
+import java.io.OutputStreamWriter;
+
+import java.net.URLConnection;
+import java.net.URLEncoder;
+
+import javax.swing.JOptionPane;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -96,6 +107,12 @@ public class FXMLAnnonceController implements Initializable {
     private ChoiceBox<String> choixModification;
     @FXML
     private TableColumn<Annonce, String> dateCol;
+    @FXML
+    private JFXTextField txtapi;
+    @FXML
+    private JFXTextField txtnumber;
+    @FXML
+    private JFXTextField txtmess;
 @FXML
     void actionInsertion2(ActionEvent event) {
          if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
@@ -194,5 +211,46 @@ public class FXMLAnnonceController implements Initializable {
     private void loadTable() {
        AnnonceServices rs = new AnnonceServices();
         tableView.getItems().setAll(rs.getAll());    
+    }
+
+    @FXML
+    private void actionSend(ActionEvent event) {
+    
+     try {
+			// Construct data
+			String apiKey = "apikey=" + txtapi.getText();
+			String message = "&message=Bienvenue à Paw Votre Annonce a été deposée avec succés" ;
+			String sender = "&sender=PawFamily" ;
+			String numbers = "&numbers=" + session.getNumero();
+			
+			// Send data
+			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
+			String data = apiKey + numbers + message + sender;
+			conn.setDoOutput(true);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+			conn.getOutputStream().write(data.getBytes("UTF-8"));
+			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			final StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = rd.readLine()) != null) {
+				//stringBuffer.append(line);
+                                JOptionPane.showMessageDialog(null, "message"+line);
+			}
+			rd.close();
+			
+				} catch (Exception e) {
+			                      JOptionPane.showMessageDialog(null, e);
+			
+		}
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
 }

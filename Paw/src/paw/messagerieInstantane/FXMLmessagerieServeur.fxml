@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="696.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.messagerieInstantane.FXMLmessagerieServeurController">
+   <children>
+      <JFXTextArea fx:id="msg_area" layoutX="134.0" layoutY="35.0" />
+      <TextField fx:id="msg_text" layoutX="153.0" layoutY="416.0" prefHeight="67.0" prefWidth="310.0" />
+      <JFXButton layoutX="578.0" layoutY="416.0" onAction="#send" prefHeight="67.0" prefWidth="199.0" style="-fx-background-color: #d50000;" text="Send" />
+   </children>
+</AnchorPane>

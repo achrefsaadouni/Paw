@@ -11,107 +11,133 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.admin.produit.FXMLAjouterController">
+<AnchorPane maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.boutique.admin.produit.FXMLAjouterController">
    <children>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="455.0" prefWidth="752.0">
-         <children>
-            <JFXTabPane layoutX="103.0" layoutY="97.0" prefHeight="531.0" prefWidth="1037.0">
-               <tabs>
-                  <Tab text="Ajouter">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1037.0">
+      <JFXTabPane maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" stylesheets="@style.css">
+         <tabs>
+            <Tab text="Ajouter Un Nouveau Produit ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1088.0" stylesheets="@style.css">
+                     <children>
+                        <Pane layoutX="14.0" layoutY="18.0" prefHeight="483.0" prefWidth="511.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
                            <children>
-                              <Pane layoutX="14.0" layoutY="18.0" prefHeight="401.0" prefWidth="511.0" style="-fx-border-color: #000000;">
-                                 <children>
-                                    <GridPane layoutX="20.0" layoutY="90.0" prefHeight="156.0" prefWidth="485.0">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <JFXTextField fx:id="libelle" focusColor="RED" labelFloat="true" prefHeight="41.0" prefWidth="190.0" promptText="Libelle" unFocusColor="#0055ff" />
-                                          <JFXTextField fx:id="prix" focusColor="RED" labelFloat="true" prefHeight="41.0" prefWidth="249.0" promptText="Prix" unFocusColor="#0055ff" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <JFXTextField fx:id="quantite" focusColor="RED" labelFloat="true" prefHeight="41.0" prefWidth="249.0" promptText="Quantite" unFocusColor="#0055ff" GridPane.rowIndex="1" />
-                                          <JFXComboBox fx:id="type" focusColor="RED" prefHeight="41.0" prefWidth="203.0" promptText="Type Du Produit" unFocusColor="#0055ff" GridPane.columnIndex="1" />
-                                       </children>
-                                    </GridPane>
-                                    <JFXTextArea fx:id="description" focusColor="RED" labelFloat="true" layoutX="33.0" layoutY="292.0" prefHeight="89.0" prefWidth="419.0" promptText="Description" unFocusColor="#0055ff" />
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="539.0" layoutY="19.0" prefHeight="398.0" prefWidth="479.0" style="-fx-border-color: #000000;">
-                                 <children>
-                                    <Pane layoutX="7.0" layoutY="-1.0" prefHeight="200.0" prefWidth="471.0">
-                                       <children>
-                                          <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="14.0" layoutY="69.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #1A237E;" text="Image 1" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
-                                          <ImageView fx:id="imajout1" fitHeight="150.0" fitWidth="200.0" layoutX="249.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../Ressource/images/logo.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </Pane>
-                                    <Pane layoutX="7.0" layoutY="199.0" prefHeight="200.0" prefWidth="469.0">
-                                       <children>
-                                          <JFXButton fx:id="upload1" buttonType="RAISED" layoutX="14.0" layoutY="68.0" onAction="#fileChoosing2" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #1A237E;" text="Image 2" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
-                                          <ImageView fx:id="imajout2" fitHeight="150.0" fitWidth="200.0" layoutX="249.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../Ressource/images/logo.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </Pane>
-                              <JFXButton fx:id="ajouter" buttonType="RAISED" layoutX="445.0" layoutY="444.0" onAction="#ajouterProduit" prefHeight="38.0" prefWidth="160.0" ripplerFill="#f5e5ff" style="-fx-background-color: #2E7D32;" text="Ajouter" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS" />
+                              <JFXTextArea fx:id="description" labelFloat="true" layoutX="33.0" layoutY="356.0" prefHeight="89.0" prefWidth="419.0" promptText="Description" />
+                              <JFXTextField fx:id="libelle" labelFloat="true" layoutX="30.0" layoutY="45.0" prefHeight="26.0" prefWidth="190.0" promptText="Libelle" />
+                              <JFXTextField fx:id="prix" labelFloat="true" layoutX="32.0" layoutY="114.0" prefHeight="29.0" prefWidth="205.0" promptText="Prix" />
+                              <JFXTextField fx:id="quantite" labelFloat="true" layoutX="31.0" layoutY="177.0" prefHeight="29.0" prefWidth="208.0" promptText="Quantite" />
+                              <JFXComboBox fx:id="type" layoutX="34.0" layoutY="248.0" prefHeight="29.0" prefWidth="203.0" promptText="Type Du Produit" />
                            </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-                  <Tab text="Consulter">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        </Pane>
+                        <Pane layoutX="563.0" layoutY="18.0" prefHeight="483.0" prefWidth="511.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
                            <children>
-                              <JFXTreeTableView id="table-view" fx:id="produitsTableView" layoutX="52.0" layoutY="105.0" prefHeight="357.0" prefWidth="950.0">
+                              <Pane layoutX="7.0" layoutY="-1.0" prefHeight="200.0" prefWidth="471.0">
+                                 <children>
+                                    <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="57.0" layoutY="69.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="117.0" ripplerFill="#f5e5ff" style="-fx-background-color: #00C0EF;" text="Image 1" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../Ressource/images/icon-image-128.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <ImageView fx:id="imajout1" fitHeight="150.0" fitWidth="200.0" layoutX="249.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Ressource/images/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="7.0" layoutY="199.0" prefHeight="200.0" prefWidth="469.0">
+                                 <children>
+                                    <JFXButton fx:id="upload1" buttonType="RAISED" layoutX="58.0" layoutY="68.0" onAction="#fileChoosing2" prefHeight="38.0" prefWidth="116.0" ripplerFill="#f5e5ff" style="-fx-background-color: #00C0EF;" text="Image 2" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../../Ressource/images/icon-image-128.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <ImageView fx:id="imajout2" fitHeight="150.0" fitWidth="200.0" layoutX="249.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../Ressource/images/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <JFXButton fx:id="ajouter" buttonType="RAISED" layoutX="383.0" layoutY="514.0" onAction="#clear" prefHeight="38.0" prefWidth="109.0" ripplerFill="#f5e5ff" style="-fx-background-color: #F39C12;" text="Nouveau" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Ressource/images/clear-icon-37966.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="ajouter1" buttonType="RAISED" layoutX="603.0" layoutY="514.0" onAction="#ajouterProduit" prefHeight="38.0" prefWidth="109.0" ripplerFill="#f5e5ff" style="-fx-background-color: #00A65A;" text="Ajouter" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../Ressource/images/add_sheet.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Consulter La Liste Des Produit">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTreeTableView id="table-view" fx:id="produitsTableView" layoutX="17.0" layoutY="112.0" maxHeight="445.0" maxWidth="1024.0" minHeight="445.0" minWidth="1024.0" prefHeight="445.0" prefWidth="1024.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" stylesheets="@style.css">
+                           <columns>
+                              <TreeTableColumn fx:id="id_view" prefWidth="26.0" text="ID" visible="false" />
+                              <TreeTableColumn fx:id="libelle_view" prefWidth="86.0" text="LIBELLE" />
+                              <TreeTableColumn fx:id="prix_view" prefWidth="52.0" text="PRIX" />
+                              <TreeTableColumn fx:id="quantite_view" prefWidth="70.0" text="QUANTITE" />
+                              <TreeTableColumn fx:id="description_view" prefWidth="173.0" text="DESCRIPTION" />
+                              <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="102.0" text="TYPE" />
+                              <TreeTableColumn fx:id="images_view" maxWidth="6000.0" minWidth="321.0" prefWidth="417.0" text="IMAGES">
                                  <columns>
-                                    <TreeTableColumn fx:id="id_view" prefWidth="26.0" text="ID" />
-                                    <TreeTableColumn fx:id="libelle_view" prefWidth="68.0" text="LIBELLE" />
-                                    <TreeTableColumn fx:id="prix_view" prefWidth="65.0" text="PRIX" />
-                                    <TreeTableColumn fx:id="quantite_view" prefWidth="66.0" text="QUANTITE" />
-                                    <TreeTableColumn fx:id="description_view" prefWidth="155.0" text="DESCRIPTION" />
-                                    <TreeTableColumn fx:id="type_view" minWidth="0.0" prefWidth="59.0" text="TYPE" />
-                                    <TreeTableColumn fx:id="images_view" maxWidth="6000.0" prefWidth="378.0" text="IMAGES">
-                                       <columns>
-                                          <TreeTableColumn fx:id="image1" prefWidth="155.0" text="image 1" />
-                                          <TreeTableColumn fx:id="modif1" minWidth="0.0" prefWidth="63.0" text="Modifier" />
-                                          <TreeTableColumn fx:id="image2" minWidth="0.0" prefWidth="152.0" text="image 2" />
-                                          <TreeTableColumn fx:id="modif2" prefWidth="58.0" text="Modifier" />
-                                       </columns>
-                                    </TreeTableColumn>
-                                    <TreeTableColumn fx:id="supprimer" prefWidth="67.0" text="Supprimer" />
+                                    <TreeTableColumn fx:id="image1" prefWidth="155.0" text="image 1" />
+                                    <TreeTableColumn fx:id="modif1" minWidth="0.0" prefWidth="63.0" text="Modifier" />
+                                    <TreeTableColumn fx:id="image2" minWidth="0.0" prefWidth="152.0" text="image 2" />
+                                    <TreeTableColumn fx:id="modif2" prefWidth="58.0" text="Modifier" />
                                  </columns>
-                              </JFXTreeTableView>
-                              <JFXTextField fx:id="key" focusColor="RED" labelFloat="true" layoutX="52.0" layoutY="60.0" prefHeight="34.0" prefWidth="195.0" promptText="Rechercher" unFocusColor="#4059a9">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </JFXTextField>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </Tab>
-               </tabs>
-            </JFXTabPane>
-         </children>
-      </AnchorPane>
+                              </TreeTableColumn>
+                              <TreeTableColumn fx:id="supprimer" minWidth="0.0" prefWidth="111.0" text="Supprimer" />
+                           </columns>
+                        </JFXTreeTableView>
+                        <JFXTextField fx:id="key" labelFloat="true" layoutX="52.0" layoutY="60.0" prefHeight="34.0" prefWidth="195.0" promptText="Rechercher">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
    </children>
 </AnchorPane>

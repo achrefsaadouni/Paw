@@ -12,8 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**

@@ -14,6 +14,8 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,8 @@ import paw.MyNotifications;
 public class FXMLAjouterController {
 
     private File file;
-    
+    NumberValidator numbervalidator = new NumberValidator();
+    RequiredFieldValidator validator = new RequiredFieldValidator();
     ObservableList<String> items = FXCollections.observableArrayList(
             "Laisse, Collier et Harnais",
             "Lits et Couvertures",
@@ -136,11 +139,16 @@ public class FXMLAjouterController {
 
     @FXML
     private ImageView imajout2;
+    @FXML
+    private JFXButton ajouter1;
 
     @FXML
     void ajouterProduit(ActionEvent event) {
-        if (files.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image", ButtonType.CLOSE);
+        if (!isFloat(prix) || prix.getText().isEmpty() || !isInteger(quantite) || quantite.getText().isEmpty() || libelle.getText().isEmpty() || description.getText().isEmpty()) {
+
+            MyNotifications.ErrorNotification("Ajout", "Veuillez Remplir Remplir Tous Les Champ Correctement");
+        } else if (files.isEmpty() || files.size() == 1) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger les images", ButtonType.CLOSE);
             alert.show();
             upload.requestFocus();
         } else {
@@ -148,9 +156,9 @@ public class FXMLAjouterController {
             produitservice = ProduitService.getProduitService();
             produitservice.addProduit(produit);
             MyNotifications.infoNotification("Ajout", "Produit ajouté avec Succès");
+            refresh();
         }
 
-        refresh();
     }
 
     @FXML
@@ -224,8 +232,13 @@ public class FXMLAjouterController {
             @Override
             public void handle(TreeTableColumn.CellEditEvent<Produit, String> event) {
                 TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
+                if (event.getNewValue().isEmpty())
+                {
+                    MyNotifications.infoNotification("Modification", "Libelle Ne peut pas etre Vide");
+                }else{             
                 produitservice.updatelibelle(event.getNewValue(), curseur.getValue().getId_produit());
                 MyNotifications.infoNotification("Modification", "Libelle edite avec Succès");
+                }
             }
         });
 
@@ -235,12 +248,17 @@ public class FXMLAjouterController {
             property.set(produit.getPrix());
             return property;
         });
-        prix_view.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(new NumberStringConverter()));
+
+           prix_view.setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(new NumberStringConverter()));
         prix_view.setOnEditCommit((TreeTableColumn.CellEditEvent<Produit, Number> event) -> {
-            TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
+     
+                TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
             produitservice.updateprix(event.getNewValue().floatValue(), curseur.getValue().getId_produit());
             MyNotifications.infoNotification("Modification", "prix edite avec Succès");
-        });
+            
+            
+        });  
+       
 
         quantite_view.setCellValueFactory(param -> {
             SimpleIntegerProperty property = new SimpleIntegerProperty();
@@ -254,6 +272,7 @@ public class FXMLAjouterController {
             @Override
             public void handle(TreeTableColumn.CellEditEvent<Produit, Number> event) {
                 TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
+                
                 produitservice.updatequantite(event.getNewValue().intValue(), curseur.getValue().getId_produit());
                 MyNotifications.infoNotification("Modification", "quantite edite avec Succès");
             }
@@ -271,8 +290,13 @@ public class FXMLAjouterController {
             @Override
             public void handle(TreeTableColumn.CellEditEvent<Produit, String> event) {
                 TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
+                if (event.getNewValue().isEmpty())
+                {
+                    MyNotifications.infoNotification("Modification", "description Ne peut pas etre Vide");
+                }else{   
                 produitservice.updatedescription(event.getNewValue(), curseur.getValue().getId_produit());
                 MyNotifications.infoNotification("Modification", "description edite avec Succès");
+                }
             }
         });
 
@@ -356,8 +380,19 @@ public class FXMLAjouterController {
         supprimer.setCellValueFactory(param -> {
             SimpleObjectProperty property = new SimpleObjectProperty();
             Produit produit = (Produit) param.getValue().getValue();
-            JFXButton supp = new JFXButton("Supprimer");
-            supp.setStyle("-fx-background-color:#D50000;");
+
+            ImageView im = new ImageView();
+            try {
+                img1 = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/cancel.png");
+                im.setFitHeight(20);
+                im.setFitWidth(20);
+                im.setImage(img1);
+
+            } catch (Exception ex) {
+                System.out.println("image non charger");
+            }
+            JFXButton supp = new JFXButton("", im);
+            supp.setStyle("-fx-background-color:white;");
             supp.setOnAction((ActionEvent e) -> {
                 produitservice.deleteProduit(produit.getId_produit());
                 MyNotifications.infoNotification("Suppression", "Produit Supprimé avec success");
@@ -390,13 +425,90 @@ public class FXMLAjouterController {
         produitsTableView.setRoot(root);
         produitsTableView.setShowRoot(false);
     }
-
-    @FXML
+   @FXML
     void initialize() {
 
         type.setItems(items);
         initTreeTableView();
+        libelle.getValidators().add(validator);
+        description.getValidators().add(validator);
+        prix.getValidators().add(numbervalidator);
+        quantite.getValidators().add(numbervalidator);
+        validator.setMessage("Le Champ est Vide");
+        numbervalidator.setMessage("Le Champ Doit Etre Numerique");
+        libelle.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    libelle.validate();
+                }
+            }
+        });
+        description.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    description.validate();
+                }
+            }
+        });
+        quantite.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    quantite.validate();
+                }
+            }
+        });
 
+        prix.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    prix.validate();
+                }
+            }
+        });
+    }
+
+    public boolean isFloat(JFXTextField input) {
+        try {
+            float prix = Float.parseFloat(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+
+    public boolean isInteger(JFXTextField input) {
+        try {
+            int prix = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+
+    @FXML
+    private void clear(ActionEvent event) {
+        libelle.setText("");
+        prix.setText("");
+        quantite.setText("");
+        description.setText("");
+        type.setValue("");
+        Image im = null;
+        try {
+             im = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/logo.png");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       
+        imajout1.setImage(im);
+        imajout2.setImage(im);
+        files.clear();
+        
     }
 
 }

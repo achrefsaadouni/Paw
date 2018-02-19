@@ -52,6 +52,25 @@ public class Utilisateur {
         this.sexe = sexe;
     }
 
+    public Utilisateur(int id_u, String nom_u, String prenom_u, int numero_u, String email_u, String adresse_u) {
+        this.id = id_u;
+        this.nom = nom_u;
+        this.prenom = prenom_u;
+        this.addresse = adresse_u;
+        this.email = email_u;
+        this.numero = numero_u;
+    }
+
+    public Utilisateur(int id, String nom, String prenom, String email, String username, String password, String addresse, int numero, String role, String sexe) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.addresse = addresse;
+        this.email = email;
+        this.numero = numero;
+        this.sexe=sexe;
+    }
+
    
 
     @Override
@@ -69,6 +88,13 @@ public class Utilisateur {
         return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    public String getEsm(){
+        if (getSexe().equals("Homme"))
+            return "Mr. "+getNom().toUpperCase()+" "+getPrenom();
+        else
+            return "Mme. "+getNom().toUpperCase()+" "+getPrenom();
+    }
 
     public int getId() {
         return id;

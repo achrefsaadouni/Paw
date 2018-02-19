@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.cell.ImageGridCell?>
+
+<AnchorPane id="AnchorPane" fx:id="princi" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.FXMLMesAnnonceController">
+   <children>
+      <VBox layoutX="24.0" layoutY="24.0" spacing="30.0">
+         <children>
+            <AnchorPane fx:id="box1" prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label fx:id="nom1" layoutX="91.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 16;" text="Nom Prenom owner annonce" />
+                  <Label fx:id="tel1" layoutX="99.0" layoutY="164.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="type1" layoutX="91.0" layoutY="44.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="titre annonce">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="adr1" layoutX="88.0" layoutY="104.0" prefHeight="30.0" prefWidth="335.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Addresse">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <JFXButton fx:id="btn1" layoutX="151.0" layoutY="9.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Consulter l'annonce" />
+                        <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fx:id="imageanimal1" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="mail1" layoutX="91.0" layoutY="135.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 13;" text="EMAIL">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="EMAIL" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="datedepo" layoutX="91.0" layoutY="74.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="date deposition">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="19.0" prefHeight="21.0" prefWidth="50.0" text="MR :" />
+                  <Label layoutX="14.0" layoutY="49.0" prefHeight="21.0" prefWidth="70.0" text="A perdu :" />
+                  <Label layoutX="14.0" layoutY="79.0" prefHeight="21.0" prefWidth="50.0" text="le" />
+                  <Label layoutX="14.0" layoutY="109.0" prefHeight="21.0" prefWidth="50.0" text="lieu" />
+                  <Label layoutX="14.0" layoutY="140.0" prefHeight="21.0" prefWidth="70.0" text="Voici son :" />
+                  <Label layoutX="1.0" layoutY="169.0" prefHeight="21.0" prefWidth="99.0" text="Son num est " />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="box3" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label fx:id="nom3" layoutX="89.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 16;" text="Nom Prenom owner annonce" />
+                  <Label fx:id="tel3" layoutX="103.0" layoutY="165.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="type3" layoutX="89.0" layoutY="44.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="titre annonce">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="adr3" layoutX="89.0" layoutY="104.0" prefHeight="30.0" prefWidth="335.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Addresse">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <JFXButton fx:id="btn3" layoutX="167.0" layoutY="9.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Consulter l'annonce" />
+                        <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fx:id="imageanimal3" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="mail3" layoutX="89.0" layoutY="135.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 13;" text="EMAIL">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="EMAIL" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="datedepo3" layoutX="89.0" layoutY="74.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="date deposition">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="19.0" prefHeight="21.0" prefWidth="50.0" text="MR :" />
+                  <Label layoutX="10.0" layoutY="49.0" prefHeight="21.0" prefWidth="70.0" text="A perdu :" />
+                  <Label layoutX="20.0" layoutY="79.0" prefHeight="21.0" prefWidth="50.0" text="le" />
+                  <Label layoutX="20.0" layoutY="109.0" prefHeight="21.0" prefWidth="50.0" text="lieu" />
+                  <Label layoutX="10.0" layoutY="140.0" prefHeight="21.0" prefWidth="70.0" text="Voici son :" />
+                  <Label layoutX="10.0" layoutY="169.0" prefHeight="21.0" prefWidth="99.0" text="Son num est " />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox layoutX="584.0" layoutY="24.0" spacing="30.0">
+         <children>
+            <AnchorPane fx:id="box2" prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label fx:id="nom2" layoutX="103.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 16;" text="Nom Prenom owner annonce" />
+                  <Label fx:id="tel2" layoutX="103.0" layoutY="164.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="type2" layoutX="103.0" layoutY="44.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="titre annonce">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="adr2" layoutX="103.0" layoutY="104.0" prefHeight="30.0" prefWidth="335.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Addresse">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <JFXButton fx:id="btn2" layoutX="173.0" layoutY="9.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Consulter l'annonce" />
+                        <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fx:id="imageanimal2" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="mail2" layoutX="103.0" layoutY="140.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 13;" text="EMAIL">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="EMAIL" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="datedepo2" layoutX="103.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="date deposition">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="19.0" prefHeight="21.0" prefWidth="50.0" text="MR :" />
+                  <Label layoutX="15.0" layoutY="49.0" prefHeight="21.0" prefWidth="70.0" text="A perdu :" />
+                  <Label layoutX="25.0" layoutY="79.0" prefHeight="21.0" prefWidth="50.0" text="le" />
+                  <Label layoutX="25.0" layoutY="109.0" prefHeight="21.0" prefWidth="50.0" text="lieu" />
+                  <Label layoutX="15.0" layoutY="145.0" prefHeight="21.0" prefWidth="70.0" text="Voici son :" />
+                  <Label layoutX="14.0" layoutY="169.0" prefHeight="21.0" prefWidth="99.0" text="Son num est " />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="box4" prefHeight="250.0" prefWidth="504.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #c3c3c3;">
+               <children>
+                  <Label fx:id="nom4" layoutX="101.0" layoutY="14.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 16;" text="Nom Prenom" />
+                  <Label fx:id="tel4" layoutX="101.0" layoutY="164.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="type4" layoutX="101.0" layoutY="44.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C;" text="titre annonce">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="adr4" layoutX="101.0" layoutY="104.0" prefHeight="30.0" prefWidth="342.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Addresse">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                     <children>
+                        <JFXButton fx:id="btn4" layoutX="164.0" layoutY="9.0" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Consulter l'annonce" />
+                        <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
+                     </children>
+                  </Pane>
+                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
+                  <ImageView fx:id="imageanimal4" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/avatar.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="mail4" layoutX="101.0" layoutY="135.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 13;" text="EMAIL">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="EMAIL" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="datedepo4" layoutX="101.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="date deposition">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="TARGET" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="19.0" prefHeight="21.0" prefWidth="50.0" text="MR :" />
+                  <Label layoutX="24.0" layoutY="49.0" prefHeight="21.0" prefWidth="70.0" text="A perdu :" />
+                  <Label layoutX="24.0" layoutY="79.0" prefHeight="21.0" prefWidth="50.0" text="le" />
+                  <Label layoutX="24.0" layoutY="109.0" prefHeight="21.0" prefWidth="50.0" text="lieu" />
+                  <Label layoutX="14.0" layoutY="139.0" prefHeight="21.0" prefWidth="70.0" text="Voici son :" />
+                  <Label layoutX="10.0" layoutY="169.0" prefHeight="21.0" prefWidth="99.0" text="Son num est " />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Pagination fx:id="paginator" layoutX="498.0" layoutY="583.0" pageCount="5" prefHeight="50.0" prefWidth="168.0" />
+      <ImageGridCell />
+      <ImageGridCell />
+      <StackPane fx:id="consulterAnnonce" layoutX="170.0" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="646.0" prefWidth="742.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="630.0" prefWidth="355.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <VBox layoutY="106.0" prefHeight="451.0" prefWidth="350.0">
+                           <children>
+                              <Label fx:id="date" contentDisplay="CENTER" layoutX="10.0" layoutY="274.0" prefHeight="38.0" prefWidth="392.0" text="L'animal est disparu le " textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="type" contentDisplay="CENTER" layoutY="160.0" prefHeight="38.0" prefWidth="309.0" text="Son type :" textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="sexe" contentDisplay="CENTER" prefHeight="50.0" prefWidth="350.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Le sexe : ">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="race" contentDisplay="CENTER" prefHeight="50.0" prefWidth="349.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Sa race : ">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="colier" contentDisplay="CENTER" layoutX="10.0" layoutY="236.0" prefHeight="38.0" prefWidth="388.0" text="S'il porte un colier:" textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="couleur" contentDisplay="CENTER" prefHeight="38.0" prefWidth="380.0" text="Sa couleur :  " textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="age" contentDisplay="CENTER" prefHeight="50.0" prefWidth="443.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Son age :">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="datedisparition" contentDisplay="CENTER" layoutX="10.0" layoutY="198.0" prefHeight="38.0" prefWidth="428.0" text="Le : " textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lieu" contentDisplay="CENTER" layoutX="10.0" layoutY="312.0" prefHeight="38.0" prefWidth="447.0" text="Le lieu est: " textFill="#9e9494">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label fx:id="nom" alignment="CENTER" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Voici tout les coordonnés" />
+                        <Label fx:id="nom21" alignment="CENTER" layoutX="5.0" layoutY="38.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="de l'annimal en question" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="391.0" layoutY="15.0" prefHeight="629.0" prefWidth="416.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <VBox layoutY="84.0" prefHeight="347.0" prefWidth="409.0">
+                           <children>
+                              <Label fx:id="nom" prefHeight="42.0" prefWidth="445.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Nom : ">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="prenom" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="424.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Prenom : ">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="adresse" contentDisplay="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="416.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Adresse:" />
+                              <Label fx:id="email" layoutX="10.0" prefHeight="50.0" prefWidth="421.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Email:">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="numero" layoutX="10.0" layoutY="152.0" prefHeight="50.0" prefWidth="414.0" style="-fx-font-size: 18; -fx-text-fill: #6a7d9a;" text="Son numero : " />
+                           </children>
+                        </VBox>
+                        <Label fx:id="nom12" alignment="CENTER" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Voici tout les coordonnés " />
+                        <Label fx:id="nom11" alignment="CENTER" layoutX="3.0" layoutY="39.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../../css/Master.css" text="de son propriétaire " />
+                        <JFXButton layoutY="554.0" onAction="#retour" prefHeight="75.0" prefWidth="418.0" style="-fx-background-color: #B0BEC5;" text="Retour a la page des annonces">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

@@ -19,88 +19,129 @@ import java.util.ArrayList;
  * @author vinga
  */
 public class AchatService {
+
     final private DbHandler handler;
     protected Connection connection;
     private static AchatService achatservice;
-    
-    
+
     public static AchatService getAchatService() {
         if (AchatService.achatservice == null) {
             achatservice = new AchatService();
         }
-         return achatservice;
-     }
-    
-    
+        return achatservice;
+    }
+
     public AchatService() {
         handler = DbHandler.getDBHandler();
-        connection =handler.getConnection();
+        connection = handler.getConnection();
     }
-    
-    public void addLigneAchat(Achat a)
-    {
-        String req="INSERT INTO `achat` (`id_client`,`prix`) VALUES(?,?)" ; 
-        try { 
-            PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,a.getId_client()) ;  
-            ste.setFloat(2, a.getPrix());
-            ste.executeUpdate() ; 
-        } catch (SQLException ex) {
-            System.out.println("Problème insertion Achat");
-        }
+
+    public boolean addAchat(Achat a) {
+        LigneAchatService ligneservice = LigneAchatService.getLigneService();
+        String req = "INSERT INTO `achat` (`id_client`,`prix`,`etat`) VALUES(?,?,?)";
+        String k = "select id_achat from `achat` order by id_achat desc limit 1";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, a.getId_client());
+            ste.setDouble(2, a.getPrix());
+            ste.setString(3, a.getEtat());
+            ste.executeUpdate();     
+        try {
+            PreparedStatement ste1 = connection.prepareStatement(k);
+            ste1.executeQuery();
+            ResultSet results = ste1.executeQuery();
+           
+            while (results.next()) {
+                a.setId_achat(results.getInt("id_achat"));
+            }
+             a.getList().forEach((ligne) -> {
+            ligne.setId_achat(a.getId_achat());
+        });
         
+        a.getList().forEach((ligne) -> {
+            ligneservice.addLigneAchat(ligne);
+        }); 
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+         return true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+     
+        return false;
     }
-    public int nombreAchat(int id_client)
-    {
+
+    public int nombreAchat(int id_client) {
         int y = 0;
-         String sql = "SELECT count(*) as nbr FROM `achat` where id_client=?";
-         try {
-             PreparedStatement statement = this.connection.prepareStatement(sql);
-             statement.setInt(1, id_client);
-             ResultSet results =  statement.executeQuery();
-             while(results.next())
-            y= results.getInt("nbr");
-         } catch (SQLException ex) {
-             System.out.println("erreur affichage nombre");
-         }
+        String sql = "SELECT count(*) as nbr FROM `achat` where id_client=?";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setInt(1, id_client);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
         return y;
     }
-    
-    
-    public void deleteLigneAchat (int id )
-    {
-    String req="DELETE  `achat` achat where  id =?" ; 
-        try { 
-            PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,id) ;
-            ste.executeUpdate() ; 
-            
+
+    public void deleteAchat(int id) {
+        String req = "DELETE  `achat` achat where  id =?";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, id);
+            ste.executeUpdate();
+
         } catch (SQLException ex) {
             System.out.println("Problème delete LigneAchat");
         }
-    
+
     }
-     
-        public ArrayList<Achat> findAll(int id) {
+
+    public ArrayList<Achat> findAll(int id) {
         String sql = "SELECT * FROM `achat` where id_client=?";
-         try {
-             PreparedStatement statement = this.connection.prepareStatement(sql);
-             statement.setInt(1, id);
-             ResultSet results =  statement.executeQuery();
-             ArrayList<Achat> achats = new ArrayList<>();
-             ArrayList<LigneAchat> ligneachats =null;
-             Achat a;
-             while (results.next()) {
-                 a = new Achat(results.getInt("id_achat"),results.getInt("id_client"),results.getTimestamp("date_achat"),results.getFloat("prix"),results.getString("etat"));
-                 ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
-                 a.setList(ligneachats);
-                 achats.add(a);
-             }
-             return achats;
-         } catch (SQLException ex) {
-             System.out.println("erreur affichage LigneAchat");
-         }
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet results = statement.executeQuery();
+            ArrayList<Achat> achats = new ArrayList<>();
+            ArrayList<LigneAchat> ligneachats = null;
+            Achat a;
+            while (results.next()) {
+                a = new Achat(results.getInt("id_achat"), results.getInt("id_client"), results.getTimestamp("date_achat"), results.getFloat("prix"), results.getString("etat"));
+                ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
+                a.setList(ligneachats);
+                achats.add(a);
+            }
+            return achats;
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage LigneAchat");
+        }
         return null;
     }
-        
+
+    public ArrayList<Achat> All() {
+        String sql = "SELECT * FROM `achat`";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            ArrayList<Achat> achats = new ArrayList<>();
+            ArrayList<LigneAchat> ligneachats = null;
+            Achat a;
+            while (results.next()) {
+                a = new Achat(results.getInt("id_achat"), results.getInt("id_client"), results.getTimestamp("date_achat"), results.getFloat("prix"), results.getString("etat"));
+                ligneachats = LigneAchatService.getLigneService().findAll(a.getId_achat());
+                a.setList(ligneachats);
+                achats.add(a);
+            }
+            return achats;
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage LigneAchat");
+        }
+        return null;
+    }
+
 }

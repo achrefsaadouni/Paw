@@ -10,6 +10,7 @@ package Entity;
  * @author gmehd
  */
 public class Veterinaire {
+
     private int id;
     private String nom;
     private String prenom;
@@ -83,7 +84,5 @@ public class Veterinaire {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
-    
+
 }

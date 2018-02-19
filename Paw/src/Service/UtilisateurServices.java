@@ -118,4 +118,32 @@ public class UtilisateurServices {
         }
     
       }
+     
+     
+       public Utilisateur rechercher(int id){
+        String req="SELECT * FROM utilisateur where id=?" ;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String addresse = rs.getString("addresse");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                String sexe = rs.getString("sexe");
+                int numero = rs.getInt("numero");
+                return new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role,sexe);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return null;
+    }
 }
