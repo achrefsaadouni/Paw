@@ -29,7 +29,7 @@ public class AnnonceTrainingServices {
     }
     public void insererAnnonceTraining (AnnonceTraining a)
     {
-        String req="INSERT INTO annonce (age,couleur,sex,type,race,message_complementaire,nomPet,dateTr,typeTr,type_annonce,date) VALUES(?,?,?,?,?,?,?,?,?,?,now())" ; 
+        String req="INSERT INTO annonce (age,couleur,sex,type,race,message_complementaire,nomPet,dateTr,typeTr,type_annonce,date,utilisateur_id) VALUES(?,?,?,?,?,?,?,?,?,?,now(),?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -42,6 +42,7 @@ public class AnnonceTrainingServices {
             ste.setDate(8, (java.sql.Date) a.getDateTr());
             ste.setString(9,a.getTypeTr());
             ste.setString(10,a.getType());
+            ste.setInt(11,a.getId_utilisateur()) ; 
             
                 System.out.println("avant");
            
@@ -70,6 +71,7 @@ public class AnnonceTrainingServices {
                 String  racePet= rs.getString("race");
                 String  descPet= rs.getString("message_complementaire");
                 String nomPet = rs.getString("nomPet");
+                int id_utilisateur = rs.getInt("utilisateur_id");
                 Date  dateTr= rs.getDate("dateTr");
                 String  typeTr= rs.getString("typeTr");
                 String  type= rs.getString("type");
@@ -78,7 +80,7 @@ public class AnnonceTrainingServices {
 
                
         
-              list.add(new AnnonceTraining( dateTr,typeTr,typePet,nomPet,id,agePet,colorPet,sexePet,racePet,descPet,type,date));
+              list.add(new AnnonceTraining( dateTr,typeTr,typePet,nomPet,id,agePet,colorPet,sexePet,racePet,descPet,type,date,id_utilisateur));
             }
 
         } catch (SQLException ex) {

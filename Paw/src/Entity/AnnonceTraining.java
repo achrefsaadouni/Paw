@@ -25,8 +25,8 @@ public class AnnonceTraining  extends Annonce{
     public AnnonceTraining() {
     }
 
-    public AnnonceTraining(Date dateTr, String typeTr, String typePet, String nomPet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
-        super(id, age, couleur, sex, race, message_complementaire, type, date);
+    public AnnonceTraining(Date dateTr, String typeTr, String typePet, String nomPet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int utilisateur_id) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date, utilisateur_id);
         this.dateTr = dateTr;
         this.typeTr = typeTr;
         this.typePet = typePet;

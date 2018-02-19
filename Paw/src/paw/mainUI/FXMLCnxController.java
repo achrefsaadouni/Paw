@@ -118,6 +118,14 @@ public class FXMLCnxController implements Initializable {
                 if (node.getAccessibleText() != null) {
                     node.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
                         switch (node.getAccessibleText()) {
+                            case "Training": {
+                                try {
+                                    loadSplashScreen("/paw/trainingService/FXMLTraining.fxml");
+                                    break;
+                                } catch (Exception ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
                             case "AnnonceTrouvées": {
                                 try {
                                     loadSplashScreen("/paw/annoncetrouvee/user/FXMLinterfacePrincipaleTrouvee.fxml");

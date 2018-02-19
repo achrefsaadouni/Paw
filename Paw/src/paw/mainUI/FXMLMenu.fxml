@@ -85,5 +85,17 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXButton accessibleText="Training" layoutX="10.0" layoutY="412.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Training" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/icons/ic_security_black_48dp.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

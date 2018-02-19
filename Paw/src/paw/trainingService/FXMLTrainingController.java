@@ -16,6 +16,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
+import static paw.Paw.session;
 
 public class FXMLTrainingController implements Initializable {
 
@@ -79,6 +80,7 @@ public class FXMLTrainingController implements Initializable {
             s="Female";
         }
         AnnonceTrainingServices as = new AnnonceTrainingServices();
+        System.out.println(session.getId());
             as.insererAnnonceTraining(
                     new AnnonceTraining(
                     java.sql.Date.valueOf(dateTr.getValue()), 
@@ -92,7 +94,8 @@ public class FXMLTrainingController implements Initializable {
                             racePet.getText(),
                             descPet.getText(),
                             type,
-                            null));
+                            null,
+                            session.getId()));
             dateTr.setValue(LocalDate.now());
             typeTr.setValue("");
             agePet.setText("");
