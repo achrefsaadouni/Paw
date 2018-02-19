@@ -216,13 +216,16 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal1.setFitHeight(100);
        imageanimal1.setFitWidth(100);
        imageanimal1.setImage(im);
-        valider.setOnAction((ActionEvent e) ->{
-            modifier(QuatreAnnoncePerdus.get(0).getId());
-       });
+
 
        modifier1.setOnAction((ActionEvent e) -> {
-                    modifierannonce(QuatreAnnoncePerdus.get(0),u);
-                });
+                modifierannonce(QuatreAnnoncePerdus.get(0),u);
+ 
+                            valider.setOnAction((ActionEvent b) ->{
+                             modifier(QuatreAnnoncePerdus.get(0).getId());
+                            });
+       });
+       
        supprimer1.setOnAction((ActionEvent e)->{
        supprimerannonce(QuatreAnnoncePerdus.get(0).getId()) ; 
        });
@@ -246,14 +249,17 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal2.setFitHeight(100);
        imageanimal2.setFitWidth(100);
        imageanimal2.setImage(im);
-        valider.setOnAction((ActionEvent e) ->{
-            modifier(QuatreAnnoncePerdus.get(1).getId());
-       });
+
 
        modifier2.setOnAction((ActionEvent e) -> {
-                    modifierannonce(QuatreAnnoncePerdus.get(1),u);
+                    modifierannonce(QuatreAnnoncePerdus.get(1),u);                   
+                    valider.setOnAction((ActionEvent b) ->{
+                             modifier(QuatreAnnoncePerdus.get(1).getId());
+                            });
                 }); 
-
+       supprimer2.setOnAction((ActionEvent e)->{
+       supprimerannonce(QuatreAnnoncePerdus.get(1).getId()) ; 
+       });
         } else {
             box2.setVisible(false);
         }
@@ -274,15 +280,16 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal3.setFitWidth(100);
        imageanimal3.setImage(im);
        
-       valider.setOnAction((ActionEvent e) ->{
-            modifier(QuatreAnnoncePerdus.get(2).getId());
-       });
-       
        
        modifier3.setOnAction((ActionEvent e) -> {
                     modifierannonce(QuatreAnnoncePerdus.get(2),u);
+                    valider.setOnAction((ActionEvent b) ->{
+                             modifier(QuatreAnnoncePerdus.get(2).getId());
+                            });
                 });
-
+        supprimer3.setOnAction((ActionEvent e)->{
+       supprimerannonce(QuatreAnnoncePerdus.get(2).getId()) ; 
+       });
         } else {
             box3.setVisible(false);
         }
@@ -302,15 +309,17 @@ public class FXMLMesAnnonceController implements Initializable {
        imageanimal4.setFitHeight(100);
        imageanimal4.setFitWidth(100);
        imageanimal4.setImage(im);
-        valider.setOnAction((ActionEvent e) ->{
-            modifier(QuatreAnnoncePerdus.get(3).getId());
-       });
 
         modifier4.setOnAction((ActionEvent e) -> {
                    modifierannonce(QuatreAnnoncePerdus.get(3),u);
+                  valider.setOnAction((ActionEvent b) ->{
+                             modifier(QuatreAnnoncePerdus.get(3).getId());
+                            });
                 });
 
-        } else {
+         supprimer4.setOnAction((ActionEvent e)->{
+       supprimerannonce(QuatreAnnoncePerdus.get(3).getId()) ; 
+       });} else {
             box4.setVisible(false);
         }
          
@@ -363,9 +372,8 @@ public class FXMLMesAnnonceController implements Initializable {
             AnnoncePerduServices as = new AnnoncePerduServices();
             
            as.updateAnnoncePerdu(
-                   new AnnoncePerdu(colierModification.getText(), null, lieuModification.getText(), id, Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(), choixModification.getValue(), null, 0)
-                   ,id);
-           list=as.getMesAnnoncesPerdus(2) ; 
+                   new AnnoncePerdu(colierModification.getText(), null, lieuModification.getText(), id, Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(), choixModification.getValue(), null, 0));
+           list=as.getMesAnnoncesPerdus(session.getId()) ; 
             
             if (list.isEmpty()) {
             box1.setVisible(false);
@@ -390,7 +398,7 @@ public class FXMLMesAnnonceController implements Initializable {
         AnnoncePerduServices service = new AnnoncePerduServices();
       
              
-        list = service.getMesAnnoncesPerdus(2);
+        list = service.getMesAnnoncesPerdus(session.getId());
         
         if (list.isEmpty()) {
             box1.setVisible(false);

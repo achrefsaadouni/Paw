@@ -208,12 +208,12 @@ public class AnnoncePerduServices
         return list;
     }    
     
-    public void updateAnnoncePerdu (AnnoncePerdu a, int id )
+    public void updateAnnoncePerdu (AnnoncePerdu a)
     {
     String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_perdu=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-           ste.setInt(9,id) ;
+           ste.setInt(9,a.getId()) ;
            ste.setInt(1,a.getAge()) ; 
            ste.setString(2,a.getCouleur()) ; 
            ste.setString(3,a.getSex()) ; 
