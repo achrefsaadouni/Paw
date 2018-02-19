@@ -113,21 +113,33 @@ public class FXMLinscriptionController implements Initializable {
                          Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getText().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), "", null, sexe);
                          s.insererUtilisateur(p);
                          Notifications.create().text("Inscription done").title("Succès").show();
-                         
+                            nom.setText("");
+                            prenom.setText("");
+                            password.setText("");
+                            confirmer.setText("");
+                            rue.setText("");
+                            ville.setText("") ;    
+                            numero.setText(""); 
+                            email.setText("");
+                            username.setText("");  
                      }
                      else
                      {
-                         System.out.println("Password different de la confirmation");
+                         JFXSnackbar snack = new JFXSnackbar(anchor);
+                         snack.show("Password different de la confirmation", 1000);
                      }
                 }
                 else
                 {
-                     System.out.println("Username deja existant");
+                    JFXSnackbar snack = new JFXSnackbar(anchor);
+                    snack.show("Username deja existant", 1000);
                 }
             }
             else
             {
-                System.out.println("Email deja existant");
+                JFXSnackbar snack = new JFXSnackbar(anchor);
+                snack.show("Email deja existant", 1000);
+               
             }
         }
         else
