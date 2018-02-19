@@ -144,7 +144,7 @@ public class FXMLAnnonceTrainingController implements Initializable {
 //                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateTrInsertion.getValue())))&& (!"".equals(typeTrInsertion.getText()))&& (!"".equals(dureTrInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
 //        {
             AnnonceTrainingServices as = new AnnonceTrainingServices();
-              as.insererAnnonceTraining(new AnnonceTraining(java.sql.Date.valueOf(dateInsertion.getValue()), Integer.parseInt(dureeInsertion.getText()), typeInsertion.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
+           //   as.insererAnnonceTraining(new AnnonceTraining(java.sql.Date.valueOf(dateInsertion.getValue()), Integer.parseInt(dureeInsertion.getText()), typeInsertion.getText(),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
             dateInsertion.setValue(LocalDate.now());
             typeInsertion.setText("");
               dateInsertion.setValue(LocalDate.now());
@@ -171,22 +171,22 @@ public class FXMLAnnonceTrainingController implements Initializable {
 //        {
             AnnonceTrainingServices as = new AnnonceTrainingServices();
             
-            as.updateAnnonceTraining(new 
-             AnnonceTraining(
-                    
-                    java.sql.Date.valueOf(dateModification.getValue()),
-                    Integer.parseInt(dureeModification.getText()),
-                    typeModification.getText(),
-                    0,
-                    Integer.parseInt(ageModification.getText()),
-                    couleurModification.getText(),
-                    sexModification.getText(),
-                    raceModification.getText(),
-                    msgModification.getText(),
-                    typeModification.getText(),
-                    java.sql.Date.valueOf(dateModification.getValue())),Integer.parseInt(idModification.getText()));
-                    
-            
+//            as.updateAnnonceTraining(new 
+//             AnnonceTraining(
+//                    
+//                    java.sql.Date.valueOf(dateModification.getValue()),
+//                    Integer.parseInt(dureeModification.getText()),
+//                    typeModification.getText(),
+//                    0,
+//                    Integer.parseInt(ageModification.getText()),
+//                    couleurModification.getText(),
+//                    sexModification.getText(),
+//                    raceModification.getText(),
+//                    msgModification.getText(),
+//                    typeModification.getText(),
+//                    java.sql.Date.valueOf(dateModification.getValue())),Integer.parseInt(idModification.getText()));
+//                    
+//            
             
             
             

@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -13,8 +14,10 @@ import java.util.Date;
  */
 public class AnnonceTraining  extends Annonce{
     private Date dateTr;
-    private int dureTr;
     private String typeTr ;
+    private String typePet ;
+    private String nomPet ;
+    
     //private enum typeTr {
     //PuppyTr,BeginnerTr, AdvancedTr
     //}
@@ -22,36 +25,48 @@ public class AnnonceTraining  extends Annonce{
     public AnnonceTraining() {
     }
 
-    public AnnonceTraining(Date dateTr, int dureTr, String typeTr, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
+    public AnnonceTraining(Date dateTr, String typeTr, String typePet, String nomPet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
         this.dateTr = dateTr;
-        this.dureTr = dureTr;
         this.typeTr = typeTr;
+        this.typePet = typePet;
+        this.nomPet = nomPet;
     }
+
+    
 
     public Date getDateTr() {
         return dateTr;
-    }
-
-    public int getDureTr() {
-        return dureTr;
     }
 
     public String getTypeTr() {
         return typeTr;
     }
 
-    public void setDateTr(Date dateTr) {
-        this.dateTr = dateTr;
+    public String getTypePet() {
+        return typePet;
     }
 
-    public void setDureTr(int dureTr) {
-        this.dureTr = dureTr;
+    public String getNomPet() {
+        return nomPet;
+    }
+
+    public void setDateTr(Date dateTr) {
+        this.dateTr = dateTr;
     }
 
     public void setTypeTr(String typeTr) {
         this.typeTr = typeTr;
     }
+
+    public void setTypePet(String typePet) {
+        this.typePet = typePet;
+    }
+
+    public void setNomPet(String nomPet) {
+        this.nomPet = nomPet;
+    }
+
     
     
 

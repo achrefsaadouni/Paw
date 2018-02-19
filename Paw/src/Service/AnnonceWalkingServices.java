@@ -48,6 +48,8 @@ public class AnnonceWalkingServices {
            
             ste.executeUpdate() ; 
             
+                  System.out.println("Succes Insertion !!");
+            
         } catch (SQLException ex) {
             System.out.println("Problème insertion annonce");
         }
@@ -59,6 +61,7 @@ public class AnnonceWalkingServices {
         ObservableList<AnnonceWalking> list = FXCollections.observableArrayList();
         try 
         { 
+
             PreparedStatement ste = connection.prepareStatement(req) ;
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
