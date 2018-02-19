@@ -119,7 +119,7 @@ public class AnnoncePerduServices
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
-                int id = rs.getInt("id");
+               int id = rs.getInt("id");
                 int age = rs.getInt("age");
                 String couleur = rs.getString("couleur");
                 String  sex= rs.getString("sex");
@@ -131,7 +131,7 @@ public class AnnoncePerduServices
                 String  colier= rs.getString("colier");         
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
-                int id_utilisateur=rs.getInt("id_utilisateur");
+                int id_utilisateur=rs.getInt("utilisateur_id");
                 
                
         
@@ -139,7 +139,7 @@ public class AnnoncePerduServices
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Annonce");
+            System.out.println(ex);
         }
         return list;
     }
@@ -271,9 +271,11 @@ public class AnnoncePerduServices
                 Timestamp date_perte=rs.getTimestamp("date_perte");
                 String lieu_perdu=rs.getString("lieu_perdu") ;
                 int id_utilisateur=rs.getInt("utilisateur_id");
+                 File images=new File(rs.getString("images"));
+                
                 //////////////////////////////////////////////////
                 
-            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+            list.add(new AnnoncePerdu( colier,  date_perte,  lieu_perdu,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur,images));
         }
 
         } catch (SQLException ex) {

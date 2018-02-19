@@ -155,7 +155,7 @@ public class FXMLAnnoncePerduController implements Initializable {
         {
             AnnoncePerduServices as = new AnnoncePerduServices();
             
-            //as.updateAnnoncePerdu(new AnnoncePerdu(colierModification.getText(), null, lieuModification1.getText(),0 , Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(),choixModification.getValue(), null),Integer.parseInt(idModification.getText()));
+         //   as.updateAnnoncePerdu(new AnnoncePerdu(colierModification.getText(), null, lieuModification1.getText(),0 , Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(),choixModification.getValue(), null),Integer.parseInt(idModification.getText()));
             
            
             

@@ -222,7 +222,7 @@
       <Pagination fx:id="paginator" layoutX="498.0" layoutY="593.0" pageCount="5" prefHeight="50.0" prefWidth="168.0" />
       <ImageGridCell />
       <ImageGridCell />
-      <StackPane fx:id="consulterAnnonce" prefHeight="150.0" prefWidth="200.0">
+      <StackPane fx:id="consulterAnnonce" layoutX="130.0" prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane prefHeight="644.0" prefWidth="846.0">
                <children>
