@@ -30,13 +30,14 @@ public class UtilisateurServices {
     }
     public void insererUtilisateur (Utilisateur p)
     {
+        String image = "";
         String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar) VALUES(?,?,?,?,?,?,?,?,?,now(),?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1,p.getNom()) ; 
-            ste.setString(2,p.getPrenom()) ;
-            ste.setString(3,p.getEmail()) ; 
-            ste.setString(4,p.getUsername()) ; 
+            ste.setString(1,p.getNom().toLowerCase()) ; 
+            ste.setString(2,p.getPrenom().toLowerCase()) ;
+            ste.setString(3,p.getEmail().toLowerCase()) ; 
+            ste.setString(4,p.getUsername().toLowerCase()) ; 
             ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
             ste.setString(6,p.getAddresse()) ; 
             ste.setInt(7,p.getNumero()) ; 

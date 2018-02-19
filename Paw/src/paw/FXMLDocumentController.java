@@ -5,6 +5,8 @@
  */
 package paw;
 
+import Entity.Connexion;
+import Service.ConnexionServices;
 import Service.LoginServices;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -17,9 +19,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import paw.mainUI.FXMLCnxController;
+import paw.mainUI.FXMLinscriptionController;
 
 /**
  *
@@ -31,10 +35,9 @@ public class FXMLDocumentController implements Initializable {
     private JFXTextField usern;
     @FXML
     private JFXPasswordField passw;
+  
     
-    
-
-    @Override
+   @Override
     public void initialize(URL url, ResourceBundle rb) {
         usern.setText("ayoubelkadhi");
         passw.setText("12345678");
@@ -48,8 +51,15 @@ public class FXMLDocumentController implements Initializable {
         {
             closeStage();
             Paw.session=service.getInformation(x);
-//            ConnexionServices s=new ConnexionServices();
-//            s.updateConnexion(x);
+            ConnexionServices s=new ConnexionServices();
+            if(s.existe(x))
+            {
+                s.updateConnexion(x);
+            }
+            else
+            {
+                s.inserer(new Connexion(x));
+            }
             loadMain();  
         }
         else{
@@ -59,7 +69,21 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void inscriptionButton(ActionEvent event) {
+    private void inscriptionButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/paw/mainUI/FXMLinscription.fxml"));
+        loader.load();
+        FXMLinscriptionController cnt = loader.getController();
+        
+        
+        Parent root = loader.getRoot();
+        Stage stage=new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        closeStage();
     }
 
     private void closeStage() {
