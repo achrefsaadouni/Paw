@@ -3,18 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annoncetrouvee.user;
+package paw.mainUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
  *
- * @author Guideinfo
+ * @author AYOUB
  */
-public class FXMLinterfacePrincipaleTrouveeController implements Initializable {
+public class FXMLinscriptionController implements Initializable {
+
+    @FXML
+    private Label btn_exit;
 
     /**
      * Initializes the controller class.
@@ -23,5 +29,9 @@ public class FXMLinterfacePrincipaleTrouveeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleButtonAction(MouseEvent event) {
+    }
     
 }

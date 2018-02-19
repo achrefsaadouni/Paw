@@ -33,7 +33,7 @@
             <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
             <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="205.0" promptText="AGE" />
             <Line endX="100.0" layoutX="313.0" layoutY="200.0" rotate="90.0" startX="-150.0" />
-            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date Trouvé" />
+            <JFXDatePicker fx:id="dateinsertionp" layoutX="345.0" layoutY="224.0" prefHeight="25.0" prefWidth="255.0" promptText="Date Trouveé" />
             <JFXTextField fx:id="lieuxInsertion3" labelFloat="true" layoutX="341.0" layoutY="148.0" prefHeight="31.0" prefWidth="255.0" promptText="LIEUX_Trouveé" />
             <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="343.0" layoutY="296.0" prefHeight="31.0" prefWidth="255.0" promptText="MESSAGE_COMPLEMENTAIRE" />
             <Line endX="100.0" layoutX="709.0" layoutY="200.0" rotate="90.0" startX="-160.0" />

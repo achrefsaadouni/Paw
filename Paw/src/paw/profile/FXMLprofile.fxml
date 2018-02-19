@@ -59,7 +59,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <Label fx:id="nom" alignment="CENTER" layoutY="117.0" prefHeight="38.0" prefWidth="350.0" styleClass="names" stylesheets="@../../css/Master.css" text="Dan Mlayah" />
+            <Label fx:id="nom" alignment="CENTER" layoutY="97.0" prefHeight="90.0" prefWidth="350.0" styleClass="names" stylesheets="@../../css/Master.css" text="Dan Mlayah" wrapText="true" />
             <Label fx:id="date" alignment="CENTER" contentDisplay="CENTER" layoutY="171.0" prefHeight="38.0" prefWidth="350.0" text="Label" textFill="#9e9494">
                <font>
                   <Font size="16.0" />
