@@ -128,22 +128,23 @@ public class FXMLAnnoncewalkingController implements Initializable {
     private TableColumn<AnnonceWalking, String> dateCol;
 @FXML
     void actionInsertion2(ActionEvent event) {
-         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
-                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateWalkInsertion.getValue())))&& (!"".equals(dureWalkInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
-        {
+//         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
+//                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(java.sql.Date.valueOf(dateWalkInsertion.getValue())))&& (!"".equals(dureWalkInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
+//        {
             AnnonceWalkingServices as = new AnnonceWalkingServices();
-              as.insererAnnonceWalking (new AnnonceWalking(java.sql.Date.valueOf(dateWalkInsertion.getValue()), Integer.parseInt(dureWalkInsertion.getText()),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
+            as.insererAnnonceWalking (new AnnonceWalking(java.sql.Date.valueOf(dateWalkInsertion.getValue()), Integer.parseInt(dureWalkInsertion.getText()),0 , Integer.parseInt(ageInsertion.getText()), couleurInsertion.getText(), sexInsertion.getText(), raceInsertion.getText(), msgInsertion.getText(),choixInsertion.getValue(), null));
+            
             dateWalkInsertion.setValue(LocalDate.now());
             dureWalkInsertion.setText("");
               
-             ageInsertion.setText("");
+            ageInsertion.setText("");
             sexInsertion.setText("");
             raceInsertion.setText("");
             msgInsertion.setText("");
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
             loadTable();
-        }
+//        }
 
 
     }
@@ -154,9 +155,9 @@ public class FXMLAnnoncewalkingController implements Initializable {
 
             
         
-            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
-                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateWalkModification.getValue()))&& (!"".equals(dureWalkModification.getText())) && (!"".equals(typeModification.getText())))
-        {
+//            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
+//                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateWalkModification.getValue()))&& (!"".equals(dureWalkModification.getText())) && (!"".equals(typeModification.getText())))
+//        {
             AnnonceWalkingServices as = new AnnonceWalkingServices();
             
             as.updateAnnonceWalking(new 
@@ -186,9 +187,9 @@ public class FXMLAnnoncewalkingController implements Initializable {
             typeModification.setText("Chien");
             dureWalkModification.setText("");
             dateWalkModification.setValue(LocalDate.of(1, 3, 2018)); 
-            loadTable();
+//            loadTable();
                    
-        }
+//        }
 
     }
 
@@ -214,7 +215,7 @@ public class FXMLAnnoncewalkingController implements Initializable {
         choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixInsertion.setValue("Chien");
         
-        typeModification.setText("Chien");
+       
     }    
     
 
