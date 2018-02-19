@@ -19,19 +19,23 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton accessibleText="veterinaire" layoutX="11.0" layoutY="218.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
+      <JFXButton accessibleText="veterinaire" layoutX="-8.0" layoutY="218.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/vet.png" />
+               </image>
+            </ImageView>
          </graphic></JFXButton>
       <JFXButton accessibleText="boutique" layoutX="13.0" layoutY="297.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Boutique" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/edit-1105049_960_720.png" />
                </image>
