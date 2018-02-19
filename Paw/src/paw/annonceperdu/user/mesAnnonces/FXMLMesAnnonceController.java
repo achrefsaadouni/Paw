@@ -153,7 +153,7 @@ public class FXMLMesAnnonceController implements Initializable {
         AnnoncePerduServices service = new AnnoncePerduServices();
       
              
-        list = service.getMesAnnoncesPerdus(2);
+        list = service.getMesAnnoncesPerdus(session.getId());
         
         if (list.isEmpty()) {
             box1.setVisible(false);

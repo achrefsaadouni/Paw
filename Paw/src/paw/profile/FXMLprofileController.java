@@ -81,7 +81,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @FXML
     private void goToAnnonce(MouseEvent event) {
         try{
-            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+            loadSplashScreen("/paw/annonceperdu/user/mesAnnonces/FXMLmesannonces.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,5 +114,16 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
             System.out.println(ex);
         }
     }
+    
+    
+    
+    
+    
+    
+//    try{
+//            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+//        } catch (Exception ex) {
+//            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     
 }
