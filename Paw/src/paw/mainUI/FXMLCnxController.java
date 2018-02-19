@@ -19,8 +19,6 @@ import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
@@ -403,6 +401,7 @@ public class FXMLCnxController implements Initializable {
     private void payer(ActionEvent event) {
      try{  
             loadSplashScreen("/paw/boutique/user/Payer/FXMLPayer.fxml");
+             chart.setVisible(false);
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }

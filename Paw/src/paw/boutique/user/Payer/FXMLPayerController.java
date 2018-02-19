@@ -23,8 +23,6 @@ import com.stripe.exception.AuthenticationException;
 import com.stripe.exception.CardException;
 import com.stripe.exception.InvalidRequestException;
 import com.stripe.model.Charge;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.StackPane;
@@ -140,6 +138,7 @@ public class FXMLPayerController {
             achat.setEtat("Non Payer");
             if (achatservice.addAchat(achat)) {
                 MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
+                Panier.panier.clear();
             }
         } else {
             MyNotifications.ErrorNotification("Confirmation", "Code D'activation Incorrect");
@@ -165,9 +164,11 @@ public class FXMLPayerController {
           Charge a =po.createCharge("sk_test_s3qNFSFh0IqhB0vaSTwTe9n8",po.getAmmount(),nom_card.getText(), po.getCardnumber(), po.getExp_month(), po.getExp_year(), po.getCvv(), po.getAddress(), po.getCity(), po.getState(), po.getCountry(), po.getZip(), po.getEmail());
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Operation Reussite", ButtonType.CLOSE);
             alert.show();
+            
             if(a.getStatus().equals("succeeded"))
             {
                stripe_form.setVisible(false);
+               Panier.panier.clear();
             }
         } catch (AuthenticationException | InvalidRequestException | APIConnectionException | APIException ex) {
            System.out.println(ex);

@@ -136,14 +136,14 @@
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
                                     <JFXTextField fx:id="cvv" labelFloat="true" maxWidth="370.0" minWidth="87.0" prefHeight="20.0" prefWidth="370.0" promptText="CVV/CVV2" />
-                                    <JFXTextField fx:id="nom_card" labelFloat="true" maxWidth="370.0" minWidth="87.0" prefHeight="20.0" prefWidth="370.0" promptText="Nom Sur Votre Carte" GridPane.rowIndex="2" />
-                                    <JFXTextField fx:id="numero_carte" labelFloat="true" maxWidth="370.0" minWidth="87.0" prefHeight="20.0" prefWidth="370.0" promptText="Numero De La Carte De Credit" GridPane.rowIndex="1" />
-                                    <JFXDatePicker fx:id="date_expiration" prefHeight="25.0" prefWidth="402.0" promptText="Date D'Expiration De La Carte" GridPane.rowIndex="3" />
+                                    <JFXTextField fx:id="nom_card" labelFloat="true" maxWidth="370.0" minWidth="87.0" prefHeight="20.0" prefWidth="370.0" promptText="Nom Sur Votre Carte" GridPane.rowIndex="1" />
+                                    <JFXDatePicker fx:id="date_expiration" prefHeight="25.0" prefWidth="402.0" promptText="Date D'Expiration De La Carte" GridPane.rowIndex="2" />
+                                    <JFXTextField fx:id="numero_carte" labelFloat="true" maxWidth="370.0" minWidth="87.0" prefHeight="20.0" prefWidth="370.0" promptText="Numero De La Carte De Credit" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <GridPane>
