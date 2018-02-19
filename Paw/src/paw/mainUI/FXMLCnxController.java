@@ -128,6 +128,14 @@ public class FXMLCnxController implements Initializable {
                                     Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
+                            case "AnnonceAdoption": {
+                                try {
+                                    loadSplashScreen("/paw/annonceadoption/FXMLliste.fxml");
+                                    break;
+                                } catch (Exception ex) {
+                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
                             case "AnnoncePerdus": {
                                 try {
                                     loadSplashScreen("/paw/annonceperdu/user/FXMLinterfacePrincipalPerdu.fxml");

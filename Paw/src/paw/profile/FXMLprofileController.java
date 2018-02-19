@@ -57,7 +57,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        nom.setText(session.getNom().toUpperCase()+" "+session.getPrenom());
+        nom.setText(session.getEsm());
         adresse.setText(session.getAddresse());
         email.setText(session.getEmail());
         numero.setText(String.valueOf(session.getNumero()));
