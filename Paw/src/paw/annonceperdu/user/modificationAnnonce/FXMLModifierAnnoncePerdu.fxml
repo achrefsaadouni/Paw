@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,9 +17,8 @@
             <TreeTableColumn fx:id="colier" prefWidth="72.0" text="Colier" />
             <TreeTableColumn fx:id="datep" prefWidth="128.0" text=" Date Perte" />
             <TreeTableColumn fx:id="lieup" prefWidth="128.0" text="Lieu Perte" />
-            <TreeTableColumn fx:id="modifier" prefWidth="128.0" text="Modifier" />
+            <TreeTableColumn fx:id="supprimer" prefWidth="75.0" text="Supprimer" />
          </columns>
       </JFXTreeTableView>
-      <JFXButton layoutX="440.0" layoutY="594.0" onAction="#delete" prefHeight="42.0" prefWidth="232.0" style="-fx-background-color: #d32f2f;" text="Supprimer " />
    </children>
 </AnchorPane>
