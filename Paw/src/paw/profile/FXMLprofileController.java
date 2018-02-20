@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -124,5 +125,14 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
 //        } catch (Exception ex) {
 //            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+
+    @FXML
+    private void goToListeUtilisateurs(ActionEvent event) {
+        try {
+            loadSplashScreen("/paw/ayoubAdmin/utilisateurs/FXMLutilisateurs.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

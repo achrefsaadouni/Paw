@@ -116,6 +116,7 @@ public class FXMLReclamationController implements Initializable {
         titre.setText("");
         msg.setText("");
         mesReclamations = service.getReclamationUtilisateur(session.getId());
+        
         setNbPages();
         initReclamationPage(paginator.getCurrentPageIndex());
     }
@@ -149,6 +150,7 @@ public class FXMLReclamationController implements Initializable {
         paginator.setCurrentPageIndex(index);
         List<Reclamation> TroisReclamations = getReclamationsPage(index);       
         if (TroisReclamations.size() >= 1) {
+            vide.setVisible(false);
             box1.setVisible(true);
             if("Remerciment".equals(TroisReclamations.get(0).getType()))
             {

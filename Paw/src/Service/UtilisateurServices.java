@@ -12,6 +12,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -81,6 +83,29 @@ public class UtilisateurServices {
         return list;
     }
      
+    
+        public List<Utilisateur> findAll(){
+        String req="SELECT * FROM utilisateur" ;
+        List<Utilisateur> list = FXCollections.observableArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                list.add(new Utilisateur(id, nom, prenom, email, username, null,null,0,null));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
     public void updateUtilisateur (Utilisateur p, int id )
     {
     String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,addresse=?,numero=?,role=? WHERE id =?" ; 
@@ -146,5 +171,88 @@ public class UtilisateurServices {
             System.out.println(ex);
         }
         return null;
+    }
+       public ArrayList<Utilisateur> getListePourAdmin(int i){
+        String req="SELECT * FROM utilisateur where id not like ?" ;
+        ArrayList<Utilisateur> list = new ArrayList();
+        
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String addresse = rs.getString("addresse");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                int numero = rs.getInt("numero");
+                String avatar = rs.getString("avatar");
+                Date dateInscription = rs.getDate("dateInscription");
+                String sexe=rs.getString("sexe");
+                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, numero, avatar, dateInscription, sexe));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+
+    public Boolean rendreAdmin(int id) {
+        String req="UPDATE utilisateur SET role='Admin' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ;  
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
+    }
+
+    public Boolean rendreMembre(int id) {
+        String req="UPDATE utilisateur SET role='Membre' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ; 
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
+    }
+
+    public boolean bloquer(int id) {
+        String req="UPDATE utilisateur SET etat='Bloqué' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ; 
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
+    }
+
+    public boolean debloquer(int id) {
+       String req="UPDATE utilisateur SET etat='Free' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ; 
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
     }
 }

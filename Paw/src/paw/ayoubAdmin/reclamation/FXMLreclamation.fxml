@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -11,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.ayoubAdmin.reclamation.FXMLreclamationController">
    <children>
-      <JFXTreeTableView fx:id="ReclamationTable" layoutX="50.0" layoutY="80.0" prefHeight="550.0" prefWidth="1000.0">
+      <JFXTreeTableView fx:id="ReclamationTable" layoutX="50.0" layoutY="90.0" prefHeight="550.0" prefWidth="1000.0">
          <columns>
             <TreeTableColumn fx:id="objet" prefWidth="220.0" text="Objet" />
             <TreeTableColumn fx:id="text" minWidth="0.0" prefWidth="395.0" text="Text" />
@@ -20,7 +21,7 @@
             <TreeTableColumn fx:id="repondre" prefWidth="128.0" text="Répondre" />
          </columns>
       </JFXTreeTableView>
-      <AnchorPane fx:id="rep" layoutX="150.0" layoutY="100.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+      <AnchorPane fx:id="rep" layoutX="150.0" layoutY="140.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
          <children>
             <Label fx:id="titrer" layoutX="100.0" layoutY="21.0" prefHeight="39.0" prefWidth="468.0" styleClass="titre" stylesheets="@../../../css/Master.css" text="Objet">
                <font>
@@ -47,5 +48,6 @@
          </children>
       </AnchorPane>
       <Label fx:id="lab" layoutX="964.0" layoutY="42.0" text="Label" visible="false" />
+      <JFXTextField fx:id="filtre" layoutX="758.0" layoutY="36.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
    </children>
 </AnchorPane>
