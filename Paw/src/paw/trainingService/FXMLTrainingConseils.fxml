@@ -1,14 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.trainingService.FXMLTrainingConseilsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.trainingService.FXMLTrainingConseilsController">
     <stylesheets>
-        <URL value="@fxmltraining.css"/>
+        <URL value="@fxmltraining.css" />
     </stylesheets>
+   <children>
+      <VBox prefHeight="650.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox maxHeight="110.0" maxWidth="1100.0" minHeight="110.0" minWidth="1100.0" prefHeight="110.0" prefWidth="1100.0">
+               <children>
+                  <AnchorPane maxHeight="110.0" minHeight="100.0" prefHeight="100.0" prefWidth="1080.0">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label layoutX="89.0" layoutY="18.0" styleClass="names" stylesheets="@../../css/Master.css" text="Conseils de dressage de votre animal de companie" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                        <Separator layoutY="55.0" prefHeight="3.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+                        <Label layoutX="72.0" layoutY="65.0" text="Dresser son animal de companie, cela paraît a priori une tâche compliquée. Pourtant, bien éduquer son animal n’est pas si difficile, même si vous êtes novice en la matière." AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="46.0" layoutY="88.0" text="Nul besoin de faire de votre chien un animal de cirque : une bonne éducation vous rendra, vous et votre un compagnon, encore plus heureux et complices." AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="171.0" prefWidth="1100.0">
+               <children>
+                  <VBox maxHeight="150.0" maxWidth="350.0" minHeight="150.0" minWidth="350.0" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: #B9F6CA; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" stylesheets="@fxmltraining.css">
+                     <children>
+                        <Label style="-fx-text-fill: #6a7d9a; -fx-font-weight: bold;" stylesheets="@fxmltraining.css" text="Asseyez votre autorité face à votre animal" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="40.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Vous devez être le dominant ! Voici l’une des règles de base en">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="matière de dressage canin. S’il ne vous respecte pas, votre">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="animal ne vous écoutera pas. Pour ce faire, inutile d’être violent.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Passer devant son chien lorsque l’on quitte une pièce, manger ">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="avant lui ou le repousser de temps en temps lorsqu’il est en ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="demande sont autant de petits trucs qui feront comprendre à ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="votre compagnon que vous êtes le chef de la meute, pas lui.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox maxHeight="150.0" maxWidth="350.0" minHeight="150.0" minWidth="350.0" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: #B9F6CA; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" stylesheets="@fxmltraining.css">
+                     <children>
+                        <Label style="-fx-text-fill: #6a7d9a; -fx-font-weight: bold;" stylesheets="@fxmltraining.css" text="Faire obéir son chien" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="110.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Avant d’apprendre à votre animal à répondre vos ordres, vous ">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="aurez certainement l’occasion de l’emmener faire des balades.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="C’est une bonne occasion pour vous faire respecter et lui">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="enseigner l’indispensable : marcher en laisse.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Choisissez des ordres simples tels que « Viens Médor »,">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="« Médor, Stop », « Couché Médor », « Au panier Médor » etc.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox maxHeight="150.0" maxWidth="350.0" minHeight="150.0" minWidth="350.0" prefHeight="150.0" prefWidth="350.0" style="-fx-background-color: #B9F6CA; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" stylesheets="@fxmltraining.css">
+                     <children>
+                        <Label style="-fx-text-fill: #6a7d9a; -fx-font-weight: bold;" stylesheets="@fxmltraining.css" text="Gronder son animal" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="130.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="En tant que maître, il vous faut apprendre à réprimander votre">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="animal. Cela doit être rare, réalisé à bon escient  et toujours">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="sans violence. En effet, un animal ne vous comprendra pas plus">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="si vous le frappez ou criez. Au contraire, il aura moins confiance ">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="en vous.">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane prefHeight="89.0" prefWidth="1100.0">
+               <children>
+                  <Separator layoutY="13.0" prefWidth="200.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                  <Label layoutX="14.0" layoutY="31.0" style="-fx-font-weight: bold; -fx-text-fill: #6a7d9a; -fx-font-size: 14;" stylesheets="@fxmltraining.css" text="Vous pouvez commencez chez vous a laide de ses Tuto " AnchorPane.leftAnchor="20.0">
+                     <graphic>
+                        <ImageView fitHeight="71.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@tuto.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </AnchorPane>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="314.0" prefWidth="1080.0">
+               <children>
+                  <WebView fx:id="web1" maxHeight="200.0" maxWidth="300.0" minHeight="250.0" minWidth="350.0" prefHeight="200.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets right="10.0" top="20.0" />
+                     </HBox.margin>
+                  </WebView>
+                  <WebView fx:id="web2" maxHeight="200.0" maxWidth="300.0" minHeight="250.0" minWidth="350.0" prefHeight="200.0" prefWidth="300.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </HBox.margin>
+                  </WebView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
