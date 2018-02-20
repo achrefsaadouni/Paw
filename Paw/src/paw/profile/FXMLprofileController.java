@@ -55,8 +55,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb) { 
         nom.setText(session.getEsm());
         adresse.setText(session.getAddresse());
         email.setText(session.getEmail());

@@ -29,8 +29,6 @@ public class FXMLTrainingController implements Initializable {
     @FXML
     private DatePicker dateTr;
     @FXML
-    private ImageView imgTr;
-    @FXML
     private RadioButton sexeM;
     @FXML
     private RadioButton sexeF;
@@ -48,6 +46,8 @@ public class FXMLTrainingController implements Initializable {
     private JFXButton annulerB;
     @FXML
     private JFXTextField descPet;
+    @FXML
+    private ImageView imgTr3;
     
 
     @Override
@@ -65,8 +65,6 @@ public class FXMLTrainingController implements Initializable {
 
     @FXML
     private void ValiderTraining(ActionEvent event) {
-        System.out.println("heny hna");
-        System.out.println(typeTr.getItems());
         System.out.println(typeTr.getValue());
         String type = "Annonce Training";
         
@@ -107,6 +105,14 @@ public class FXMLTrainingController implements Initializable {
 
     @FXML
     private void annulerTraining(ActionEvent event) {
+         dateTr.setValue(null);
+            typeTr.setValue("");
+            agePet.setText("");
+            racePet.setText("");
+            descPet.setText("");
+            colorPet.setText("");
+            typePet.setValue("");
+//            sexe.setUserData(null);
     }
 
    
