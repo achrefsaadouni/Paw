@@ -34,7 +34,7 @@ public class ProduitService {
     final private DbHandler handler;
     protected Connection connection;
     private static ProduitService produitservice;
-    
+   
     
     public static ProduitService getProduitService() {
         if (ProduitService.produitservice == null) {

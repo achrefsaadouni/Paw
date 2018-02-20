@@ -101,6 +101,7 @@ public class FXMLTrainingController implements Initializable {
             descPet.setText("");
             colorPet.setText("");
             typePet.setValue("");
+            dateTr.setValue(null);
     }
 
     @FXML

@@ -4,10 +4,9 @@
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.annonceperdu.user.modificationAnnonce.FXMLModifierAnnoncePerduController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.modificationAnnonce.FXMLModifierAnnoncePerduController">
    <children>
-      <JFXTreeTableView fx:id="consultertable" layoutX="24.0" layoutY="36.0" prefHeight="569.0" prefWidth="1058.0">
+      <JFXTreeTableView fx:id="consultertable" layoutX="24.0" layoutY="36.0" prefHeight="539.0" prefWidth="1058.0">
          <columns>
             <TreeTableColumn fx:id="age" prefWidth="60.0" text="Age" />
             <TreeTableColumn fx:id="couleur" prefWidth="102.00003051757812" text="Couleur" />
@@ -18,8 +17,7 @@
             <TreeTableColumn fx:id="colier" prefWidth="72.0" text="Colier" />
             <TreeTableColumn fx:id="datep" prefWidth="128.0" text=" Date Perte" />
             <TreeTableColumn fx:id="lieup" prefWidth="128.0" text="Lieu Perte" />
-            <TreeTableColumn fx:id="modifier" prefWidth="128.0" text="Modifier" />
-            <TreeTableColumn fx:id="supprimer" prefWidth="128.0" text="Supprimer" />
+            <TreeTableColumn fx:id="supprimer" prefWidth="75.0" text="Supprimer" />
          </columns>
       </JFXTreeTableView>
    </children>

@@ -5,10 +5,10 @@
  */
 package paw.ayoubAdmin.utilisateurs;
 
-import Entity.Reclamation;
 import Entity.Utilisateur;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
@@ -26,8 +26,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import static paw.Paw.session;
 
 /**
@@ -50,16 +55,49 @@ public class FXMLutilisateursController implements Initializable {
     private TreeTableColumn<Utilisateur, String> email;
     @FXML
     private JFXTextField filtre;
+    @FXML
+    private Label nomu;
+    @FXML
+    private Label prenomu;
+    @FXML
+    private Label sexeu;
+    @FXML
+    private Label usernameu;
+    @FXML
+    private Label emailu;
+    @FXML
+    private Label adresseu;
+    @FXML
+    private Label numerou;
+    @FXML
+    private Label dateinscriptionu;
+    @FXML
+    private Label roleu;
+    @FXML
+    private TreeTableColumn<Utilisateur, JFXButton> consulter;
+    @FXML
+    private GridPane tableau;
+    @FXML
+    private GridPane boutons;
+    @FXML
+    private StackPane selectionnez;
+    @FXML
+    private JFXButton btnbanir;
+    @FXML
+    private JFXButton btn;
+    @FXML
+    private Pane infos;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UtilisateurServices serviceUtilisateur = new UtilisateurServices();
-        liste=serviceUtilisateur.getListePourAdmin(session.getId());
+         
+          selectionnez.setVisible(true);
+          tableau.setVisible(false);
+          boutons.setVisible(false);
         
-        
-        initUtilisateurs();
+          initUtilisateurs();
     }    
 
     private void initUtilisateurs() {
@@ -88,36 +126,21 @@ public class FXMLutilisateursController implements Initializable {
             SimpleStringProperty property = new SimpleStringProperty();
             Utilisateur r = (Utilisateur) param.getValue().getValue();
             property.set(r.getUsername());
+            
             return property;
         });
-//        
-//        repondre.setCellValueFactory(param -> {
-//            SimpleObjectProperty property = new SimpleObjectProperty();
-//            Reclamation r = (Reclamation) param.getValue().getValue();
-//            if (r.getEtat().equals("Non traitée"))
-//            {
-//                JFXButton rep = new JFXButton("Répondre");
-//                rep.setStyle("-fx-background-color:white;");
-//                rep.setOnAction((ActionEvent e) -> {
-//                    reponseReclamation(r);
-//                });
-//                property.set(rep);
-//                return property;
-//            }
-//            else
-//            {
-//                JFXButton rep = new JFXButton("Voir réponse");
-//                rep.setStyle("-fx-background-color:white;");
-//
-//                rep.setOnAction((ActionEvent e) -> {
-//                    voirReponseReclamation(r);
-//                });
-//
-//                property.set(rep);
-//                return property;
-//            }
-//            
-//        });
+        
+        
+        consulter.setCellValueFactory(param -> {
+            SimpleObjectProperty property = new SimpleObjectProperty();
+            Utilisateur r = (Utilisateur) param.getValue().getValue();
+                JFXButton rep = new JFXButton("Détails");
+                rep.setOnAction((ActionEvent e) -> {
+                    voirUtilisateur(r);
+                });
+                property.set(rep);
+                return property;
+        });
 
         ObservableList<Utilisateur> users = FXCollections.observableArrayList(liste);
         TreeItem<Utilisateur> root = new RecursiveTreeItem<>(users, RecursiveTreeObject::getChildren);
@@ -140,7 +163,115 @@ public class FXMLutilisateursController implements Initializable {
                 });
             }
         
+            
         });
+        
     }
+
+    private void voirUtilisateur(Utilisateur r) {
+        if(r.getRole().equals("Membre"))
+        {
+            btn.setText("Rendre Administrateur");
+            btn.setOnAction((ActionEvent) ->{
+            UtilisateurServices s = new UtilisateurServices();
+            if(s.rendreAdmin(r.getId()))
+            {
+                liste=s.getListePourAdmin(session.getId());
+                initUtilisateurs();
+                Utilisateur n = r ;
+                n.setRole("Admin");
+                voirUtilisateur(n);
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show(r.getEsm()+" est désormais Admin", 2000);
+            }
+            else
+            {
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Erreur", 2000);
+            }
+            });
+        }
+        else
+        {
+            btn.setText("Rendre simple Membre");
+            btn.setOnAction((ActionEvent) ->{
+            UtilisateurServices s = new UtilisateurServices();
+            if(s.rendreMembre(r.getId()))
+            {
+                liste=s.getListePourAdmin(session.getId());
+                initUtilisateurs();
+                Utilisateur n = r ;
+                n.setRole("Membre");
+                voirUtilisateur(n);
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show(r.getEsm()+" est désormais un simple Membre", 2000);
+            }
+            else
+            {
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Erreur", 2000);
+            }
+            });
+        }
+    ////////////////////////////////////////////////////////////////////////////////    
+//        if(r.getEtat().equals("Free"))
+//        {
+//            btnbanir.setText("Bloquer");
+//            btnbanir.setOnAction((ActionEvent) ->{
+//            UtilisateurServices s = new UtilisateurServices();
+//            if(s.bloquer(r.getId()))
+//            {
+//                liste=s.getListePourAdmin(session.getId());
+//                initUtilisateurs();
+//                Utilisateur n = r ;
+//                n.setEtat("Bloqué");
+//                voirUtilisateur(n);
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Vous avez bloqué "+r.getEsm(), 2000);
+//            }
+//            else
+//            {
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Erreur", 2000);
+//            }
+//            });
+//        }
+//        else
+//        {
+//            btnbanir.setText("Débloquer");
+//            btnbanir.setOnAction((ActionEvent) ->{
+//            UtilisateurServices s = new UtilisateurServices();
+//            if(s.debloquer(r.getId()))
+//            {
+//                liste=s.getListePourAdmin(session.getId());
+//                initUtilisateurs();
+//                Utilisateur n = r ;
+//                n.setEtat("Free");
+//                voirUtilisateur(n);
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Vous avez débloqué "+r.getEsm(), 2000);
+//            }
+//            else
+//            {
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Erreur", 2000);
+//            }
+//            });
+//        }
+         ////////////////////////////////////////////////////////////
+        selectionnez.setVisible(false);
+        tableau.setVisible(true);
+        boutons.setVisible(true);
+        nomu.setText(r.getNom());
+        prenomu.setText(r.getPrenom());
+        adresseu.setText(r.getAddresse());
+        emailu.setText(r.getEmail());
+        numerou.setText(String.valueOf(r.getNumero()));
+        usernameu.setText(r.getUsername());
+        dateinscriptionu.setText(String.valueOf(r.getDateInscription()));
+        sexeu.setText(r.getSexe());
+        roleu.setText(r.getRole());
+    }
+
     
 }

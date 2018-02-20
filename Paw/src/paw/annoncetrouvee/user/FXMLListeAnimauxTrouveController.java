@@ -310,7 +310,7 @@ public class FXMLListeAnimauxTrouveController implements Initializable {
         colier.setText("Il porte un colier :   "+a.getColier());
         date.setText("L'annonce a été deposée le :  "+String.valueOf(a.getDate()).substring(0,10));
         lieu.setText("Le lieu de disparition est :  "+a.getLieu_trouve());
-        nom.setText("Le nom de son proprietaire :  "+u.getSexe()+". "+u.getNom());
+        nom.setText("Le nom de son proprietaire :  "+u.getNom());
         prenom.setText("Son prenom est :  "+u.getPrenom());
         email.setText("Son Email est :  "+u.getEmail());
         numero.setText("Son numero est  :  "+String.valueOf(u.getNumero()));

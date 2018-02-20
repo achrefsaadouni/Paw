@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="334.0" prefWidth="554.0" styleClass="white" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.messagerie.envoi.FXMLEnvoiController">
+   <children>
+      <JFXTextArea fx:id="ContenuMsg" layoutX="69.0" layoutY="161.0" prefHeight="109.0" prefWidth="433.0" styleClass="white" />
+      <ComboBox fx:id="comboemail" layoutX="163.0" layoutY="79.0" prefHeight="25.0" prefWidth="247.0" />
+      <Label layoutX="155.0" layoutY="37.0" prefHeight="26.0" prefWidth="262.0" text="sélectionner votre destinataire" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font></Label>
+      <JFXButton layoutX="265.0" layoutY="298.0" onAction="#ajouter" styleClass="blue-700" text="Envoyer" textFill="#373937" />
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../../../tahwissa-desktop-master-837c0f0e7581bb56bf5fcec50b4874bec9848082/src/tahwissa/desktop/envoi/envoi.css" />
+      <URL value="@../../../../../../../tahwissa-desktop-master-837c0f0e7581bb56bf5fcec50b4874bec9848082/src/resources/css/jfoenix-design.css" />
+   </stylesheets>
+</AnchorPane>

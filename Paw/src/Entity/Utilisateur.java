@@ -25,6 +25,8 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
     private int numero;
     private String avatar;
     private Date dateInscription;
+    
+//    String etat;
 
     public Utilisateur(int id, String nom, String prenom,  String email, String username, String password,String addresse, int numero, String role) {
         this.id = id;
@@ -192,6 +194,16 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
     public void setSexe(String sexe) {
         this.sexe = sexe;
     }
-    
+
+
+//    public String getEtat() {
+//        
+//        return etat;
+//    }
+//
+//    public void setEtat(String s) {
+//        this.etat=s;
+//    }
+//    
     
 }
