@@ -20,6 +20,8 @@ public class AnnonceTrouvee extends Annonce {
     private String lieu_trouve ; 
     
     
+
+    
     public AnnonceTrouvee(String colier, Date date_trouvee, String lieu_trouve, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date,int id_utilisateur,File images) {
         super(id, age, couleur, sex, race, message_complementaire, type, date,id_utilisateur,images);
         this.colier = colier;

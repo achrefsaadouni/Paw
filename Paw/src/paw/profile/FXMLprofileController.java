@@ -55,8 +55,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb) { 
         nom.setText(session.getEsm());
         adresse.setText(session.getAddresse());
         email.setText(session.getEmail());
@@ -81,7 +80,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @FXML
     private void goToAnnonce(MouseEvent event) {
         try{
-            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+            loadSplashScreen("/paw/annonceperdu/user/mesAnnonces/FXMLmesannonces.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,5 +113,16 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
             System.out.println(ex);
         }
     }
+    
+    
+    
+    
+    
+    
+//    try{
+//            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+//        } catch (Exception ex) {
+//            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     
 }

@@ -28,7 +28,7 @@ public class ConnexionServices {
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
-    public void insererReclamation (Connexion p)
+    public void inserer (Connexion p)
     {
         String req="INSERT INTO connexion (id_utilisateur,date) VALUES(?,now())" ; 
         try { 
@@ -74,6 +74,26 @@ public class ConnexionServices {
             System.out.println(ex);
         }
         return list;
+    }
+
+    public boolean existe(int x) {
+                String req="SELECT * FROM connexion where id_utilisateur like ?" ;
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,x) ;    
+            ResultSet rs = ste.executeQuery(); 
+            if (rs.next())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
     }
     
 }

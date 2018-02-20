@@ -44,7 +44,6 @@ public class FXMLstatistiquesController implements Initializable {
              new PieChart.Data("Non Traitée", recS.getNonTraitee())
          );        
         TraiteeNonTraitee.setData(T);
-
     }    
 
 }
