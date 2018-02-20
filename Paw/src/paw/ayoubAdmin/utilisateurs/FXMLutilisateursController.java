@@ -135,7 +135,6 @@ public class FXMLutilisateursController implements Initializable {
             SimpleObjectProperty property = new SimpleObjectProperty();
             Utilisateur r = (Utilisateur) param.getValue().getValue();
                 JFXButton rep = new JFXButton("Détails");
-//                rep.setStyle("-fx-background-color:white;");
                 rep.setOnAction((ActionEvent e) -> {
                     voirUtilisateur(r);
                 });
@@ -214,21 +213,21 @@ public class FXMLutilisateursController implements Initializable {
             }
             });
         }
-        
+    ////////////////////////////////////////////////////////////////////////////////    
 //        if(r.getEtat().equals("Free"))
 //        {
-//            btnbanir.setText("Banir");
+//            btnbanir.setText("Bloquer");
 //            btnbanir.setOnAction((ActionEvent) ->{
 //            UtilisateurServices s = new UtilisateurServices();
-//            if(s.rendreAdmin(r.getId()))
+//            if(s.bloquer(r.getId()))
 //            {
 //                liste=s.getListePourAdmin(session.getId());
 //                initUtilisateurs();
 //                Utilisateur n = r ;
-//                n.setRole("Admin");
+//                n.setEtat("Bloqué");
 //                voirUtilisateur(n);
 //                JFXSnackbar snack = new JFXSnackbar(infos);
-//                snack.show(r.getEsm()+" est désormais Admin", 2000);
+//                snack.show("Vous avez bloqué "+r.getEsm(), 2000);
 //            }
 //            else
 //            {
@@ -239,9 +238,27 @@ public class FXMLutilisateursController implements Initializable {
 //        }
 //        else
 //        {
-//            
+//            btnbanir.setText("Débloquer");
+//            btnbanir.setOnAction((ActionEvent) ->{
+//            UtilisateurServices s = new UtilisateurServices();
+//            if(s.debloquer(r.getId()))
+//            {
+//                liste=s.getListePourAdmin(session.getId());
+//                initUtilisateurs();
+//                Utilisateur n = r ;
+//                n.setEtat("Free");
+//                voirUtilisateur(n);
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Vous avez débloqué "+r.getEsm(), 2000);
+//            }
+//            else
+//            {
+//                JFXSnackbar snack = new JFXSnackbar(infos);
+//                snack.show("Erreur", 2000);
+//            }
+//            });
 //        }
-         
+         ////////////////////////////////////////////////////////////
         selectionnez.setVisible(false);
         tableau.setVisible(true);
         boutons.setVisible(true);
