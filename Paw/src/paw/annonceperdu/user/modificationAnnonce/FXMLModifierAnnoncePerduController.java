@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +36,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.util.converter.NumberStringConverter;
 import paw.MyNotifications;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -73,10 +75,10 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
 
     @FXML
     private TreeTableColumn<AnnoncePerdu,String> lieup;
-    @FXML
-    private TreeTableColumn<AnnoncePerdu, JFXButton> modifier;
 
      private AnnoncePerduServices annonceservice;
+    @FXML
+    private TreeTableColumn<AnnoncePerdu, JFXButton> supprimer;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      initAnnoncePerdu() ; 
@@ -189,6 +191,18 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
             }
         });
 
+       supprimer.setCellValueFactory(param -> {
+            SimpleObjectProperty property = new SimpleObjectProperty();
+            AnnoncePerdu r = (AnnoncePerdu) param.getValue().getValue();
+                JFXButton rep = new JFXButton("Supprimer");
+                 rep.setStyle("-fx-background-color:red;");
+                rep.setOnAction((ActionEvent e) -> {
+                    delete(r.getId());
+                });
+                property.set(rep);
+                return property;    
+        });
+       
      msg.setCellValueFactory(param -> {
             SimpleStringProperty property = new SimpleStringProperty();
             AnnoncePerdu r = (AnnoncePerdu) param.getValue().getValue();
@@ -288,10 +302,15 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
     
     }
 
-    @FXML
-    private void delete(ActionEvent event) {
-   
-    // consultertable.getSelectionModel().getSelectedItems().removeAll(liste) ; 
+    private void delete(int id) {
+        
+                AnnoncePerduServices as = new AnnoncePerduServices();
+                as.DeleteAnnoncePerdu(id);
+                
     }
     
+     
+   
 }
+
+
