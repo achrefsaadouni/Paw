@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -146,5 +147,35 @@ public class UtilisateurServices {
             System.out.println(ex);
         }
         return null;
+    }
+       public ArrayList<Utilisateur> getListePourAdmin(int i){
+        String req="SELECT * FROM utilisateur where id not like ?" ;
+        ArrayList<Utilisateur> list = new ArrayList();
+        
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String addresse = rs.getString("addresse");
+                String email = rs.getString("email");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String role = rs.getString("role");
+                int numero = rs.getInt("numero");
+                String avatar = rs.getString("avatar");
+                Date dateInscription = rs.getDate("dateInscription");
+                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, numero, avatar, dateInscription, role));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
     }
 }

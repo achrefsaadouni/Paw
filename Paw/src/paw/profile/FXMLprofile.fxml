@@ -138,5 +138,10 @@
             </Label>
          </children>
       </AnchorPane>
+      <JFXButton layoutX="383.0" layoutY="405.0" onAction="#goToListeUtilisateurs" prefHeight="62.0" prefWidth="139.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Liste Utilisateurs">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

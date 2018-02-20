@@ -13,6 +13,7 @@ import Service.RepRecServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.net.URL;
@@ -26,7 +27,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import java.util.function.Predicate;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -75,6 +79,8 @@ public class FXMLreclamationController implements Initializable {
     private Label datereponse;
     @FXML
     private JFXButton btnAnnuler;
+    @FXML
+    private JFXTextField filtre;
     
 
     /**
@@ -159,6 +165,23 @@ public class FXMLreclamationController implements Initializable {
         TreeItem<Reclamation> root = new RecursiveTreeItem<>(reclamations, RecursiveTreeObject::getChildren);
         ReclamationTable.setRoot(root);
         ReclamationTable.setShowRoot(false);
+        
+        filtre.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                ReclamationTable.setPredicate(new Predicate<TreeItem<Reclamation>>() {
+                    @Override
+                    public boolean test(TreeItem<Reclamation> t) {
+                        Boolean flag =  t.getValue().getText().contains(newValue)
+                                ||t.getValue().getType().contains(newValue)
+                                ||t.getValue().getDate().toString().contains(newValue)
+                                ||t.getValue().getObjet().contains(newValue);
+                        return flag;
+                    }
+                });
+            }
+        
+        });
     }
 
     private void reponseReclamation(Reclamation r) {
