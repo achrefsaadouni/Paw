@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.ayoubAdmin.utilisateurs.FXMLutilisateursController">
+   <children>
+      <JFXTreeTableView fx:id="ReclamationTable" layoutX="50.0" layoutY="80.0" prefHeight="550.0" prefWidth="1000.0">
+         <columns>
+            <TreeTableColumn fx:id="nom" prefWidth="220.0" text="Nom" />
+            <TreeTableColumn fx:id="prenom" minWidth="0.0" prefWidth="395.0" text="Prenom" />
+            <TreeTableColumn fx:id="type" prefWidth="128.0" text="Type" />
+            <TreeTableColumn fx:id="date" prefWidth="128.0" text="Date" />
+            <TreeTableColumn fx:id="repondre" prefWidth="128.0" text="Répondre" />
+            <TreeTableColumn prefWidth="75.0" text="Column X" />
+         </columns>
+      </JFXTreeTableView>
+   </children>
+</AnchorPane>
