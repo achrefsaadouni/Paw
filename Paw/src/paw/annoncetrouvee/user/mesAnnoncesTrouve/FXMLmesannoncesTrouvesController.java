@@ -157,7 +157,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
         choixModification.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixModification.setValue("Chien");
              
-        list = service.getMesAnnoncesTrouve(2);
+        list = service.getMesAnnoncesTrouve(session.getId());
         
         if (list.isEmpty()) {
             box1.setVisible(false);
@@ -376,7 +376,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
             
            as.updateAnnonceTrouvee(
                    new AnnonceTrouvee(colierModification.getText(), null, lieuModification.getText(), id, Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(), choixModification.getValue(), null, 0));
-           list=as.getMesAnnoncesTrouve(2) ; 
+           list=as.getMesAnnoncesTrouve(session.getId()) ; 
             
             if (list.isEmpty()) {
             box1.setVisible(false);
@@ -401,7 +401,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
         AnnonceTrouveServices service = new AnnonceTrouveServices();
       
              
-        list = service.getMesAnnoncesTrouve(2);
+        list = service.getMesAnnoncesTrouve(session.getId());
         
         if (list.isEmpty()) {
             box1.setVisible(false);

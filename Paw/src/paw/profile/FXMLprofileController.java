@@ -7,6 +7,7 @@ package paw.profile;
 
 import Service.AchatService;
 import Service.AnnonceServices;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,6 +58,8 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
+        //System.out.println(session.getAvatar());
+        //avatar.setImage(new Image(""));
         nom.setText(session.getEsm());
         adresse.setText(session.getAddresse());
         email.setText(session.getEmail());
@@ -133,6 +136,15 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void goToMesOffresAdoption(ActionEvent event) {
+    }
+
+    @FXML
+    private void modifier(ActionEvent event) {
+        
     }
     
 }
