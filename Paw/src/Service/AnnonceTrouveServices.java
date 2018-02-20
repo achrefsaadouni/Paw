@@ -118,12 +118,12 @@ public class AnnonceTrouveServices
         return list;
     }
      
-    public void updateAnnonceTrouvee (AnnonceTrouvee a, int id )
+    public void updateAnnonceTrouvee (AnnonceTrouvee a )
     {
     String req="UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,colier=?,lieu_trouve=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-           ste.setInt(9,id) ;
+           ste.setInt(9,a.getId()) ;
            ste.setInt(1,a.getAge()) ; 
            ste.setString(2,a.getCouleur()) ; 
            ste.setString(3,a.getSex()) ; 
@@ -180,9 +180,11 @@ public class AnnonceTrouveServices
                 String lieu_trouve=rs.getString("lieu_trouve") ;
 
                 int id_utilisateur=rs.getInt("utilisateur_id");
+                  File images=new File(rs.getString("images"));
+               
                 //////////////////////////////////////////////////
                 
-            list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur));
+            list.add(new AnnonceTrouvee( colier,  date_trouvee,  lieu_trouve,  id, age,  couleur, sex,  race,  message_complementaire,  type,  date,id_utilisateur,images));
         }
 
         } catch (SQLException ex) {

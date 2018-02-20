@@ -111,8 +111,8 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(choixInsertion.getValue()))
                  && (!"".equals(lieuxInsertion3.getText())))
         {
-           Alert alert=new Alert(Alert.AlertType.ERROR ,"Chmap Manquant veulliez remplir tout le formulaire",ButtonType.CLOSE);
-            alert.showAndWait();
+          // Alert alert=new Alert(Alert.AlertType.ERROR ,"Chmap Manquant veulliez remplir tout le formulaire",ButtonType.CLOSE);
+           // alert.showAndWait();
               AnnoncePerduServices  as = new AnnoncePerduServices();
                String sexe="Male";
             if (female.isSelected())

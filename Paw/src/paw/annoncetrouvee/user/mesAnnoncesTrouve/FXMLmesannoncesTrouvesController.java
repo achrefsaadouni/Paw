@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceperdu.user.mesAnnonces;
+package paw.annoncetrouvee.user.mesAnnoncesTrouve;
 
 import Entity.AnnoncePerdu;
 import Entity.AnnonceTrouvee;
 import Entity.Utilisateur;
 import Service.AnnoncePerduServices;
+import Service.AnnonceTrouveServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -33,7 +34,7 @@ import static paw.Paw.session;
  *
  * @author Guideinfo
  */
-public class FXMLMesAnnonceController implements Initializable {
+public class FXMLmesannoncesTrouvesController implements Initializable {
 
     @FXML
     private AnchorPane princi;
@@ -125,8 +126,6 @@ public class FXMLMesAnnonceController implements Initializable {
     private Label nom12;
     @FXML
     private Label nom11;
-
-    private ArrayList<AnnoncePerdu> list ;
     @FXML
     private JFXTextField ageModification;
     @FXML
@@ -146,17 +145,19 @@ public class FXMLMesAnnonceController implements Initializable {
     @FXML
     private JFXButton valider;
     
+     private ArrayList<AnnonceTrouvee> list ;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     consulterAnnonce.setVisible(false);
-        AnnoncePerduServices service = new AnnoncePerduServices();
+        consulterAnnonce.setVisible(false);
+        AnnonceTrouveServices service = new AnnonceTrouveServices();
         choixModification.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
         choixModification.setValue("Chien");
              
-        list = service.getMesAnnoncesPerdus(session.getId());
+        list = service.getMesAnnoncesTrouve(2);
         
         if (list.isEmpty()) {
             box1.setVisible(false);
@@ -165,14 +166,13 @@ public class FXMLMesAnnonceController implements Initializable {
             box4.setVisible(false);
         } else {
             setNbPages();
-            initAnnoncePerduPage(0);
+            initAnnonceTrouvePage(0);
         }
         
-       
+        
+        
     }    
 
-    
-    
     private void setNbPages() {
         if (list.size() % 4 != 0) {
             paginator.setPageCount((list.size() / 4) + 1);
@@ -181,11 +181,11 @@ public class FXMLMesAnnonceController implements Initializable {
         }
 
         paginator.currentPageIndexProperty().addListener((obs, oldIndex, newIndex) -> {
-            initAnnoncePerduPage(newIndex.intValue());
+            initAnnonceTrouvePage(newIndex.intValue());
         });
     }
 
-    public List<AnnoncePerdu> getAnnoncePerdusPage(int index) {
+    public List<AnnonceTrouvee> getAnnonceTrouvePage(int index) {
 
         int start = 4 * index;
         int fin = start + 4;
@@ -199,38 +199,38 @@ public class FXMLMesAnnonceController implements Initializable {
         return list.subList(0, 3);
     }
 
-    private void initAnnoncePerduPage(int index) {
+    private void initAnnonceTrouvePage(int index) {
         UtilisateurServices utilisateurservice = new UtilisateurServices();
         paginator.setCurrentPageIndex(index);
-        List<AnnoncePerdu> QuatreAnnoncePerdus = getAnnoncePerdusPage(index);
+        List<AnnonceTrouvee> QuatreAnnonceTrouve = getAnnonceTrouvePage(index);
         //System.out.println(QuatreAnnoncePerdus.size());
-        if (QuatreAnnoncePerdus.size() >= 1) {
+        if ( QuatreAnnonceTrouve.size() >= 1) {
             box1.setVisible(true);
-            System.out.println(QuatreAnnoncePerdus.get(0).getId_utilisateur());
-        Utilisateur u = utilisateurservice.rechercher(QuatreAnnoncePerdus.get(0).getId_utilisateur());
+            System.out.println( QuatreAnnonceTrouve.get(0).getId_utilisateur());
+        Utilisateur u = utilisateurservice.rechercher( QuatreAnnonceTrouve.get(0).getId_utilisateur());
        nom1.setText(u.getNom()+" "+u.getPrenom());
        mail1.setText(u.getEmail());
        tel1.setText(String.valueOf(u.getNumero()));
-       adr1.setText(QuatreAnnoncePerdus.get(0).getLieu_perdu());
-       datedepo.setText(String.valueOf(QuatreAnnoncePerdus.get(0).getDate_perte()).substring(0, 10));
-            System.out.println(QuatreAnnoncePerdus.get(0).getImages());
-       type1.setText(QuatreAnnoncePerdus.get(0).getType());
-       Image im = new Image ("file:///" +QuatreAnnoncePerdus.get(0).getImages().getPath());
+       adr1.setText( QuatreAnnonceTrouve.get(0).getLieu_trouve());
+       datedepo.setText(String.valueOf( QuatreAnnonceTrouve.get(0).getDate_trouvee()).substring(0, 10));
+            System.out.println( QuatreAnnonceTrouve.get(0).getImages());
+       type1.setText( QuatreAnnonceTrouve.get(0).getType());
+       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(0).getImages().getPath());
        imageanimal1.setFitHeight(100);
        imageanimal1.setFitWidth(100);
        imageanimal1.setImage(im);
 
 
        modifier1.setOnAction((ActionEvent e) -> {
-                modifierannonce(QuatreAnnoncePerdus.get(0),u);
+                modifierannonce( QuatreAnnonceTrouve.get(0),u);
  
                             valider.setOnAction((ActionEvent b) ->{
-                             modifier(QuatreAnnoncePerdus.get(0).getId());
+                             modifier( QuatreAnnonceTrouve.get(0).getId());
                             });
        });
        
        supprimer1.setOnAction((ActionEvent e)->{
-       supprimerannonce(QuatreAnnoncePerdus.get(0).getId()) ; 
+       supprimerannonce( QuatreAnnonceTrouve.get(0).getId()) ; 
        });
 
         } else {
@@ -238,90 +238,90 @@ public class FXMLMesAnnonceController implements Initializable {
         }
 
         ///////////////////////////////////////////////////////
-         if (QuatreAnnoncePerdus.size() >= 2) {
+         if ( QuatreAnnonceTrouve.size() >= 2) {
        box2.setVisible(true);
            
-        Utilisateur u = utilisateurservice.rechercher(QuatreAnnoncePerdus.get(1).getId_utilisateur());
+        Utilisateur u = utilisateurservice.rechercher( QuatreAnnonceTrouve.get(1).getId_utilisateur());
        nom2.setText(u.getNom()+" "+u.getPrenom());
        mail2.setText(u.getEmail());
        tel2.setText(String.valueOf(u.getNumero()));
-       adr2.setText(QuatreAnnoncePerdus.get(1).getLieu_perdu());
-       datedepo2.setText(String.valueOf(QuatreAnnoncePerdus.get(1).getDate_perte()).substring(0, 10));
-       type2.setText(QuatreAnnoncePerdus.get(1).getType());
-       Image im = new Image ("file:///" +QuatreAnnoncePerdus.get(1).getImages().getPath());
+       adr2.setText( QuatreAnnonceTrouve.get(1).getLieu_trouve());
+       datedepo2.setText(String.valueOf( QuatreAnnonceTrouve.get(1).getDate_trouvee()).substring(0, 10));
+       type2.setText( QuatreAnnonceTrouve.get(1).getType());
+       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(1).getImages().getPath());
        imageanimal2.setFitHeight(100);
        imageanimal2.setFitWidth(100);
        imageanimal2.setImage(im);
 
 
        modifier2.setOnAction((ActionEvent e) -> {
-                    modifierannonce(QuatreAnnoncePerdus.get(1),u);                   
+                    modifierannonce( QuatreAnnonceTrouve.get(1),u);                   
                     valider.setOnAction((ActionEvent b) ->{
-                             modifier(QuatreAnnoncePerdus.get(1).getId());
+                             modifier( QuatreAnnonceTrouve.get(1).getId());
                             });
                 }); 
        supprimer2.setOnAction((ActionEvent e)->{
-       supprimerannonce(QuatreAnnoncePerdus.get(1).getId()) ; 
+       supprimerannonce( QuatreAnnonceTrouve.get(1).getId()) ; 
        });
         } else {
             box2.setVisible(false);
         }
         ///////////////////////////////////////////////////////////
 
-        if (QuatreAnnoncePerdus.size() >= 3) {
+        if ( QuatreAnnonceTrouve.size() >= 3) {
        box3.setVisible(true);
  
-        Utilisateur u = utilisateurservice.rechercher(QuatreAnnoncePerdus.get(2).getId_utilisateur());
+        Utilisateur u = utilisateurservice.rechercher( QuatreAnnonceTrouve.get(2).getId_utilisateur());
        nom3.setText(u.getNom()+" "+u.getPrenom());
        mail3.setText(u.getEmail());
        tel3.setText(String.valueOf(u.getNumero()));
-       adr3.setText(QuatreAnnoncePerdus.get(2).getLieu_perdu());
-       datedepo3.setText(String.valueOf(QuatreAnnoncePerdus.get(2).getDate_perte()).substring(0, 10));
-       type3.setText(QuatreAnnoncePerdus.get(2).getType());
-       Image im = new Image ("file:///" +QuatreAnnoncePerdus.get(2).getImages().getPath());
+       adr3.setText( QuatreAnnonceTrouve.get(2).getLieu_trouve());
+       datedepo3.setText(String.valueOf( QuatreAnnonceTrouve.get(2).getDate_trouvee()).substring(0, 10));
+       type3.setText( QuatreAnnonceTrouve.get(2).getType());
+       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(2).getImages().getPath());
        imageanimal3.setFitHeight(100);
        imageanimal3.setFitWidth(100);
        imageanimal3.setImage(im);
        
        
        modifier3.setOnAction((ActionEvent e) -> {
-                    modifierannonce(QuatreAnnoncePerdus.get(2),u);
+                    modifierannonce( QuatreAnnonceTrouve.get(2),u);
                     valider.setOnAction((ActionEvent b) ->{
-                             modifier(QuatreAnnoncePerdus.get(2).getId());
+                             modifier( QuatreAnnonceTrouve.get(2).getId());
                             });
                 });
         supprimer3.setOnAction((ActionEvent e)->{
-       supprimerannonce(QuatreAnnoncePerdus.get(2).getId()) ; 
+       supprimerannonce( QuatreAnnonceTrouve.get(2).getId()) ; 
        });
         } else {
             box3.setVisible(false);
         }
         ///////////////////////////////////////////////////////////
         
-        if (QuatreAnnoncePerdus.size() >= 4) {
+        if ( QuatreAnnonceTrouve.size() >= 4) {
             box4.setVisible(true);
             //System.out.println(QuatreAnnoncePerdus.get(0).getId_utilisateur());
-        Utilisateur u = utilisateurservice.rechercher(QuatreAnnoncePerdus.get(3).getId_utilisateur());
+        Utilisateur u = utilisateurservice.rechercher( QuatreAnnonceTrouve.get(3).getId_utilisateur());
        nom4.setText(u.getNom()+" "+u.getPrenom());
        mail4.setText(u.getEmail());
        tel4.setText(String.valueOf(u.getNumero()));
-       adr4.setText(QuatreAnnoncePerdus.get(3).getLieu_perdu());
-       datedepo4.setText(String.valueOf(QuatreAnnoncePerdus.get(3).getDate_perte()).substring(0, 10));
-       type4.setText(QuatreAnnoncePerdus.get(3).getType());
-       Image im = new Image ("file:///" +QuatreAnnoncePerdus.get(3).getImages().getPath());
+       adr4.setText( QuatreAnnonceTrouve.get(3).getLieu_trouve());
+       datedepo4.setText(String.valueOf( QuatreAnnonceTrouve.get(3).getDate_trouvee()).substring(0, 10));
+       type4.setText( QuatreAnnonceTrouve.get(3).getType());
+       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(3).getImages().getPath());
        imageanimal4.setFitHeight(100);
        imageanimal4.setFitWidth(100);
        imageanimal4.setImage(im);
 
         modifier4.setOnAction((ActionEvent e) -> {
-                   modifierannonce(QuatreAnnoncePerdus.get(3),u);
+                   modifierannonce( QuatreAnnonceTrouve.get(3),u);
                   valider.setOnAction((ActionEvent b) ->{
-                             modifier(QuatreAnnoncePerdus.get(3).getId());
+                             modifier( QuatreAnnonceTrouve.get(3).getId());
                             });
                 });
 
          supprimer4.setOnAction((ActionEvent e)->{
-       supprimerannonce(QuatreAnnoncePerdus.get(3).getId()) ; 
+       supprimerannonce( QuatreAnnonceTrouve.get(3).getId()) ; 
        });} else {
             box4.setVisible(false);
         }
@@ -349,11 +349,11 @@ public class FXMLMesAnnonceController implements Initializable {
            
     }
 
-    private void modifierannonce(AnnoncePerdu a, Utilisateur u) {
+    private void modifierannonce(AnnonceTrouvee a, Utilisateur u) {
      
              sexModification.setText(a.getSex());
              choixModification.setValue(a.getType());
-             lieuModification.setText(a.getLieu_perdu());
+             lieuModification.setText(a.getLieu_trouve());
              msgModification.setText(a.getMessage_complementaire());
              raceModification.setText(a.getRace());
              couleurModification.setText(a.getCouleur());
@@ -372,11 +372,11 @@ public class FXMLMesAnnonceController implements Initializable {
                     
                     && (!"".equals(lieuModification.getText())))
         {
-            AnnoncePerduServices as = new AnnoncePerduServices();
+            AnnonceTrouveServices as = new AnnonceTrouveServices();
             
-           as.updateAnnoncePerdu(
-                   new AnnoncePerdu(colierModification.getText(), null, lieuModification.getText(), id, Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(), choixModification.getValue(), null, 0));
-           list=as.getMesAnnoncesPerdus(session.getId()) ; 
+           as.updateAnnonceTrouvee(
+                   new AnnonceTrouvee(colierModification.getText(), null, lieuModification.getText(), id, Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexModification.getText(), raceModification.getText(), msgModification.getText(), choixModification.getValue(), null, 0));
+           list=as.getMesAnnoncesTrouve(2) ; 
             
             if (list.isEmpty()) {
             box1.setVisible(false);
@@ -385,7 +385,7 @@ public class FXMLMesAnnonceController implements Initializable {
             box4.setVisible(false);
         } else {
             setNbPages();
-            initAnnoncePerduPage(0);
+            initAnnonceTrouvePage(0);
         }
             
         
@@ -395,13 +395,13 @@ public class FXMLMesAnnonceController implements Initializable {
     }
 
     private void supprimerannonce(int id) {
-                AnnoncePerduServices as = new AnnoncePerduServices();
-                as.DeleteAnnoncePerdu(id);
+                AnnonceTrouveServices as = new AnnonceTrouveServices();
+                as.DeleteAnnonceTrouvee(id);
                      consulterAnnonce.setVisible(false);
-        AnnoncePerduServices service = new AnnoncePerduServices();
+        AnnonceTrouveServices service = new AnnonceTrouveServices();
       
              
-        list = service.getMesAnnoncesPerdus(session.getId());
+        list = service.getMesAnnoncesTrouve(2);
         
         if (list.isEmpty()) {
             box1.setVisible(false);
@@ -410,7 +410,7 @@ public class FXMLMesAnnonceController implements Initializable {
             box4.setVisible(false);
         } else {
             setNbPages();
-            initAnnoncePerduPage(0);
+            initAnnonceTrouvePage(0);
         }
         
         

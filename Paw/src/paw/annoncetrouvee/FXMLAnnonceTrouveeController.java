@@ -167,7 +167,7 @@ public class FXMLAnnonceTrouveeController implements Initializable {
             {
                 sexe="Female";
             }
-            as.updateAnnonceTrouvee(new AnnonceTrouvee(colierModification.getText(), null, lieuModification1.getText(),0 , Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexe, raceModification.getText(), msgModification.getText(),choixModification.getValue(), null),Integer.parseInt(idModification.getText()));
+        //    as.updateAnnonceTrouvee(new AnnonceTrouvee(colierModification.getText(), null, lieuModification1.getText(),0 , Integer.parseInt(ageModification.getText()), couleurModification.getText(), sexe, raceModification.getText(), msgModification.getText(),choixModification.getValue(), null),Integer.parseInt(idModification.getText()));
             
            
             
