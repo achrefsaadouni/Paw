@@ -170,12 +170,39 @@ public class UtilisateurServices {
                 int numero = rs.getInt("numero");
                 String avatar = rs.getString("avatar");
                 Date dateInscription = rs.getDate("dateInscription");
-                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, numero, avatar, dateInscription, role));
+                String sexe=rs.getString("sexe");
+                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, numero, avatar, dateInscription, sexe));
             }
 
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         return list;
+    }
+
+    public Boolean rendreAdmin(int id) {
+        String req="UPDATE utilisateur SET role='Admin' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ;  
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
+    }
+
+    public Boolean rendreMembre(int id) {
+        String req="UPDATE utilisateur SET role='Membre' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ; 
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
     }
 }
