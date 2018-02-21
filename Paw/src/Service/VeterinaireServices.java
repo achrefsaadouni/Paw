@@ -157,4 +157,19 @@ public class VeterinaireServices {
         }
         return y;
     }
+    
+    public void setRating(int a, int b , int c) {
+        String req = "INSERT INTO rating(id_veterinaire, id_utilisateur, valeur) VALUES(?,?,?)";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, a);
+            ste.setInt(2, b);
+            ste.setInt(3, c);
+            ste.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("Problème rating");
+        }
+
+    }
 }

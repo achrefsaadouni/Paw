@@ -8,6 +8,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -102,6 +104,12 @@ public class FXMLVeterinairesController implements Initializable {
     private Label docteur;
     @FXML
     private JFXButton eval1;
+    @FXML
+    private JFXButton eval2;
+    @FXML
+    private JFXButton eval3;
+    @FXML
+    private JFXButton eval4;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -124,6 +132,8 @@ public class FXMLVeterinairesController implements Initializable {
             vide.setVisible(false);
 
         }
+        
+        
 
     }
 
@@ -154,6 +164,9 @@ public class FXMLVeterinairesController implements Initializable {
     }
 
     private void initVeterinairePage(int index) {
+        VeterinaireServices service1 = new VeterinaireServices();
+
+        list = service1.getList();
         DecimalFormat df = new DecimalFormat("#.#");
         paginator.setCurrentPageIndex(index);
         List<Vets> QuatreVeterinaires = getVeterinairesPage(index);
@@ -172,6 +185,20 @@ public class FXMLVeterinairesController implements Initializable {
                 note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
             }
 
+            eval1.setOnAction((ActionEvent)->
+                    {
+                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
+                    evaluer.setVisible(true);
+                    
+                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                VeterinaireServices service = new VeterinaireServices();
+                service.setRating(QuatreVeterinaires.get(0).getId(),2,newValue.intValue());
+            }
+        
+        });
+                    });
         } else {
             box1.setVisible(false);
         }
@@ -191,6 +218,23 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
             }
+            
+            eval2.setOnAction((ActionEvent)->
+                    {
+                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(1).getNom() + " " + QuatreVeterinaires.get(1).getPrenom());
+                    evaluer.setVisible(true);
+                    
+                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                VeterinaireServices service = new VeterinaireServices();
+                service.setRating(QuatreVeterinaires.get(1).getId(),2,newValue.intValue());
+            }
+        
+        });
+                    
+                    
+                    });
 
         } else {
             box2.setVisible(false);
@@ -211,6 +255,23 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
             }
+            
+            eval3.setOnAction((ActionEvent)->
+                    {
+                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(2).getNom() + " " + QuatreVeterinaires.get(2).getPrenom());
+                    evaluer.setVisible(true);
+                    
+                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                VeterinaireServices service = new VeterinaireServices();
+                service.setRating(QuatreVeterinaires.get(2).getId(),2,newValue.intValue());
+            }
+        
+        });
+                    
+                    
+                    });
 
         } else {
             box3.setVisible(false);
@@ -231,7 +292,24 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
             }
-
+            
+            
+            eval4.setOnAction((ActionEvent)->
+                    {
+                        docteur.setText("Evaluer Dr. "+QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
+                    evaluer.setVisible(true);
+                    
+                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                VeterinaireServices service = new VeterinaireServices();
+                service.setRating(QuatreVeterinaires.get(3).getId(),2,newValue.intValue());
+            }
+        
+        });
+                    
+                    });
+            
         } else {
             box4.setVisible(false);
         }
@@ -245,9 +323,15 @@ public class FXMLVeterinairesController implements Initializable {
 
     @FXML
     private void actionRate(ActionEvent event) {
+        //evaluer.setVisible(true);
+        //docteur.setText("");
+    }
 
-        evaluer.setVisible(true);
-
+    @FXML
+    private void fermer(ActionEvent event) {
+        initVeterinairePage(paginator.getCurrentPageIndex());
+        evaluer.setVisible(false);
+        
     }
 
 }
