@@ -231,6 +231,112 @@ public class AnnonceTrouveServices
        return list ; 
     }
     
+      public void updateage (int valeur,int id)
+    {
+    String req="UPDATE `annonce` SET age=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }  
+        
+          public void updatecouleur (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET couleur=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+          
+           public void updatesexe (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET sex=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+        
+       public void updaterace (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET race=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+
+         public void updatemessage (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET message_complementaire=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+    
+         public void updatelieutrouve (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET lieu_trouve=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+         
+         
+           public void updatecolier (String valeur,int id)
+    {
+    String req="UPDATE `annonce` SET colier=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,valeur) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    
+    }      
+    
 
 
     

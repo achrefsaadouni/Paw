@@ -8,7 +8,6 @@ package Entity;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.File;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,7 +15,6 @@ import java.util.Objects;
  * @author Guideinfo
  */
 public class Annonce extends RecursiveTreeObject<AnnoncePerdu>
-
 {
    private int id  ; 
    private int age ; 

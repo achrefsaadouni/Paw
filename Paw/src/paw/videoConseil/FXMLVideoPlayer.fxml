@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="963.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.videoConseil.FXMLVideoPlayerController">
+   <children>
+      <VBox layoutX="142.0" layoutY="344.0" prefHeight="275.0" prefWidth="251.0">
+         <children>
+            <JFXButton onAction="#onClick_btn_play" prefHeight="136.0" prefWidth="251.0" style="-fx-background-color: #9E9E9E;" text="PLAY" textFill="#7c4b4b">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/images/20-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton onAction="#onClick_btn_stop" prefHeight="142.0" prefWidth="251.0" style="-fx-background-color: #03A9F4;" text="STOP" textFill="#3c3c29">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/images/UI_Glyph_03-14-256.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <MediaView fx:id="mv" fitHeight="650.0" fitWidth="450.0" layoutX="650.0" layoutY="42.0" translateX="-70.0" translateY="50.0" x="30.0" y="-40.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="638.0" AnchorPane.rightAnchor="-38.0" />
+      <Label layoutX="34.0" layoutY="133.0" prefHeight="122.0" prefWidth="760.0" text="PAW vous donne de precieux conseils    " textFill="#0000008b">
+         <font>
+            <Font name="System Bold Italic" size="29.0" />
+         </font>
+      </Label>
+      <Line endX="420.0" layoutX="137.0" layoutY="232.0" startX="-120.0" />
+      <Line endX="430.0" layoutX="122.0" layoutY="155.0" startX="-100.0" />
+      <ImageView fitHeight="150.0" fitWidth="181.0" layoutX="163.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Ressource/images/27935165_2006035676387100_2123038319_n.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
