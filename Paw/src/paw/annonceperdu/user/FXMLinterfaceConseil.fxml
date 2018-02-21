@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceperdu.user.FXMLinterfaceConseilController">
    <children>
       <VBox layoutX="59.0" layoutY="110.0" prefHeight="535.0" prefWidth="997.0">
          <children>
@@ -155,7 +155,7 @@
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <JFXButton layoutX="822.0" layoutY="1.0" prefHeight="75.0" prefWidth="273.0" style="-fx-background-color: #546E7A;" text="Regarder Nos Conseils" textFill="#8a1616">
+      <JFXButton layoutX="822.0" layoutY="1.0" onAction="#goToVideo" prefHeight="75.0" prefWidth="273.0" style="-fx-background-color: #546E7A;" text="Regarder Nos Conseils" textFill="#8a1616">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

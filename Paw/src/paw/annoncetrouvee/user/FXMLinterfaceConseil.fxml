@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncetrouvee.user.FXMLinterfaceConseilController">
    <children>
       <VBox layoutX="59.0" layoutY="110.0" prefHeight="535.0" prefWidth="997.0">
          <children>
@@ -147,8 +148,8 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Line endX="700.0" layoutX="229.0" layoutY="14.0" startX="-100.0" />
-      <Line endX="615.0" layoutX="319.0" layoutY="68.0" startX="-190.0" />
+      <Line endX="600.0" layoutX="229.0" layoutY="14.0" startX="-100.0" />
+      <Line endX="515.0" layoutX="319.0" layoutY="68.0" startX="-190.0" />
       <Label layoutX="133.0" layoutY="68.0" prefHeight="42.0" prefWidth="911.0" text="Perdre son petit compagnon est toujours douloureux. Voici quelque démarches pour vous aider à le retrouver." textFill="#ba2f2f" underline="true">
          <font>
             <Font name="System Italic" size="19.0" />
@@ -159,5 +160,17 @@
             <Image url="@../../../Ressource/images/logo.png" />
          </image>
       </ImageView>
+      <JFXButton layoutX="832.0" onAction="#goToVideo" prefHeight="75.0" prefWidth="273.0" style="-fx-background-color: #546E7A;" text="Regarder Nos Conseils" textFill="#8a1616">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="49.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Ressource/images/icon-live-uitgesteld-965d3fdd49.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

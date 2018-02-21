@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceperdu.user.mesAnnonces;
+package paw.annoncetrouvee.user;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import paw.mainUI.FXMLCnxController;
 import paw.profile.FXMLprofileController;
@@ -22,10 +21,14 @@ import paw.profile.FXMLprofileController;
  *
  * @author Guideinfo
  */
-public class FXMLPerduFinalController  extends FXMLCnxController  implements Initializable {
+public class FXMLinterfaceConseilController extends FXMLCnxController implements Initializable {
 
     @FXML
-    private Label nom12;
+    private AnchorPane reclamations1;
+    @FXML
+    private AnchorPane reclamations11;
+    @FXML
+    private AnchorPane reclamations;
     @FXML
     private AnchorPane window;
 
@@ -38,25 +41,13 @@ public class FXMLPerduFinalController  extends FXMLCnxController  implements Ini
     }    
 
     @FXML
-    private void goToMesAnnoncesPErdus(ActionEvent event) {
-        try {
+    private void goToVideo(ActionEvent event) {
+         try {
             
-            loadSplashScreen("/paw/annonceperdu/user/mesAnnonces/FXMLmesannonces.fxml");
+            loadSplashScreen("/paw/videoConseil/FXMLVideoPlayer.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    private void goTomesAnnoncesTrouvee(ActionEvent event) {
-   
-      try {
-            
-            loadSplashScreen("/paw/annoncetrouvee/user/mesAnnoncesTrouve/FXMLmesannoncesTrouves.fxml");
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
     }
     
 }

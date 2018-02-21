@@ -400,7 +400,47 @@ public class AnnoncePerduServices
             System.out.println(ex);
         }
     
-    }      
+    }   
+           
+            public double getAnnoncePe() {
+        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_perte' " ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            //ste.setString(1, "annonce_perte");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+            
+            
+            public double getAnnonceTrou() {
+        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_trouvee' " ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+           // ste.setString(1, "annonce_trouvee");
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+         
          
          
 }
