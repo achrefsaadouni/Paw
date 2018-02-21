@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceperdu.user.modificationAnnonce;
+package paw.annoncetrouvee.user.modificationAnnoncesTrouve;
 
 import Entity.AnnoncePerdu;
-import Entity.Produit;
-import Entity.Reclamation;
+import Entity.AnnonceTrouvee;
 import Entity.Utilisateur;
 import Service.AnnoncePerduServices;
-import Service.ProduitService;
-import Service.ReclamationServices;
+import Service.AnnonceTrouveServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -30,53 +27,51 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.TextFieldTreeTableCell;
 import javafx.util.converter.NumberStringConverter;
 import paw.MyNotifications;
-import static paw.Paw.session;
 
 /**
  * FXML Controller class
  *
  * @author Guideinfo
  */
-public class FXMLModifierAnnoncePerduController implements Initializable {
-
-     List<AnnoncePerdu> liste;
+//public class FXMLModifierAnnonceTrouvéController implements Initializable {
+/*
+   List<AnnonceTrouvee> liste;
     @FXML
-    private JFXTreeTableView<AnnoncePerdu> consultertable;
-
-    @FXML
-    private TreeTableColumn<AnnoncePerdu,Number> age;
+    private JFXTreeTableView<AnnonceTrouv> consultertable;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu, String> couleur;
+    private TreeTableColumn<AnnonceTrouvee,Number> age;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> sexe;
+    private TreeTableColumn<AnnonceTrouvee, String> couleur;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> race;
+    private TreeTableColumn<AnnonceTrouvee,String> sexe;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> msg;
+    private TreeTableColumn<AnnonceTrouvee,String> race;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> date;
+    private TreeTableColumn<AnnonceTrouvee,String> msg;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> colier;
+    private TreeTableColumn<AnnonceTrouvee,String> date;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> datep;
+    private TreeTableColumn<AnnonceTrouvee,String> colier;
 
     @FXML
-    private TreeTableColumn<AnnoncePerdu,String> lieup;
+    private TreeTableColumn<AnnonceTrouvee,String> datep;
 
-     private AnnoncePerduServices annonceservice;
+    @FXML
+    private TreeTableColumn<AnnonceTrouvee,String> lieup;
+
+     private AnnonceTrouveServices annonceservice;
     @FXML
     private TreeTableColumn<AnnoncePerdu, JFXButton> supprimer;
     @Override
@@ -308,9 +303,6 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
                 as.DeleteAnnoncePerdu(id);
                 
     }
+    */
     
-     
-   
-}
-
-
+//}

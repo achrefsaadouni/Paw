@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author Guideinfo
  */
-public class AnnoncePerdu extends Annonce {
+public class AnnoncePerdu extends Annonce{
     private int utilisateur ; 
  private String colier  ; 
  private Date date_perte ; 

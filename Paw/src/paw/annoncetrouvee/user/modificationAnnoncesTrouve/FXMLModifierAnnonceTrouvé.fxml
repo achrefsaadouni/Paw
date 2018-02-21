@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncetrouvee.user.modificationAnnoncesTrouve.FXMLModifierAnnonceTrouvéController">
+   <children>
+      <JFXTreeTableView fx:id="consultertable" layoutX="24.0" layoutY="36.0" prefHeight="539.0" prefWidth="1058.0">
+         <columns>
+            <TreeTableColumn fx:id="age" prefWidth="60.0" text="Age" />
+            <TreeTableColumn fx:id="couleur" prefWidth="102.00003051757812" text="Couleur" />
+            <TreeTableColumn fx:id="sexe" prefWidth="86.0" text="Sexe " />
+            <TreeTableColumn fx:id="race" prefWidth="85.0" text="Race" />
+            <TreeTableColumn fx:id="msg" prefWidth="258.0" text="Message_Complementaire" />
+            <TreeTableColumn fx:id="date" prefWidth="124.0" text="Date" />
+            <TreeTableColumn fx:id="colier" prefWidth="72.0" text="Colier" />
+            <TreeTableColumn fx:id="datetrouve" prefWidth="128.0" text=" Date Trouvé" />
+            <TreeTableColumn fx:id="lieutrouve" prefWidth="128.0" text="Lieu Trouvé" />
+            <TreeTableColumn fx:id="supprimer" prefWidth="75.0" text="Supprimer" />
+         </columns>
+      </JFXTreeTableView>
+   </children>
+</AnchorPane>
