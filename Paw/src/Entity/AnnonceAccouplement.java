@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,7 +17,20 @@ public class AnnonceAccouplement extends Annonce {
     private String type_poil  ; 
     private String vaccin ; 
     private String dossier ;
+    //private String lieu;
 
+    public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images,int utilisateur_id) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date,utilisateur_id, images);
+        this.type_poil = type_poil;
+        this.vaccin = vaccin;
+        this.dossier = dossier;
+    }
+    public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date);
+        this.type_poil = type_poil;
+        this.vaccin = vaccin;
+        this.dossier = dossier;
+    }
 
     public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
@@ -24,6 +38,8 @@ public class AnnonceAccouplement extends Annonce {
         this.vaccin = vaccin;
         this.dossier = dossier;
     }
+    
+    
 
     public String getType_poil() {
         return type_poil;

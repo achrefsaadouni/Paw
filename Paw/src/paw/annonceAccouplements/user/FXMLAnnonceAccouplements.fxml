@@ -14,22 +14,30 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceAccouplements.FXMLAnnonceAccouplementsController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceAccouplements.user.FXMLAnnonceAccouplementsController">
    <children>
       <AnchorPane layoutX="16.0" layoutY="32.0" prefHeight="185.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="1057.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Vous cherchez un partenaire pour votre animal ? " />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
-            <Label layoutX="35.0" layoutY="122.0" text="Je propose à la reproduction un(e)" textFill="#0f0fa4">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="choixInsertion" layoutX="362.0" layoutY="126.0" prefWidth="150.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="864.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="920.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Ressource/images/couple.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="164.0" fitWidth="222.0" layoutX="606.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Ressource/images/lovedog.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="233.0" layoutX="290.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Ressource/images/lovedog1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="140.0" fitWidth="208.0" layoutX="5.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Ressource/images/doglove.jpg" />
                </image>
             </ImageView>
          </children>
@@ -46,12 +54,8 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="15.0" layoutY="88.0" prefHeight="31.0" prefWidth="205.0" promptText="RACE" />
-            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="14.0" layoutY="147.0" prefHeight="31.0" prefWidth="205.0" promptText="COULEUR" />
-            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="14.0" layoutY="220.0" prefHeight="31.0" prefWidth="205.0" promptText="AGE" />
-            <Line endX="100.0" layoutX="313.0" layoutY="200.0" rotate="90.0" startX="-150.0" />
-            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="343.0" layoutY="296.0" prefHeight="31.0" prefWidth="255.0" promptText="MESSAGE_COMPLEMENTAIRE" />
-            <Line endX="100.0" layoutX="709.0" layoutY="200.0" rotate="90.0" startX="-160.0" />
+            <Line endX="100.0" layoutX="313.0" layoutY="226.0" rotate="90.0" startX="-150.0" />
+            <Line endX="100.0" layoutX="709.0" layoutY="226.0" rotate="90.0" startX="-160.0" />
             <Pane layoutX="698.0" layoutY="90.0" prefHeight="200.0" prefWidth="369.0">
                <children>
                   <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="35.0" layoutY="78.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="117.0" ripplerFill="#f5e5ff" style="-fx-background-color: #00C0EF;" text="Image 1" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
@@ -73,15 +77,33 @@
                   </ImageView>
                </children>
             </Pane>
-            <JFXRadioButton fx:id="female" layoutX="7.0" layoutY="315.0" prefHeight="21.0" prefWidth="182.0" text="Female" />
-            <JFXRadioButton fx:id="male" layoutX="9.0" layoutY="284.0" prefHeight="21.0" prefWidth="169.0" selected="true" text="Male" />
-            <JFXRadioButton fx:id="ColierN" layoutX="486.0" layoutY="119.0" prefHeight="21.0" prefWidth="169.0" selected="true" text="Non" />
-            <JFXRadioButton fx:id="ColierO" layoutX="486.0" layoutY="93.0" prefHeight="21.0" prefWidth="182.0" text="Oui" />
-            <Label layoutX="340.0" layoutY="97.0" prefHeight="39.0" prefWidth="168.0" text="Dossier médical">
+            <Label layoutX="24.0" layoutY="56.0" text="Je propose à la reproduction un(e)" textFill="#0f0fa4">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
+            <JFXRadioButton fx:id="male" layoutX="8.0" layoutY="314.0" selected="true" text="Male" />
+            <JFXRadioButton fx:id="female" layoutX="8.0" layoutY="347.0" text="Female" />
+            <JFXTextField fx:id="raceInsertion" labelFloat="true" layoutX="19.0" layoutY="106.0" prefHeight="23.0" prefWidth="169.0" promptText="RACE" />
+            <JFXTextField fx:id="ageInsertion" labelFloat="true" layoutX="17.0" layoutY="268.0" promptText="AGE" />
+            <JFXTextField fx:id="couleurInsertion" labelFloat="true" layoutX="18.0" layoutY="220.0" promptText="COULEUR" />
+            <ChoiceBox fx:id="choixInsertion" layoutX="356.0" layoutY="61.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="poilInsertion" layoutX="17.0" layoutY="165.0" prefWidth="150.0" />
+            <JFXRadioButton fx:id="vouiInsertion" layoutX="453.0" layoutY="118.0" selected="true" text="OUI" />
+            <JFXRadioButton fx:id="vnonInsertion" layoutX="512.0" layoutY="118.0" text="NON" />
+            <Label layoutX="328.0" layoutY="117.0" text="Vaccins mise à jour :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXRadioButton fx:id="douiInsertion" layoutX="453.0" layoutY="178.0" selected="true" text="OUI" />
+            <JFXRadioButton fx:id="dnonInsertion" layoutX="512.0" layoutY="178.0" text="NON" />
+            <Label layoutX="341.0" layoutY="176.0" text="Dossier médical :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="353.0" layoutY="266.0" promptText="MESSAGE_COMPLEMENTAIRE" />
          </children>
       </AnchorPane>
    </children>

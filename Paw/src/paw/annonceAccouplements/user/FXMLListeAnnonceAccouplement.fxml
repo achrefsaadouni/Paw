@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceAccouplements.user.FXMLListeAnnonceAccouplementController">
+   <children>
+      <AnchorPane fx:id="box1" layoutX="4.0" layoutY="5.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+         <children>
+            <ImageView fx:id="photo1" fitHeight="222.0" fitWidth="244.0" layoutX="10.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../Ressource/avatar/dogavatar.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="animal1" layoutX="26.0" layoutY="263.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
+            <VBox layoutX="10.0" layoutY="300.0" prefHeight="136.0" prefWidth="251.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="70.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Lieu :">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                     </graphic>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Race :" />
+                  <Label prefHeight="28.0" prefWidth="58.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Sexe :" />
+                  <Label layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="57.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Age :" />
+                  <Label layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="138.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Date de publication :" />
+               </children>
+            </VBox>
+            <JFXButton fx:id="modif1" layoutX="133.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="7.0" layoutY="235.0" prefHeight="29.0" prefWidth="259.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Je propose à la reproduction un :" />
+            <FontAwesomeIconView fill="WHITE" glyphName="SUPPRIMER" layoutX="13.0" layoutY="576.0" size="16" wrappingWidth="25.0" />
+            <JFXButton fx:id="supp1" layoutX="5.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="box2" layoutX="273.0" layoutY="5.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+         <children>
+            <Label fx:id="animal2" layoutX="26.0" layoutY="263.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
+            <JFXButton fx:id="modif2" layoutX="140.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="7.0" layoutY="235.0" prefHeight="29.0" prefWidth="259.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Je propose à la reproduction un :" />
+            <JFXButton fx:id="supp2" layoutX="5.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+            <ImageView fx:id="photo2" fitHeight="222.0" fitWidth="244.0" layoutX="10.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../Ressource/avatar/dogavatar.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="10.0" layoutY="300.0" prefHeight="136.0" prefWidth="251.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="70.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Lieu :">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                     </graphic>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Race :" />
+                  <Label prefHeight="28.0" prefWidth="58.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Sexe :" />
+                  <Label layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="57.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Age :" />
+                  <Label layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="138.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Date de publication :" />
+               </children>
+            </VBox>
+            <Label fx:id="race2" layoutX="57.0" layoutY="327.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
+            <Label fx:id="sexe2" layoutX="56.0" layoutY="354.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
+            <Label fx:id="lieu2" layoutX="73.0" layoutY="302.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
+            <Label fx:id="age2" layoutX="57.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
+            <Label fx:id="date2" layoutX="147.0" layoutY="411.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
+         </children>
+      </AnchorPane>
+      <Pagination fx:id="paginator" layoutX="465.0" layoutY="606.0" pageCount="50" prefHeight="49.0" prefWidth="200.0" />
+      <Label fx:id="race1" layoutX="57.0" layoutY="332.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
+      <Label fx:id="sexe1" layoutX="57.0" layoutY="358.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
+      <Label fx:id="lieu1" layoutX="75.0" layoutY="307.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
+      <Label fx:id="age1" layoutX="57.0" layoutY="387.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
+      <Label fx:id="date1" layoutX="147.0" layoutY="414.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
+      <AnchorPane fx:id="box3" layoutX="550.0" layoutY="6.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+         <children>
+            <Label fx:id="animal3" layoutX="26.0" layoutY="263.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
+            <JFXButton fx:id="modif3" layoutX="140.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="7.0" layoutY="235.0" prefHeight="29.0" prefWidth="259.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Je propose à la reproduction un :" />
+            <JFXButton fx:id="supp3" layoutX="5.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+            <ImageView fx:id="photo3" fitHeight="222.0" fitWidth="244.0" layoutX="10.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../Ressource/avatar/dogavatar.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="10.0" layoutY="300.0" prefHeight="136.0" prefWidth="251.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="70.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Lieu :">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                     </graphic>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Race :" />
+                  <Label prefHeight="28.0" prefWidth="58.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Sexe :" />
+                  <Label layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="57.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Age :" />
+                  <Label layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="138.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Date de publication :" />
+               </children>
+            </VBox>
+            <Label fx:id="race3" layoutX="57.0" layoutY="327.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
+            <Label fx:id="sexe3" layoutX="56.0" layoutY="354.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
+            <Label fx:id="lieu3" layoutX="73.0" layoutY="302.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
+            <Label fx:id="age3" layoutX="57.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
+            <Label fx:id="date3" layoutX="147.0" layoutY="411.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="box4" layoutX="826.0" layoutY="6.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+         <children>
+            <Label fx:id="animal4" layoutX="26.0" layoutY="263.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
+            <JFXButton fx:id="modif4" layoutX="140.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="7.0" layoutY="235.0" prefHeight="29.0" prefWidth="259.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Je propose à la reproduction un :" />
+            <JFXButton fx:id="supp4" layoutX="5.0" layoutY="554.0" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+            <ImageView fx:id="photo4" fitHeight="222.0" fitWidth="244.0" layoutX="10.0" layoutY="7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../Ressource/avatar/dogavatar.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="10.0" layoutY="300.0" prefHeight="136.0" prefWidth="251.0">
+               <children>
+                  <Label prefHeight="28.0" prefWidth="70.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Lieu :">
+                     <graphic>
+                        <MaterialDesignIconView fill="#7387a8" glyphName="MAP_MARKER" size="17.0" wrappingWidth="20.666631162166595" />
+                     </graphic>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="52.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Race :" />
+                  <Label prefHeight="28.0" prefWidth="58.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Sexe :" />
+                  <Label layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="57.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Age :" />
+                  <Label layoutX="10.0" layoutY="91.0" prefHeight="28.0" prefWidth="138.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a;" text="Date de publication :" />
+               </children>
+            </VBox>
+            <Label fx:id="race4" layoutX="57.0" layoutY="327.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
+            <Label fx:id="sexe4" layoutX="56.0" layoutY="354.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
+            <Label fx:id="lieu4" layoutX="73.0" layoutY="302.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
+            <Label fx:id="age4" layoutX="57.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
+            <Label fx:id="date4" layoutX="147.0" layoutY="411.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
+         </children>
+      </AnchorPane>
+      <StackPane fx:id="modifAnnonceAccouplement" layoutX="271.0" layoutY="34.0" prefHeight="492.0" prefWidth="553.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label layoutX="29.0" prefHeight="50.0" prefWidth="489.0" text="Modifier votre annonce d'accouplement" textAlignment="CENTER" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="10.0" layoutY="39.0" prefHeight="16.0" prefWidth="529.0" />
+                  <Label layoutX="36.0" layoutY="86.0" text="Animal à accoupler :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="choixInsertion1" layoutX="207.0" layoutY="83.0" prefHeight="25.0" prefWidth="105.0" />
+                  <JFXTextField fx:id="raceInsertion1" labelFloat="true" layoutX="18.0" layoutY="290.0" promptText="RACE" />
+                  <JFXRadioButton fx:id="male1" layoutX="193.0" layoutY="125.0" prefHeight="19.0" prefWidth="66.0" selected="true" text="Male" />
+                  <JFXRadioButton fx:id="female1" layoutX="252.0" layoutY="125.0" text="Female" />
+                  <Label layoutX="139.0" layoutY="125.0" text="Sexe :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXRadioButton fx:id="vouiInsertion1" layoutX="193.0" layoutY="160.0" selected="true" text="OUI" />
+                  <JFXRadioButton fx:id="vnonInsertion1" layoutX="252.0" layoutY="160.0" text="NON" />
+                  <Label layoutX="49.0" layoutY="158.0" text="Vaccin mis à jour :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXRadioButton fx:id="douiInsertion1" layoutX="193.0" layoutY="194.0" selected="true" text="OUI" />
+                  <JFXRadioButton fx:id="dnonInsertion1" layoutX="252.0" layoutY="194.0" text="NON" />
+                  <Label layoutX="61.0" layoutY="194.0" text="Dossier médical :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="poilInsertion1" layoutX="207.0" layoutY="229.0" prefWidth="105.0" />
+                  <Label layoutX="84.0" layoutY="232.0" text="Type de poil :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="ageInsertion1" labelFloat="true" layoutX="399.0" layoutY="290.0" promptText="AGE" />
+                  <JFXTextField fx:id="couleurInsertion1" labelFloat="true" layoutX="214.0" layoutY="290.0" promptText="COULEUR" />
+                  <JFXTextField fx:id="msgInsertion1" labelFloat="true" layoutX="193.0" layoutY="368.0" prefWidth="165.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+                  <Separator layoutX="10.0" layoutY="435.0" prefHeight="16.0" prefWidth="529.0" />
+                  <JFXButton fx:id="valider" layoutX="288.0" layoutY="451.0" onAction="#actionModification2" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton layoutX="119.0" layoutY="451.0" onAction="#fermer" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Fermer" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+                     </graphic>
+                  </JFXButton>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="384.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/couple.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
