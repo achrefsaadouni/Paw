@@ -218,7 +218,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
             modifanchor.setVisible(false);
             loadDetails();
             JFXSnackbar snack = new JFXSnackbar(details);
-            snack.show("Informations mises à jours", 3000);
+            snack.show("Informations mises à jours", 2000);
         }
         else{
             
@@ -235,6 +235,15 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         annonces.setText(String.valueOf(a.getMesAnnonces(session.getId()).size()));
         AchatService s = new AchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
+    }
+
+    @FXML
+    private void goToAdminRecl(ActionEvent event) {
+        try{
+            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -97,8 +97,8 @@ public class FXMLmesoffresadoptionController implements Initializable {
 
     private void initAnnoncePage(int i) {
             paginator.setCurrentPageIndex(i);     
-            AnnonceAdoptionService servrep = new AnnonceAdoptionService();
-            ArrayList<RepOffreAdoption> reponses= servrep.getRep(liste.get(i).getId());
+//            AnnonceAdoptionService servrep = new AnnonceAdoptionService();
+//            ArrayList<RepOffreAdoption> reponses= servrep.getRep(liste.get(i).getId());
             race.setText(liste.get(i).getRace());
             type.setText(liste.get(i).getType());
             sexe.setText(liste.get(i).getSex());
