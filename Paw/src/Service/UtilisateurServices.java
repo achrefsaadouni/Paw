@@ -255,4 +255,43 @@ public class UtilisateurServices {
             return false ;
         }
     }
+
+    public Boolean modifierInfos(Utilisateur u) {
+        String req="UPDATE utilisateur SET email=?, nom=?, prenom=?, addresse=?, sexe=?,numero=? WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1, u.getEmail());
+            ste.setString(2, u.getNom());
+            ste.setString(3, u.getPrenom());
+            ste.setString(4, u.getAddresse());
+            ste.setString(5, u.getSexe());
+            System.out.println(u.getNumero());
+            ste.setInt(6,u.getNumero()) ;
+            ste.setInt(7,u.getId()) ;
+            ste.executeUpdate() ; 
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false ;
+        }
+    }
+    
+    public void utilisateurMois(int i)
+    {
+        ArrayList<String> y = new ArrayList();
+        String req="SELECT extract(month from systimestamp-dateInscription) as terma FROM utilisateur" ;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            //ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
 }
