@@ -7,7 +7,9 @@ package paw.mainUI;
 
 import Entity.Utilisateur;
 import Service.InscriptionService;
+import Service.ProduitService;
 import Service.UtilisateurServices;
+import Utility.Checksum;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
@@ -15,7 +17,11 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -71,6 +77,7 @@ public class FXMLinscriptionController implements Initializable {
     private AnchorPane anchor;
     
     private File file;
+    private String chaine ;
 
     /**
      * Initializes the controller class.
@@ -103,8 +110,25 @@ public class FXMLinscriptionController implements Initializable {
         if (file != null) {
             Image im = new Image("file:///" + file.toPath().toString());
             imajout1.setImage(im);
-          
+                   
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "c:\\wamp64\\www\\pawUsers\\"+imageName + extension;
+            chaine =imageName + extension;
+            System.out.println(chaine);
+            File dest = new File(filePath);
+            Files.copy(
+                    file.toPath(), 
+                    dest.toPath(), 
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+          
+        
     }
 
     @FXML
@@ -140,7 +164,7 @@ public class FXMLinscriptionController implements Initializable {
                              {
                                  sexe="Femme";
                              }
-                             Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getText().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), file.getPath(), null, sexe);
+                             Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getText().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), chaine, null, sexe);
                              s.insererUtilisateur(p);
                              Notifications.create().text("Inscription done").title("Succès").show();
                                 nom.setText("");

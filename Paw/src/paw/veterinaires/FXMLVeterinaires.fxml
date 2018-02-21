@@ -38,7 +38,7 @@
                         <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
                      </graphic>
                   </Label>
-                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                  <Pane layoutX="2.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate1" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
                         <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
@@ -47,7 +47,7 @@
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton fx:id="eval1" layoutX="245.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
+                        <JFXButton fx:id="eval1" layoutX="245.0" layoutY="9.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
                               <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
@@ -92,7 +92,7 @@
                         <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
                      </graphic>
                   </Label>
-                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                  <Pane layoutX="1.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate2" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
                         <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
@@ -102,7 +102,7 @@
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                         <Label fx:id="note2" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
-                        <JFXButton layoutX="245.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
+                        <JFXButton fx:id="eval2" layoutX="245.0" layoutY="9.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
                               <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
@@ -150,7 +150,7 @@
                         <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
                      </graphic>
                   </Label>
-                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                  <Pane layoutX="1.0" layoutY="200.0" prefHeight="50.0" prefWidth="512.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate3" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
                         <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
@@ -160,7 +160,7 @@
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                         <Label fx:id="note3" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
-                        <JFXButton layoutX="246.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
+                        <JFXButton fx:id="eval3" layoutX="246.0" layoutY="9.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
                               <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
@@ -204,7 +204,7 @@
                         <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
                      </graphic>
                   </Label>
-                  <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
+                  <Pane layoutX="3.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate4" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
                         <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
@@ -214,7 +214,7 @@
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                         <Label fx:id="note4" layoutX="199.0" layoutY="10.0" prefHeight="30.0" prefWidth="53.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="4.5/5" />
-                        <JFXButton layoutX="246.0" layoutY="9.0" onAction="#actionRate" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
+                        <JFXButton fx:id="eval4" layoutX="246.0" layoutY="9.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #26B99A; -fx-text-fill: white; -fx-font-size: 14;" text="Evaluer" textAlignment="RIGHT">
                            <graphic>
                               <HBox alignment="CENTER" spacing="3.0" />
                            </graphic>
@@ -252,9 +252,9 @@
             </Label>
          </children>
       </StackPane>
-      <StackPane fx:id="evaluer" layoutX="318.0" layoutY="210.0" prefHeight="150.0" prefWidth="372.0" style="-fx-background-color: #E6E6E6;" visible="false">
+      <StackPane fx:id="evaluer" layoutX="318.0" layoutY="210.0" prefHeight="173.0" prefWidth="373.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" visible="false">
          <children>
-            <AnchorPane fx:id="evaldoc" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="evaldoc" prefHeight="180.0" prefWidth="373.0">
                <children>
                   <Rating fx:id="evaluation" layoutX="99.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" />
                   <Label fx:id="docteur" layoutX="14.0" layoutY="24.0" text="Evaluer Dr.  Foulen FOULENI">
@@ -262,6 +262,11 @@
                         <Font name="System Bold" size="27.0" />
                      </font>
                   </Label>
+                  <JFXButton fx:id="fermer" layoutX="152.0" layoutY="127.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #FE2E64; -fx-text-fill: white; -fx-font-size: 14;" text="Fermer" textAlignment="RIGHT">
+                     <graphic>
+                        <HBox alignment="CENTER" spacing="3.0" />
+                     </graphic>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

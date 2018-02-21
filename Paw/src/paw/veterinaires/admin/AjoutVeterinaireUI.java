@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceaccouplement;
+package paw.veterinaires.admin;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,11 +16,11 @@ import javafx.stage.Stage;
  *
  * @author gmehd
  */
-public class AnnonceAccouplementUI extends Application {
+public class AjoutVeterinaireUI extends Application {
     
-    
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLAnnonceAccouplement.fxml"));
+    @Override
+    public void start(Stage stage) throws IOException {
+       Parent root = FXMLLoader.load(getClass().getResource("FXMLAjoutVeterinaire.fxml"));
         
         Scene scene = new Scene(root);
         

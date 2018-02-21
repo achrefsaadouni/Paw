@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package paw.annonceaccouplement;
-
 import Entity.AnnonceAccouplement;
 import Service.AnnonceAccouplementServices;
 import com.jfoenix.controls.JFXRadioButton;

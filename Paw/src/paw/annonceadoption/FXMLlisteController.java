@@ -6,7 +6,6 @@
 package paw.annonceadoption;
 
 import Entity.AnnonceAdoption;
-import Entity.Reclamation;
 import Service.AnnonceAdoptionService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;

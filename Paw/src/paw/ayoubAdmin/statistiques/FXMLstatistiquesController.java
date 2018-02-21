@@ -12,8 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Tab;
 
 
 /**
@@ -44,6 +46,10 @@ public class FXMLstatistiquesController implements Initializable {
              new PieChart.Data("Non Traitée", recS.getNonTraitee())
          );        
         TraiteeNonTraitee.setData(T);
-    }    
+        
+        
+        
 
+
+    }
 }
