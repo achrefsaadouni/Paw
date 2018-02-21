@@ -23,7 +23,7 @@ public class AnnonceAdoption extends Annonce {
         return "AnnonceAdoption{" + "typeAdoption=" + typeAdoption + ", debutAdoption=" + debutAdoption + ", finAdoption=" + finAdoption + ", etatAdoption=" + etatAdoption + super.toString()+'}';
     }
     
-    //id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur, images
+    //  message_complementaire, images
 
     public AnnonceAdoption(String typeAdoption, Date debutAdoption, Date finAdoption, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, int id_utilisateur, File images,String etatAdoption) {
         super(id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur, images);

@@ -120,7 +120,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @FXML
     private void goToAnnonce(MouseEvent event) {
         try{
-            loadSplashScreen("/paw/annonceperdu/user/mesAnnonces/FXMLmesannonces.fxml");
+            loadSplashScreen("/paw/annonceperdu/user/mesAnnonces/FXMLPerduFinal.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
