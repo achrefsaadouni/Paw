@@ -23,6 +23,7 @@ public class AchatService {
     final private DbHandler handler;
     protected Connection connection;
     private static AchatService achatservice;
+    LigneAchatService ligneservice = LigneAchatService.getLigneService();
 
     public static AchatService getAchatService() {
         if (AchatService.achatservice == null) {
@@ -37,7 +38,7 @@ public class AchatService {
     }
 
     public boolean addAchat(Achat a) {
-        LigneAchatService ligneservice = LigneAchatService.getLigneService();
+        
         String req = "INSERT INTO `achat` (`id_client`,`prix`,`etat`) VALUES(?,?,?)";
         String k = "select id_achat from `achat` order by id_achat desc limit 1";
         try {
@@ -88,11 +89,14 @@ public class AchatService {
         return y;
     }
 
-    public void deleteAchat(int id) {
-        String req = "DELETE  `achat` achat where  id =?";
+    public void deleteAchat(Achat achat) {
+        String req = "DELETE from `achat` where  id_achat =?";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
-            ste.setInt(1, id);
+            ste.setInt(1, achat.getId_achat());
+            for (LigneAchat ligneAchat : achat.getList()) {
+               ligneservice.deleteLigneAchat(ligneAchat.getId_ligne());
+            }
             ste.executeUpdate();
 
         } catch (SQLException ex) {
@@ -142,6 +146,18 @@ public class AchatService {
             System.out.println("erreur affichage LigneAchat");
         }
         return null;
+    }
+    public void livrer(int id)
+    {
+          String req = "update  `achat` set etat='livrer' where id_achat=?";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, id);
+            ste.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println("Problème update livrer");
+        }
+        
     }
 
 }

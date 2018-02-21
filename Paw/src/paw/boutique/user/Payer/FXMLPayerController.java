@@ -85,8 +85,6 @@ public class FXMLPayerController {
     @FXML
     private JFXDatePicker date_expiration;
     @FXML
-    private JFXButton pdf;
-    @FXML
     private JFXDialogLayout layout;
 
     void annuler(ActionEvent event) {

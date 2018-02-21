@@ -10,15 +10,13 @@ import Entity.LigneAchat;
 import Entity.Utilisateur;
 import Service.AchatService;
 import Service.LigneAchatService;
-import Service.ProduitService;
 import Service.UtilisateurServices;
-import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import java.sql.Timestamp;
 import java.util.List;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -26,20 +24,17 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableRow;
-import javafx.scene.control.TreeTableView.TreeTableViewSelectionModel;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
+import paw.MyNotifications;
 
 public class FXMLAchatController {
     
@@ -86,20 +81,32 @@ public class FXMLAchatController {
     private TreeTableColumn<LigneAchat, Number> prixunite;
     @FXML
     StackPane info;
-
     @FXML
+    private JFXButton supprimer;
+    @FXML
+    private JFXButton pdf;
+    @FXML
+    private JFXButton livrer;
+    AchatService achatservice = AchatService.getAchatService();
+    @FXML
+    private StackPane stackpane;
+    @FXML
+    private JFXDialogLayout layout;
+    @FXML
+    private JFXButton annuler;
+    @FXML
+    private JFXButton ok_supprimer;
     public void initialize() {
-        AchatService achatservice = AchatService.getAchatService();
+        
         info.setVisible(true);
         ligneachat.setVisible(false);
         rechercher_ligneachat.setVisible(false);
-      
-        liste_achat =achatservice.All();
-          initAchat();
+        initAchat();
     }    
     
     public void initAchat()
     {
+         liste_achat =achatservice.All();
          AchatService achatservice = AchatService.getAchatService();
          UtilisateurServices p = new UtilisateurServices();
          
@@ -152,14 +159,24 @@ public class FXMLAchatController {
         });
           
         achat.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if(newSelection==null)
+            {
+                consulter(oldSelection.getValue().getList());
+            }
+            else
                 consulter(newSelection.getValue().getList());
                 });
  
+       refresh();
+        
+    }
+    public void refresh()
+    {
+        liste_achat =achatservice.All();
         ObservableList<Achat> achats = FXCollections.observableArrayList(liste_achat);
         TreeItem<Achat> root = new RecursiveTreeItem<>(achats, RecursiveTreeObject::getChildren);
         achat.setRoot(root);
         achat.setShowRoot(false);
-        
     }
     
     
@@ -214,6 +231,48 @@ public class FXMLAchatController {
         ligneachat.setShowRoot(false);
         info.setVisible(false);
         
+    }
+
+    @FXML
+    private void supprimer(ActionEvent event) {
+ 
+        stackpane.setVisible(true);
+
+        
+    }
+
+    @FXML
+    private void pdf(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void livrer(ActionEvent event) {
+       Achat a = achat.getSelectionModel().selectedItemProperty().getValue().getValue();
+        System.out.println(a.getEtat());
+        if("livrer".equals(a.getEtat()))
+        {
+             MyNotifications.infoNotification("Modification", "Cet Achat a ete deja livre");
+             return;
+        }
+        
+                achatservice.livrer(a.getId_achat());
+                MyNotifications.infoNotification("Modification", "Cet Achat A ete modifier a l'etat livrer");
+               refresh();
+    }
+
+    @FXML
+    private void annuler(ActionEvent event) {
+         stackpane.setVisible(false);
+    }
+
+    @FXML
+    private void confirmersupprimer(ActionEvent event) {
+                Achat a = achat.getSelectionModel().selectedItemProperty().getValue().getValue();
+                achatservice.deleteAchat(a);
+                MyNotifications.infoNotification("Suppression", "Cet Achat A ete supprimer ");
+                refresh();
+                stackpane.setVisible(false);
     }
     
 }

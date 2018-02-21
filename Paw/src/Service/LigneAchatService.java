@@ -54,7 +54,7 @@ public class LigneAchatService {
     
     public void deleteLigneAchat (int id )
     {
-    String req="DELETE  from ligneachat where  id =?" ; 
+    String req="DELETE  from ligneachat where  id_ligne =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,id) ;
