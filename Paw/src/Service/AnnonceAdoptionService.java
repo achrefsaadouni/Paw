@@ -6,6 +6,7 @@
 package Service;
 
 import Entity.AnnonceAdoption;
+import Entity.RepOffreAdoption;
 import Utility.DbHandler;
 import java.io.File;
 import java.sql.Connection;
@@ -255,5 +256,33 @@ public class AnnonceAdoptionService {
              System.out.println("getAnnonceAdoptionNonDisponible");
         }
         return list;      
+    }
+    
+    
+    
+    
+    
+    public ArrayList<RepOffreAdoption> getRep(int i){
+        String req="SELECT * FROM RepOffreAdoption where id_annonce=?" ;
+        ArrayList<RepOffreAdoption> list = new ArrayList<>();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(i, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                int idannonce = rs.getInt("id_annonce");
+                int id_utilisateur = rs.getInt("id_utilisateur");
+                String  etat= rs.getString("etat");
+                 
+                list.add(new RepOffreAdoption(id,idannonce,id_utilisateur,etat));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
     }
 }

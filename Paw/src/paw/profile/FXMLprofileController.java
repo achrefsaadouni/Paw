@@ -176,6 +176,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
 
     @FXML
     private void goToMesOffresAdoption(ActionEvent event) {
+        try {                    
+            loadSplashScreen("/paw/annonceadoption/FXMLmesoffresadoption.fxml");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     @FXML

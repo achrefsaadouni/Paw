@@ -155,7 +155,7 @@
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false">
          <children>
             <Pane prefHeight="122.0" prefWidth="461.0" style="-fx-background-color: #00AACF; -fx-background-radius: 5 5 0 0;">
                <children>
