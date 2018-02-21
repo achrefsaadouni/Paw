@@ -101,6 +101,11 @@ public class Achat extends RecursiveTreeObject<Achat>{
     public void setEtat(String etat) {
         this.etat = etat;
     }
+
+    @Override
+    public String toString() {
+        return "Achat{" + "id_achat=" + id_achat + ", id_client=" + id_client + ", list=" + list + ", date_achat=" + date_achat + ", prix=" + prix + ", etat=" + etat + '}';
+    }
     
     
 }
