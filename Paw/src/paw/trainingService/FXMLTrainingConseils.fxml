@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.trainingService.FXMLTrainingConseilsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.trainingService.FXMLTrainingConseilsController">
     <stylesheets>
         <URL value="@fxmltraining.css" />
     </stylesheets>
@@ -181,7 +182,7 @@
             <AnchorPane prefHeight="89.0" prefWidth="1100.0">
                <children>
                   <Separator layoutY="13.0" prefWidth="200.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                  <Label layoutX="14.0" layoutY="31.0" style="-fx-font-weight: bold; -fx-text-fill: #6a7d9a; -fx-font-size: 14;" stylesheets="@fxmltraining.css" text="Vous pouvez commencez chez vous a laide de ses Tuto " AnchorPane.leftAnchor="20.0">
+                  <Label layoutX="14.0" layoutY="31.0" style="-fx-font-weight: bold; -fx-text-fill: #6a7d9a; -fx-font-size: 14;" stylesheets="@fxmltraining.css" text="Vous pouvez commencer chez vous a l'aide de ses Tuto " AnchorPane.leftAnchor="20.0">
                      <graphic>
                         <ImageView fitHeight="71.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -207,6 +208,19 @@
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
                   </WebView>
+                  <AnchorPane prefHeight="276.0" prefWidth="104.0">
+                     <children>
+                        <JFXButton fx:id="retourB" buttonType="RAISED" layoutX="109.0" layoutY="230.0" onAction="#redirection" ripplerFill="WHITE" style="-fx-background-color: white;" stylesheets="@fxmltraining.css" text="retour">
+                           <graphic>
+                              <ImageView fitHeight="68.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icone-retour-Lycee-pro.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

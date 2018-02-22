@@ -5,18 +5,27 @@ import Service.AnnonceTrainingServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import static paw.Paw.session;
+import paw.profile.FXMLprofileController;
 
 public class FXMLTrainingController implements Initializable {
 
@@ -48,6 +57,8 @@ public class FXMLTrainingController implements Initializable {
     private JFXTextField descPet;
     @FXML
     private ImageView imgTr3;
+    @FXML
+    private JFXButton retourB;
     
 
     @Override
@@ -60,6 +71,8 @@ public class FXMLTrainingController implements Initializable {
         typePet.getItems().add("Autre");
         sexeM.setToggleGroup(sexe);
         sexeF.setToggleGroup(sexe);
+        System.out.println(session.getId());
+
         
     }    
 
@@ -94,6 +107,7 @@ public class FXMLTrainingController implements Initializable {
                             type,
                             null,
                             session.getId()));
+//            initialisation des champs
             dateTr.setValue(LocalDate.now());
             typeTr.setValue("");
             agePet.setText("");
@@ -115,6 +129,27 @@ public class FXMLTrainingController implements Initializable {
             typePet.setValue("");
 //            sexe.setUserData(null);
     }
+
+    @FXML
+    private void redirection(ActionEvent event) throws IOException {
+        try{
+//            loadSplashScreen("/paw/trainingService/FXMLTrainingPrincipal.fxml");
+            System.out.println("redirection in progress !!");
+            Parent trainingPrincipalParent = FXMLLoader.load(getClass().getResource("FXMLTrainingPrincipal.fxml"));
+            Scene trainingPrincipalScene = new Scene(trainingPrincipalParent);  
+            Stage app_stage =  (Stage)((Node)event.getSource()).getScene().getWindow();
+            app_stage.setScene(trainingPrincipalScene);
+            app_stage.show();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+ 
+  
+
+    
 
    
     
