@@ -454,10 +454,27 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void twiterPage(MouseEvent event) {
+         try {
+            Desktop.getDesktop().browse(new URI(" https://twitter.com/boutique_paw"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+        
+       
     }
 
     @FXML
     private void gotoInstagram(MouseEvent event) {
+         try {
+            Desktop.getDesktop().browse(new URI("https://www.instagram.com/pawzcorporation/?hl=fr"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+        
     }
 
 }
