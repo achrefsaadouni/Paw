@@ -105,7 +105,7 @@ public class FXMLView_inboxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // user_id = LoginManager.getUser().getId();
+        user_id =1;
         
         //initDrawer();
         repondre.setOnAction((e) -> {
@@ -121,7 +121,7 @@ public class FXMLView_inboxController implements Initializable {
             @Override
             public void run() {
                 System.out.println("running");
-//                loadMessages();
+                loadMessages();
                 if (destinataire == null) {
                     return;
                 }
@@ -144,7 +144,7 @@ public class FXMLView_inboxController implements Initializable {
                     }
                     HBox hb = new HBox();
                     StackPane p = new StackPane();
-                    ImageView i = new ImageView(new Image("/resources/img/messageRecieved.png"));
+                    ImageView i = new ImageView(new Image("/resources/images/messageRecieved.png"));
                   i.setFitWidth(257);
                     i.setFitHeight(102);
 
@@ -198,12 +198,12 @@ public class FXMLView_inboxController implements Initializable {
             HBox item = new HBox();
             VBox userInfo = new VBox();
             userInfo.setAlignment(Pos.CENTER);
-            ImageView image = new ImageView("/resources/img/profile.png");
+//            ImageView image = new ImageView("/resources/images/profile.png");
             Separator sp = new Separator(Orientation.VERTICAL);
-            image.setFitWidth(50);
-            image.setFitHeight(50);
+            //image.setFitWidth(50);
+            //image.setFitHeight(50);
             Label userName = new Label(e.getKey().getNom() + " " + e.getKey().getPrenom());
-            userInfo.getChildren().add(image);
+            //userInfo.getChildren().add(image);
             userInfo.getChildren().add(userName);
 
             VBox messageInfo = new VBox();
@@ -244,7 +244,7 @@ public class FXMLView_inboxController implements Initializable {
                 }
                 HBox hb = new HBox();
                 StackPane p = new StackPane();
-                ImageView i = new ImageView(new Image("/resources/img/messageRecieved.png"));
+                ImageView i = new ImageView(new Image("/resources/images/messageRecieved.png"));
                 i.setFitWidth(257);
                 i.setFitHeight(102);
 
