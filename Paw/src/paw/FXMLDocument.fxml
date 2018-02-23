@@ -52,5 +52,10 @@
             <Font name="Roboto" size="20.0" />
          </font>
       </JFXButton>
+      <JFXButton fx:id="fermer" buttonType="RAISED" layoutX="362.0" layoutY="521.0" onAction="#fermer" prefHeight="44.0" prefWidth="239.0" style="-fx-background-color: #42A5F5;" text="Fermer" textFill="WHITE">
+         <font>
+            <Font name="Roboto" size="20.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

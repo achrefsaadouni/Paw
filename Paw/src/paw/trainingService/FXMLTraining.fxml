@@ -48,6 +48,19 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="1060.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);;" stylesheets="@fxmltraining.css">
                <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="retourB" buttonType="RAISED" layoutX="36.0" layoutY="299.0" onAction="#redirection" ripplerFill="WHITE" style="-fx-background-color: white;" stylesheets="@fxmltraining.css" text="retour">
+                           <graphic>
+                              <ImageView fitHeight="68.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icone-retour-Lycee-pro.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="200.0">
                      <children>
                         <JFXTextField fx:id="racePet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Race" stylesheets="@fxmltraining.css">
