@@ -8,6 +8,18 @@ package paw.mainUI;
 import Entity.LigneAchat;
 import Entity.Panier;
 import Entity.Utilisateur;
+import Service.AchatService;
+import Service.AnnonceAccouplementServices;
+import Service.AnnonceAdoptionService;
+import Service.AnnoncePerduServices;
+import Service.AnnonceTrainingServices;
+import Service.AnnonceTrouveServices;
+import Service.AnnonceWalkingServices;
+import Service.ConseilServices;
+import Service.ProduitService;
+import Service.ReclamationServices;
+import Service.UtilisateurServices;
+import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -42,8 +54,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import paw.MyNotifications;
 import static paw.Paw.session;
@@ -54,7 +66,7 @@ import paw.profile.FXMLprofileController;
  * @author AYOUB
  */
 public class FXMLCnxController implements Initializable {
-
+   
     @FXML
     public AnchorPane window;
     @FXML
@@ -79,8 +91,8 @@ public class FXMLCnxController implements Initializable {
     private ImageView panier;
     @FXML
     private ImageView close;
-    
-        @FXML
+
+    @FXML
     private TreeTableColumn<LigneAchat, ImageView> imagePanier;
     @FXML
     private TreeTableColumn<LigneAchat, JFXButton> PlusPanier;
@@ -94,13 +106,82 @@ public class FXMLCnxController implements Initializable {
     private JFXTreeTableView<LigneAchat> paniertree;
     @FXML
     private JFXButton payerPanier;
-    private ImageView reduire;
     @FXML
     private ImageView fb;
     @FXML
     private ImageView insta;
     @FXML
     private ImageView twit;
+    @FXML
+    private AnchorPane admin_window;
+    @FXML
+    private Label nom1;
+    @FXML
+    private Label achat_livrer;
+    @FXML
+    private Label achat_payer;
+    @FXML
+    private Label achat_nonpayer;
+    @FXML
+    private Label nom11;
+    @FXML
+    private Label adoption;
+    @FXML
+    private Label animal_perdu;
+    @FXML
+    private Label animal_trouve;
+    @FXML
+    private Label nom111;
+    @FXML
+    private Label nbr_Reclamation;
+    @FXML
+    private Label nbr_veterinaire;
+    @FXML
+    private Label nbr_conseille;
+    @FXML
+    private Label nbr_produit;
+    @FXML
+    private Label nbr_produit_out;
+    @FXML
+    private Label nbr_utilisateur;
+
+    AchatService achatservice = AchatService.getAchatService();
+    ProduitService produitservice = ProduitService.getProduitService();
+    ReclamationServices reclamationservice = new ReclamationServices();
+    ConseilServices conseilservice = new ConseilServices();
+    UtilisateurServices utilisateurservice = new UtilisateurServices();
+    VeterinaireServices veterinaireservice = new VeterinaireServices();
+    AnnonceAdoptionService adoptionservice = new AnnonceAdoptionService();
+    AnnoncePerduServices perduservice = new AnnoncePerduServices();
+    AnnonceTrouveServices trouveservice = new AnnonceTrouveServices();
+    AnnonceTrainingServices trainingservice = new AnnonceTrainingServices();
+    AnnonceWalkingServices walkingservice = new AnnonceWalkingServices();
+    AnnonceAccouplementServices accouplementservice = new AnnonceAccouplementServices();
+    int n;
+    @FXML
+    private Label training;
+    @FXML
+    private Label walking;
+    @FXML
+    private Label accouplement;
+    @FXML
+    private ImageView boutque;
+    @FXML
+    private ImageView AnnoncePerdu;
+    @FXML
+    private ImageView veterinaire;
+    @FXML
+    private ImageView AnnonceTrouve;
+    @FXML
+    private JFXButton back;
+    @FXML
+    private Text feature;
+    @FXML
+    private JFXButton back1;
+    @FXML
+    private AnchorPane barre;
+    @FXML
+    private AnchorPane mainwindow;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -108,100 +189,152 @@ public class FXMLCnxController implements Initializable {
         email.setText(session.getEmail());
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         try {
-            AnchorPane menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));
-            menu.setOnMouseClicked(e -> {
-                if (drawer.isHidden() || drawer.isHiding()) {
-                } else {
-                    transition.setRate(transition.getRate() * -1);
-                    transition.play();
-                    drawer.toggle();
+            AnchorPane menu = null;
+            if ("Admin".equals(session.getRole())) {
+                menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLAdmin.fxml"));
+
+                menu.setOnMouseClicked(e -> {
+                    if (drawer.isHidden() || drawer.isHiding()) {
+                    } else {
+                        transition.setRate(transition.getRate() * -1);
+                        transition.play();
+                        drawer.toggle();
+                    }
+                });
+                admin_window.setOnMouseClicked(e -> {
+                    if (drawer.isHidden() || drawer.isHiding()) {
+                    } else {
+                        transition.setRate(transition.getRate() * -1);
+                        transition.play();
+                        drawer.toggle();
+                    }
+                });
+
+                for (Node node : menu.getChildren()) {
+                    if (node.getAccessibleText() != null) {
+                        node.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                            switch (node.getAccessibleText()) {
+
+                                case "gerer_produit": {
+                                    try {
+
+                                        loadSplashScreenAdmin("/paw/boutique/admin/produit/FXMLAjouter.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+
+                                case "gerer_achat": {
+                                    try {
+                                        loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                   case "acceuil": {
+                                    try {
+
+                                        acceuil("/paw/mainUI/FXMLDocument.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+
+                            }
+                        });
+                    }
                 }
-            });
-            window.setOnMouseClicked(e -> {
-                if (drawer.isHidden() || drawer.isHiding()) {
-                } else {
-                    transition.setRate(transition.getRate() * -1);
-                    transition.play();
-                    drawer.toggle();
-                }
-            });
-            for (Node node : menu.getChildren()) {
-                if (node.getAccessibleText() != null) {
-                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-                        switch (node.getAccessibleText()) {
-                            case "Training": {
-                                try {
-                                    loadSplashScreen("/paw/trainingService/FXMLTraining.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            case "AnnonceTrouvées": {
-                                try {
-                                    loadSplashScreen("/paw/annoncetrouvee/user/FXMLinterfacePrincipaleTrouvee.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            case "AnnonceAdoption": {
-                                try {
-                                    loadSplashScreen("/paw/annonceadoption/FXMLliste.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            case "AnnoncePerdus": {
-                                try {
-                                    loadSplashScreen("/paw/annonceperdu/user/FXMLinterfacePrincipalPerdu.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            case "veterinaire": {
-                                try {
-                                    // AnchorPane pane = FXMLLoader.load(getClass().getResource("/paw/veterinaires/FXMLVeterinaires.fxml"));
-                                    // window.getChildren().setAll(pane);
-                                    loadSplashScreen("/paw/veterinaires/FXMLVeterinaires.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                            case "boutique": {
-                                try {
-                                    loadSplashScreen("/paw/boutique/user/produit/FXMLProduit.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    System.out.println(ex);
-                                }
-                            }
-                            case "gerer_produit": {
-                                try {
 
-                                    loadSplashScreen("/paw/boutique/admin/produit/FXMLAjouter.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
+            } else {
+                menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLMenu.fxml"));
+                menu.setOnMouseClicked(e -> {
+                    if (drawer.isHidden() || drawer.isHiding()) {
+                    } else {
+                        transition.setRate(transition.getRate() * -1);
+                        transition.play();
+                        drawer.toggle();
+                    }
+                });
+                window.setOnMouseClicked(e -> {
+                    if (drawer.isHidden() || drawer.isHiding()) {
+                    } else {
+                        transition.setRate(transition.getRate() * -1);
+                        transition.play();
+                        drawer.toggle();
+                    }
+                });
 
-                            case "gerer_achat": {
-                                try {
-                                    loadSplashScreen("/paw/boutique/admin/achat/FXMLAchat.fxml");
-                                    break;
-                                } catch (Exception ex) {
-                                    Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                for (Node node : menu.getChildren()) {
+                    if (node.getAccessibleText() != null) {
+                        node.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                            switch (node.getAccessibleText()) {
+                                case "Training": {
+                                    try {
+                                        loadSplashScreen("/paw/trainingService/FXMLTraining.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
                                 }
-                            }
+                                case "AnnonceTrouvées": {
+                                    try {
+                                        loadSplashScreen("/paw/annoncetrouvee/user/FXMLinterfacePrincipaleTrouvee.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "AnnonceAdoption": {
+                                    try {
+                                        loadSplashScreen("/paw/annonceadoption/FXMLliste.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "AnnoncePerdus": {
+                                    try {
+                                        loadSplashScreen("/paw/annonceperdu/user/FXMLinterfacePrincipalPerdu.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "veterinaire": {
+                                    try {
+                                        loadSplashScreen("/paw/veterinaires/FXMLVeterinaires.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "boutique": {
+                                    try {
+                                        loadSplashScreen("/paw/boutique/user/produit/FXMLProduit.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        System.out.println(ex);
+                                    }
+                                }
+                                    case "acceuil": {
+                                    try {
 
-                        }
-                    });
+                                        acceuil("/paw/mainUI/FXMLDocument.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+
+                            }
+                        });
+                    }
                 }
             }
+
             drawer.setSidePane(menu);
             drawer.setMouseTransparent(true);
             transition.setRate(-1);
@@ -213,9 +346,13 @@ public class FXMLCnxController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        initpanier();
-
+        if ("Admin".equals(session.getRole())) {
+            initAdmin();
+        } else {
+            initpanier();
+            n = 0;
+            carousel(n);
+        }
     }
 
     public void initialisation(Utilisateur x) {
@@ -302,17 +439,79 @@ public class FXMLCnxController implements Initializable {
         }
 
     }
+    public void loadSplashScreenAdmin(String location) {
+        try {
+            StackPane pane = FXMLLoader.load(getClass().getResource(("/paw/FXMLSplash.fxml")));
+            admin_window.getChildren().setAll(pane);
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      public void initpanier(){
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), pane);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            fadeIn.setCycleCount(1);
+
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), pane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+
+            fadeIn.play();
+
+            fadeIn.setOnFinished((e) -> {
+                fadeOut.play();
+            });
+
+            fadeOut.setOnFinished((e) -> {
+                try {
+                    AnchorPane parentContent = FXMLLoader.load(getClass().getResource((location)));
+                    admin_window.getChildren().setAll(parentContent);
+
+                } catch (IOException ex) {
+                    System.out.println(ex);
+                }
+            });
+
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+    }
+    public void acceuil(String location)
+    {
+         try {
+            StackPane pane = FXMLLoader.load(getClass().getResource(("/paw/FXMLSplash.fxml")));
+            mainwindow.getChildren().setAll(pane);
+
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), pane);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            fadeIn.setCycleCount(1);
+
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), pane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+
+            fadeIn.play();
+
+            fadeIn.setOnFinished((e) -> {
+                fadeOut.play();
+            });
+
+            fadeOut.setOnFinished((e) -> {
+                try {
+                    AnchorPane parentContent = FXMLLoader.load(getClass().getResource((location)));
+                    mainwindow.getChildren().setAll(parentContent);
+
+                } catch (IOException ex) {
+                    System.out.println(ex);
+                }
+            });
+
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
+    public void initpanier() {
         paniertree.setEditable(true);
         quantite.setCellValueFactory(param -> {
             SimpleIntegerProperty property = new SimpleIntegerProperty();
@@ -426,55 +625,171 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void payer(ActionEvent event) {
-     try{  
+        try {
             loadSplashScreen("/paw/boutique/user/Payer/FXMLPayer.fxml");
-             chart.setVisible(false);
+            chart.setVisible(false);
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }  
-
-    private void reduire(MouseEvent event) {
-         Stage stage = (Stage) reduire.getScene().getWindow();
-         stage.toBack();
     }
 
     @FXML
     private void facebookPage(MouseEvent event) {
-        
-         try {
+
+        try {
             Desktop.getDesktop().browse(new URI("https://www.facebook.com/Boutique-Paw-753236058199700"));
         } catch (IOException e1) {
             e1.printStackTrace();
         } catch (URISyntaxException e1) {
             e1.printStackTrace();
         }
-        
+
     }
 
     @FXML
     private void twiterPage(MouseEvent event) {
-         try {
-            Desktop.getDesktop().browse(new URI(" https://twitter.com/boutique_paw"));
+        try {
+            Desktop.getDesktop().browse(new URI("https://twitter.com/boutique_paw"));
         } catch (IOException e1) {
             e1.printStackTrace();
         } catch (URISyntaxException e1) {
             e1.printStackTrace();
         }
-        
-       
+
     }
 
     @FXML
     private void gotoInstagram(MouseEvent event) {
-         try {
+        try {
             Desktop.getDesktop().browse(new URI("https://www.instagram.com/pawzcorporation/?hl=fr"));
         } catch (IOException e1) {
             e1.printStackTrace();
         } catch (URISyntaxException e1) {
             e1.printStackTrace();
         }
-        
+
+    }
+
+    public void initAdmin() {
+
+        panier.setVisible(false);
+        achat_livrer.setText(String.valueOf(achatservice.nombreAchatlivrer()));
+        achat_nonpayer.setText(String.valueOf(achatservice.nombreAchatnonpayer()));
+        achat_payer.setText(String.valueOf(achatservice.nombreAchatpayer()));
+        adoption.setText(String.valueOf(adoptionservice.nombre()));
+        animal_perdu.setText(String.valueOf(perduservice.getAnnoncePe()));
+        animal_trouve.setText(String.valueOf(trouveservice.getAnnoncetr()));
+        training.setText(String.valueOf(trainingservice.nombre()));
+        walking.setText(String.valueOf(walkingservice.nombre()));
+        accouplement.setText(String.valueOf(accouplementservice.nombre()));
+        nbr_produit.setText("Produit total : " + String.valueOf(produitservice.nombreProduit()));
+        nbr_produit_out.setText("Produit non disponible : " + String.valueOf(produitservice.nombreProduitOut()));
+        nbr_Reclamation.setText("Reclamation non traitée : " + String.valueOf(reclamationservice.nombre()));
+        nbr_conseille.setText("Conseil Total : " + String.valueOf(conseilservice.nombre()));
+        nbr_utilisateur.setText("Membre Total : " + String.valueOf(utilisateurservice.nombre()));
+        nbr_veterinaire.setText("Veterinaire Total : " + String.valueOf(veterinaireservice.nombre()));
+
+        admin_window.setVisible(true);
+
+    }
+
+    private void next(ActionEvent event) {
+
+        if (n == 3) {
+            n = 0;
+        } else {
+            n++;
+        }
+        carousel(n);
+    }
+
+    @FXML
+    private void goToBoutique(MouseEvent event) {
+        try {
+            loadSplashScreen("/paw/boutique/user/produit/FXMLProduit.fxml");
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @FXML
+    private void back(ActionEvent event) {
+
+        if (n == 0) {
+            n = 3;
+        } else {
+            n--;
+        }
+        carousel(n);
+    }
+
+    @FXML
+    private void goToAnnonceP(MouseEvent event) {
+
+        try {
+            loadSplashScreen("/paw/annonceperdu/user/FXMLinterfacePrincipalPerdu.fxml");
+
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToVet(MouseEvent event) {
+
+        try {
+            loadSplashScreen("/paw/veterinaires/FXMLVeterinaires.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToAnnonceTR(MouseEvent event) {
+
+        try {
+            loadSplashScreen("/paw/annoncetrouvee/user/FXMLinterfacePrincipaleTrouvee.fxml");
+
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void carousel(int nbr) {
+        switch (nbr) {
+            case 0:
+                boutque.setVisible(true);
+                AnnoncePerdu.setVisible(false);
+                AnnonceTrouve.setVisible(false);
+                veterinaire.setVisible(false);
+                feature.setText("Accedez A Notre Boutique Depuis Votre Ordinateur ");
+                break;
+            case 1:
+                boutque.setVisible(false);
+                AnnoncePerdu.setVisible(true);
+                AnnonceTrouve.setVisible(false);
+                veterinaire.setVisible(false);
+                feature.setText("Vous galérez a trouver votre animal Poser une annonce pour le retrouver");
+
+                break;
+            case 2:
+                boutque.setVisible(false);
+                AnnoncePerdu.setVisible(false);
+                AnnonceTrouve.setVisible(true);
+                veterinaire.setVisible(false);
+                feature.setText("Vous Avez Trouvé un animal perdu ,aidez son proprietaire a le retrouvez");
+
+                break;
+            default:
+                boutque.setVisible(false);
+                AnnoncePerdu.setVisible(false);
+                AnnonceTrouve.setVisible(false);
+                veterinaire.setVisible(true);
+                feature.setText("Vous cherchez un bon véterinaire prés de vous nous pouvant vous aidez");
+
+                break;
+        }
     }
 
 }

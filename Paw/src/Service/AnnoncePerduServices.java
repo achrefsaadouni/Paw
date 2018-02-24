@@ -402,9 +402,9 @@ public class AnnoncePerduServices
     
     }   
            
-            public double getAnnoncePe() {
+            public int getAnnoncePe() {
         String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_perte' " ;
-        double x=0;
+        int x=0;
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;

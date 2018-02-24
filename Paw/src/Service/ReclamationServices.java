@@ -218,4 +218,20 @@ public class ReclamationServices {
             System.out.println(ex);
         }
         return x;        }
+    
+     public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `Reclamation` WHERE etat='Non traitée'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+    
 }
