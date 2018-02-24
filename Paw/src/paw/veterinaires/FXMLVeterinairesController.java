@@ -3,6 +3,7 @@ package paw.veterinaires;
 import Entity.Vets;
 import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXButton;
+import com.lynden.gmapsfx.GoogleMapView;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -117,6 +118,10 @@ public class FXMLVeterinairesController implements Initializable {
     private Rating evaluation2;
     @FXML
     private Rating evaluation3;
+    @FXML
+    private GoogleMapView mapView;
+    @FXML
+    private StackPane posVet;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -376,10 +381,6 @@ public class FXMLVeterinairesController implements Initializable {
 
     }
 
-    @FXML
-    private void actionProfil(ActionEvent event) {
-
-    }
 
     @FXML
     private void actionRate(ActionEvent event) {
@@ -392,6 +393,10 @@ public class FXMLVeterinairesController implements Initializable {
         initVeterinairePage(paginator.getCurrentPageIndex());
         evaluer.setVisible(false);
 
+    }
+
+    @FXML
+    private void actionPosition(ActionEvent event) {
     }
 
 }

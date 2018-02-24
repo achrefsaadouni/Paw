@@ -32,7 +32,7 @@ public class VeterinaireServices {
     }
 
     public void insererVeterinaire(Veterinaire p) {
-        String req = "INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email) VALUES(?,?,?,?,?,?)";
+        String req = "INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email,longitude,latitude) VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setString(1, p.getNom());
@@ -41,7 +41,8 @@ public class VeterinaireServices {
             ste.setString(4, p.getRegion());
             ste.setInt(5, p.getNumero());
             ste.setString(6, p.getEmail());
-
+            ste.setDouble(7, p.getLongitude());
+            ste.setDouble(8, p.getLatitude());
             //
             ste.executeUpdate();
 
@@ -91,7 +92,7 @@ public class VeterinaireServices {
                 String region = rs.getString("region");
                 int numero = rs.getInt("numero");
                 String email = rs.getString("email");
-
+                
                 list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
             }
 
