@@ -38,13 +38,16 @@ public class AchatService {
     }
 
     public boolean addAchat(Achat a) {
-        
+          
         String req = "INSERT INTO `achat` (`id_client`,`prix`,`etat`) VALUES(?,?,?)";
         String k = "select id_achat from `achat` order by id_achat desc limit 1";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setInt(1, a.getId_client());
+            if(a.getPrix()>30)
             ste.setDouble(2, a.getPrix());
+            else
+            ste.setDouble(2, a.getPrix()+5);   
             ste.setString(3, a.getEtat());
             ste.executeUpdate();     
         try {
@@ -159,5 +162,48 @@ public class AchatService {
         }
         
     }
-
+    
+   public int nombreAchatlivrer() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `achat` where etat='livrer'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+      public int nombreAchatpayer() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `achat` where etat='Payer'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+      
+            public int nombreAchatnonpayer() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `achat` where etat='Non Payer'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
 }

@@ -285,4 +285,20 @@ public class AnnonceAdoptionService {
         }
         return list;
     }
+    
+    
+     public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `annonce`  where type_annonce like 'Annonce_adoption'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
 }
