@@ -109,7 +109,7 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
                 
                 annonceservice.updateage(event.getNewValue().intValue(), curseur.getValue().getId());
                 System.out.println();
-                MyNotifications.infoNotification("Modification", "quantite modifier avec Succès");
+                MyNotifications.infoNotification("Modification", "age modifier avec Succès");
             }
         });
     
@@ -132,7 +132,7 @@ public class FXMLModifierAnnoncePerduController implements Initializable {
                     MyNotifications.infoNotification("Modification", "couleur Ne peut pas etre Vide");
                 }else{   
                 annonceservice.updatecouleur(event.getNewValue(), curseur.getValue().getId());
-                MyNotifications.infoNotification("Modification", "description modifier avec Succès");
+                MyNotifications.infoNotification("Modification", "couleur modifier avec Succès");
                 }
             }
         });

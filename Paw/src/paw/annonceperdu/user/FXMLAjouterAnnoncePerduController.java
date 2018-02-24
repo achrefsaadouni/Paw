@@ -29,6 +29,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -88,21 +89,30 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         
-        choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
-        choixInsertion.setValue("Chien");
+       choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
+       choixInsertion.setValue("Chien");
        ToggleGroup groupm = new ToggleGroup();
        ToggleGroup groupi = new ToggleGroup();
        male.setToggleGroup(groupm);
-        female.setToggleGroup(groupm);
-         ColierO.setToggleGroup(groupi);
+       female.setToggleGroup(groupm);
+       ColierO.setToggleGroup(groupi);
        ColierN.setToggleGroup(groupi);
         
         
     }    
  @FXML
     private void actionInsertion2(ActionEvent event) {
+          if ((couleurInsertion.getText().trim().equals(""))|| (ageInsertion.getText().trim().equals(""))
+                 || (raceInsertion.getText().trim().equals(""))|| (msgInsertion.getText().trim().equals(""))|| (choixInsertion.getValue().isEmpty())
+                 || (lieuxInsertion3.getText().trim().equals("")))
+                 {
+        Alert fail= new Alert(AlertType.INFORMATION);
+        fail.setHeaderText("erreur");
+        fail.setContentText("Vous avez oublier de remplir un champs");
+        fail.showAndWait();
+                 }   
          
- if (!file.exists()) {
+       else if (!file.exists()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image ou bien des  donnes concernant l'annonce ", ButtonType.CLOSE);
             alert.show();
             upload.requestFocus();
@@ -111,8 +121,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
                  && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(choixInsertion.getValue()))
                  && (!"".equals(lieuxInsertion3.getText())))
         {
-          // Alert alert=new Alert(Alert.AlertType.ERROR ,"Chmap Manquant veulliez remplir tout le formulaire",ButtonType.CLOSE);
-           // alert.showAndWait();
+           
               AnnoncePerduServices  as = new AnnoncePerduServices();
                String sexe="Male";
             if (female.isSelected())
@@ -171,9 +180,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
             
             
         }
-
-          
-                 
+              
        }
 
     
