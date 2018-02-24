@@ -58,7 +58,7 @@
             </JFXTreeTableView>
          </children>
       </Pane>
-      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="1080.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Tous Les Achats" />
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="29.0" prefWidth="1080.0" style="-fx-font-: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Tous Les Achats" />
       <Separator layoutX="10.0" layoutY="65.0" prefHeight="4.0" prefWidth="1080.0" />
       <Label layoutX="209.0" layoutY="88.0" prefHeight="30.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Liste Achats" textAlignment="CENTER" />
       <Label layoutX="734.0" layoutY="88.0" prefHeight="30.0" prefWidth="162.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Detail Achat" textAlignment="CENTER" />

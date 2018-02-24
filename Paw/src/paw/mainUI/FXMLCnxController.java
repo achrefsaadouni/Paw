@@ -16,7 +16,10 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.jfoenix.controls.events.JFXDrawerEvent;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -40,6 +43,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import paw.MyNotifications;
 import static paw.Paw.session;
@@ -90,6 +94,13 @@ public class FXMLCnxController implements Initializable {
     private JFXTreeTableView<LigneAchat> paniertree;
     @FXML
     private JFXButton payerPanier;
+    private ImageView reduire;
+    @FXML
+    private ImageView fb;
+    @FXML
+    private ImageView insta;
+    @FXML
+    private ImageView twit;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -422,5 +433,48 @@ public class FXMLCnxController implements Initializable {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }  
+
+    private void reduire(MouseEvent event) {
+         Stage stage = (Stage) reduire.getScene().getWindow();
+         stage.toBack();
+    }
+
+    @FXML
+    private void facebookPage(MouseEvent event) {
+        
+         try {
+            Desktop.getDesktop().browse(new URI("https://www.facebook.com/Boutique-Paw-753236058199700"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+        
+    }
+
+    @FXML
+    private void twiterPage(MouseEvent event) {
+         try {
+            Desktop.getDesktop().browse(new URI(" https://twitter.com/boutique_paw"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+        
+       
+    }
+
+    @FXML
+    private void gotoInstagram(MouseEvent event) {
+         try {
+            Desktop.getDesktop().browse(new URI("https://www.instagram.com/pawzcorporation/?hl=fr"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (URISyntaxException e1) {
+            e1.printStackTrace();
+        }
+        
+    }
 
 }

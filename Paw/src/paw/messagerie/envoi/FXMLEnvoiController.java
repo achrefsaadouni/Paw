@@ -65,7 +65,7 @@ public class FXMLEnvoiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // user_id = LoginManager.getUser().getId();
+       user_id = 2;   //session;getid
         m = s.findAll();
         Utilisateur u=null;
         for (Utilisateur k : m) {

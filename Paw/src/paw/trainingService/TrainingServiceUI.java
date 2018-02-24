@@ -12,7 +12,7 @@ public class TrainingServiceUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrainingConseils.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLTraining.fxml"));
         
         Scene scene = new Scene(root);
         

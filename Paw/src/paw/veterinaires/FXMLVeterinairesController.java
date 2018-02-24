@@ -18,6 +18,7 @@ import javafx.scene.control.Pagination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Rating;
+import static paw.Paw.session;
 
 public class FXMLVeterinairesController implements Initializable {
 
@@ -110,6 +111,12 @@ public class FXMLVeterinairesController implements Initializable {
     private JFXButton eval3;
     @FXML
     private JFXButton eval4;
+    @FXML
+    private Rating evaluation1;
+    @FXML
+    private Rating evaluation2;
+    @FXML
+    private Rating evaluation3;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -132,8 +139,6 @@ public class FXMLVeterinairesController implements Initializable {
             vide.setVisible(false);
 
         }
-        
-        
 
     }
 
@@ -185,20 +190,35 @@ public class FXMLVeterinairesController implements Initializable {
                 note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
             }
 
-            eval1.setOnAction((ActionEvent)->
-                    {
-                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
-                    evaluer.setVisible(true);
-                    
-                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            eval1.setOnAction((ActionEvent)
+                    -> {
+                docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
+                evaluer.setVisible(true);
+                
+                
+                evaluation1.setVisible(false);
+                evaluation2.setVisible(false);
+                evaluation3.setVisible(false);
+                evaluation.setVisible(true);
+                
+                
                 VeterinaireServices service = new VeterinaireServices();
-                service.setRating(QuatreVeterinaires.get(0).getId(),2,newValue.intValue());
-            }
-        
-        });
-                    });
+                evaluation.setRating(service.getRating(session.getId(),QuatreVeterinaires.get(0).getId()));
+                        
+                evaluation.ratingProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        VeterinaireServices service = new VeterinaireServices();
+                        if(service.getRating(session.getId(), QuatreVeterinaires.get(0).getId())!=0){
+                            service.updateRating(newValue.intValue(), session.getId(),QuatreVeterinaires.get(0).getId());
+                        }
+                        else{
+                            service.setRating(QuatreVeterinaires.get(0).getId(), session.getId(), newValue.intValue());
+                        }
+                    }
+
+                });
+            });
         } else {
             box1.setVisible(false);
         }
@@ -218,23 +238,35 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
             }
-            
-            eval2.setOnAction((ActionEvent)->
-                    {
-                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(1).getNom() + " " + QuatreVeterinaires.get(1).getPrenom());
-                    evaluer.setVisible(true);
-                    
-                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+            eval2.setOnAction((ActionEvent)
+                    -> {
+                docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(1).getNom() + " " + QuatreVeterinaires.get(1).getPrenom());
+                evaluer.setVisible(true);
+
                 VeterinaireServices service = new VeterinaireServices();
-                service.setRating(QuatreVeterinaires.get(1).getId(),2,newValue.intValue());
-            }
-        
-        });
-                    
-                    
-                    });
+                evaluation1.setRating(service.getRating(session.getId(),QuatreVeterinaires.get(1).getId()));
+                
+                evaluation.setVisible(false);
+                evaluation2.setVisible(false);
+                evaluation3.setVisible(false);
+                evaluation1.setVisible(true);
+                
+                evaluation1.ratingProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        VeterinaireServices service = new VeterinaireServices();
+                        if(service.getRating(session.getId(), QuatreVeterinaires.get(1).getId())!=0){
+                            service.updateRating(newValue.intValue(), session.getId(),QuatreVeterinaires.get(1).getId());
+                        }
+                        else{
+                            service.setRating(QuatreVeterinaires.get(1).getId(), session.getId(), newValue.intValue());
+                        }
+                    }
+
+                });
+
+            });
 
         } else {
             box2.setVisible(false);
@@ -255,23 +287,35 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
             }
-            
-            eval3.setOnAction((ActionEvent)->
-                    {
-                        docteur.setText("Evaluer Dr."+QuatreVeterinaires.get(2).getNom() + " " + QuatreVeterinaires.get(2).getPrenom());
-                    evaluer.setVisible(true);
-                    
-                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+            eval3.setOnAction((ActionEvent)
+                    -> {
+                docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(2).getNom() + " " + QuatreVeterinaires.get(2).getPrenom());
+                evaluer.setVisible(true);
+                
                 VeterinaireServices service = new VeterinaireServices();
-                service.setRating(QuatreVeterinaires.get(2).getId(),2,newValue.intValue());
-            }
-        
-        });
-                    
-                    
-                    });
+                evaluation2.setRating(service.getRating(session.getId(),QuatreVeterinaires.get(2).getId()));
+                
+                
+                evaluation1.setVisible(false);
+                evaluation.setVisible(false);
+                evaluation3.setVisible(false);
+                evaluation2.setVisible(true);
+                evaluation2.ratingProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        VeterinaireServices service = new VeterinaireServices();
+                        if(service.getRating(session.getId(), QuatreVeterinaires.get(2).getId())!=0){
+                            service.updateRating(newValue.intValue(), session.getId(),QuatreVeterinaires.get(2).getId());
+                        }
+                        else{
+                            service.setRating(QuatreVeterinaires.get(2).getId(), session.getId(), newValue.intValue());
+                        }
+                    }
+
+                });
+
+            });
 
         } else {
             box3.setVisible(false);
@@ -279,6 +323,9 @@ public class FXMLVeterinairesController implements Initializable {
 
         ///////////////////////////////////////////////////////////
         if (QuatreVeterinaires.size() >= 4) {
+            
+            
+            
             box4.setVisible(true);
 
             nom4.setText(QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
@@ -292,24 +339,37 @@ public class FXMLVeterinairesController implements Initializable {
             } else {
                 note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
             }
+
             
-            
-            eval4.setOnAction((ActionEvent)->
-                    {
-                        docteur.setText("Evaluer Dr. "+QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
-                    evaluer.setVisible(true);
-                    
-                    evaluation.ratingProperty().addListener(new ChangeListener<Number>(){
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            eval4.setOnAction((ActionEvent)
+                    -> {
+                docteur.setText("Evaluer Dr. " + QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
+                evaluer.setVisible(true);
                 VeterinaireServices service = new VeterinaireServices();
-                service.setRating(QuatreVeterinaires.get(3).getId(),2,newValue.intValue());
-            }
-        
-        });
-                    
-                    });
-            
+                evaluation3.setRating(service.getRating(session.getId(),QuatreVeterinaires.get(3).getId()));
+                
+                
+                evaluation1.setVisible(false);
+                evaluation2.setVisible(false);
+                evaluation.setVisible(false);
+                evaluation3.setVisible(true);
+                
+                evaluation3.ratingProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        VeterinaireServices service = new VeterinaireServices();
+                        if(service.getRating(session.getId(), QuatreVeterinaires.get(3).getId())!=0){
+                            service.updateRating(newValue.intValue(), session.getId(),QuatreVeterinaires.get(3).getId());
+                        }
+                        else{
+                            service.setRating(QuatreVeterinaires.get(3).getId(), session.getId(), newValue.intValue());
+                        }
+                    }
+
+                });
+
+            });
+
         } else {
             box4.setVisible(false);
         }
@@ -331,7 +391,7 @@ public class FXMLVeterinairesController implements Initializable {
     private void fermer(ActionEvent event) {
         initVeterinairePage(paginator.getCurrentPageIndex());
         evaluer.setVisible(false);
-        
+
     }
 
 }

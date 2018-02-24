@@ -54,7 +54,34 @@
             </ImageView>
             <Separator layoutX="928.0" layoutY="3.0" orientation="VERTICAL" prefHeight="45.0" prefWidth="0.0" />
          </children></AnchorPane>
-      <AnchorPane fx:id="window" layoutY="50.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" />
+      <AnchorPane fx:id="window" layoutY="50.0" onMouseClicked="#gotoInstagram" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="1063.0" layoutX="23.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/Sans%20ti.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="947.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/rrr.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fb" fitHeight="33.0" fitWidth="35.0" layoutX="942.0" layoutY="34.0" onMouseClicked="#facebookPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/fa.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="insta" fitHeight="33.0" fitWidth="35.0" layoutX="990.0" layoutY="34.0" onMouseClicked="#facebookPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/inst.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="twit" fitHeight="33.0" fitWidth="35.0" layoutX="1039.0" layoutY="34.0" onMouseClicked="#twiterPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/twit.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
         
       <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" onDrawerClosing="#closeDrawer" onDrawerOpening="#openDrawer" prefHeight="650.0" prefWidth="250.0" />
       <AnchorPane fx:id="chart" layoutX="420.0" layoutY="50.0" prefHeight="290.0" prefWidth="500.0" style="-fx-background-color: #337AB7;" visible="false">

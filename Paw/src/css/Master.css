@@ -168,10 +168,9 @@ and open the template in the editor.
 }
 
 .aaaroboto{
-    -fx-font-size:27;
     -fx-font-weight:bold;
     -fx-text-fill: #424242;
-    -fx-font:"Roboto Slab";
+    -fx-font-size:27;
 }
 
 .fab{

@@ -9,6 +9,7 @@ import Entity.Connexion;
 import Service.ConnexionServices;
 import Service.LoginServices;
 import Service.UtilisateurServices;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -36,6 +37,8 @@ public class FXMLDocumentController implements Initializable {
     private JFXTextField usern;
     @FXML
     private JFXPasswordField passw;
+    @FXML
+    private JFXButton fermer;
   
     
    @Override
@@ -107,6 +110,13 @@ public class FXMLDocumentController implements Initializable {
         
         stage.setScene(scene);
         stage.show();
+        
+    }
+
+    @FXML
+    private void fermer(ActionEvent event) {
+         Stage stage = (Stage) fermer.getScene().getWindow();
+         stage.close();
     }
 
     

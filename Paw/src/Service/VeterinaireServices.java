@@ -141,7 +141,7 @@ public class VeterinaireServices {
 
     }
 
-    private Float getVote(int id) {
+    public Float getVote(int id) {
         String req = "SELECT avg(valeur) FROM rating where id_veterinaire=?";
         Float y = 0f;
         try {
@@ -153,18 +153,18 @@ public class VeterinaireServices {
             }
 
         } catch (SQLException ex) {
-            System.out.println("Problème importation liste Veterinaire");
+            System.out.println("Problème importation liste Vote");
         }
         return y;
     }
     
-    public void setRating(int a, int b , int c) {
+    public void setRating(int id_veterinaire, int id_utilisateur , int valeur) {
         String req = "INSERT INTO rating(id_veterinaire, id_utilisateur, valeur) VALUES(?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
-            ste.setInt(1, a);
-            ste.setInt(2, b);
-            ste.setInt(3, c);
+            ste.setInt(1, id_veterinaire);
+            ste.setInt(2, id_utilisateur);
+            ste.setInt(3, valeur);
             ste.executeUpdate();
 
         } catch (SQLException ex) {
@@ -172,4 +172,39 @@ public class VeterinaireServices {
         }
 
     }
+    
+    public void updateRating(int valeur, int id_utilisateur , int id_veterinaire) {
+        String req = "UPDATE rating SET valeur=? WHERE (id_utilisateur=? AND id_veterinaire=?)";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, valeur);
+            ste.setInt(2, id_utilisateur);
+            ste.setInt(3, id_veterinaire);
+            
+            ste.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println("Problème rating");
+        }
+        }
+        
+        public int getRating(int id_utilisateur, int id_veterinaire){
+            String req = "SELECT * FROM rating WHERE id_utilisateur=? AND id_veterinaire=?";
+        try {
+            PreparedStatement ste = connection.prepareStatement(req);
+            ste.setInt(1, id_utilisateur);
+            ste.setInt(2, id_veterinaire);
+            ste.executeQuery();
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("valeur");
+            }
+            return 0;
+        } catch (SQLException ex) {
+            System.out.println("Problème rating");
+        }
+        return 0;
+        }
+
+    
 }
