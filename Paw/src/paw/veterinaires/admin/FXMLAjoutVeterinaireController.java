@@ -5,6 +5,8 @@
  */
 package paw.veterinaires.admin;
 
+import Entity.Veterinaire;
+import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXTextField;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
@@ -46,6 +48,16 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     private GeocodingService geocodingService;
 
     private StringProperty address = new SimpleStringProperty();
+    @FXML
+    private JFXTextField nomInsertion;
+    @FXML
+    private JFXTextField prenomInsertion;
+    @FXML
+    private JFXTextField adresseInsertion;
+    @FXML
+    private JFXTextField numeroInsertion;
+    @FXML
+    private JFXTextField emailInsertion;
 
     /**
      * Initializes the controller class.
@@ -54,6 +66,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
         address.bind(addressTextField.textProperty());
+
     }
 
     @Override
@@ -62,7 +75,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
         geocodingService = new GeocodingService();
         MapOptions mapOptions = new MapOptions();
 
-        mapOptions.center(new LatLong(47.6097, -122.3331))
+        mapOptions.center(new LatLong(34.17372841, 9.76475011))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(false)
                 .panControl(false)
@@ -70,13 +83,14 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
                 .scaleControl(false)
                 .streetViewControl(false)
                 .zoomControl(false)
-                .zoom(12);
+                .zoom(7);
 
         map = mapView.createMap(mapOptions);
 
         MarkerOptions markerOptions = new MarkerOptions();
 
         map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
+            map.clearMarkers();
             LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
 
             markerOptions.position(new LatLong(ll.getLatitude(), ll.getLongitude()))
@@ -112,5 +126,21 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
             map.setCenter(latLong);
 
         });
+    }
+
+    @FXML
+    private void actionInsertion(ActionEvent event) {
+        // if ((!"".equals(emailInsertion.getText()))&&(!"".equals(nomInsertion.getText()))&& (!"".equals(prenomInsertion.getText()))&&(!"".equals(regionInsertion.getText()))&&(!"".equals(adresseInsertion.getText()))&&(!"".equals(numeroInsertion.getText())))
+        {
+            VeterinaireServices service = new VeterinaireServices();
+            //  service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),regionInsertion.getText(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText()));
+            emailInsertion.setText("");
+            nomInsertion.setText("");
+            prenomInsertion.setText("");
+            //regionInsertion.setText("");
+            adresseInsertion.setText("");
+            numeroInsertion.setText("");
+
+        }
     }
 }

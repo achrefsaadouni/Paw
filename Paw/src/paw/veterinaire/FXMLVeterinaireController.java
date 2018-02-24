@@ -7,8 +7,6 @@ package paw.veterinaire;
 
 import Entity.Veterinaire;
 import Service.VeterinaireServices;
-import Service.VeterinaireServices;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;

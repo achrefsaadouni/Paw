@@ -18,6 +18,8 @@ public class Veterinaire {
     private String region;
     private int numero;
     private String email;
+    private double longitude;
+    private double latitude;
 
     public Veterinaire(int id, String nom, String prenom, String adresse, String region, int numero, String email) {
         this.id = id;
@@ -28,6 +30,20 @@ public class Veterinaire {
         this.numero = numero;
         this.email = email;
     }
+
+    public Veterinaire(int id, String nom, String prenom, String adresse, String region, int numero, String email, double longitude, double latitude) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.region = region;
+        this.numero = numero;
+        this.email = email;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -85,4 +101,20 @@ public class Veterinaire {
         this.email = email;
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+    
 }
