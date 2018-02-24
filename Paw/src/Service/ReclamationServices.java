@@ -7,6 +7,7 @@ package Service;
 
 import Entity.Reclamation;
 import Utility.DbHandler;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,10 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 
 /**
  *
@@ -30,7 +35,7 @@ public class ReclamationServices {
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
-    public void insererReclamation (Reclamation p)
+    public Boolean insererReclamation (Reclamation p)
     {
         String req="INSERT INTO Reclamation (id_utilisateur,objet,text,type,date) VALUES(?,?,?,?,now())" ; 
         try { 
@@ -40,9 +45,11 @@ public class ReclamationServices {
             ste.setString(3,p.getText()) ; 
             ste.setString(4,p.getType()) ;           
             ste.executeUpdate() ; 
+            return true ;
             
         } catch (SQLException ex) {
             System.out.println(ex);
+            return false ;
         }
     }
     
@@ -213,9 +220,24 @@ public class ReclamationServices {
             {
                 x= rs.getInt("a");
             }
-
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-        return x;        }
+        return x;        
+    }
+    public ResultSet getNbrReclamationType()
+    {
+        String req="SELECT count(*) as nbr, objet FROM `reclamation` group by `objet`" ;
+        double x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+            return rs;
+        } catch (SQLException ex) {
+            System.out.println("mochekla");
+            System.out.println(ex);
+            return null;
+        }   
+    }
 }
