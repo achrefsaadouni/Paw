@@ -4,17 +4,111 @@
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLCnxController">
+<AnchorPane id="AnchorPane" fx:id="mainwindow" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #DDDDDD;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLCnxController">
     <children>
-      <AnchorPane prefHeight="50.0" prefWidth="1100.0" styleClass="headerbar" stylesheets="@style.css">
+      <AnchorPane fx:id="window" layoutY="50.0" onMouseClicked="#gotoInstagram" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="1063.0" layoutX="23.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/Sans%20ti.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="947.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/rrr.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fb" fitHeight="33.0" fitWidth="35.0" layoutX="942.0" layoutY="34.0" onMouseClicked="#facebookPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/fa.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="insta" fitHeight="33.0" fitWidth="35.0" layoutX="990.0" layoutY="34.0" onMouseClicked="#gotoInstagram" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/inst.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="twit" fitHeight="33.0" fitWidth="35.0" layoutX="1039.0" layoutY="34.0" onMouseClicked="#twiterPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Ressource/images/twit.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="23.0" layoutY="102.0" prefHeight="402.0" prefWidth="1053.0">
+               <children>
+                  <JFXButton fx:id="back" layoutX="8.0" layoutY="173.0" onAction="#back" prefHeight="57.0" prefWidth="90.0">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Ressource/images/if_arrow-left-01_186410.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <ImageView fx:id="AnnoncePerdu" fitHeight="282.0" fitWidth="462.0" layoutX="101.0" layoutY="84.0" onMouseClicked="#goToAnnonceP" pickOnBounds="true" preserveRatio="true">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <image>
+                        <Image url="@../../Ressource/images/lost.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="veterinaire" fitHeight="282.0" fitWidth="462.0" layoutX="101.0" layoutY="84.0" onMouseClicked="#goToVet" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/images/veterinaire.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+                  <ImageView fx:id="AnnonceTrouve" fitHeight="282.0" fitWidth="462.0" layoutX="101.0" layoutY="84.0" onMouseClicked="#goToAnnonceTR" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/images/found.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="boutque" fitHeight="282.0" fitWidth="462.0" layoutX="101.0" layoutY="84.0" onMouseClicked="#goToBoutique" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/images/boutique.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="feature" fill="WHITE" layoutX="737.0" layoutY="165.0" stroke="#7a8997" text="lerum epsumqsxcfvdgsdrfg" textAlignment="CENTER" wrappingWidth="301.00001357495785">
+                     <font>
+                        <Font name="Ubuntu Bold" size="36.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur iterations="0">
+                           <input>
+                              <DropShadow color="#3c81ab" />
+                           </input>
+                        </BoxBlur>
+                     </effect></Text>
+                  <JFXButton fx:id="back1" layoutX="570.0" layoutY="173.0" onAction="#back" prefHeight="57.0" prefWidth="90.0">
+                     <graphic>
+                        <ImageView fitHeight="39.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Ressource/images/if_arrow-right-01_186409.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <AnchorPane fx:id="barre" prefHeight="50.0" prefWidth="1100.0" styleClass="headerbar" stylesheets="@style.css">
          <children>
             <ImageView fx:id="profile" fitHeight="45.0" fitWidth="45.0" layoutX="98.0" layoutY="2.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -31,7 +125,7 @@
                </image>
             </ImageView>
             <Label fx:id="email" layoutX="155.0" layoutY="24.0" text="Label" textFill="#bfb3b3" />
-            <JFXHamburger fx:id="hamburger" layoutX="25.0" layoutY="14.0" />
+            <JFXHamburger fx:id="hamburger" layoutX="25.0" layoutY="14.0" styleClass="jfx-hamburger" />
             <ImageView fx:id="settings" fitHeight="40.0" fitWidth="40.0" layoutX="852.0" layoutY="5.0" onMouseClicked="#goToSettings" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/icons/ic_settings_applications_white_48dp.png" />
@@ -54,36 +148,6 @@
             </ImageView>
             <Separator layoutX="928.0" layoutY="3.0" orientation="VERTICAL" prefHeight="45.0" prefWidth="0.0" />
          </children></AnchorPane>
-      <AnchorPane fx:id="window" layoutY="50.0" onMouseClicked="#gotoInstagram" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <ImageView fitHeight="74.0" fitWidth="1063.0" layoutX="23.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/Sans%20ti.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="200.0" layoutX="947.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/rrr.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="fb" fitHeight="33.0" fitWidth="35.0" layoutX="942.0" layoutY="34.0" onMouseClicked="#facebookPage" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/fa.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="insta" fitHeight="33.0" fitWidth="35.0" layoutX="990.0" layoutY="34.0" onMouseClicked="#facebookPage" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/inst.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="twit" fitHeight="33.0" fitWidth="35.0" layoutX="1039.0" layoutY="34.0" onMouseClicked="#twiterPage" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/twit.jpg" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-        
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" onDrawerClosing="#closeDrawer" onDrawerOpening="#openDrawer" prefHeight="650.0" prefWidth="250.0" />
       <AnchorPane fx:id="chart" layoutX="420.0" layoutY="50.0" prefHeight="290.0" prefWidth="500.0" style="-fx-background-color: #337AB7;" visible="false">
          <children>
             <JFXTreeTableView fx:id="paniertree" prefHeight="245.0" prefWidth="500.0">
@@ -112,6 +176,175 @@
                </graphic>
             </JFXButton>
          </children></AnchorPane>
+      <AnchorPane fx:id="admin_window" layoutY="50.0" maxWidth="1100.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="26.0" prefHeight="200.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Achat" />
+                  <HBox layoutX="10.0" layoutY="57.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
+                     <children>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #337AB7;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Achat livré" />
+                                    <Label fx:id="achat_livrer" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="5" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00A65A;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Achat Payé" />
+                                    <Label fx:id="achat_payer" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="3" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #F39C12;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Achat Non Payé" />
+                                    <Label fx:id="achat_nonpayer" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="14.0" layoutY="235.0" prefHeight="402.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Annonce" />
+                  <HBox layoutX="10.0" layoutY="57.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
+                     <children>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #337AB7;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Adoption" />
+                                    <Label fx:id="adoption" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="5" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00A65A;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Animal Perdu" />
+                                    <Label fx:id="animal_perdu" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="3" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #F39C12;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Animal Trouvé" />
+                                    <Label fx:id="animal_trouve" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
+                  <HBox layoutX="11.0" layoutY="224.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
+                     <children>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #E53935;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Entrainement" />
+                                    <Label fx:id="training" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="5" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #616161;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Balade" />
+                                    <Label fx:id="walking" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="3" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+                           <children>
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #FFEBEE;" />
+                              <VBox layoutX="70.0" layoutY="25.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Accouplement" />
+                                    <Label fx:id="accouplement" prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 20; -fx-font-weight: BOLD;" text="0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="731.0" layoutY="63.0" prefHeight="476.0" prefWidth="340.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <Label fx:id="nom111" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Aperçu Global" />
+                  <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="338.0" />
+                  <VBox layoutX="20.0" layoutY="59.0" prefHeight="402.0" prefWidth="301.0">
+                     <children>
+                        <Label fx:id="nbr_Reclamation" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_veterinaire" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_conseille" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_produit" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_produit_out" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbr_utilisateur" prefHeight="57.0" prefWidth="301.0" text="Label">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+        
+                                                                                                      <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" onDrawerClosing="#closeDrawer" onDrawerOpening="#openDrawer" prefHeight="650.0" prefWidth="250.0" />
 
    </children>
 </AnchorPane>

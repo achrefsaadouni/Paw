@@ -19,7 +19,6 @@ import javafx.stage.StageStyle;
  */
 public class Paw extends Application {
     public static Utilisateur session;
-    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

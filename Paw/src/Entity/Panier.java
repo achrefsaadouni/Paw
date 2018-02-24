@@ -25,8 +25,13 @@ import java.util.List;
         for (LigneAchat ligneAchat : panier) {
             if (ligneAchat.getId_produit()==p.getId_produit())
             {
+                if(ligneAchat.getNbr_produit()+1<=ligneAchat.getProduit().getQuantite())
+                {
                 ligneAchat.setNbr_produit(ligneAchat.getNbr_produit()+1);
                 return ;
+                }
+                return;
+               
             }
         }
          LigneAchat ligneAchat = new LigneAchat(p,1);
@@ -46,6 +51,7 @@ import java.util.List;
     
     public static void plus(Produit p)
     {
+        if(panier.get(findp(p)).getNbr_produit()+1<=p.getQuantite())
         panier.get(findp(p)).setNbr_produit(panier.get(findp(p)).getNbr_produit()+1);
     }
     public static int findp(Produit p)
@@ -66,5 +72,13 @@ import java.util.List;
             
         }
         return prix;
+    }
+    public static boolean valide()
+    {
+        for (LigneAchat ligneAchat : panier) {
+            if(ligneAchat.getNbr_produit()>ligneAchat.getProduit().getQuantite())
+                return false;
+        }
+        return true;
     }
 }

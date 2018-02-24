@@ -160,11 +160,8 @@ public class AnnonceAdoptionService {
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
                               
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,images,etatAdoption));
             }
-            
-            
-            
         } catch (SQLException ex) {
             Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("getAnnonceAdoptionUtilisateur");
@@ -184,17 +181,17 @@ public class AnnonceAdoptionService {
             
         } catch (SQLException ex) {
             Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("traiterAdoption");
         }
     }
 
 
-    public ArrayList<AnnonceAdoption> getAnnonceAdoptionDisponible() {
-        String req="SELECT * FROM annonce WHERE etatAdoption like 'Disponible' and type_annonce like 'Annonce_adoption'" ;
+    public ArrayList<AnnonceAdoption> getAnnonceAdoptionDisponible(int i) {
+        String req="SELECT * FROM annonce WHERE etatAdoption like 'Disponible' and type_annonce like 'Annonce_adoption' and utilisateur_id not in (?)" ;
         ArrayList<AnnonceAdoption> list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -287,5 +284,21 @@ public class AnnonceAdoptionService {
             Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    
+    
+     public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `annonce`  where type_annonce like 'Annonce_adoption'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
     }
 }

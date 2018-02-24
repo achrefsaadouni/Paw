@@ -1,105 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #272928;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLMenuController">
+<AnchorPane prefHeight="650.0" prefWidth="250.0" style="-fx-background-color: #337AB7;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.mainUI.FXMLMenuController">
    <children>
-      <JFXButton accessibleText="AnnoncePerdus" layoutX="11.0" layoutY="156.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Perdus" textFill="WHITE">
+      <JFXButton fx:id="trouver" accessibleText="AnnonceTrouvées" buttonType="RAISED" layoutX="60.0" layoutY="240.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Trouvés" textFill="WHITE">
          <font>
-            <Font name="Century Gothic Bold" size="16.0" />
+            <Font size="18.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/contract.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <JFXButton accessibleText="veterinaire" layoutX="-8.0" layoutY="218.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
+      </JFXButton>
+      <JFXButton fx:id="perdu" accessibleText="AnnoncePerdus" buttonType="RAISED" layoutX="60.0" layoutY="170.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Perdus" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="vet" accessibleText="veterinaire" buttonType="RAISED" layoutX="60.0" layoutY="380.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/vet.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <JFXButton accessibleText="boutique" layoutX="13.0" layoutY="297.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Boutique" textFill="WHITE">
+      </JFXButton>
+      <JFXButton fx:id="boutq" accessibleText="boutique" buttonType="RAISED" layoutX="60.0" layoutY="450.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Boutique" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/edit-1105049_960_720.png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <JFXButton accessibleText="gerer_produit" layoutX="14.0" layoutY="504.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="GERER PRODUIT" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic Bold" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/ic_autorenew_black_48dp.png" />
-               </image>
-            </ImageView>
-         </graphic>
       </JFXButton>
-      <JFXButton accessibleText="gerer_achat" layoutX="14.0" layoutY="567.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="GERER Achat" textFill="WHITE">
+      <JFXButton fx:id="adoption" accessibleText="AnnonceAdoption" buttonType="RAISED" layoutX="60.0" layoutY="520.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Adoption" textFill="WHITE">
          <font>
-            <Font name="Century Gothic Bold" size="18.0" />
+            <Font size="18.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+      </JFXButton>
+      <JFXButton fx:id="train" accessibleText="Training" buttonType="RAISED" layoutX="60.0" layoutY="310.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Training" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="trouver1" accessibleText="acceuil" buttonType="RAISED" layoutX="60.0" layoutY="100.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Acceuil" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <GridPane fx:id="icon_user" layoutX="10.0" layoutY="100.0" prefHeight="106.0" prefWidth="50.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Ressource/images/ic_autorenew_black_48dp.png" />
+                  <Image url="@../../Ressource/images/homepage.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton accessibleText="AnnonceTrouvées" layoutX="11.0" layoutY="91.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Trouvés" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic Bold" size="16.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../Ressource/images/contract.png" />
+                  <Image url="@../../Ressource/images/search.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton accessibleText="AnnonceAdoption" layoutX="11.0" layoutY="354.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Adoption d'animaux" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic Bold" size="16.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../Ressource/icons/ic_security_black_48dp.png" />
+                  <Image url="@../../Ressource/images/dog-in-front-of-a-man.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXButton accessibleText="Training" layoutX="10.0" layoutY="412.0" prefHeight="50.0" prefWidth="225.0" styleClass="buttons" stylesheets="@style.css" text="Training" textFill="WHITE">
-         <font>
-            <Font name="Century Gothic Bold" size="16.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../Ressource/icons/ic_security_black_48dp.png" />
+                  <Image url="@../../Ressource/images/syringe.png" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../../Ressource/images/dog-training.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+               <image>
+                  <Image url="@../../Ressource/images/shop.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+               <image>
+                  <Image url="@../../Ressource/images/pawprint.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <Separator layoutX="58.0" layoutY="-1.0" opacity="0.28" orientation="VERTICAL" prefHeight="650.0" prefWidth="8.0" />
    </children>
 </AnchorPane>

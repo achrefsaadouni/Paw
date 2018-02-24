@@ -22,6 +22,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -107,7 +108,7 @@ public class FXMLlisteController implements Initializable {
         AnnonceAdoptionService service= new AnnonceAdoptionService();
         details.setVisible(false);
         liste= new ArrayList<>();
-        liste = service.getAnnonceAdoptionDisponible();
+        liste = service.getAnnonceAdoptionDisponible(session.getId());
         if (liste.isEmpty()) {
             box.setVisible(false);
             box1.setVisible(false);
@@ -149,6 +150,7 @@ public class FXMLlisteController implements Initializable {
             date.setText(String.valueOf(TroisAnnonces.get(0).getDate()).substring(0, 16));
             race.setText(TroisAnnonces.get(0).getRace());
             box.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(0));
                 details.setVisible(true);
             });
             
@@ -165,6 +167,11 @@ public class FXMLlisteController implements Initializable {
             message1.setText(TroisAnnonces.get(1).getMessage_complementaire());
             date1.setText(String.valueOf(TroisAnnonces.get(1).getDate()).substring(0, 16));
             race1.setText(TroisAnnonces.get(1).getRace());
+            
+            box1.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(1));
+                details.setVisible(true);
+            });
         } 
         else{
             box1.setVisible(false);
@@ -178,6 +185,10 @@ public class FXMLlisteController implements Initializable {
             message11.setText(TroisAnnonces.get(2).getMessage_complementaire());
             date11.setText(String.valueOf(TroisAnnonces.get(2).getDate()).substring(0, 16));
             race11.setText(TroisAnnonces.get(2).getRace());
+            box11.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(2));
+                details.setVisible(true);
+            });
         } 
         else{
             box11.setVisible(false); 
@@ -204,6 +215,10 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private void annuler(ActionEvent event) {
         details.setVisible(false);
+    }
+
+    private void initialiserDetails(AnnonceAdoption get) {
+        
     }
     
 }

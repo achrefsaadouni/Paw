@@ -126,10 +126,7 @@
                   </Label>
                </children>
             </StackPane>
-            <ImageView fx:id="image" fitHeight="177.0" fitWidth="200.0" layoutX="108.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/avatar/002-woman-14.png" />
-               </image></ImageView>
+            <ImageView fx:id="image" fitHeight="177.0" fitWidth="200.0" layoutX="108.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Label alignment="CENTER" layoutX="16.0" layoutY="18.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes offres d'adoption" />

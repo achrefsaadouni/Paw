@@ -207,5 +207,18 @@ public class VeterinaireServices {
         return 0;
         }
 
-    
+     public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `veterinaire`";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
 }

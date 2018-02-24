@@ -22,7 +22,7 @@ public class LigneAchatService {
     final private DbHandler handler;
     protected Connection connection;
     private static LigneAchatService ligneservice;
-    
+   
     
     public static LigneAchatService getLigneService() {
         if (LigneAchatService.ligneservice == null) {
@@ -39,6 +39,7 @@ public class LigneAchatService {
     
     public void addLigneAchat(LigneAchat a)
     {
+        ProduitService produitservice= ProduitService.getProduitService();
         String req="INSERT INTO `ligneachat` (`id_produit`,`nbr_produit`,`id_achat`) VALUES(?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -46,6 +47,7 @@ public class LigneAchatService {
             ste.setInt(2,a.getNbr_produit()) ; 
             ste.setInt(3,a.getId_achat()) ; 
             ste.executeUpdate() ; 
+            produitservice.updatequantite(a.getId_produit(), (a.getProduit().getQuantite()-a.getNbr_produit()));
         } catch (SQLException ex) {
             System.out.println(ex);
         }

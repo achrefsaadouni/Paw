@@ -219,7 +219,20 @@ public class AnnonceAccouplementServices {
         }
 
     }
-
+ public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `annonce` where type_annonce LIKE 'annonce_accouplement'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
     
 
 }
