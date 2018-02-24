@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
@@ -46,14 +46,13 @@
          <children>
             <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Ajouter une reclamation" />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
-            <JFXTextArea fx:id="msg" layoutX="210.0" layoutY="105.0" prefHeight="62.0" prefWidth="825.0" />
-            <JFXTextField fx:id="titre" layoutX="210.0" layoutY="66.0" prefHeight="25.0" prefWidth="825.0" />
-            <Label layoutX="87.0" layoutY="66.0" text="Titre">
+            <JFXTextArea fx:id="msg" layoutX="210.0" layoutY="105.0" prefHeight="62.0" prefWidth="825.0" promptText="Expliquez nous en plus la réclamation..." />
+            <Label layoutX="87.0" layoutY="66.0" styleClass="aaaroboto" stylesheets="@../../css/Master.css" text="Objet">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="142.0" text="Message">
+            <Label layoutX="73.0" layoutY="142.0" styleClass="aaaroboto" stylesheets="@../../css/Master.css" text="Message">
                <font>
                   <Font size="20.0" />
                </font>
@@ -76,6 +75,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
+            <JFXComboBox fx:id="titre" layoutX="211.0" layoutY="73.0" prefHeight="25.0" prefWidth="467.0" promptText="Choisissez l'objet de la réclamation" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="20.0" layoutY="289.0" prefHeight="347.0" prefWidth="353.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" AnchorPane.leftAnchor="15.0">
