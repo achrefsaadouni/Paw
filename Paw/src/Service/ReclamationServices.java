@@ -239,9 +239,7 @@ public class ReclamationServices {
         }
         return y;
     }
-    
-        return x;        
-    }
+
     public ResultSet getNbrReclamationType()
     {
         String req="SELECT count(*) as nbr, objet FROM `reclamation` group by `objet`" ;
