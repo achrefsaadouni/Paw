@@ -69,7 +69,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="242.0" layoutY="429.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #337AB7;" styleClass="fab" stylesheets="@../../css/Master.css">
+            <Button layoutX="266.0" layoutY="429.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #337AB7;" styleClass="fab" stylesheets="@../../css/Master.css">
                <graphic>
                   <MaterialDesignIconView fill="WHITE" glyphName="BORDER_COLOR" size="24" wrappingWidth="22.000005185604095" />
                </graphic>

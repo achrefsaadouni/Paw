@@ -26,6 +26,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import paw.Paw;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -115,13 +117,16 @@ public class FXMLmesoffresadoptionController implements Initializable {
         AnnonceAdoptionService service= new AnnonceAdoptionService();
         tableau.setVisible(false);
         liste= new ArrayList<>();
-        liste = service.getAnnonceAdoptionDisponible();
+        liste = service.getAnnonceAdoptionUtilisateur(session.getId());
         if (liste.isEmpty()) {
             tableau.setVisible(false);
             paginator2.setVisible(false);
             paginator.setVisible(false);
             listevide.setVisible(true);
-            paginator.setVisible(false);
+            rep.setVisible(false);
+            rep1.setVisible(false);
+            rep2.setVisible(false);
+            repvide.setVisible(false);
         } else {
             tableau.setVisible(true);
             paginator.setVisible(true);
