@@ -7,6 +7,7 @@ package paw.reclamation;
 
 import Entity.Reclamation;
 import Service.ReclamationServices;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -14,6 +15,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,7 +43,7 @@ public class FXMLReclamationController implements Initializable {
     @FXML
     private JFXTextArea msg;
     @FXML
-    private JFXTextField titre;
+    private JFXComboBox<String> titre;
     @FXML
     private JFXToggleButton type;
     @FXML
@@ -84,6 +87,17 @@ public class FXMLReclamationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationServices service= new ReclamationServices();
+        ObservableList<String> types = FXCollections.observableArrayList(
+            "Service Lost&Found",
+            "Service Adoption",
+            "Service Accouplement",
+            "Service Walking",
+            "Service Dressage",
+            "Boutique",
+            "Fausse annonce",
+            "Membre"
+        );
+        titre.setItems(types);
         mesReclamations = service.getReclamationUtilisateur(session.getId());
         if (mesReclamations.isEmpty()) {
             box1.setVisible(false);
@@ -106,19 +120,30 @@ public class FXMLReclamationController implements Initializable {
         if (type.isSelected()){
             t="Remerciment";
         }
-        service.insererReclamation(new Reclamation(session.getId(), titre.getText(), msg.getText(), t));
-        Notifications.create()
+        
+        if(service.insererReclamation(new Reclamation(session.getId(), titre.getValue(), msg.getText(), t)))
+        {
+            Notifications.create()
               .title("Reclamation envoyée")
               .text("Merci pour votre collaboration !")
               .showInformation();
-                                    
-        type.setSelected(false);
-        titre.setText("");
-        msg.setText("");
-        mesReclamations = service.getReclamationUtilisateur(session.getId());
+            type.setSelected(false);
+            titre.setValue("");
+            msg.setText("");
+            mesReclamations = service.getReclamationUtilisateur(session.getId());
+
+            setNbPages();
+            initReclamationPage(paginator.getCurrentPageIndex());
+        }
+        else
+        {
+            Notifications.create()
+              .title("Erreur")
+              .text("Veuillez vérifier votre connexion")
+              .showError();
+        }
         
-        setNbPages();
-        initReclamationPage(paginator.getCurrentPageIndex());
+                                
     }
 
     private void setNbPages() {

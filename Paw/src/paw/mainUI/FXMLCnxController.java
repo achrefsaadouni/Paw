@@ -374,6 +374,8 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void goToChat(MouseEvent event) {
+        loadSplashScreen("/paw/messagerie/inbox/FXMLView_inbox.fxml");
+        
     }
 
     @FXML

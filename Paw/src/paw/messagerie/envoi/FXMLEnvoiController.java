@@ -27,6 +27,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -58,14 +59,14 @@ public class FXMLEnvoiController implements Initializable {
             Messagerie p = new Messagerie(ContenuMsg.getText(), user_id, id, false, false);
             MessagerieService ps = new MessagerieService();
             ps.ajouterMessage(p);
-         //   Notification.createNotification("Succès", "Votre message a bien été envoyé");
+          //  Notification.createNotification("Succès", "Votre message a bien été envoyé");
           //  redirection(event);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // user_id = LoginManager.getUser().getId();
+       user_id = session.getId();   //session;getid
         m = s.findAll();
         Utilisateur u=null;
         for (Utilisateur k : m) {

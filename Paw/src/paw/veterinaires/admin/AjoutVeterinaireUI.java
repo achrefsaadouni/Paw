@@ -20,7 +20,7 @@ public class AjoutVeterinaireUI extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("FXMLAjoutVeterinaire.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/paw/veterinaires/admin/FXMLAjoutVeterinaire.fxml"));
         
         Scene scene = new Scene(root);
         

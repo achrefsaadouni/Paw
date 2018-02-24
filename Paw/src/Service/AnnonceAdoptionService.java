@@ -208,14 +208,16 @@ public class AnnonceAdoptionService {
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 //File images=new File(rs.getString("images"));
-                //File images=new File("C://Users//AYOUB//Desktop//ayoub.png");
+                File image=new File(rs.getString("images"));
+                //String image = rs.getString("images");
+                
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 String etatAdoption=rs.getString("etatAdoption");
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
                             
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));            }
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,image,etatAdoption));            }
 
         } catch (SQLException ex) {
              Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,12 +265,12 @@ public class AnnonceAdoptionService {
     
     
     public ArrayList<RepOffreAdoption> getRep(int i){
-        String req="SELECT * FROM RepOffreAdoption where id_annonce=?" ;
+        String req="SELECT * FROM repAdoption where id_annonce=?" ;
         ArrayList<RepOffreAdoption> list = new ArrayList<>();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(i, i);
+            ste.setInt(1, i);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -276,12 +278,13 @@ public class AnnonceAdoptionService {
                 int idannonce = rs.getInt("id_annonce");
                 int id_utilisateur = rs.getInt("id_utilisateur");
                 String  etat= rs.getString("etat");
+                Timestamp date=rs.getTimestamp("date");
                  
-                list.add(new RepOffreAdoption(id,idannonce,id_utilisateur,etat));
+                list.add(new RepOffreAdoption(id,idannonce,id_utilisateur,etat,date));
             }
 
         } catch (SQLException ex) {
-            System.out.println(ex);
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
