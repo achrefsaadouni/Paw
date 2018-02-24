@@ -5,6 +5,9 @@
  */
 package Entity;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  *
  * @author AYOUB
@@ -14,6 +17,16 @@ public class RepOffreAdoption {
     private int id_annonce;
     private int id_utilisateur;
     private String etat ;   // Confirmée  ou  Non
+    private Date date ;
+
+    public RepOffreAdoption(int id, int idannonce, int id_utilisateur, String etat, Timestamp date) {
+        this.id = id;
+        this.id_annonce = idannonce;
+        this.id_utilisateur = id_utilisateur;
+        this.etat = etat;
+        this.date=date;
+        
+    }
 
     public int getId() {
         return id;
@@ -47,11 +60,12 @@ public class RepOffreAdoption {
         this.etat = etat;
     }
 
-    public RepOffreAdoption(int id, int id_annonce, int id_utilisateur, String etat) {
-        this.id = id;
-        this.id_annonce = id_annonce;
-        this.id_utilisateur = id_utilisateur;
-        this.etat = etat;
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
     
 }
