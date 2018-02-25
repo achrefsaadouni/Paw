@@ -67,7 +67,7 @@ public class VeterinaireServices {
                 String region = rs.getString("region");
                 int numero = rs.getInt("numero");
                 String email = rs.getString("email");
-
+                
                 list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
             }
 
@@ -80,7 +80,7 @@ public class VeterinaireServices {
 
     public ArrayList<Vets> getList() {
         String req = "SELECT * FROM Veterinaire";
-        ArrayList list = new ArrayList();
+        ArrayList<Veterinaire> list = new ArrayList();
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ResultSet rs = ste.executeQuery();
@@ -92,8 +92,9 @@ public class VeterinaireServices {
                 String region = rs.getString("region");
                 int numero = rs.getInt("numero");
                 String email = rs.getString("email");
-                
-                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email));
+                double longitude = rs.getDouble("longitude");
+                double latitude = rs.getDouble("latitude");
+                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email, longitude, latitude));
             }
 
         } catch (SQLException ex) {
