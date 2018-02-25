@@ -200,7 +200,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getDate()).substring(0, 10));
             //System.out.println(QuatreAnnonceAccouplements.get(0).getImages());
             
-            Image im = new Image("file:///" + QuatreAnnonceAccouplements.get(0).getImages().getPath());
+            Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(0).getImages());
             photo1.setFitHeight(225);
             photo1.setFitWidth(250);
             photo1.setImage(im);
@@ -229,7 +229,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getDate()).substring(0, 10));
             //System.out.println(QuatreAnnonceAccouplements.get(1).getImages());
             
-            Image im = new Image("file:///" + QuatreAnnonceAccouplements.get(1).getImages().getPath());
+            Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(1).getImages());
             photo2.setFitHeight(225);
             photo2.setFitWidth(250);
             photo2.setImage(im);
@@ -257,7 +257,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getDate()).substring(0, 10));
             //System.out.println(QuatreAnnonceAccouplements.get(2).getImages());
             
-            Image im = new Image("file:///" + QuatreAnnonceAccouplements.get(2).getImages().getPath());
+            Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(2).getImages());
             photo3.setFitHeight(225);
             photo3.setFitWidth(250);
             photo3.setImage(im);
@@ -285,7 +285,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getDate()).substring(0, 10));
             //System.out.println(QuatreAnnonceAccouplements.get(3).getImages());
             
-            Image im = new Image("file:///" + QuatreAnnonceAccouplements.get(3).getImages().getPath());
+            Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(3).getImages());
             photo4.setFitHeight(225);
             photo4.setFitWidth(250);
             photo4.setImage(im);
