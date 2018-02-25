@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.lynden.gmapsfx.GoogleMapView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.user.FXMLRechercheVetsController">
    <children>
       <GoogleMapView fx:id="mapView" layoutX="3.0" layoutY="3.0" prefHeight="644.0" prefWidth="1094.0" />
       <TextField fx:id="addressTextField" layoutX="8.0" layoutY="13.0" onAction="#addressTextFieldAction" prefHeight="32.0" prefWidth="274.0" promptText="Recherche ..." />
+      <StackPane fx:id="afficheVet" layoutX="421.0" layoutY="18.0" prefHeight="612.0" prefWidth="319.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="605.0" prefWidth="319.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <ImageView fx:id="avatar" fitHeight="232.0" fitWidth="244.0" layoutX="34.0" layoutY="4.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../../Ressource/avatar/doc4.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nom" layoutX="23.0" layoutY="243.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
+                  <Label fx:id="tel" layoutX="5.0" layoutY="430.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Contact">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="PHONE" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="adresse" layoutX="3.0" layoutY="330.0" prefHeight="30.0" prefWidth="244.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Addresse">
+                     <graphic>
+                        <FontAwesomeIconView fill="#73879c" glyphName="HOME" size="16.0" wrappingWidth="22.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="mail" layoutX="4.0" layoutY="283.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 13;" text="EMAIL">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="EMAIL" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="region" layoutX="3.0" layoutY="381.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Gouvernorat">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="MAP_MARKER" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <Rating fx:id="rate" disable="true" layoutX="72.0" layoutY="517.0" />
+                  <Label fx:id="note" layoutX="5.0" layoutY="477.0" prefHeight="30.0" prefWidth="246.0" style="-fx-text-fill: #73879C; -fx-font-weight: bold; -fx-font-size: 15;" text="Note">
+                     <graphic>
+                        <MaterialDesignIconView fill="#73879c" glyphName="STAR" size="16.0" wrappingWidth="21.0" />
+                     </graphic>
+                  </Label>
+                  <JFXButton layoutX="114.0" layoutY="572.0" onAction="#fermer" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #FE2E64; -fx-text-fill: white; -fx-font-size: 14;" text="Fermer" textAlignment="RIGHT">
+                     <graphic>
+                        <HBox alignment="CENTER" spacing="3.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
