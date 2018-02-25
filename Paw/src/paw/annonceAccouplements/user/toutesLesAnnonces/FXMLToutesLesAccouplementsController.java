@@ -6,9 +6,7 @@
 package paw.annonceAccouplements.user.toutesLesAnnonces;
 
 import Entity.AnnonceAccouplement;
-import Entity.Utilisateur;
 import Service.AnnonceAccouplementServices;
-import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,7 +17,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -131,6 +128,8 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
     private Label couleur;
     @FXML
     private Label date;
+    @FXML
+    private Label lieu;
     /**
      * Initializes the controller class.
      */
@@ -194,7 +193,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
            
             
             animal1.setText(QuatreAnnonceAccouplements.get(0).getType());
-            //lieu1.setText(QuatreAnnonceAccouplements.get(0).getLieu());
+            lieu1.setText(QuatreAnnonceAccouplements.get(0).getLieu());
             race1.setText(QuatreAnnonceAccouplements.get(0).getRace());
             sexe1.setText(QuatreAnnonceAccouplements.get(0).getSex());
             age1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getAge()));
@@ -223,7 +222,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             
             
             animal2.setText(QuatreAnnonceAccouplements.get(1).getType());
-            //lieu2.setText(QuatreAnnonceAccouplements.get(1).getLieu());
+            lieu2.setText(QuatreAnnonceAccouplements.get(1).getLieu());
             race2.setText(QuatreAnnonceAccouplements.get(1).getRace());
             sexe2.setText(QuatreAnnonceAccouplements.get(1).getSex());
             age2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getAge()));
@@ -251,7 +250,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             
             
             animal3.setText(QuatreAnnonceAccouplements.get(2).getType());
-            //lieu3.setText(QuatreAnnonceAccouplements.get(2).getLieu());
+            lieu3.setText(QuatreAnnonceAccouplements.get(2).getLieu());
             race3.setText(QuatreAnnonceAccouplements.get(2).getRace());
             sexe3.setText(QuatreAnnonceAccouplements.get(2).getSex());
             age3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getAge()));
@@ -279,7 +278,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
 
            
             animal4.setText(QuatreAnnonceAccouplements.get(3).getType());
-            //lieu4.setText(QuatreAnnonceAccouplements.get(3).getLieu());
+            lieu4.setText(QuatreAnnonceAccouplements.get(3).getLieu());
             race4.setText(QuatreAnnonceAccouplements.get(3).getRace());
             sexe4.setText(QuatreAnnonceAccouplements.get(3).getSex());
             age4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getAge()));
@@ -318,6 +317,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
         age.setText(String.valueOf(a.getAge()));
         message.setText(a.getMessage_complementaire());
         date.setText(String.valueOf(a.getDate()).substring(0,10));
+        lieu.setText(a.getLieu());
         modifAnnonceAccouplement.setVisible(true);
     }
     

@@ -5,6 +5,8 @@
  */
 package Entity;
 
+import java.io.File;
+
 /**
  *
  * @author gmehd
@@ -20,6 +22,7 @@ public class Veterinaire {
     private String email;
     private double longitude;
     private double latitude;
+    private File images;
 
     public Veterinaire(int id, String nom, String prenom, String adresse, String region, int numero, String email) {
         this.id = id;
@@ -42,6 +45,21 @@ public class Veterinaire {
         this.longitude = longitude;
         this.latitude = latitude;
     }
+
+    public Veterinaire(int id, String nom, String prenom, String adresse, String region, int numero, String email, double longitude, double latitude, File images) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.region = region;
+        this.numero = numero;
+        this.email = email;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.images = images;
+    }
+    
+    
     
     
 
@@ -116,5 +134,15 @@ public class Veterinaire {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
+
+    public File getImages() {
+        return images;
+    }
+
+    public void setImages(File images) {
+        this.images = images;
+    }
+    
+    
     
 }

@@ -32,6 +32,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import netscape.javascript.JSObject;
@@ -143,7 +144,7 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
                     .title("My Marker");
 
             Marker marker = new Marker(markerOptions);
-            
+
             map.addMarker(marker);
             map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
                 afficheVet.setVisible(true);
@@ -155,10 +156,14 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
                 region.setText(v.getRegion());
                 rate.setRating(v.getRate());
                 if ((v.getRate() != 0) && (v.getRate() != 1) && (v.getRate() != 2) && (v.getRate() != 3) && (v.getRate() != 4) && (v.getRate() != 5)) {
-                note.setText(String.valueOf(df.format(v.getRate())) + "/5");
-            } else {
-                note.setText(String.valueOf((v.getRate()).intValue()) + "/5");
-            }
+                    note.setText(String.valueOf(df.format(v.getRate())) + "/5");
+                } else {
+                    note.setText(String.valueOf((v.getRate()).intValue()) + "/5");
+                }
+                Image im = new Image("http://localhost/pawVets/" + v.getImages());
+//            photo1.setFitHeight(225);
+//            photo1.setFitWidth(250);
+                avatar.setImage(im);
             });
 
         });

@@ -147,6 +147,8 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
     private JFXTextField msgInsertion1;
     @FXML
     private JFXButton valider;
+    @FXML
+    private JFXTextField lieu;
 
     /**
      * Initializes the controller class.
@@ -243,7 +245,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
            
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(0).getId_utilisateur());
             animal1.setText(QuatreAnnonceAccouplements.get(0).getType());
-            //lieu1.setText(QuatreAnnonceAccouplements.get(0).getLieu());
+            lieu1.setText(QuatreAnnonceAccouplements.get(0).getLieu());
             race1.setText(QuatreAnnonceAccouplements.get(0).getRace());
             sexe1.setText(QuatreAnnonceAccouplements.get(0).getSex());
             age1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getAge()));
@@ -276,7 +278,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(1).getId_utilisateur());
             animal2.setText(QuatreAnnonceAccouplements.get(1).getType());
-            //lieu2.setText(QuatreAnnonceAccouplements.get(1).getLieu());
+            lieu2.setText(QuatreAnnonceAccouplements.get(1).getLieu());
             race2.setText(QuatreAnnonceAccouplements.get(1).getRace());
             sexe2.setText(QuatreAnnonceAccouplements.get(1).getSex());
             age2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getAge()));
@@ -310,7 +312,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(2).getId_utilisateur());
             animal3.setText(QuatreAnnonceAccouplements.get(2).getType());
-            //lieu3.setText(QuatreAnnonceAccouplements.get(2).getLieu());
+            lieu3.setText(QuatreAnnonceAccouplements.get(2).getLieu());
             race3.setText(QuatreAnnonceAccouplements.get(2).getRace());
             sexe3.setText(QuatreAnnonceAccouplements.get(2).getSex());
             age3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getAge()));
@@ -405,6 +407,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             poilInsertion1.setValue(a.getType_poil());
             ageInsertion1.setText(String.valueOf(a.getAge()));
             raceInsertion1.setText(a.getRace());
+            lieu.setText(a.getLieu());
             msgInsertion1.setText(a.getMessage_complementaire());
             couleurInsertion1.setText(a.getCouleur());
             choixInsertion1.setValue(a.getType());
@@ -414,7 +417,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
     }
 
     private void modifier(int id) {
-       if ((!"".equals(couleurInsertion1.getText()))&& (!"".equals(ageInsertion1.getText()))
+       if ((!"".equals(couleurInsertion1.getText()))&& (!"".equals(ageInsertion1.getText())) && (!"".equals(lieu.getText()))
                  && (!"".equals(raceInsertion1.getText()))&& (!"".equals(msgInsertion1.getText()))&& (!"".equals(choixInsertion1.getValue()))&& (!"".equals(poilInsertion1.getValue())))
         {
               AnnonceAccouplementServices as = new AnnonceAccouplementServices();
@@ -436,13 +439,26 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
                 dossier="NON";
             }
             
-            System.out.println(new AnnonceAccouplement(poilInsertion1.getValue(), vaccin, dossier,0 , Integer.parseInt(ageInsertion1.getText()), couleurInsertion1.getText(), sexe, raceInsertion1.getText(), msgInsertion1.getText(),choixInsertion1.getValue(), null));
-            System.out.println(id);
-            as.updateAnnonceAccouplement(new AnnonceAccouplement(poilInsertion1.getValue(), vaccin, dossier,0 , Integer.parseInt(ageInsertion1.getText()), couleurInsertion1.getText(), sexe, raceInsertion1.getText(), msgInsertion1.getText(),choixInsertion1.getValue(), null),id);
+//            System.out.println(new AnnonceAccouplement(poilInsertion1.getValue(), vaccin, dossier,0 , Integer.parseInt(ageInsertion1.getText()), couleurInsertion1.getText(), sexe, raceInsertion1.getText(), msgInsertion1.getText(),choixInsertion1.getValue(), null));
+//            System.out.println(id);
+            as.updateAnnonceAccouplement(new AnnonceAccouplement(
+                    poilInsertion1.getValue(), 
+                    vaccin, 
+                    dossier,
+                    lieu.getText(), 
+                    0 , 
+                    Integer.parseInt(ageInsertion1.getText()), 
+                    couleurInsertion1.getText(), 
+                    sexe, 
+                    raceInsertion1.getText(), 
+                    msgInsertion1.getText(),
+                    choixInsertion1.getValue(),
+                    null,null,0),id);
 
            
             poilInsertion1.setValue("Nus");
             ageInsertion1.setText("");
+            lieu.setText("");
             raceInsertion1.setText("");
             msgInsertion1.setText("");
             couleurInsertion1.setText("");

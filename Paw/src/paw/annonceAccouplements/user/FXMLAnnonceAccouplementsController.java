@@ -65,6 +65,8 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
     @FXML
     private JFXTextField msgInsertion;
     private File file;
+    @FXML
+    private JFXTextField lieu;
 
     /**
      * Initializes the controller class.
@@ -117,7 +119,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
         } 
        
         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))
-                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))
+                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(lieu.getText()))
                  && (!"".equals(choixInsertion.getValue()))&& (!"".equals(poilInsertion.getValue())))
         {
 // String colier, Date date_trouvee, String lieu_perdu, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date           
@@ -145,6 +147,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
                     poilInsertion.getValue(),
                     vaccin, 
                     dossier,
+                    lieu.getText(),
                     0 , 
                     Integer.parseInt(ageInsertion.getText()),
                     couleurInsertion.getText(),
@@ -163,6 +166,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
             msgInsertion.setText("");
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
+            lieu.setText("");
             
         }
     }
