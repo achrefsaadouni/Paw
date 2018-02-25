@@ -19,7 +19,7 @@ public class AnnonceSitting extends Annonce{
 
     public AnnonceSitting() {
     }
-
+    
     public AnnonceSitting(Date date_sit, String typeSit, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
         this.dateSit = date_sit;

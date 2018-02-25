@@ -1,4 +1,4 @@
-package paw.trainingService;
+package paw.sittingService;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -7,11 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TrainingServiceUI extends Application {
+public class SittingServiceUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrainingPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLSitting.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -23,4 +23,3 @@ public class TrainingServiceUI extends Application {
     }
     
 }
-
