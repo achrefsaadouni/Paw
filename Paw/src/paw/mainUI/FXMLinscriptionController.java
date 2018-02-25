@@ -177,18 +177,18 @@ public class FXMLinscriptionController implements Initializable {
                     if (service.UsernameNonExistant(username.getText()))
                     {
                         if(password.getText().equals(confirmer.getText()))
-                         {
-                             UtilisateurServices s = new UtilisateurServices();
-                             String sexe="Homme";
-                             if (femme.isSelected())
-                             {
-                                 sexe="Femme";
-                             }
-                             Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getValue().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), chaine, null, sexe);
-                             s.insererUtilisateur(p);
-                             Notifications.create().text("Inscription done").title("Succès").show();
-                             LoginServices servicelogin = new LoginServices();
-                             int x =servicelogin.Valide(username.getText(), password.getText());
+                        {
+                            UtilisateurServices s = new UtilisateurServices();
+                            String sexe="Homme";
+                            if (femme.isSelected())
+                            {
+                                sexe="Femme";
+                            }
+                            Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getValue().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), chaine, null, sexe);
+                            s.insererUtilisateur(p);
+                            Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();
+                            LoginServices servicelogin = new LoginServices();
+                            int x =servicelogin.Valide(username.getText(), password.getText());
                             if(x!=-1 && x!=0)
                             {
                                 closeStage();
