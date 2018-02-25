@@ -116,7 +116,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
             Marker marker = new Marker(markerOptions);
 
             map.addMarker(marker);
-            System.out.println("LatLong: lat: " + ll.getLatitude() + " lng: " + ll.getLongitude());
+           
         });
         
 
