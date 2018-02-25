@@ -113,15 +113,22 @@
                <children>
                   <VBox prefHeight="250.0" prefWidth="496.0">
                      <children>
-                        <Label text="Ete Vous Sure vous voulez supprimer cette achat" textFill="RED">
+                        <Pane prefHeight="90.0" prefWidth="496.0" />
+                        <Label prefHeight="27.0" prefWidth="492.0" text="   Vous etes Sure de vous voulez supprimer cette achat" textFill="RED">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <Label prefHeight="27.0" prefWidth="492.0" text="    Cela peut causer des problèmes avec votre client " textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="90.0" prefWidth="496.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <JFXButton fx:id="annuler" buttonType="RAISED" onAction="#annuler" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #F39C12;" text="Annuler" textFill="WHITE">
+                              <Pane prefHeight="86.0" prefWidth="75.0" />
+                              <JFXButton fx:id="annuler" buttonType="RAISED" onAction="#annuler" prefHeight="31.0" prefWidth="125.0" style="-fx-background-color: #F39C12;" text="Annuler" textFill="WHITE">
                                  <font>
                                     <Font name="Roboto Medium" size="14.0" />
                                  </font>
@@ -133,7 +140,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
-                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <Pane prefHeight="72.0" prefWidth="84.0" />
                               <JFXButton fx:id="ok_supprimer" buttonType="RAISED" layoutX="20.0" onAction="#confirmersupprimer" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: #00A65A;" text="Supprimer" textFill="WHITE">
                                  <font>
                                     <Font name="Roboto Medium" size="14.0" />
@@ -146,6 +153,7 @@
                                     </ImageView>
                                  </graphic>
                               </JFXButton>
+                              <Pane prefHeight="86.0" prefWidth="71.0" />
                            </children>
                         </HBox>
                      </children>

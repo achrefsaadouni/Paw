@@ -319,6 +319,15 @@ public class FXMLCnxController implements Initializable {
                                         System.out.println(ex);
                                     }
                                 }
+                                
+                                 case "sitting": {
+                                    try {
+                                        loadSplashScreen("/paw/annoncesitting/FXMLAnnonceSitting.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        System.out.println(ex);
+                                    }
+                                }
                                     case "acceuil": {
                                     try {
 

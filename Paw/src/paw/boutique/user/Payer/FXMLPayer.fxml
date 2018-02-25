@@ -33,7 +33,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <JFXRadioButton fx:id="stripe" text="Stripe">
+            <JFXRadioButton fx:id="stripe" text="Avec Stripe (Carte Bancaire)">
                <toggleGroup>
                   <ToggleGroup fx:id="p" />
                </toggleGroup>
@@ -46,7 +46,7 @@
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../Ressource/images/livraison-1.png" />
+                  <Image url="@../../../../Ressource/images/74892a82f30d8c2c6f00f1397257100b.jpg" />
                </image>
             </ImageView>
          </children>
@@ -73,6 +73,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Text layoutX="65.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tous Achat qui depasse le 30 dinars sa Livraison est gratuite" />
          </children>
       </Pane>
       <Pane fx:id="validation" layoutX="653.0" layoutY="96.0" prefHeight="200.0" prefWidth="399.0" style="-fx-background-color: white; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false">
