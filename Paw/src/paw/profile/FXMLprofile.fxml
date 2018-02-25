@@ -160,7 +160,7 @@
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false">
+      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
          <children>
             <Pane prefHeight="122.0" prefWidth="461.0" style="-fx-background-color: #00AACF; -fx-background-radius: 5 5 0 0;">
                <children>
@@ -169,12 +169,12 @@
                         <Image url="@../../Ressource/png/user-14.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="usermodif" layoutX="133.0" layoutY="23.0" prefHeight="39.0" prefWidth="139.0" style="-fx-text-fill: white;" styleClass="textnoir" stylesheets="@../../css/Master.css" text="username" textFill="#322c2c">
+                  <Label fx:id="usermodif" layoutX="133.0" layoutY="23.0" prefHeight="39.0" prefWidth="294.0" style="-fx-text-fill: white;" styleClass="textnoir" stylesheets="@../../css/Master.css" text="username" textFill="#322c2c">
                      <font>
                         <Font name="Roboto Medium" size="18.0" />
                      </font>
                   </Label>
-                  <StackPane fx:id="stack" layoutX="-52.0" layoutY="-35.0" prefHeight="572.0" prefWidth="559.0" />
+                  <StackPane fx:id="stack" layoutX="-57.0" layoutY="-35.0" prefHeight="572.0" prefWidth="559.0" />
                </children>
             </Pane>
             <GridPane layoutX="14.0" layoutY="132.0" prefHeight="219.0" prefWidth="421.0">

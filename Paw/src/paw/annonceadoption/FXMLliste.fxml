@@ -149,20 +149,19 @@
             </Label>
          </children>
       </StackPane>
-      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-padding: 4;">
          <children>
-            <Label fx:id="typeAdoptiontypeAnimald" layoutX="100.0" layoutY="21.0" prefHeight="39.0" prefWidth="467.0" styleClass="titre" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
+            <Label fx:id="typeAdoptiontypeAnimald" layoutX="48.0" layoutY="21.0" prefHeight="39.0" prefWidth="467.0" styleClass="titre" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="textr" layoutX="100.0" layoutY="95.0" prefHeight="100.0" prefWidth="600.0" text="MSG" wrapText="true">
+            <Label fx:id="msgd" layoutX="39.0" layoutY="160.0" prefHeight="96.0" prefWidth="425.0" text="MSG" wrapText="true">
                <font>
                   <Font name="Roboto Slab Light" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="dated" layoutX="583.0" layoutY="21.0" prefHeight="32.0" prefWidth="198.0" styleClass="date" stylesheets="@../../css/Master.css" text="DATE" />
-            <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="39.0" prefWidth="425.0" styleClass="aaaroboto" stylesheets="@../../css/Master.css" text="Label" textFill="#575454" />
+            <Label fx:id="dated" layoutX="581.0" layoutY="21.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="DATE" />
             <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
             <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="418.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
             <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="418.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
@@ -222,6 +221,61 @@
                   </ImageView>
                </graphic>
             </Label>
+            <Label fx:id="raced" layoutX="178.0" layoutY="102.0" prefHeight="32.0" prefWidth="243.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="RACE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_local_hospital_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="sexed" layoutX="39.0" layoutY="102.0" prefHeight="32.0" prefWidth="134.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="SEXE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/male.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="aged" layoutX="419.0" layoutY="102.0" prefHeight="32.0" prefWidth="120.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="AGE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_plus_one_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="datedebd" layoutX="39.0" layoutY="60.0" prefHeight="32.0" prefWidth="210.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="DATE DEBUT ADOPTION">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_date_range_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="datefind" layoutX="269.0" layoutY="60.0" prefHeight="32.0" prefWidth="278.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="DATE FIN ADOPTION">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_date_range_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ImageView fx:id="imaged" fitHeight="160.0" fitWidth="231.0" layoutX="549.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane fx:id="repondu" layoutX="507.0" layoutY="377.0" prefHeight="71.0" prefWidth="290.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="262.0" text="Vous avez déjà envoyé une réponse d'adoption concernant cette offre" textAlignment="CENTER" textFill="#4f9461" wrapText="true">
+                     <font>
+                        <Font name="Roboto Slab Regular" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
       </AnchorPane>
    </children>

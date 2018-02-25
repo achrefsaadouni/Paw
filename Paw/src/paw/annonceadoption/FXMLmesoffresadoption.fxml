@@ -141,7 +141,7 @@
          </children>
       </StackPane>
       <Pagination fx:id="paginator2" layoutX="627.0" layoutY="448.0" pageCount="10" prefHeight="200.0" prefWidth="324.0" />
-      <Pane fx:id="rep" layoutX="494.0" layoutY="85.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+      <Pane fx:id="rep" layoutX="494.0" layoutY="85.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
             <Label fx:id="daterep" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
@@ -190,14 +190,14 @@
                   </ImageView>
                </graphic>
             </Label>
-            <JFXButton fx:id="confirmerrep" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #00718A;" text="Confirmer" textFill="WHITE">
+            <JFXButton fx:id="confirmerrep" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <Pane fx:id="rep1" layoutX="494.0" layoutY="260.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+      <Pane fx:id="rep1" layoutX="494.0" layoutY="260.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
             <Label fx:id="daterep1" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
@@ -246,14 +246,14 @@
                   </ImageView>
                </graphic>
             </Label>
-            <JFXButton fx:id="confirmerrep1" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #00718A;" text="Confirmer" textFill="WHITE">
+            <JFXButton fx:id="confirmerrep1" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <Pane fx:id="rep2" layoutX="494.0" layoutY="435.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+      <Pane fx:id="rep2" layoutX="494.0" layoutY="435.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
             <Label fx:id="daterep2" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
@@ -302,12 +302,17 @@
                   </ImageView>
                </graphic>
             </Label>
-            <JFXButton fx:id="confirmerrep2" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="91.0" style="-fx-background-color: #00718A;" text="Confirmer" textFill="WHITE">
+            <JFXButton fx:id="confirmerrep2" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
                <font>
                   <Font name="Roboto Bold" size="14.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
+      <Label fx:id="isconfirmed" layoutX="527.0" layoutY="208.0" prefHeight="30.0" prefWidth="391.0" text="Vous avez confié votre animal à :" textFill="#1de9b6">
+         <font>
+            <Font name="Roboto Slab Regular" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

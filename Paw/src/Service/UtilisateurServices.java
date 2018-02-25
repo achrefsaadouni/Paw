@@ -172,6 +172,32 @@ public class UtilisateurServices {
         }
         return null;
     }
+       
+       public Utilisateur find(int id){
+        String req="SELECT * FROM utilisateur where id=?" ;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                String nom = rs.getString("nom");
+                String prenom = rs.getString("prenom");
+                String addresse = rs.getString("addresse");
+                String email = rs.getString("email");
+                String avatar = rs.getString("avatar");
+                String sexe = rs.getString("sexe");
+                int numero = rs.getInt("numero");
+                return new Utilisateur(nom, prenom, addresse, email, sexe, numero, avatar);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return null;
+    }
+       
        public ArrayList<Utilisateur> getListePourAdmin(int i){
         String req="SELECT * FROM utilisateur where id not like ?" ;
         ArrayList<Utilisateur> list = new ArrayList();
@@ -265,7 +291,6 @@ public class UtilisateurServices {
             ste.setString(3, u.getPrenom());
             ste.setString(4, u.getAddresse());
             ste.setString(5, u.getSexe());
-            System.out.println(u.getNumero());
             ste.setInt(6,u.getNumero()) ;
             ste.setInt(7,u.getId()) ;
             ste.executeUpdate() ; 
@@ -279,7 +304,7 @@ public class UtilisateurServices {
     public void utilisateurMois(int i)
     {
         ArrayList<String> y = new ArrayList();
-        String req="SELECT extract(month from systimestamp-dateInscription) as terma FROM utilisateur" ;
+        String req="SELECT extract(month from systimestamp-dateInscription) as t FROM utilisateur" ;
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;

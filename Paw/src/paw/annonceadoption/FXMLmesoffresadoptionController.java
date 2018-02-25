@@ -26,6 +26,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import org.controlsfx.control.Notifications;
 import paw.Paw;
 import static paw.Paw.session;
 
@@ -109,6 +110,8 @@ public class FXMLmesoffresadoptionController implements Initializable {
     private JFXButton confirmerrep2;
     @FXML
     private ImageView image;
+    @FXML
+    private Label isconfirmed;
     /**
      * Initializes the controller class.
      */
@@ -127,6 +130,7 @@ public class FXMLmesoffresadoptionController implements Initializable {
             rep1.setVisible(false);
             rep2.setVisible(false);
             repvide.setVisible(false);
+            isconfirmed.setVisible(false);
         } else {
             tableau.setVisible(true);
             paginator.setVisible(true);
@@ -142,13 +146,18 @@ public class FXMLmesoffresadoptionController implements Initializable {
         
         paginator.currentPageIndexProperty().addListener((obs, oldIndex, newIndex) -> {
             
+            
+            initAnnoncePage(newIndex.intValue());
             AnnonceAdoptionService servrep = new AnnonceAdoptionService();
             reponses= servrep.getRep(liste.get(newIndex.intValue()).getId());
-            initAnnoncePage(newIndex.intValue());
             setNbrep();
+            isconfirmed.setVisible(false);
             if(reponses.isEmpty())
             {
-                
+            }
+            else if (liste.get(newIndex.intValue()).getEtatAoption().equals("Non Disponible"))
+            {   
+                isconfirmed.setVisible(true);
             }
             else
             {
@@ -170,30 +179,11 @@ public class FXMLmesoffresadoptionController implements Initializable {
     }
 
     private void initAnnoncePage(int i) {
-            paginator.setCurrentPageIndex(i);
+            //paginator.setCurrentPageIndex(i);
             
             AnnonceAdoptionService servrep = new AnnonceAdoptionService();
-            reponses= servrep.getRep(liste.get(i).getId());
-            setNbrep();
-            if(reponses.isEmpty())
-            {
-                repvide.setVisible(true);
-                paginator2.setVisible(false);
-                rep.setVisible(false);
-                rep1.setVisible(false);
-                rep2.setVisible(false);
-            }
-            else
-            {
-                paginator2.setCurrentPageIndex(0);
-                initReponse(0);
-                
-                repvide.setVisible(false);
-                paginator2.setVisible(true);
-                rep.setVisible(true);
-                rep1.setVisible(true);
-                rep2.setVisible(true);
-            }
+            liste=servrep.getAnnonceAdoptionUtilisateur(session.getId());
+            reponses=servrep.getRep(liste.get(i).getId());
             race.setText(liste.get(i).getRace());
             type.setText(liste.get(i).getType());
             sexe.setText(liste.get(i).getSex());
@@ -218,6 +208,64 @@ public class FXMLmesoffresadoptionController implements Initializable {
                 datefin.setText(liste.get(i).getFinAdoption().toString());
             }
             
+            
+           
+            if(liste.get(i).getEtatAoption().equals("Non Disponible"))
+            {
+                RepOffreAdoption lareponse = servrep.getReponseAdoptionNumero(liste.get(i).getId());
+                paginator2.setVisible(false);
+                rep.setVisible(false);
+                rep1.setVisible(false);
+                rep2.setVisible(false);
+                ////////////////////////////////////
+                /////////////////////////////////////
+                ////////7aja.setVisible(true)//////// comme un box pour présenter la reponse
+                ////////////////////////////////////
+                ///////////////////////////////////
+                UtilisateurServices us = new UtilisateurServices();
+                Utilisateur u = us.rechercher(lareponse.getId_utilisateur());
+                
+                
+                isconfirmed.setVisible(true);
+                rep1.setStyle("-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #1de9b6; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;");
+                
+                daterep1.setText(String.valueOf(lareponse.getDate()).substring(0, 16));
+                nomrep1.setText(u.getEsm());
+                emailrep1.setText(u.getEmail());
+                numerorep1.setText(String.valueOf(u.getNumero()));
+                
+                rep1.setVisible(true);
+                confirmerrep1.setVisible(false);
+                
+            }
+            else
+            {
+                confirmerrep1.setVisible(true);
+                rep1.setStyle("-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;");
+                isconfirmed.setVisible(false);
+                reponses= servrep.getRep(liste.get(i).getId());
+                setNbrep();
+                if(reponses.isEmpty())
+                {
+                    repvide.setVisible(true);
+                    paginator2.setVisible(false);
+                    rep.setVisible(false);
+                    rep1.setVisible(false);
+                    rep2.setVisible(false);
+                }
+                else
+                {
+                    paginator2.setCurrentPageIndex(0);
+                    initReponse(0);
+
+                    repvide.setVisible(false);
+                    paginator2.setVisible(true);
+                    
+                    
+                }
+            }
+
+            
         }         
 
     private void initReponse(int i) {
@@ -232,7 +280,16 @@ public class FXMLmesoffresadoptionController implements Initializable {
             nomrep.setText(u.getEsm());
             emailrep.setText(u.getEmail());
             numerorep.setText(String.valueOf(u.getNumero()));
-
+            
+            confirmerrep.setOnAction((event) -> {
+                AnnonceAdoptionService x = new AnnonceAdoptionService();
+                x.confirmerDemande(TroisRep.get(0).getId());
+                x.traiterAdoption(liste.get(paginator.getCurrentPageIndex()).getId());
+                Notifications.create().title("Confirmation prise en compte").text(u.getEsm()+" a été informé par votre confirmation").showConfirm();
+                liste=x.getAnnonceAdoptionUtilisateur(session.getId());
+                initAnnoncePage(paginator.getCurrentPageIndex());
+            });
+            
         } 
         else { 
             rep.setVisible(false);
@@ -246,6 +303,15 @@ public class FXMLmesoffresadoptionController implements Initializable {
             nomrep1.setText(u1.getEsm());
             emailrep1.setText(u1.getEmail());
             numerorep1.setText(String.valueOf(u1.getNumero()));
+            
+            confirmerrep1.setOnAction((event) -> {
+                AnnonceAdoptionService x = new AnnonceAdoptionService();
+                x.confirmerDemande(TroisRep.get(1).getId());
+                x.traiterAdoption(liste.get(paginator.getCurrentPageIndex()).getId());
+                Notifications.create().title("Confirmation prise en compte").text(u1.getEsm()+" a été informé par votre confirmation").showConfirm();
+                liste=x.getAnnonceAdoptionUtilisateur(session.getId());
+                initAnnoncePage(paginator.getCurrentPageIndex());
+            });
 
         } 
         else { 
@@ -261,6 +327,14 @@ public class FXMLmesoffresadoptionController implements Initializable {
             emailrep2.setText(u2.getEmail());
             numerorep2.setText(String.valueOf(u2.getNumero()));
 
+            confirmerrep2.setOnAction((event) -> {
+                AnnonceAdoptionService x = new AnnonceAdoptionService();
+                x.confirmerDemande(TroisRep.get(2).getId());
+                x.traiterAdoption(liste.get(paginator.getCurrentPageIndex()).getId());
+                Notifications.create().title("Confirmation prise en compte").text(u2.getEsm()+" a été informé par votre confirmation").showConfirm();
+                liste=x.getAnnonceAdoptionUtilisateur(session.getId());
+                initAnnoncePage(paginator.getCurrentPageIndex());
+            });
         } 
         else { 
             rep2.setVisible(false);

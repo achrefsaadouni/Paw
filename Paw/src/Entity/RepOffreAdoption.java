@@ -16,7 +16,7 @@ public class RepOffreAdoption {
     private int id ;
     private int id_annonce;
     private int id_utilisateur;
-    private String etat ;   // Confirmée  ou  Non
+    private String etat ;   // Confirmée  ou  Non confirmée
     private Date date ;
 
     public RepOffreAdoption(int id, int idannonce, int id_utilisateur, String etat, Timestamp date) {
