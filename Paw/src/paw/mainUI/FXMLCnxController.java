@@ -21,6 +21,8 @@ import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -46,6 +48,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
@@ -56,7 +60,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import paw.FXMLDocumentController;
 import paw.MyNotifications;
 import static paw.Paw.session;
 import paw.profile.FXMLprofileController;
@@ -77,8 +83,6 @@ public class FXMLCnxController implements Initializable {
     private Label username;
     @FXML
     private Label email;
-    @FXML
-    private ImageView settings;
     @FXML
     private ImageView profile;
     @FXML
@@ -182,6 +186,10 @@ public class FXMLCnxController implements Initializable {
     private AnchorPane barre;
     @FXML
     private AnchorPane mainwindow;
+    @FXML
+    private ImageView logout;
+    @FXML
+    private StackPane stackpane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -377,9 +385,6 @@ public class FXMLCnxController implements Initializable {
     private void goToNotification(MouseEvent event) {
     }
 
-    @FXML
-    private void goToSettings(MouseEvent event) {
-    }
 
     @FXML
     private void goToChat(MouseEvent event) {
@@ -801,6 +806,56 @@ public class FXMLCnxController implements Initializable {
 
                 break;
         }
+    }
+
+    @FXML
+    private void logoutAction(MouseEvent event) {
+        JFXDialogLayout content =new JFXDialogLayout();
+        content.setHeading(new Text("Déconnexion"));
+        content.setBody(new Text("Êtes-vous sûr de vouloir vous déconnecter ?"));
+        
+        JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.TOP);
+        
+        JFXButton oui = new JFXButton("Se déconecter");
+        oui.setOnAction((e) -> {
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/paw/FXMLDocument.fxml"));
+            try {
+                loader.load();
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            FXMLDocumentController cnt = loader.getController();
+
+
+            Parent root = loader.getRoot();
+            Stage stage=new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+            closeStage();
+            
+            session=null;
+            
+        });
+        
+        JFXButton non = new JFXButton("Annuler");
+        non.setOnAction((e) -> {
+            dialog.close();
+            stackpane.setMouseTransparent(true);
+        });
+        
+        stackpane.setMouseTransparent(false);
+        content.setActions(oui,non);
+        dialog.show();
+    }
+
+    private void closeStage() {
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
     }
 
 }

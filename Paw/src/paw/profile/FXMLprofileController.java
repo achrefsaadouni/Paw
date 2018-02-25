@@ -27,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import static paw.Paw.session;
 import paw.mainUI.FXMLCnxController;
 
@@ -92,6 +93,8 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         usermodif.setText(session.getUsername());
         fmodif.setToggleGroup(togGroup);
         hmodif.setToggleGroup(togGroup);
+        hmodif.setSelectedColor(Color.rgb(51, 122, 183));
+        fmodif.setSelectedColor(Color.rgb(51, 122, 183));
         modifanchor.setVisible(false);
         try{
             avatar.setImage(new Image("http://localhost/pawUsers/"+session.getAvatar()));

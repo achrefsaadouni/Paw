@@ -8,7 +8,6 @@ package paw;
 import Entity.Connexion;
 import Service.ConnexionServices;
 import Service.LoginServices;
-import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -21,6 +20,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import paw.mainUI.FXMLCnxController;
@@ -37,7 +38,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private JFXPasswordField passw;
     @FXML
-    private JFXButton fermer;
+    private ImageView close;
   
     
    @Override
@@ -74,8 +75,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void inscriptionButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        UtilisateurServices o = new UtilisateurServices();
-                o.utilisateurMois(0);
+//        UtilisateurServices o = new UtilisateurServices();
+//                o.utilisateurMois(0);
         loader.setLocation(getClass().getResource("/paw/mainUI/FXMLinscription.fxml"));
         loader.load();
         FXMLinscriptionController cnt = loader.getController();
@@ -113,9 +114,9 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void fermer(ActionEvent event) {
-         Stage stage = (Stage) fermer.getScene().getWindow();
-         stage.close();
+    private void closeWindow(MouseEvent event) {
+        Stage stage = (Stage) close.getScene().getWindow();
+        stage.close();
     }
 
     

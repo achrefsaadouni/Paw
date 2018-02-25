@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -119,29 +120,29 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fx:id="notification" fitHeight="40.0" fitWidth="40.0" layoutX="812.0" layoutY="5.0" onMouseClicked="#goToNotification" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="notification" fitHeight="40.0" fitWidth="40.0" layoutX="816.0" layoutY="5.0" onMouseClicked="#goToNotification" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/icons/ic_notifications_white_48dp_1x.png" />
                </image>
             </ImageView>
             <Label fx:id="email" layoutX="155.0" layoutY="24.0" text="Label" textFill="#bfb3b3" />
             <JFXHamburger fx:id="hamburger" layoutX="25.0" layoutY="14.0" styleClass="jfx-hamburger" />
-            <ImageView fx:id="settings" fitHeight="40.0" fitWidth="40.0" layoutX="852.0" layoutY="5.0" onMouseClicked="#goToSettings" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logout" fitHeight="40.0" fitWidth="83.0" layoutX="947.0" layoutY="5.0" onMouseClicked="#logoutAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Ressource/icons/ic_settings_applications_white_48dp.png" />
+                  <Image url="@../../Ressource/images/logout22.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="chat" fitHeight="40.0" fitWidth="40.0" layoutX="772.0" layoutY="5.0" onMouseClicked="#goToChat" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="chat" fitHeight="40.0" fitWidth="40.0" layoutX="870.0" layoutY="5.0" onMouseClicked="#goToChat" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/icons/ic_chat_white_48dp.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="panier" fitHeight="40.0" fitWidth="40.0" layoutX="646.0" layoutY="4.0" onMouseClicked="#showpanier" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="panier" fitHeight="40.0" fitWidth="40.0" layoutX="763.0" layoutY="5.0" onMouseClicked="#showpanier" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/ic_shopping_cart_white_48dp.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="close" fitHeight="40.0" fitWidth="45.0" layoutX="1046.0" layoutY="4.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="close" fitHeight="40.0" fitWidth="45.0" layoutX="1046.0" layoutY="5.0" onMouseClicked="#closeWindow" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Ressource/images/close2.png" />
                </image>
@@ -345,6 +346,7 @@
       </AnchorPane>
         
                                                                                                       <JFXDrawer fx:id="drawer" defaultDrawerSize="250.0" layoutY="50.0" onDrawerClosing="#closeDrawer" onDrawerOpening="#openDrawer" prefHeight="650.0" prefWidth="250.0" />
+      <StackPane fx:id="stackpane" layoutX="450.0" layoutY="275.0" mouseTransparent="true" prefHeight="150.0" prefWidth="200.0" />
 
    </children>
 </AnchorPane>
