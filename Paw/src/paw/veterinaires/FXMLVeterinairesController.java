@@ -235,6 +235,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             
             eval1.setOnAction((ActionEvent)
                     -> {
+                
                 docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
                 evaluer.setVisible(true);
 
@@ -266,6 +267,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 posVet.setVisible(true);
                 map.clearMarkers();
                 MarkerOptions markerOptions = new MarkerOptions();
+
                 markerOptions.position(new LatLong(QuatreVeterinaires.get(0).getLatitude(), QuatreVeterinaires.get(0).getLongitude()))
                         .visible(Boolean.TRUE)
                         .title("My Marker");
@@ -273,8 +275,13 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
-
+                x=new LatLong(QuatreVeterinaires.get(0).getLatitude(), QuatreVeterinaires.get(0).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
             });
+            
+            
+               
 
         } else {
             box1.setVisible(false);
@@ -336,10 +343,15 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 markerOptions.position(new LatLong(QuatreVeterinaires.get(1).getLatitude(), QuatreVeterinaires.get(1).getLongitude()))
                         .visible(Boolean.TRUE)
                         .title("My Marker");
-
+                
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(1).getLatitude(), QuatreVeterinaires.get(1).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
+                
                 //System.out.println(QuatreVeterinaires.get(1).getLatitude()+"    "+QuatreVeterinaires.get(1).getLongitude());
             });
 
@@ -409,6 +421,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(2).getLatitude(), QuatreVeterinaires.get(2).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
                 //System.out.println(QuatreVeterinaires.get(1).getLatitude()+"    "+QuatreVeterinaires.get(1).getLongitude());
             });
             
@@ -481,6 +497,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(3).getLatitude(), QuatreVeterinaires.get(3).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
               
             });
 
@@ -521,7 +541,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 .scaleControl(false)
                 .streetViewControl(false)
                 .zoomControl(false)
-                .zoom(9);
+                .zoom(6);
 
         map = mapView.createMap(mapOptions);
 
