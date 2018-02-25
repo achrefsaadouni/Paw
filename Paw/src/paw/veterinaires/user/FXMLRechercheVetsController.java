@@ -5,16 +5,22 @@
  */
 package paw.veterinaires.user;
 
+import Entity.Vets;
+import Service.VeterinaireServices;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -35,12 +41,15 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
     private GoogleMapView mapView;
     @FXML
     private TextField addressTextField;
-    
+
     private GeocodingService geocodingService;
-    
+
     private GoogleMap map;
 
     private StringProperty address = new SimpleStringProperty();
+    
+    ArrayList<Vets> list;
+
     /**
      * Initializes the controller class.
      */
@@ -48,7 +57,7 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
     public void initialize(URL url, ResourceBundle rb) {
         mapView.addMapInializedListener(this);
         address.bind(addressTextField.textProperty());
-    }    
+    }
 
     @FXML
     private void addressTextFieldAction(ActionEvent event) {
@@ -77,7 +86,7 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
     public void mapInitialized() {
         geocodingService = new GeocodingService();
         MapOptions mapOptions = new MapOptions();
-
+        
         mapOptions.center(new LatLong(34.17372841, 9.76475011))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(false)
@@ -89,7 +98,31 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
                 .zoom(7);
 
         map = mapView.createMap(mapOptions);
+
+        VeterinaireServices service = new VeterinaireServices();
+        //List<Vets> list = new ArrayList<Vets>();
+        list = service.getList();
         
+        
+        //System.out.println(service.getList());
+        if(list.isEmpty()){
+            System.out.println("mouch mawjouda");
+        }else{System.out.println("mawjouda");}
+        
+        
+        list.forEach((v) -> {
+           
+            MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(new LatLong(v.getLatitude(), v.getLongitude()))
+                        .visible(Boolean.TRUE)
+                        .title("My Marker");
+
+                Marker marker = new Marker(markerOptions);
+
+                map.addMarker(marker);
+            
+        });
+
     }
-    
+
 }
