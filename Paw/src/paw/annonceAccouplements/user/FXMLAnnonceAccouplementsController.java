@@ -7,12 +7,17 @@ package paw.annonceAccouplements.user;
 
 import Entity.AnnonceAccouplement;
 import Service.AnnonceAccouplementServices;
+import Utility.Checksum;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,6 +31,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import paw.veterinaires.admin.FXMLAjoutVeterinaireController;
 
 /**
  * FXML Controller class
@@ -65,7 +71,10 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
     @FXML
     private JFXTextField msgInsertion;
     private File file;
-
+    @FXML
+    private JFXTextField lieu;
+    
+    private String chaine;
     /**
      * Initializes the controller class.
      */
@@ -117,7 +126,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
         } 
        
         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))
-                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))
+                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(lieu.getText()))
                  && (!"".equals(choixInsertion.getValue()))&& (!"".equals(poilInsertion.getValue())))
         {
 // String colier, Date date_trouvee, String lieu_perdu, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date           
@@ -145,6 +154,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
                     poilInsertion.getValue(),
                     vaccin, 
                     dossier,
+                    lieu.getText(),
                     0 , 
                     Integer.parseInt(ageInsertion.getText()),
                     couleurInsertion.getText(),
@@ -163,6 +173,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
             msgInsertion.setText("");
             couleurInsertion.setText("");
             choixInsertion.setValue("Chien");
+            lieu.setText("");
             
         }
     }
@@ -180,8 +191,23 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
         file = fileChoser.showOpenDialog(theStage);
         if (file != null) {
             Image im = new Image("file:///" + file.toPath().toString());
-            System.out.println("Je suis présent");
             imajout1.setImage(im);
-    }   
-}
+                   
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "C:\\wamp64\\www\\pawPets\\"+imageName + extension;
+            chaine =imageName + extension;
+            System.out.println(chaine);
+            File dest = new File(filePath);
+            Files.copy(
+                    file.toPath(), 
+                    dest.toPath(), 
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLAnnonceAccouplementsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
 }

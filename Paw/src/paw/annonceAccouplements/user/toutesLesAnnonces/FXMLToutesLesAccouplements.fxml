@@ -175,27 +175,27 @@
                      </font>
                   </Label>
                   <Separator layoutX="10.0" layoutY="39.0" prefHeight="16.0" prefWidth="529.0" />
-                  <Label layoutX="55.0" layoutY="73.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Animal à accoupler :" textFill="#7a7a7a">
+                  <Label layoutX="55.0" layoutY="57.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Animal à accoupler :" textFill="#7a7a7a">
                      <font>
                         <Font name="Roboto Slab Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="158.0" layoutY="110.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Sexe :" textFill="#7a7a7a">
+                  <Label layoutX="158.0" layoutY="94.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Sexe :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="68.0" layoutY="145.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Vaccin mis à jour :" textFill="#7a7a7a">
+                  <Label layoutX="68.0" layoutY="129.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Vaccin mis à jour :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="80.0" layoutY="181.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Dossier médical :" textFill="#7a7a7a">
+                  <Label layoutX="80.0" layoutY="165.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Dossier médical :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="103.0" layoutY="219.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Type de poil :" textFill="#7a7a7a">
+                  <Label layoutX="103.0" layoutY="203.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Type de poil :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
@@ -214,41 +214,47 @@
                         <Image url="@../../../../Ressource/images/couple.jpg" />
                      </image>
                   </ImageView>
-                  <Label layoutX="155.0" layoutY="252.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Race :" textFill="#7a7a7a">
+                  <Label layoutX="155.0" layoutY="236.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Race :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="132.0" layoutY="289.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Couleur :" textFill="#7a7a7a">
+                  <Label layoutX="132.0" layoutY="273.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Couleur :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="160.0" layoutY="324.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Age :" textFill="#7a7a7a">
+                  <Label layoutX="160.0" layoutY="308.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Age :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="6.0" layoutY="357.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Message complémentaire :" textFill="#7a7a7a">
+                  <Label layoutX="6.0" layoutY="341.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Message complémentaire :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="type" layoutX="213.0" layoutY="75.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="sexe" layoutX="213.0" layoutY="112.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="vaccin" layoutX="213.0" layoutY="147.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="dossier" layoutX="213.0" layoutY="183.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="poil" layoutX="213.0" layoutY="221.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="race" layoutX="212.0" layoutY="254.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="couleur" layoutX="212.0" layoutY="291.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="age" layoutX="212.0" layoutY="326.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label fx:id="message" layoutX="212.0" layoutY="358.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
-                  <Label layoutX="48.0" layoutY="389.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Date de publication :" textFill="#7a7a7a">
+                  <Label fx:id="type" layoutX="213.0" layoutY="59.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="sexe" layoutX="213.0" layoutY="96.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="vaccin" layoutX="213.0" layoutY="131.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="dossier" layoutX="213.0" layoutY="167.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="poil" layoutX="213.0" layoutY="205.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="race" layoutX="212.0" layoutY="238.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="couleur" layoutX="212.0" layoutY="275.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="age" layoutX="212.0" layoutY="310.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="message" layoutX="212.0" layoutY="342.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label layoutX="48.0" layoutY="376.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Date de publication :" textFill="#7a7a7a">
                      <font>
                         <Font name="Serif Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="date" layoutX="212.0" layoutY="389.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label fx:id="date" layoutX="212.0" layoutY="376.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
+                  <Label layoutX="156.0" layoutY="407.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Lieu :" textFill="#7a7a7a">
+                     <font>
+                        <Font name="Serif Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lieu" layoutX="210.0" layoutY="409.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
                </children>
             </AnchorPane>
          </children>

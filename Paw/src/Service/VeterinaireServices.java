@@ -7,13 +7,19 @@ package Service;
 
 import Entity.Veterinaire;
 import Entity.Vets;
+import Utility.Checksum;
 import Utility.DbHandler;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -32,7 +38,9 @@ public class VeterinaireServices {
     }
 
     public void insererVeterinaire(Veterinaire p) {
-        String req = "INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email,longitude,latitude) VALUES(?,?,?,?,?,?,?,?)";
+        String images = "";
+        images = p.getImages().getPath();
+        String req = "INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email,longitude,latitude,images) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setString(1, p.getNom());
@@ -43,6 +51,7 @@ public class VeterinaireServices {
             ste.setString(6, p.getEmail());
             ste.setDouble(7, p.getLongitude());
             ste.setDouble(8, p.getLatitude());
+            ste.setString(9, images);
             //
             ste.executeUpdate();
 
@@ -77,7 +86,6 @@ public class VeterinaireServices {
         return list;
     }
 
-
     public ArrayList<Vets> getList() {
         String req = "SELECT * FROM Veterinaire";
         ArrayList<Veterinaire> list = new ArrayList();
@@ -94,7 +102,9 @@ public class VeterinaireServices {
                 String email = rs.getString("email");
                 double longitude = rs.getDouble("longitude");
                 double latitude = rs.getDouble("latitude");
-                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email, longitude, latitude));
+                /////**********//////
+                File images=new File(rs.getString("images"));
+                list.add(new Veterinaire(id, nom, prenom, adresse, region, numero, email, longitude, latitude, images));
             }
 
         } catch (SQLException ex) {
@@ -120,7 +130,7 @@ public class VeterinaireServices {
             ste.setInt(5, p.getNumero());
             ste.setString(6, p.getEmail());
             ste.setInt(7, id);
-
+            
             ste.executeUpdate();
 
         } catch (SQLException ex) {
@@ -159,8 +169,8 @@ public class VeterinaireServices {
         }
         return y;
     }
-    
-    public void setRating(int id_veterinaire, int id_utilisateur , int valeur) {
+
+    public void setRating(int id_veterinaire, int id_utilisateur, int valeur) {
         String req = "INSERT INTO rating(id_veterinaire, id_utilisateur, valeur) VALUES(?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -174,24 +184,24 @@ public class VeterinaireServices {
         }
 
     }
-    
-    public void updateRating(int valeur, int id_utilisateur , int id_veterinaire) {
+
+    public void updateRating(int valeur, int id_utilisateur, int id_veterinaire) {
         String req = "UPDATE rating SET valeur=? WHERE (id_utilisateur=? AND id_veterinaire=?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setInt(1, valeur);
             ste.setInt(2, id_utilisateur);
             ste.setInt(3, id_veterinaire);
-            
+
             ste.executeUpdate();
 
         } catch (SQLException ex) {
             System.out.println("Problème rating");
         }
-        }
-        
-        public int getRating(int id_utilisateur, int id_veterinaire){
-            String req = "SELECT * FROM rating WHERE id_utilisateur=? AND id_veterinaire=?";
+    }
+
+    public int getRating(int id_utilisateur, int id_veterinaire) {
+        String req = "SELECT * FROM rating WHERE id_utilisateur=? AND id_veterinaire=?";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setInt(1, id_utilisateur);
@@ -206,9 +216,24 @@ public class VeterinaireServices {
             System.out.println("Problème rating");
         }
         return 0;
+    }
+    
+    public String imageSave(File file) {
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "C:\\Users\\gmehd\\Documents\\Paw\\Paw\\src\\Ressource\\images\\" + imageName + extension;
+            File dest = new File(filePath);
+            Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            return filePath;
+        } catch (Exception ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
+    }
 
-     public int nombre() {
+    public int nombre() {
         int y = 0;
         String sql = "SELECT count(*) as nbr FROM `veterinaire`";
         try {

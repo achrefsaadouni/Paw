@@ -103,7 +103,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="353.0" layoutY="266.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+            <JFXTextField fx:id="msgInsertion" labelFloat="true" layoutX="341.0" layoutY="300.0" prefHeight="62.0" prefWidth="249.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+            <JFXTextField fx:id="lieu" labelFloat="true" layoutX="341.0" layoutY="243.0" promptText="LIEU" />
          </children>
       </AnchorPane>
    </children>
