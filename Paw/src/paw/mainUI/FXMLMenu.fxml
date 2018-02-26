@@ -14,37 +14,37 @@
    <children>
       <JFXButton fx:id="trouver" accessibleText="AnnonceTrouvées" buttonType="RAISED" layoutX="60.0" layoutY="208.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Trouvés" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="perdu" accessibleText="AnnoncePerdus" buttonType="RAISED" layoutX="60.0" layoutY="138.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Animaux Perdus" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="vet" accessibleText="veterinaire" buttonType="RAISED" layoutX="60.0" layoutY="348.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Vétérinaires" textFill="WHITE">
          <font>
-            <Font name="Century Gothic Bold" size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="boutq" accessibleText="boutique" buttonType="RAISED" layoutX="60.0" layoutY="418.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Boutique" textFill="WHITE">
          <font>
-            <Font name="Century Gothic Bold" size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="adoption" accessibleText="AnnonceAdoption" buttonType="RAISED" layoutX="60.0" layoutY="488.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Adoption" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="train" accessibleText="Training" buttonType="RAISED" layoutX="60.0" layoutY="278.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Training" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="trouver1" accessibleText="acceuil" buttonType="RAISED" layoutX="60.0" layoutY="68.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Acceuil" textFill="WHITE">
+      <JFXButton fx:id="trouver1" accessibleText="acceuil" buttonType="RAISED" layoutX="60.0" layoutY="68.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Accueil" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
       <GridPane fx:id="icon_user" layoutX="10.0" layoutY="68.0" prefHeight="106.0" prefWidth="50.0">
@@ -72,14 +72,14 @@
                   <Image url="@../../Ressource/images/search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+            <ImageView fitHeight="30.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
                   <Image url="@../../Ressource/images/dog-in-front-of-a-man.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../Ressource/images/syringe.png" />
+                  <Image url="@../../Ressource/icons/dog-checked-by-a-veterinary.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
@@ -92,9 +92,9 @@
                   <Image url="@../../Ressource/images/shop.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../Ressource/images/pawprint.png" />
+                  <Image url="@../../Ressource/icons/man-protecting-a-dog-with-an-umbrella.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
@@ -107,7 +107,7 @@
       <Separator layoutX="58.0" layoutY="-1.0" opacity="0.28" orientation="VERTICAL" prefHeight="650.0" prefWidth="8.0" />
       <JFXButton fx:id="adoption1" accessibleText="sitting" buttonType="RAISED" layoutX="60.0" layoutY="558.0" prefHeight="70.0" prefWidth="190.0" styleClass="buttons" stylesheets="@style.css" text="Sitting" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </JFXButton>
    </children>

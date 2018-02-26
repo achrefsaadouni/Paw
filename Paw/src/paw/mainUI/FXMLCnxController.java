@@ -232,7 +232,33 @@ public class FXMLCnxController implements Initializable {
                                         Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                 }
+                                case "gerer_utilisateurs": {
+                                    try {
 
+                                        loadSplashScreenAdmin("/paw/ayoubAdmin/utilisateurs/FXMLutilisateurs.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "reclamations": {
+                                    try {
+
+                                        loadSplashScreenAdmin("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                case "statistique": {
+                                    try {
+
+                                        loadSplashScreenAdmin("/paw/ayoubAdmin/statistiques/FXMLstatistiques.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
                                 case "gerer_achat": {
                                     try {
                                         loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
