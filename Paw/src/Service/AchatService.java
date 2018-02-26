@@ -44,10 +44,12 @@ public class AchatService {
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setInt(1, a.getId_client());
-            if(a.getPrix()>30)
+            if(a.getPrix()>=30)
             ste.setDouble(2, a.getPrix());
             else
-            ste.setDouble(2, a.getPrix()+5);   
+            {
+                ste.setDouble(2, a.getPrix()+5);
+            }   
             ste.setString(3, a.getEtat());
             ste.executeUpdate();     
         try {

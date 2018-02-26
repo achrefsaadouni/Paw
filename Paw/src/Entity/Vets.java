@@ -5,6 +5,8 @@
  */
 package Entity;
 
+import java.io.File;
+
 /**
  *
  * @author gmehd
@@ -21,6 +23,7 @@ public class Vets {
     private Float rate;
     private double longitude;
     private double latitude;
+    private File images;
 
     public Vets(Veterinaire v, Float rate) {
         this.rate = rate;
@@ -33,6 +36,8 @@ public class Vets {
         this.email = v.getEmail();
         this.latitude=v.getLatitude();
         this.longitude=v.getLongitude();
+        this.images = v.getImages();
+        
     }
 
     public Vets(int id, String nom, String prenom, String adresse, String region, int numero, String email, Float rate, double longitude, double latitude) {
@@ -47,6 +52,23 @@ public class Vets {
         this.longitude = longitude;
         this.latitude = latitude;
     }
+
+    public Vets(int id, String nom, String prenom, String adresse, String region, int numero, String email, Float rate, double longitude, double latitude, File images) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.region = region;
+        this.numero = numero;
+        this.email = email;
+        this.rate = rate;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.images = images;
+        
+    }
+    
+    
     
     
 
@@ -128,5 +150,13 @@ public class Vets {
 
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+    }
+
+    public File getImages() {
+        return images;
+    }
+
+    public void setImages(File images) {
+        this.images = images;
     }
 }

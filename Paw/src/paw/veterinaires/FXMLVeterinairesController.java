@@ -1,5 +1,6 @@
 package paw.veterinaires;
 
+
 import Entity.Vets;
 import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXButton;
@@ -23,10 +24,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Rating;
 import static paw.Paw.session;
+
 
 public class FXMLVeterinairesController implements Initializable, MapComponentInitializedListener {
 
@@ -141,6 +145,14 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
     private GoogleMap map;
     
     LatLong x;
+    @FXML
+    private ImageView photo1;
+    @FXML
+    private ImageView photo2;
+    @FXML
+    private ImageView photo3;
+    @FXML
+    private ImageView photo4;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -216,8 +228,14 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
             }
             
+            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(0).getImages());
+//            photo1.setFitHeight(225);
+//            photo1.setFitWidth(250);
+            photo1.setImage(im);
+            
             eval1.setOnAction((ActionEvent)
                     -> {
+                
                 docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(0).getNom() + " " + QuatreVeterinaires.get(0).getPrenom());
                 evaluer.setVisible(true);
 
@@ -249,6 +267,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 posVet.setVisible(true);
                 map.clearMarkers();
                 MarkerOptions markerOptions = new MarkerOptions();
+
                 markerOptions.position(new LatLong(QuatreVeterinaires.get(0).getLatitude(), QuatreVeterinaires.get(0).getLongitude()))
                         .visible(Boolean.TRUE)
                         .title("My Marker");
@@ -256,8 +275,13 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
-
+                x=new LatLong(QuatreVeterinaires.get(0).getLatitude(), QuatreVeterinaires.get(0).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
             });
+            
+            
+               
 
         } else {
             box1.setVisible(false);
@@ -278,7 +302,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             } else {
                 note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
             }
-
+            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(1).getImages());
+//            photo2.setFitHeight(225);
+//            photo2.setFitWidth(250);
+            photo2.setImage(im);
             eval2.setOnAction((ActionEvent)
                     -> {
                 docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(1).getNom() + " " + QuatreVeterinaires.get(1).getPrenom());
@@ -316,10 +343,15 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 markerOptions.position(new LatLong(QuatreVeterinaires.get(1).getLatitude(), QuatreVeterinaires.get(1).getLongitude()))
                         .visible(Boolean.TRUE)
                         .title("My Marker");
-
+                
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(1).getLatitude(), QuatreVeterinaires.get(1).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
+                
                 //System.out.println(QuatreVeterinaires.get(1).getLatitude()+"    "+QuatreVeterinaires.get(1).getLongitude());
             });
 
@@ -342,7 +374,12 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             } else {
                 note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
             }
-
+            
+            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(2).getImages());
+//            photo3.setFitHeight(225);
+//            photo3.setFitWidth(250);
+            photo3.setImage(im);
+            
             eval3.setOnAction((ActionEvent)
                     -> {
                 docteur.setText("Evaluer Dr." + QuatreVeterinaires.get(2).getNom() + " " + QuatreVeterinaires.get(2).getPrenom());
@@ -384,6 +421,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(2).getLatitude(), QuatreVeterinaires.get(2).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
                 //System.out.println(QuatreVeterinaires.get(1).getLatitude()+"    "+QuatreVeterinaires.get(1).getLongitude());
             });
             
@@ -409,7 +450,12 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             } else {
                 note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
             }
-
+            
+            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(3).getImages());
+//            photo4.setFitHeight(225);
+//            photo4.setFitWidth(250);
+            photo4.setImage(im);
+            
             eval4.setOnAction((ActionEvent)
                     -> {
                 docteur.setText("Evaluer Dr. " + QuatreVeterinaires.get(3).getNom() + " " + QuatreVeterinaires.get(3).getPrenom());
@@ -451,6 +497,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 Marker marker = new Marker(markerOptions);
 
                 map.addMarker(marker);
+                
+                x=new LatLong(QuatreVeterinaires.get(3).getLatitude(), QuatreVeterinaires.get(3).getLongitude());
+                map.setCenter(x);
+                map.setZoom(9);
               
             });
 
@@ -491,7 +541,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 .scaleControl(false)
                 .streetViewControl(false)
                 .zoomControl(false)
-                .zoom(9);
+                .zoom(6);
 
         map = mapView.createMap(mapOptions);
 

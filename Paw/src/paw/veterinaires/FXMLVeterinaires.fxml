@@ -58,7 +58,7 @@
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
-                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="photo1" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Ressource/images/avatar.png" />
                      </image>
@@ -112,7 +112,7 @@
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
-                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="photo2" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Ressource/images/avatar.png" />
                      </image>
@@ -170,7 +170,7 @@
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
-                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="photo3" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Ressource/images/avatar.png" />
                      </image>
@@ -224,7 +224,7 @@
                      </children>
                   </Pane>
                   <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
-                  <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="photo4" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Ressource/images/avatar.png" />
                      </image>

@@ -40,7 +40,7 @@ public class AnnonceAccouplementServices {
     public void insererAnnonceAccouplement(AnnonceAccouplement a) {
         String images = "";
        images = a.getImages().getPath().toString();
-        String req = "INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,type_poil,vaccin,dossier,images,utilisateur_id) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)";
+        String req = "INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,lieu_trouve,type_poil,vaccin,dossier,images,utilisateur_id) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
             ste.setInt(1, a.getAge());
@@ -50,13 +50,14 @@ public class AnnonceAccouplementServices {
             ste.setString(5, a.getMessage_complementaire());
             ste.setString(6, a.getType());
             ste.setString(7, "annonce_accouplement");
-            ste.setString(8, a.getType_poil());
-            ste.setString(9, a.getVaccin());
-            ste.setString(10, a.getDossier());
-            ste.setString(11, images);
-            ste.setInt(12, a.getId_utilisateur());
-
-            System.out.println("avant");
+            ste.setString(8,a.getLieu());
+            ste.setString(9, a.getType_poil());
+            ste.setString(10, a.getVaccin());
+            ste.setString(11, a.getDossier());
+            ste.setString(12, images);
+            ste.setInt(13, a.getId_utilisateur());
+            
+            //System.out.println("avant");
             ste.executeUpdate();
 
         } catch (SQLException ex) {
@@ -97,13 +98,14 @@ public class AnnonceAccouplementServices {
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
                 String type_annonce = rs.getString("type_annonce");
+                String lieu = rs.getString("lieu_trouve");
                 String type_poil = rs.getString("type_poil");
                 String vaccin = rs.getString("vaccin");
                 String dossier = rs.getString("dossier");
                 File images=new File(rs.getString("images"));
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 
-                list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
+                list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, lieu, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -128,13 +130,14 @@ public class AnnonceAccouplementServices {
                 String type = rs.getString("type");
                 Timestamp date = rs.getTimestamp("date");
                 String type_annonce = rs.getString("type_annonce");
+                String lieu = rs.getString("lieu_trouve");
                 String type_poil = rs.getString("type_poil");
                 String vaccin = rs.getString("vaccin");
                 String dossier = rs.getString("dossier");
                 File images=new File(rs.getString("images"));
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 
-                list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
+                list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, lieu, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
             }
 
         } catch (SQLException ex) {
@@ -163,16 +166,18 @@ public class AnnonceAccouplementServices {
                 String  type= rs.getString("type");
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
+                String lieu=rs.getString("lieu_trouve") ;
+             
                 String  type_poil= rs.getString("type_poil");
                 String  vaccin= rs.getString("vaccin");
                 String  dossier= rs.getString("dossier");
-                //String lieu=rs.getString("lieu_perdu") ;
+                
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 File images=new File(rs.getString("images"));
                 
                 //////////////////////////////////////////////////
                 
-            list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
+            list.add(new AnnonceAccouplement(type_poil, vaccin, dossier, lieu, id, age, couleur, sex, race, message_complementaire, type, date, images, id_utilisateur));
         }
 
         } catch (SQLException ex) {
@@ -183,23 +188,23 @@ public class AnnonceAccouplementServices {
     }
 
     public void updateAnnonceAccouplement(AnnonceAccouplement a, int id) {
-        String req = "UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,type_poil=?,vaccin=?,dossier=?  WHERE id =?";
+        String req = "UPDATE annonce SET age=?,couleur=?,sex=?,race=?,message_complementaire=?,type=?,lieu_trouve=?,type_poil=?,vaccin=?,dossier=?  WHERE id =?";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
-
+            
             ste.setInt(1, a.getAge());
             ste.setString(2, a.getCouleur());
             ste.setString(3, a.getSex());
             ste.setString(4, a.getRace());
             ste.setString(5, a.getMessage_complementaire());
             ste.setString(6, a.getType());
-            ste.setString(7, a.getType_poil());
-            ste.setString(8, a.getVaccin());
-            ste.setString(9, a.getDossier());
+            ste.setString(7, a.getLieu());
+            ste.setString(8, a.getType_poil());
+            ste.setString(9, a.getVaccin());
+            ste.setString(10, a.getDossier());
 
-            ste.setInt(10, id);
+            ste.setInt(11, id);
             ste.executeUpdate();
-            System.out.println("Services mrigla frère");
         } catch (SQLException ex) {
             System.out.println(ex);
         }

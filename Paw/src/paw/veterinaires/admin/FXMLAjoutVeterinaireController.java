@@ -6,7 +6,10 @@
 package paw.veterinaires.admin;
 
 import Entity.Veterinaire;
+import Service.ProduitService;
 import Service.VeterinaireServices;
+import Utility.Checksum;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.lynden.gmapsfx.GoogleMapView;
@@ -21,8 +24,13 @@ import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -30,10 +38,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import netscape.javascript.JSObject;
 
 /**
@@ -68,6 +81,14 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     
     @FXML
     private JFXListView<String> gouv;
+    @FXML
+    private JFXButton upload;
+    @FXML
+    private ImageView imajout1;
+    
+    private String chaine;
+    
+    private File file;
     /**
      * Initializes the controller class.
      */
@@ -214,12 +235,46 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
          if ((!"".equals(emailInsertion.getText()))&&(!"".equals(nomInsertion.getText()))&& (!"".equals(prenomInsertion.getText()))&&(!"".equals(adresseInsertion.getText()))&&(!"".equals(numeroInsertion.getText())))
         {
             VeterinaireServices service = new VeterinaireServices();
-            service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getSelectionModel().getSelectedItem(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText(),x.getLongitude(),x.getLatitude()));
+            File img = new File(chaine);
+            service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getSelectionModel().getSelectedItem(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText(),x.getLongitude(),x.getLatitude(), img));
             emailInsertion.setText("");
             nomInsertion.setText("");
             prenomInsertion.setText("");
             adresseInsertion.setText("");
             numeroInsertion.setText("");
         }
+    }
+
+    @FXML
+    private void fileChoosing(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Window theStage = source.getScene().getWindow();
+        FileChooser fileChoser = new FileChooser();
+        fileChoser.setTitle("Sélectionnez Des images");
+        fileChoser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.bmp", "*.jpeg", "*.gif")
+       
+        );
+        file = fileChoser.showOpenDialog(theStage);
+        if (file != null) {
+            Image im = new Image("file:///" + file.toPath().toString());
+            imajout1.setImage(im);
+                   
+           
+        try {
+            String imageName = Checksum.createChecksum(file.getAbsolutePath());
+            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
+            String filePath = "C:\\wamp64\\www\\pawVets\\"+imageName + extension;
+            chaine =imageName + extension;
+            System.out.println(chaine);
+            File dest = new File(filePath);
+            Files.copy(
+                    file.toPath(), 
+                    dest.toPath(), 
+                    StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLAjoutVeterinaireController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     }
 }

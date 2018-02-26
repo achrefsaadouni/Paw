@@ -241,7 +241,7 @@ public class FXMLmesoffresadoptionController implements Initializable {
             else
             {
                 confirmerrep1.setVisible(true);
-                rep1.setStyle("-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;");
+                rep1.setStyle("-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #455A64; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;");
                 isconfirmed.setVisible(false);
                 reponses= servrep.getRep(liste.get(i).getId());
                 setNbrep();

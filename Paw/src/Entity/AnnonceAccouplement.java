@@ -17,13 +17,14 @@ public class AnnonceAccouplement extends Annonce {
     private String type_poil  ; 
     private String vaccin ; 
     private String dossier ;
-    //private String lieu;
+    private String lieu;
 
-    public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images,int utilisateur_id) {
+    public AnnonceAccouplement(String type_poil, String vaccin, String dossier, String lieu, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images,int utilisateur_id) {
         super(id, age, couleur, sex, race, message_complementaire, type, date,utilisateur_id, images);
         this.type_poil = type_poil;
         this.vaccin = vaccin;
         this.dossier = dossier;
+        this.lieu = lieu;
     }
     public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
@@ -101,6 +102,14 @@ public class AnnonceAccouplement extends Annonce {
     @Override
     public String toString() {
         return "Accouplement{" + "type_poil=" + type_poil + ", vaccin=" + vaccin + ", dossier=" + dossier + '}';
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
     }
     
     

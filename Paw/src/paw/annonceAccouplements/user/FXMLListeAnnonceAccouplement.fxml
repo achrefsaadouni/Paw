@@ -246,7 +246,7 @@
                   </Label>
                   <JFXTextField fx:id="ageInsertion1" labelFloat="true" layoutX="399.0" layoutY="290.0" promptText="AGE" />
                   <JFXTextField fx:id="couleurInsertion1" labelFloat="true" layoutX="214.0" layoutY="290.0" promptText="COULEUR" />
-                  <JFXTextField fx:id="msgInsertion1" labelFloat="true" layoutX="193.0" layoutY="368.0" prefWidth="165.0" promptText="MESSAGE_COMPLEMENTAIRE" />
+                  <JFXTextField fx:id="msgInsertion1" labelFloat="true" layoutX="318.0" layoutY="363.0" prefHeight="49.0" prefWidth="207.0" promptText="MESSAGE_COMPLEMENTAIRE" />
                   <Separator layoutX="10.0" layoutY="435.0" prefHeight="16.0" prefWidth="529.0" />
                   <JFXButton fx:id="valider" layoutX="288.0" layoutY="451.0" onAction="#actionModification2" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #26B99A;" text="Modifier" textFill="WHITE">
                      <font>
@@ -269,6 +269,7 @@
                         <Image url="@../../../Ressource/images/couple.jpg" />
                      </image>
                   </ImageView>
+                  <JFXTextField fx:id="lieu" labelFloat="true" layoutX="100.0" layoutY="388.0" promptText="LIEU" />
                </children>
             </AnchorPane>
          </children>

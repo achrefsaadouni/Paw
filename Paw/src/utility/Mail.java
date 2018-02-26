@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class Mail {
     
-	public static void send(String recepteur,String code ){
+	public static void send(String recepteur,String titre,String contenu){
 
 		final String username = "pawzcorporation@gmail.com"; // enter your mail id
 		final String password = "pawz0000";// enter ur password
@@ -29,22 +29,23 @@ public class Mail {
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
-
+                    
 		Session session = Session.getInstance(props,
 		  new javax.mail.Authenticator() {
+                        @Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
 		  });
-
+                
 		try {
-
+                        System.out.println(recepteur);
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("pawzcorporation@gmail.com")); // same email id
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(recepteur));// whome u have to send mails that person id
-			message.setSubject("test");
-			message.setText("Pour Confimer votre Commande vueillez Utiliser se code : "+code);
+			message.setSubject(titre);
+			message.setText(contenu);
 
 			Transport.send(message);
 
