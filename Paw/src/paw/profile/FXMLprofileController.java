@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,8 +7,10 @@ package paw.profile;
 
 import Entity.Utilisateur;
 import Service.AchatService;
+import Service.AnnonceAdoptionService;
 import Service.AnnonceServices;
 import Service.LoginServices;
+import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
@@ -82,6 +84,10 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     private StackPane stack;
     @FXML
     private AnchorPane details;
+    @FXML
+    private Label reclamations;
+    @FXML
+    private Label mesoffresadoption;
 
     /**
      * Initializes the controller class.
@@ -140,52 +146,6 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         }
     }
 
-    @FXML
-    private void goToStatistiques(ActionEvent event) {
-        try {
-            loadSplashScreen("/paw/ayoubAdmin/statistiques/FXMLstatistiques.fxml");
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void goToListeAdoption(ActionEvent event) {
-        try {                    
-            loadSplashScreen("/paw/annonceadoption/FXMLliste.fxml");
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }
-    
-    
-    
-    
-    
-    
-//    try{
-//            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
-//        } catch (Exception ex) {
-//            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-    @FXML
-    private void goToListeUtilisateurs(ActionEvent event) {
-        try {
-            loadSplashScreen("/paw/ayoubAdmin/utilisateurs/FXMLutilisateurs.fxml");
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void goToMesOffresAdoption(ActionEvent event) {
-        try {                    
-            loadSplashScreen("/paw/annonceadoption/FXMLmesoffresadoption.fxml");
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }
 
     @FXML
     private void modifier(ActionEvent event) {
@@ -235,19 +195,30 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         email.setText(session.getEmail());
         numero.setText(String.valueOf(session.getNumero()));
         date.setText("Inscris depuis : "+String.valueOf((session.getDateInscription())));
+        
+        
         AnnonceServices a = new AnnonceServices();
-        annonces.setText(String.valueOf(a.getMesAnnonces(session.getId()).size()));
+        annonces.setText(String.valueOf(a.getNbrMesAnnoncesLAF(session.getId())));
         AchatService s = new AchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
+        AnnonceAdoptionService aas = new AnnonceAdoptionService();
+        mesoffresadoption.setText(String.valueOf(aas.nombreMesOffres(session.getId())));
+        ReclamationServices rs = new ReclamationServices();
+        reclamations.setText(String.valueOf(rs.nombreMesReclamations(session.getId())));
     }
 
     @FXML
-    private void goToAdminRecl(ActionEvent event) {
-        try{
-            loadSplashScreen("/paw/ayoubAdmin/reclamation/FXMLreclamation.fxml");
+    private void goToMesOffresAdoption(MouseEvent event) {
+        try {                    
+            loadSplashScreen("/paw/annonceadoption/FXMLmesoffresadoption.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
+    }
+
+    @FXML
+    private void annulation(ActionEvent event) {
+        modifanchor.setVisible(false);
     }
     
 }

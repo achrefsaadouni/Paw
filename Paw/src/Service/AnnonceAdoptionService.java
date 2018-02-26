@@ -366,4 +366,22 @@ public class AnnonceAdoptionService {
         }
         return y;
     }
+
+    public int nombreMesOffres(int i) {
+            int y=0;    
+            String req="SELECT * FROM annonce WHERE utilisateur_id=? and type_annonce like 'Annonce_adoption'" ;
+            try {
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                y++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("getAnnonceAdoptionUtilisateur");
+        }
+        return y;
+    }
 }
