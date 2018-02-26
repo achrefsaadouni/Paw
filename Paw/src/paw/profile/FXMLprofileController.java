@@ -89,6 +89,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     public void initialize(URL url, ResourceBundle rb) { 
         //System.out.println(session.getAvatar());
         ToggleGroup togGroup = new ToggleGroup();
+        usermodif.setText(session.getUsername());
         fmodif.setToggleGroup(togGroup);
         hmodif.setToggleGroup(togGroup);
         modifanchor.setVisible(false);

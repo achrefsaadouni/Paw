@@ -3,29 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annoncewalking;
+package paw.veterinaires.user;
 
-/**
- *
- * @author Lenovo
- */
+import java.io.IOException;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class AnnonceWalkingUI extends Application {
+/**
+ *
+ * @author gmehd
+ */
+public class RechercheVetsUI extends Application {
     
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLAnnonceWalking.fxml"));
+    @Override
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/paw/veterinaires/user/FXMLRechercheVets.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

@@ -15,6 +15,12 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
+/**
+ *
+ * @author Lenovo
+ */
+
 public class AnnonceTrainingServices {
     protected Connection connection;
     private DbHandler handler;
@@ -122,6 +128,7 @@ public class AnnonceTrainingServices {
         }
         
     
+
     }
     
       public ArrayList<AnnonceTraining> getAnnonceTraining() {
@@ -157,6 +164,24 @@ public class AnnonceTrainingServices {
              System.out.println("getAnnonceTraining");
         }
         return list;      
+
+      }
+     
+     
+       public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `annoncetr`";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+
     }
     
 }

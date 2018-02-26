@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.Separator?>
@@ -116,7 +117,7 @@
                </children>
             </GridPane>
             <Pagination fx:id="paginator" layoutX="85.0" layoutY="348.0" prefHeight="200.0" prefWidth="200.0" />
-            <StackPane fx:id="listevide" layoutX="-35.0" layoutY="114.0" prefHeight="159.0" prefWidth="485.0">
+            <StackPane fx:id="listevide" layoutX="-35.0" layoutY="224.0" prefHeight="159.0" prefWidth="485.0">
                <children>
                   <Label prefHeight="159.0" prefWidth="390.0" text="Vous n'avez pas d'offre d'adoption" textAlignment="CENTER" textFill="#42a5f5" wrapText="true">
                      <font>
@@ -125,6 +126,7 @@
                   </Label>
                </children>
             </StackPane>
+            <ImageView fx:id="image" fitHeight="177.0" fitWidth="200.0" layoutX="108.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <Label alignment="CENTER" layoutX="16.0" layoutY="18.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes offres d'adoption" />
@@ -138,6 +140,179 @@
             </Label>
          </children>
       </StackPane>
-      <Pagination fx:id="paginator2" layoutX="627.0" layoutY="382.0" prefHeight="200.0" prefWidth="324.0" />
+      <Pagination fx:id="paginator2" layoutX="627.0" layoutY="448.0" pageCount="10" prefHeight="200.0" prefWidth="324.0" />
+      <Pane fx:id="rep" layoutX="494.0" layoutY="85.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <Label fx:id="daterep" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomrep" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_person_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailrep" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_mail_outline_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
+            <Label fx:id="numerorep" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="367.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_call_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <JFXButton fx:id="confirmerrep" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane fx:id="rep1" layoutX="494.0" layoutY="260.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <Label fx:id="daterep1" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomrep1" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_person_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailrep1" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_mail_outline_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
+            <Label fx:id="numerorep1" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_call_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <JFXButton fx:id="confirmerrep1" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane fx:id="rep2" layoutX="494.0" layoutY="435.0" prefHeight="165.0" prefWidth="584.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #F4511E; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+         <children>
+            <Label fx:id="daterep2" layoutX="365.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomrep2" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="324.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_person_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailrep2" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="391.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_mail_outline_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
+            <Label fx:id="numerorep2" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="391.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_call_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <JFXButton fx:id="confirmerrep2" buttonType="RAISED" layoutX="426.0" layoutY="116.0" onAction="#login" prefHeight="37.0" prefWidth="117.0" style="-fx-background-color: #00718A;" text="Céder l'animal" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Label fx:id="isconfirmed" layoutX="527.0" layoutY="208.0" prefHeight="30.0" prefWidth="391.0" text="Vous avez confié votre animal à :" textFill="#1de9b6">
+         <font>
+            <Font name="Roboto Slab Regular" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

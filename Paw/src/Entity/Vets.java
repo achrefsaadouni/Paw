@@ -19,6 +19,8 @@ public class Vets {
     private int numero;
     private String email;
     private Float rate;
+    private double longitude;
+    private double latitude;
 
     public Vets(Veterinaire v, Float rate) {
         this.rate = rate;
@@ -29,7 +31,24 @@ public class Vets {
         this.region = v.getRegion();
         this.numero = v.getNumero();
         this.email = v.getEmail();
+        this.latitude=v.getLatitude();
+        this.longitude=v.getLongitude();
     }
+
+    public Vets(int id, String nom, String prenom, String adresse, String region, int numero, String email, Float rate, double longitude, double latitude) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.region = region;
+        this.numero = numero;
+        this.email = email;
+        this.rate = rate;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+    
+    
 
     public int getId() {
         return id;
@@ -93,5 +112,21 @@ public class Vets {
 
     public void setRate(Float rate) {
         this.rate = rate;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 }

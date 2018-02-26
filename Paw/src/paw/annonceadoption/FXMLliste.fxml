@@ -2,11 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
@@ -16,38 +17,30 @@
       <Pagination fx:id="paginator" layoutX="6.0" layoutY="584.0" pageCount="100" prefHeight="57.0" prefWidth="1091.0" />
       <Label fx:id="nom11" alignment="CENTER" layoutX="16.0" layoutY="13.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Les offres d'adoption" />
       <Separator layoutX="13.0" layoutY="48.0" prefHeight="4.0" prefWidth="1064.0" />
-      <AnchorPane fx:id="box" layoutX="15.0" layoutY="65.0" prefHeight="135.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane fx:id="box" layoutX="15.0" layoutY="65.0" prefHeight="160.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimal" layoutX="37.0" layoutY="10.0" prefHeight="39.0" prefWidth="412.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="consulter" alignment="CENTER" layoutX="925.0" layoutY="68.0" onAction="#consulterOffre" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Consulter" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
-               </graphic>
-            </JFXButton>
-            <Label fx:id="date" layoutX="850.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date" layoutX="850.0" layoutY="5.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="race" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
+            <Label fx:id="race" layoutX="39.0" layoutY="120.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="378.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
                   <ScrollPane prefHeight="79.0" prefWidth="433.0">
                     <content>
                       <AnchorPane prefHeight="38.0" prefWidth="412.0">
                            <children>
-                              <Label fx:id="message" alignment="TOP_LEFT" prefHeight="79.0" prefWidth="414.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
+                              <Label fx:id="message" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="412.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="21.0" />
                                  </font>
@@ -58,40 +51,37 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
+            <Label fx:id="user" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="box1" layoutX="15.0" layoutY="220.0" prefHeight="135.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane fx:id="box1" layoutX="15.0" layoutY="245.0" prefHeight="160.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimal1" layoutX="37.0" layoutY="10.0" prefHeight="39.0" prefWidth="412.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="consulter1" alignment="CENTER" layoutX="925.0" layoutY="68.0" onAction="#consulterOffre" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Consulter" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
-               </graphic>
-            </JFXButton>
-            <Label fx:id="date1" layoutX="850.0" layoutY="14.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date1" layoutX="850.0" layoutY="5.0" prefHeight="30.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="race1" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
+            <Label fx:id="race1" layoutX="39.0" layoutY="120.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="378.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
                   <ScrollPane prefHeight="79.0" prefWidth="433.0">
                      <content>
                         <AnchorPane prefHeight="91.0" prefWidth="412.0">
                            <children>
-                              <Label fx:id="message1" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="372.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
+                              <Label fx:id="message1" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="412.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="21.0" />
                                  </font>
@@ -102,40 +92,37 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
+            <Label fx:id="user1" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="box11" layoutX="15.0" layoutY="375.0" prefHeight="135.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane fx:id="box11" layoutX="15.0" layoutY="425.0" prefHeight="160.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimal11" layoutX="37.0" layoutY="10.0" prefHeight="39.0" prefWidth="412.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <JFXButton fx:id="consulter11" alignment="CENTER" layoutX="925.0" layoutY="68.0" onAction="#consulterOffre" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Consulter" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
-               </graphic>
-            </JFXButton>
-            <Label fx:id="date11" layoutX="850.0" layoutY="14.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
+            <Label fx:id="date11" layoutX="850.0" layoutY="5.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="Date">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="race11" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
+            <Label fx:id="race11" layoutX="39.0" layoutY="120.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="race" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="378.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
                   <ScrollPane prefHeight="79.0" prefWidth="433.0">
                      <content>
                         <AnchorPane prefHeight="91.0" prefWidth="412.0">
                            <children>
-                              <Label fx:id="message11" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="372.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
+                              <Label fx:id="message11" alignment="TOP_LEFT" prefHeight="128.0" prefWidth="412.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet vulputate purus. Cras placerat vestibulum fermentum. Cras felis quam, euismod eleifend imperdiet nec, rhoncus ac enim. " wrapText="true">
                                  <font>
                                     <Font name="System Italic" size="21.0" />
                                  </font>
@@ -146,6 +133,11 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
+            <Label fx:id="user11" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <StackPane fx:id="vide" layoutX="150.0" layoutY="250.0" prefHeight="149.0" prefWidth="800.0">
@@ -157,30 +149,133 @@
             </Label>
          </children>
       </StackPane>
-      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" visible="false">
+      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-padding: 4;">
          <children>
-            <Label fx:id="titrer" layoutX="100.0" layoutY="21.0" prefHeight="39.0" prefWidth="468.0" styleClass="titre" stylesheets="@../../css/Master.css" text="Objet">
+            <Label fx:id="typeAdoptiontypeAnimald" layoutX="48.0" layoutY="21.0" prefHeight="39.0" prefWidth="467.0" styleClass="titre" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="textr" layoutX="100.0" layoutY="95.0" prefHeight="100.0" prefWidth="600.0" text="Label" wrapText="true">
+            <Label fx:id="msgd" layoutX="39.0" layoutY="160.0" prefHeight="96.0" prefWidth="425.0" text="MSG" wrapText="true">
+               <font>
+                  <Font name="Roboto Slab Light" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="dated" layoutX="581.0" layoutY="21.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="DATE" />
+            <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
+            <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="418.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
+            <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="418.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
+            <Separator fx:id="separator" layoutX="53.0" layoutY="257.0" prefHeight="11.0" prefWidth="696.0" />
+            <ImageView fx:id="imageuserd" fitHeight="118.0" fitWidth="150.0" layoutX="50.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="nomd" layoutX="207.0" layoutY="264.0" prefHeight="32.0" prefWidth="332.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_person_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="254.0" layoutY="294.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="dater" layoutX="583.0" layoutY="21.0" prefHeight="32.0" prefWidth="198.0" styleClass="date" stylesheets="@../../css/Master.css" text="Label" />
-            <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="39.0" prefWidth="425.0" styleClass="names" stylesheets="@../../css/Master.css" text="Label" textFill="#575454" />
-            <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
-            <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="386.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
-            <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="386.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
-            <Label fx:id="reptext" layoutX="150.0" layoutY="260.0" prefHeight="100.0" prefWidth="500.0" text="Label" wrapText="true">
+            <Label fx:id="emaild" layoutX="207.0" layoutY="335.0" prefHeight="32.0" prefWidth="352.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
                <font>
-                  <Font name="System Italic" size="20.0" />
+                  <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_mail_outline_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <Separator fx:id="separator" layoutX="53.0" layoutY="207.0" prefHeight="4.0" prefWidth="696.0" />
-            <Label fx:id="datereponse" layoutX="369.0" layoutY="226.0" prefHeight="32.0" prefWidth="414.0" styleClass="date" stylesheets="@../../css/Master.css" text="Label" />
+            <Separator layoutX="233.0" layoutY="324.0" prefHeight="4.0" prefWidth="514.0" />
+            <Label fx:id="numerod" layoutX="570.0" layoutY="335.0" prefHeight="32.0" prefWidth="198.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_call_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="adressed" layoutX="207.0" layoutY="371.0" prefHeight="32.0" prefWidth="352.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Adresse" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_pin_drop_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="raced" layoutX="178.0" layoutY="102.0" prefHeight="32.0" prefWidth="243.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="RACE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_local_hospital_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="sexed" layoutX="39.0" layoutY="102.0" prefHeight="32.0" prefWidth="134.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="SEXE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/male.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="aged" layoutX="419.0" layoutY="102.0" prefHeight="32.0" prefWidth="120.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="AGE">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_plus_one_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="datedebd" layoutX="39.0" layoutY="60.0" prefHeight="32.0" prefWidth="210.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="DATE DEBUT ADOPTION">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_date_range_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="datefind" layoutX="269.0" layoutY="60.0" prefHeight="32.0" prefWidth="278.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="DATE FIN ADOPTION">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_date_range_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <ImageView fx:id="imaged" fitHeight="160.0" fitWidth="231.0" layoutX="549.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane fx:id="repondu" layoutX="507.0" layoutY="377.0" prefHeight="71.0" prefWidth="290.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="71.0" prefWidth="262.0" text="Vous avez déjà envoyé une réponse d'adoption concernant cette offre" textAlignment="CENTER" textFill="#4f9461" wrapText="true">
+                     <font>
+                        <Font name="Roboto Slab Regular" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
          </children>
       </AnchorPane>
    </children>

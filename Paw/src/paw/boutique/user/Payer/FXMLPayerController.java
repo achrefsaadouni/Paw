@@ -97,7 +97,13 @@ public class FXMLPayerController {
 
         if (Panier.panier.isEmpty()) {
             MyNotifications.ErrorNotification("Panier", "Votre Panier est encore vide");
-        } else {
+        } 
+        else if (!Panier.valide())
+        {
+             MyNotifications.ErrorNotification("Panier", "Votre Panier Contient un produit epuisé");
+        }
+
+        else {
 
             if (livraison.isSelected()) {
                 validation.setVisible(true);
@@ -133,14 +139,14 @@ public class FXMLPayerController {
 
         Achat achat = new Achat(session.getId(), Panier.prixtotal(), Panier.panier);
         if (code.equals(valid_code.getText())) {
-            achat.setEtat("Non Payer");
+            achat.setEtat("Non Payer");                    
             if (achatservice.addAchat(achat)) {
                 MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
                 Panier.panier.clear();
             }
         } else {
             MyNotifications.ErrorNotification("Confirmation", "Code D'activation Incorrect");
-        }
+        }          
     }
 
     @FXML
@@ -159,14 +165,17 @@ public class FXMLPayerController {
             String month = tt.substring(5, 7);
            try {
             PaymentOrder po = new PaymentOrder(numero_carte.getText(), cvv.getText(), month, year,Panier.prixtotal(), email.getText(), ville.getText(), etat.getText(), adresse.getText(), "tunisia", code_postal.getText());
-          Charge a =po.createCharge("sk_test_s3qNFSFh0IqhB0vaSTwTe9n8",po.getAmmount(),nom_card.getText(), po.getCardnumber(), po.getExp_month(), po.getExp_year(), po.getCvv(), po.getAddress(), po.getCity(), po.getState(), po.getCountry(), po.getZip(), po.getEmail());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Operation Reussite", ButtonType.CLOSE);
-            alert.show();
+            Charge a =po.createCharge("sk_test_s3qNFSFh0IqhB0vaSTwTe9n8",po.getAmmount(),nom_card.getText(), po.getCardnumber(), po.getExp_month(), po.getExp_year(), po.getCvv(), po.getAddress(), po.getCity(), po.getState(), po.getCountry(), po.getZip(), po.getEmail());
             
             if(a.getStatus().equals("succeeded"))
             {
                stripe_form.setVisible(false);
-               Panier.panier.clear();
+               Achat achat = new Achat(session.getId(), Panier.prixtotal(), Panier.panier);
+               achat.setEtat("Payer");
+               if (achatservice.addAchat(achat)) {
+                MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
+                Panier.panier.clear();
+                 }
             }
         } catch (AuthenticationException | InvalidRequestException | APIConnectionException | APIException ex) {
            System.out.println(ex);

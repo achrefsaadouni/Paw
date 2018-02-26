@@ -60,6 +60,40 @@ public class AnnonceAdoptionService {
         }
     }
     
+    public void insererReponse(RepOffreAdoption a)
+    {
+        String req="INSERT INTO `repadoption`(`id_annonce`, `id_utilisateur`, `date`, `etat`) VALUES (?,?,now(),?)"; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,a.getId_annonce()) ; 
+            ste.setInt(2,a.getId_utilisateur()) ; 
+            ste.setString(3,"Non confirmée") ; 
+                                                                                                                         
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    public boolean isAnsweredByUser(int id_annonce,int id_utilisateur)
+    {
+        String req="Select * from repadoption where id_utilisateur=? and id_annonce=?";
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(2,id_annonce) ; 
+            ste.setInt(1,id_utilisateur) ; 
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                return true;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
     public ArrayList<AnnonceAdoption> getAllDeprecated(){
         String req="SELECT * FROM Annonce where type_annonce like 'Annonce_adoption'" ;
         ArrayList<AnnonceAdoption> list = new ArrayList<>();
@@ -160,11 +194,8 @@ public class AnnonceAdoptionService {
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
                               
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,images,etatAdoption));
             }
-            
-            
-            
         } catch (SQLException ex) {
             Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("getAnnonceAdoptionUtilisateur");
@@ -184,17 +215,17 @@ public class AnnonceAdoptionService {
             
         } catch (SQLException ex) {
             Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("traiterAdoption");
         }
     }
 
 
-    public ArrayList<AnnonceAdoption> getAnnonceAdoptionDisponible() {
-        String req="SELECT * FROM annonce WHERE etatAdoption like 'Disponible' and type_annonce like 'Annonce_adoption'" ;
+    public ArrayList<AnnonceAdoption> getAnnonceAdoptionDisponible(int i) {
+        String req="SELECT * FROM annonce WHERE etatAdoption like 'Disponible' and type_annonce like 'Annonce_adoption' and utilisateur_id not in (?)" ;
         ArrayList<AnnonceAdoption> list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -208,14 +239,16 @@ public class AnnonceAdoptionService {
                 Timestamp date=rs.getTimestamp("date");
                 String  type_annonce= rs.getString("type_annonce");
                 //File images=new File(rs.getString("images"));
-                //File images=new File("C://Users//AYOUB//Desktop//ayoub.png");
+                File image=new File(rs.getString("images"));
+                //String image = rs.getString("images");
+                
                 int id_utilisateur=rs.getInt("utilisateur_id");
                 String etatAdoption=rs.getString("etatAdoption");
                 String typeAdoption=rs.getString("typeAdoption");
                 Date debutAdoption = rs.getDate("debutAdoption");
                 Date finAdoption = rs.getDate("finAdoption");
                             
-                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,etatAdoption));            }
+                list.add(new AnnonceAdoption(typeAdoption, debutAdoption, finAdoption, id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur,image,etatAdoption));            }
 
         } catch (SQLException ex) {
              Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,12 +296,12 @@ public class AnnonceAdoptionService {
     
     
     public ArrayList<RepOffreAdoption> getRep(int i){
-        String req="SELECT * FROM RepOffreAdoption where id_annonce=?" ;
+        String req="SELECT * FROM repAdoption where id_annonce=?" ;
         ArrayList<RepOffreAdoption> list = new ArrayList<>();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(i, i);
+            ste.setInt(1, i);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -276,13 +309,61 @@ public class AnnonceAdoptionService {
                 int idannonce = rs.getInt("id_annonce");
                 int id_utilisateur = rs.getInt("id_utilisateur");
                 String  etat= rs.getString("etat");
+                Timestamp date=rs.getTimestamp("date");
                  
-                list.add(new RepOffreAdoption(id,idannonce,id_utilisateur,etat));
+                list.add(new RepOffreAdoption(id,idannonce,id_utilisateur,etat,date));
             }
 
         } catch (SQLException ex) {
-            System.out.println(ex);
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    
+    
+    public int nombre() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `annonce`  where type_annonce like 'Annonce_adoption'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+
+    public void confirmerDemande(int id) {
+            String req="UPDATE repadoption SET etat=? WHERE id=?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            
+            ste.setString(1,"Confirmée");
+            ste.setInt(2, id);
+            ste.executeUpdate() ; 
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public RepOffreAdoption getReponseAdoptionNumero(int i) {
+        RepOffreAdoption y = null;
+        String sql = "SELECT * FROM `repadoption`  where etat like 'Confirmée' and id_annonce= ?";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setInt(1, i);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = new RepOffreAdoption(results.getInt("id"),results.getInt("id_annonce"),results.getInt("id_utilisateur"),results.getString("etat"), results.getTimestamp("date"));
+                return y;
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
     }
 }

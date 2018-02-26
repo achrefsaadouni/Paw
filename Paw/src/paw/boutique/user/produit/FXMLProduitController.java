@@ -340,6 +340,7 @@ public class FXMLProduitController {
             } else {
                 acheter1.setDisable(false);
                 acheter1.setOnAction((event) -> {
+                    
                     Panier.addProduit(article_page.get(0));
                     
                 });

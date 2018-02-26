@@ -46,6 +46,8 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     @FXML
     private GoogleMapView mapView;
 
+    LatLong x;
+    
     private GoogleMap map;
     @FXML
     private TextField addressTextField;
@@ -114,7 +116,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
             Marker marker = new Marker(markerOptions);
 
             map.addMarker(marker);
-            System.out.println("LatLong: lat: " + ll.getLatitude() + " lng: " + ll.getLongitude());
+           
         });
         
 
@@ -143,22 +145,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
         });
     }
 
-    @FXML
-    private void actionInsertion(ActionEvent event) {
-        // if ((!"".equals(emailInsertion.getText()))&&(!"".equals(nomInsertion.getText()))&& (!"".equals(prenomInsertion.getText()))&&(!"".equals(regionInsertion.getText()))&&(!"".equals(adresseInsertion.getText()))&&(!"".equals(numeroInsertion.getText())))
-        {
-            VeterinaireServices service = new VeterinaireServices();
-            //  service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),regionInsertion.getText(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText()));
-            emailInsertion.setText("");
-            nomInsertion.setText("");
-            prenomInsertion.setText("");
-            //regionInsertion.setText("");
-            adresseInsertion.setText("");
-            numeroInsertion.setText("");
-            System.out.println(gouv.getSelectionModel().getSelectedItem());
-
-        }
-    }
+    
 
     @FXML
     private void zoomGouv(MouseEvent event) {
@@ -191,7 +178,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     private void setViewGouv(String nom, double latit, double longit){
     if(gouv.getSelectionModel().getSelectedItem().equals(nom)){
             MapOptions mapOptions = new MapOptions();
-            
+            x=new LatLong(latit, longit);
         mapOptions.center(new LatLong(latit,longit))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(false)
@@ -216,8 +203,23 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
             Marker marker = new Marker(markerOptions);
 
             map.addMarker(marker);
+            x=ll;
             System.out.println("LatLong: lat: " + ll.getLatitude() + " lng: " + ll.getLongitude());
         });
+        }
+    }
+    
+    @FXML
+    private void actionInsertion(ActionEvent event) {
+         if ((!"".equals(emailInsertion.getText()))&&(!"".equals(nomInsertion.getText()))&& (!"".equals(prenomInsertion.getText()))&&(!"".equals(adresseInsertion.getText()))&&(!"".equals(numeroInsertion.getText())))
+        {
+            VeterinaireServices service = new VeterinaireServices();
+            service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getSelectionModel().getSelectedItem(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText(),x.getLongitude(),x.getLatitude()));
+            emailInsertion.setText("");
+            nomInsertion.setText("");
+            prenomInsertion.setText("");
+            adresseInsertion.setText("");
+            numeroInsertion.setText("");
         }
     }
 }

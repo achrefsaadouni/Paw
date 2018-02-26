@@ -47,6 +47,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import static paw.Paw.session;
 import paw.messagerie.envoi.Envoi;
 
 /**
@@ -92,27 +93,19 @@ public class FXMLView_inboxController implements Initializable {
     private int user_id ;
     Map<Utilisateur, Messagerie> messagesMap;
 
-   
-
-    private void handleButtonAction(ActionEvent event) {
-        // System.out.println("You clicked me!");
-//        label.setText("Hello World!");
-    }
-
     public void threadTest() {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        user_id =1;
+        user_id =session.getId();
         
         //initDrawer();
         repondre.setOnAction((e) -> {
             contenuMsg.setVisible(true);
             envoyer.setVisible(true);
         });
-       // Cn = new MyConnection();
         loadMessages();
 
         new Timer().schedule(
@@ -120,12 +113,12 @@ public class FXMLView_inboxController implements Initializable {
 
             @Override
             public void run() {
-                System.out.println("running");
+               System.out.println("running");
                 loadMessages();
                 if (destinataire == null) {
                     return;
                 }
-                //conversation.getItems().clear();
+               conversation.getItems().clear();
                 // System.out.println(messagesList.size());
                 List<Messagerie> newmessagesList = serviceMessagerie.getConversation(user_id, destinataire.getId());
                 //  // System.out.println(newmessagesList.size());
@@ -144,39 +137,44 @@ public class FXMLView_inboxController implements Initializable {
                     }
                     HBox hb = new HBox();
                     StackPane p = new StackPane();
-                    ImageView i = new ImageView(new Image("/resources/images/messageRecieved.png"));
+                   ImageView i = new ImageView(new Image("/Ressource/images/messageRecieved.png"));
                   i.setFitWidth(257);
-                    i.setFitHeight(102);
+                   i.setFitHeight(102);
 
                     Text text = new Text(msg.getContenuMsg());
-                    HBox hb2 = new HBox();
+                        HBox hb3 = new HBox();
+                //    HBox hb2 = new HBox();
                     if (msg.getSender_id() == 1) {
                         hb.setAlignment(Pos.TOP_LEFT);
                         i.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-                        i.setEffect(new ColorAdjust(0, 0, 0.42, -1));
-                        hb2.setAlignment(Pos.BOTTOM_LEFT);
+                       i.setEffect(new ColorAdjust(0, 0, 0.42, -1));
+                     // hb2.setAlignment(Pos.BOTTOM_RIGHT);
                     } else {
-                        hb.setAlignment(Pos.TOP_RIGHT);
+                        hb.setAlignment(Pos.TOP_LEFT);
                         i.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-                        hb2.setAlignment(Pos.BOTTOM_RIGHT);
+                     //   hb2.setAlignment(Pos.BOTTOM_RIGHT);
                     }
 
-                    p.getChildren().add(i);
+                  //  p.getChildren().add(i);
                     LocalDateTime datetime = msg.getDateHeureEnvoi().toLocalDateTime();
                     Text dateEnvoi = new Text("Le " + datetime.toLocalDate() + " à " + datetime.toLocalTime());
 
-                    p.getChildren().add(text);
+                   // p.getChildren().add(text);
+                   hb.getChildren().add(text);
+                //    hb2.getChildren().add(dateEnvoi);
 
-                    hb2.getChildren().add(dateEnvoi);
-                    p.getChildren().add(hb2);
+                   hb3.getChildren().add(hb);
+            //       hb3.getChildren().add(hb2);
 
-                    hb.getChildren().add(p);
+                    p.getChildren().add(hb3);
+
+                    //hb.getChildren().add(p);
                     System.out.println("new message");
                     conversation.getItems().add(0, hb);
                     messagesList.add(msg);
                 }
             }
-        }, 0, 5000);
+        }, 0, 60000);
     }
 
     
@@ -198,12 +196,12 @@ public class FXMLView_inboxController implements Initializable {
             HBox item = new HBox();
             VBox userInfo = new VBox();
             userInfo.setAlignment(Pos.CENTER);
-//            ImageView image = new ImageView("/resources/images/profile.png");
+            ImageView image = new ImageView("/Ressource/images/profile.png");
             Separator sp = new Separator(Orientation.VERTICAL);
-            //image.setFitWidth(50);
-            //image.setFitHeight(50);
+            image.setFitWidth(50);
+            image.setFitHeight(50);
             Label userName = new Label(e.getKey().getNom() + " " + e.getKey().getPrenom());
-            //userInfo.getChildren().add(image);
+            userInfo.getChildren().add(image);
             userInfo.getChildren().add(userName);
 
             VBox messageInfo = new VBox();
@@ -244,9 +242,9 @@ public class FXMLView_inboxController implements Initializable {
                 }
                 HBox hb = new HBox();
                 StackPane p = new StackPane();
-                ImageView i = new ImageView(new Image("/resources/images/messageRecieved.png"));
-                i.setFitWidth(257);
-                i.setFitHeight(102);
+               ImageView i = new ImageView(new Image("/Ressource/images/messageRecieved.png"));
+               i.setFitWidth(257);
+               i.setFitHeight(102);
 
                 Text text = new Text(msg.getContenuMsg());
                 HBox hb2 = new HBox();
@@ -257,7 +255,7 @@ public class FXMLView_inboxController implements Initializable {
                     hb2.setAlignment(Pos.BOTTOM_LEFT);
                 } else {
                     hb.setAlignment(Pos.TOP_RIGHT);
-                    i.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+                 i.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
                     hb2.setAlignment(Pos.BOTTOM_RIGHT);
                 }
 
@@ -285,16 +283,7 @@ public class FXMLView_inboxController implements Initializable {
 
     @FXML
     public void redirection(ActionEvent event) throws IOException {
-        /*
-        Parent root = FXMLLoader.load(getClass().getResource("/tahwissa/desktop/envoi/Envoi.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        app_stage.setScene(scene);
-
-        app_stage.show();
-         */
+      
         Envoi e = new Envoi();
         try {
             e.start(new Stage());
@@ -323,7 +312,7 @@ public class FXMLView_inboxController implements Initializable {
     @FXML
     public void deleteConversation(ActionEvent event) {
         //  // System.out.println("deleting");
-        //serviceMessagerie.supprimerConversation(user_id, destinataire.getId(), user_id);
+        serviceMessagerie.supprimerConversation(user_id, destinataire.getId(), user_id);
         listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
         listView.getSelectionModel().selectFirst();
         messagesMap.remove(destinataire);

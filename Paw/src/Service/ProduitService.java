@@ -279,4 +279,35 @@ public class ProduitService {
            System.err.println(x); 
     }
     }
+    
+    
+       public int nombreProduit() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `produit`";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+       
+         public int nombreProduitOut() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `produit` where quantite=0";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
 }

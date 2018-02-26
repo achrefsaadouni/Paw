@@ -3,15 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -79,6 +79,11 @@
                               <Insets left="40.0" />
                            </VBox.margin>
                         </JFXRadioButton>
+                        <JFXTextField fx:id="descPet" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="176.0" promptText="Description">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
                         <JFXButton id="retourButton" fx:id="retourB" buttonType="RAISED" onAction="#redirection" ripplerFill="WHITE" style="-fx-background-color: white;" stylesheets="@../trainingService/fxmltraining.css" text="retour">
                            <graphic>
                               <ImageView fitHeight="68.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -88,7 +93,7 @@
                               </ImageView>
                            </graphic>
                            <VBox.margin>
-                              <Insets left="10.0" top="190.0" />
+                              <Insets bottom="15.0" left="10.0" top="50.0" />
                            </VBox.margin>
                         </JFXButton>
                      </children>
@@ -117,16 +122,21 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </JFXTextField>
-                        <JFXTextField fx:id="descPet" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="176.0" promptText="Description">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </JFXTextField>
                         <JFXDatePicker fx:id="dateSit" defaultColor="#005e8f" prefHeight="26.0" prefWidth="173.0" promptText="Date de Garde">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </JFXDatePicker>
+                        <Label text="Specifiez le nombre des jours">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <JFXSlider fx:id="dureSit" max="30.0" min="1.0" value="15.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </JFXSlider>
                      </children>
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
@@ -143,17 +153,12 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                            <items>
-                              <AnchorPane maxHeight="235.0" prefHeight="235.0" prefWidth="316.0" style="-fx-background-color: #D1C4E9; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+                              <AnchorPane maxHeight="243.0" prefHeight="243.0" prefWidth="316.0" style="-fx-background-color: #D1C4E9; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                                  <children>
                                     <JFXButton fx:id="addButton" layoutY="-2.0" onAction="#addTask" style="-fx-background-color: #7C4DFF;" text="Ajouter une tache" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-                                    <JFXTextField fx:id="task" layoutX="120.0" layoutY="4.0" prefHeight="26.0" prefWidth="176.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                                    <JFXTextField fx:id="taskText" layoutX="120.0" layoutY="4.0" prefHeight="26.0" prefWidth="176.0" promptText="Ajouez une tache à realiser" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                                     <Separator layoutY="70.0" prefHeight="3.0" prefWidth="318.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0" />
-                                    <TreeTableView fx:id="toDoList" layoutX="-1.0" layoutY="43.0" prefHeight="176.0" prefWidth="316.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="48.0">
-                                      <columns>
-                                        <TreeTableColumn fx:id="idTaches" prefWidth="75.0" text="ID" />
-                                        <TreeTableColumn fx:id="taches" prefWidth="230.0" text="Evennement a faire" />
-                                      </columns>
-                                    </TreeTableView>
+                                    <JFXListView fx:id="listView" layoutX="14.0" layoutY="51.0" prefHeight="177.0" prefWidth="248.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="48.0" />
                                  </children>
                               </AnchorPane>
                            </items>

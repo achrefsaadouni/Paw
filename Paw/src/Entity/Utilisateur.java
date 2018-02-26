@@ -74,6 +74,17 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
         this.sexe=sexe;
     }
 
+    public Utilisateur(String nom, String prenom, String addresse, String email, String sexe, int numero, String avatar) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.addresse = addresse;
+        this.email = email;
+        this.sexe = sexe;
+        this.numero = numero;
+        this.avatar = avatar;
+    }
+
+    
    
 
     @Override

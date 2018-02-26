@@ -103,6 +103,14 @@ public class MessagerieService {
         return messages;
     }
 
+     
+    public void supprimerConversation(int sender_id, int reciever_id, int userDeleting) {
+        List<Messagerie> conversation = getConversation(sender_id, reciever_id);
+        conversation.forEach((t) -> {
+            supprimerMessage(t, userDeleting);
+        });
+    }
+
     
     public List<Messagerie> getConversation(int user1, int user2) {
         String req2 = "select * from messagerie where sender_id=? and reciever_id=? or sender_id=? and reciever_id=? order by dateHeureEnvoi desc ";

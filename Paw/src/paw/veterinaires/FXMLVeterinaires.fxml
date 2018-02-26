@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
@@ -41,9 +42,9 @@
                   <Pane layoutX="2.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate1" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <JFXButton fx:id="position1" layoutX="340.0" layoutY="9.0" onAction="#actionPosition" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher position">
                            <graphic>
-                              <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
+                              <FontAwesomeIconView fill="#fffdfd" glyphName="MAP_MARKER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
@@ -95,9 +96,9 @@
                   <Pane layoutX="1.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate2" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <JFXButton fx:id="position2" layoutX="340.0" layoutY="9.0" onAction="#actionPosition" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher position">
                            <graphic>
-                              <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
+                              <FontAwesomeIconView fill="#fffdfd" glyphName="MAP_MARKER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
@@ -153,9 +154,9 @@
                   <Pane layoutX="1.0" layoutY="200.0" prefHeight="50.0" prefWidth="512.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate3" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <JFXButton fx:id="position3" layoutX="340.0" layoutY="9.0" onAction="#actionPosition" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher position">
                            <graphic>
-                              <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
+                              <FontAwesomeIconView fill="#fffdfd" glyphName="MAP_MARKER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
@@ -207,9 +208,9 @@
                   <Pane layoutX="3.0" layoutY="200.0" prefHeight="50.0" prefWidth="510.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
                         <Rating fx:id="rate4" disable="true" layoutX="14.0" layoutY="9.0" partialRating="true" prefHeight="20.0" prefWidth="207.0" rating="4.0" />
-                        <JFXButton layoutX="340.0" layoutY="9.0" onAction="#actionProfil" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher le profil">
+                        <JFXButton fx:id="position4" layoutX="340.0" layoutY="9.0" onAction="#actionPosition" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Afficher position">
                            <graphic>
-                              <FontAwesomeIconView fill="#fffdfd" glyphName="USER" size="14" wrappingWidth="18.0" />
+                              <FontAwesomeIconView fill="#fffdfd" glyphName="MAP_MARKER" size="14" wrappingWidth="18.0" />
                            </graphic>
                         </JFXButton>
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
@@ -270,6 +271,23 @@
                   <Rating fx:id="evaluation1" layoutX="99.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" />
                   <Rating fx:id="evaluation2" layoutX="99.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" />
                   <Rating fx:id="evaluation3" layoutX="99.0" layoutY="75.0" prefHeight="30.0" prefWidth="246.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="posVet" layoutX="148.0" layoutY="19.0" prefHeight="534.0" prefWidth="842.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="542.0" prefWidth="842.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <GoogleMapView fx:id="mapView" layoutX="3.0" layoutY="-2.0" prefHeight="489.0" prefWidth="839.0" />
+                  <JFXButton layoutX="375.0" layoutY="493.0" onAction="#fermer" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #FE2E64;" text="Fermer" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+                     </graphic>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

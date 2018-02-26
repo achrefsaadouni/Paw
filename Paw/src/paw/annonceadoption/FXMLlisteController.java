@@ -6,7 +6,10 @@
 package paw.annonceadoption;
 
 import Entity.AnnonceAdoption;
+import Entity.RepOffreAdoption;
+import Entity.Utilisateur;
 import Service.AnnonceAdoptionService;
+import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
@@ -19,9 +22,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import org.controlsfx.control.Notifications;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -39,8 +46,6 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private Label typeAdoptiontypeAnimal;
     @FXML
-    private JFXButton consulter;
-    @FXML
     private Label date;
     @FXML
     private Label race;
@@ -53,8 +58,6 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private Label typeAdoptiontypeAnimal1;
     @FXML
-    private JFXButton consulter1;
-    @FXML
     private Label date1;
     @FXML
     private Label race1;
@@ -64,8 +67,6 @@ public class FXMLlisteController implements Initializable {
     private AnchorPane box11;
     @FXML
     private Label typeAdoptiontypeAnimal11;
-    @FXML
-    private JFXButton consulter11;
     @FXML
     private Label date11;
     @FXML
@@ -79,25 +80,49 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private AnchorPane details;
     @FXML
-    private Label titrer;
-    @FXML
-    private Label textr;
-    @FXML
-    private Label dater;
-    @FXML
-    private Label utilisateurr;
-    @FXML
     private JFXTextArea reponser;
     @FXML
     private JFXButton btnEnregistrer;
     @FXML
     private JFXButton btnAnnuler;
     @FXML
-    private Label reptext;
-    @FXML
     private Separator separator;
     @FXML
-    private Label datereponse;
+    private Label user;
+    @FXML
+    private Label user1;
+    @FXML
+    private Label user11;
+    @FXML
+    private Label typeAdoptiontypeAnimald;
+    @FXML
+    private Label msgd;
+    @FXML
+    private Label dated;
+    @FXML
+    private ImageView imageuserd;
+    @FXML
+    private Label nomd;
+    @FXML
+    private Label emaild;
+    @FXML
+    private Label numerod;
+    @FXML
+    private Label adressed;
+    @FXML
+    private Label raced;
+    @FXML
+    private Label sexed;
+    @FXML
+    private Label aged;
+    @FXML
+    private Label datedebd;
+    @FXML
+    private Label datefind;
+    @FXML
+    private ImageView imaged;
+    @FXML
+    private StackPane repondu;
 
     /**
      * Initializes the controller class.
@@ -107,7 +132,7 @@ public class FXMLlisteController implements Initializable {
         AnnonceAdoptionService service= new AnnonceAdoptionService();
         details.setVisible(false);
         liste= new ArrayList<>();
-        liste = service.getAnnonceAdoptionDisponible();
+        liste = service.getAnnonceAdoptionDisponible(session.getId());
         if (liste.isEmpty()) {
             box.setVisible(false);
             box1.setVisible(false);
@@ -122,9 +147,6 @@ public class FXMLlisteController implements Initializable {
         }       
     }    
 
-    @FXML
-    private void consulterOffre(ActionEvent event) {
-    }
 
     private void setNbPages() {
 
@@ -149,6 +171,7 @@ public class FXMLlisteController implements Initializable {
             date.setText(String.valueOf(TroisAnnonces.get(0).getDate()).substring(0, 16));
             race.setText(TroisAnnonces.get(0).getRace());
             box.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(0));
                 details.setVisible(true);
             });
             
@@ -165,6 +188,11 @@ public class FXMLlisteController implements Initializable {
             message1.setText(TroisAnnonces.get(1).getMessage_complementaire());
             date1.setText(String.valueOf(TroisAnnonces.get(1).getDate()).substring(0, 16));
             race1.setText(TroisAnnonces.get(1).getRace());
+            
+            box1.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(1));
+                details.setVisible(true);
+            });
         } 
         else{
             box1.setVisible(false);
@@ -178,6 +206,10 @@ public class FXMLlisteController implements Initializable {
             message11.setText(TroisAnnonces.get(2).getMessage_complementaire());
             date11.setText(String.valueOf(TroisAnnonces.get(2).getDate()).substring(0, 16));
             race11.setText(TroisAnnonces.get(2).getRace());
+            box11.setOnMouseClicked((MouseEvent e) -> {
+                initialiserDetails(TroisAnnonces.get(2));
+                details.setVisible(true);
+            });
         } 
         else{
             box11.setVisible(false); 
@@ -204,6 +236,57 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private void annuler(ActionEvent event) {
         details.setVisible(false);
+    }
+
+    private void initialiserDetails(AnnonceAdoption a) {
+        typeAdoptiontypeAnimald.setText("Adoption "+a.getTypeAdoption()+" : "+a.getType());
+        msgd.setText(a.getMessage_complementaire());
+        dated.setText(String.valueOf(a.getDate()).substring(0, 16));
+        
+        imaged.setImage(new Image("http://localhost/pawAnnonces/"+a.getImages().getPath()));
+        raced.setText("Race : "+a.getRace());
+        sexed.setText(a.getSex());
+        aged.setText("Age : "+a.getAge());
+        if (a.getTypeAdoption().equals("Permanante"))
+        {
+            datedebd.setVisible(false);
+            datefind.setVisible(false);
+        }
+        else
+        {
+            datedebd.setVisible(true);
+            datefind.setVisible(true);
+            datedebd.setText("Du "+String.valueOf(a.getDebutAdoption()));
+            datefind.setText("Jusqu'au "+String.valueOf(a.getFinAdoption()));
+        }
+        
+        
+        UtilisateurServices s = new UtilisateurServices();
+        Utilisateur u = s.find(a.getId_utilisateur());
+        nomd.setText(u.getEsm());
+        emaild.setText(u.getEmail());
+        numerod.setText(""+u.getNumero());
+        adressed.setText(u.getAddresse());
+        imageuserd.setImage(new Image("http://localhost/pawUsers/"+u.getAvatar()));
+        AnnonceAdoptionService x= new AnnonceAdoptionService();
+        if(x.isAnsweredByUser(a.getId(), session.getId()))
+        {
+            btnEnregistrer.setVisible(false);
+            repondu.setVisible(true);
+        }
+        else{
+            btnEnregistrer.setVisible(true);
+            repondu.setVisible(false);
+            btnEnregistrer.setOnAction((event) -> {
+            AnnonceAdoptionService serv = new AnnonceAdoptionService();
+            serv.insererReponse(new RepOffreAdoption(0,a.getId(), session.getId(), "Non confirmée", null));
+            liste=serv.getAnnonceAdoptionDisponible(session.getId());
+            initAnnoncePage(paginator.getCurrentPageIndex());
+            details.setVisible(false);
+            Notifications.create().title("Demande Enregistrée").text(u.getEsm()+" a été informé par votre demande").showConfirm();
+        });
+        }
+        
     }
     
 }
