@@ -378,6 +378,10 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void goToProfile(MouseEvent event) throws IOException {
+         if ("Admin".equals(session.getRole())) {
+             loadSplashScreenAdmin("/paw/profile/FXMLprofile.fxml");
+         }
+         else 
         loadSplashScreen("/paw/profile/FXMLprofile.fxml");
     }
 
