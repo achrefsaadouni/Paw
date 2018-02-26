@@ -13,6 +13,8 @@ import Service.LoginServices;
 import Service.ProduitService;
 import Service.UtilisateurServices;
 import Utility.Checksum;
+import static Utility.Checksum.genererCode;
+import Utility.Mail;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
@@ -184,8 +186,31 @@ public class FXMLinscriptionController implements Initializable {
                             {
                                 sexe="Femme";
                             }
-                            Utilisateur p = new Utilisateur(0, nom.getText(), prenom.getText(), ville.getValue().toUpperCase()+", "+rue.getText(), email.getText(), username.getText(), password.getText(), "Membre", Integer.parseInt(numero.getText()), chaine, null, sexe);
+                            String code ="statique";
+                            Utilisateur p = new Utilisateur(
+                                    0, 
+                                    nom.getText(), 
+                                    prenom.getText(), 
+                                    ville.getValue().toUpperCase()+", "+rue.getText(), 
+                                    email.getText(), 
+                                    username.getText(), 
+                                    password.getText(), 
+                                    "Membre", 
+                                    sexe,
+                                    Integer.parseInt(numero.getText()), 
+                                    chaine, 
+                                    null,                    
+                                    code,
+                                    "no");
                             s.insererUtilisateur(p);
+                            try {
+                                code = genererCode();
+                            } catch (Exception ex) {
+                                Logger.getLogger(FXMLinscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            System.out.println(code);
+                            Mail.send(email.getText(), "Confirmation de l'adresse Email", "Bienvenue à la famille Paw : \n Pour Confimer votre adresse email veuillez utiliser ce code : " + code + "\n");
+
                             Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();
                             LoginServices servicelogin = new LoginServices();
                             int x =servicelogin.Valide(username.getText(), password.getText());

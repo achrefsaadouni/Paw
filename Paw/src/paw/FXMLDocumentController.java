@@ -75,8 +75,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void inscriptionButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-//        UtilisateurServices o = new UtilisateurServices();
-//                o.utilisateurMois(0);
         loader.setLocation(getClass().getResource("/paw/mainUI/FXMLinscription.fxml"));
         loader.load();
         FXMLinscriptionController cnt = loader.getController();

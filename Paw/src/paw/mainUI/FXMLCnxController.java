@@ -194,7 +194,23 @@ public class FXMLCnxController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         username.setText(session.getUsername());
-        email.setText(session.getEmail());
+        if ("Admin".equals(session.getRole()))
+        {
+            email.setText(session.getEmail());
+        }
+        else
+        {
+            if(session.getConfirmed().equals("no"))
+            {
+                email.setText(session.getEmail()+"(Non confirmée)");
+            }
+            else
+            {
+                email.setText(session.getEmail());
+            }
+            
+        }
+        
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         try {
             AnchorPane menu = null;
@@ -717,7 +733,7 @@ public class FXMLCnxController implements Initializable {
     }
 
     public void initAdmin() {
-
+        
         panier.setVisible(false);
         achat_livrer.setText(String.valueOf(achatservice.nombreAchatlivrer()));
         achat_nonpayer.setText(String.valueOf(achatservice.nombreAchatnonpayer()));

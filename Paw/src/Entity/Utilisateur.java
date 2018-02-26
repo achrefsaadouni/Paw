@@ -25,6 +25,25 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
     private int numero;
     private String avatar;
     private Date dateInscription;
+    private String code;
+    private String confirmed;
+
+    public Utilisateur(int id, String nom, String prenom, String addresse, String email, String username, String password, String role, String sexe, int numero, String avatar, Date dateInscription, String code, String confirmed) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.addresse = addresse;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.sexe = sexe;
+        this.numero = numero;
+        this.avatar = avatar;
+        this.dateInscription = dateInscription;
+        this.code = code;
+        this.confirmed = confirmed;
+    }
     
 //    String etat;
 
@@ -216,5 +235,21 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
 //        this.etat=s;
 //    }
 //    
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(String confirmed) {
+        this.confirmed = confirmed;
+    }
     
 }

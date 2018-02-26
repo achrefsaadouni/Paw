@@ -67,7 +67,23 @@ public class LoginServices {
             String sexe=rs.getString("sexe");
             Date dateInscription=rs.getDate("dateInscription");
             int numero=rs.getInt("numero");
-            return new Utilisateur(id,nom,prenom,addresse,email,username, password, role, numero, avatar,dateInscription,sexe);
+            String code=rs.getString("code");
+            String confirmed=rs.getString("confirmed");
+            return new Utilisateur(
+                    id,
+                    nom,
+                    prenom,
+                    addresse,
+                    email,
+                    username, 
+                    password, 
+                    role,
+                    sexe,
+                    numero, 
+                    avatar,
+                    dateInscription,
+                    code,
+                    confirmed);
         } 
         catch (SQLException ex) {
             System.out.println(ex.getMessage());

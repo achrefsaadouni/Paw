@@ -33,7 +33,7 @@ public class UtilisateurServices {
     public void insererUtilisateur (Utilisateur p)
     {
         String image = "";
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar) VALUES(?,?,?,?,?,?,?,?,?,now(),?)" ; 
+        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar,code,confirmed) VALUES(?,?,?,?,?,?,?,?,?,now(),?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom().toLowerCase()) ; 
@@ -46,6 +46,8 @@ public class UtilisateurServices {
             ste.setString(8,p.getRole()) ;
             ste.setString(9,p.getSexe()) ; 
             ste.setString(10,p.getAvatar()) ;
+            ste.setString(11,p.getCode()) ; 
+            ste.setString(12,p.getConfirmed()) ;
             
               ste.executeUpdate() ; 
             
