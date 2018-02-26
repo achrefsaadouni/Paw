@@ -14,7 +14,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +33,10 @@ public class AnnonceSittingServices {
     
    public void insererAnnonceSitting (AnnonceSitting a)
     {
-        String req="INSERT INTO annoncesit (age,couleur,sex,race,message_complementaire,type,date,dateSit,typeSit) VALUES(?,?,?,?,?,?,now(),?,?)" ; 
+        ArrayList<String> liste= a.getToDoList();
+        System.out.println(liste.toString());
+        
+        String req="INSERT INTO annoncesit (age,couleur,sex,race,message_complementaire,type,date,dateSit,dureSit,todolist) VALUES(?,?,?,?,?,?,now(),?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setInt(1,a.getAge()) ; 
@@ -43,7 +46,8 @@ public class AnnonceSittingServices {
             ste.setString(5,a.getMessage_complementaire()) ;
             ste.setString(6,a.getType()) ;
             ste.setDate(7, a.getDateSit());
-            ste.setString(8,a.getTypeSit());
+            ste.setInt(8,a.getDureSit());
+//            ste.setString(9,a.getToDoList());
             
                 System.out.println("avant");
            
@@ -75,12 +79,12 @@ public class AnnonceSittingServices {
                 String  type= rs.getString("type");
                 Date date=rs.getDate("date");
                 Date  dateSit= rs.getDate("dateSit");
-                String  typeSit= rs.getString("typeSit");
+                String  typeSit= rs.getString("dureSit");
                 
 
                
         
-              list.add(new AnnonceSitting( dateSit ,typeSit, id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
+//              list.add(new AnnonceSitting( dateSit ,typeSit,toDoList, id, age,  couleur, sex,  race,  message_complementaire,  type,  date));
             }
 
         } catch (SQLException ex) {
@@ -102,7 +106,7 @@ public class AnnonceSittingServices {
            ste.setString(5,a.getMessage_complementaire()) ; 
            ste.setString(6,a.getType()) ; 
            ste.setDate(7,a.getDateSit()) ; 
-           ste.setString(8,a.getTypeSit()) ; 
+           ste.setInt(8,a.getDureSit()) ; 
            ste.executeUpdate() ; 
             
         } catch (SQLException ex) {

@@ -1,27 +1,74 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paw.sittingService;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
+import paw.mainUI.FXMLCnxController;
+import paw.profile.FXMLprofileController;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
-public class FXMLSittingPrincipaleController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+public class FXMLSittingPrincipaleController extends FXMLCnxController implements Initializable {
+
+    @FXML
+    private AnchorPane window;
+    @FXML
+    private AnchorPane reclamations;
+    @FXML
+    private JFXButton listButton;
+    @FXML
+    private AnchorPane reclamations1;
+    @FXML
+    private JFXButton ajoutButton;
+    @FXML
+    private AnchorPane reclamations11;
+    @FXML
+    private JFXButton conseilButton;
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
+
+    @FXML
+    private void goToListe(ActionEvent event) {
+        try{
+            System.out.println("trying !!");
+            loadSplashScreen("/paw/trainingService/FXMLSittingListeAnnonce.fxml");
+            System.out.println("trying !!");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToAjout(ActionEvent event) {
+        try{
+            loadSplashScreen("/paw/trainingService/FXMLSitting.fxml");
+            System.out.println("the error is here");
+        } catch (Exception ex) {
+            System.out.println("the ctach is here");
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToConseils(ActionEvent event) {
+        try{
+            loadSplashScreen("/paw/trainingService/FXMLSittingConseils.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
+
+  
 }

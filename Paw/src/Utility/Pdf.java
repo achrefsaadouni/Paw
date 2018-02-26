@@ -110,7 +110,7 @@ public class Pdf {
             document.add(new Paragraph("  "));
             document.add(p5);
             document.add(new Paragraph("  "));
-            document.add(new Paragraph("Prix Total de : " + a.getPrix()));
+            document.add(new Paragraph("Prix Total de : " + a.getPrix() +"(y Compris le frais de la livraison)"));
             document.add(new Paragraph("  "));
             document.add(p6);
             document.add(new Paragraph("  "));

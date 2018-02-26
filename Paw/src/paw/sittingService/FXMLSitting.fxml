@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingController">
+    <stylesheets>
+        <URL value="@fxmlSitting.css" />
+    </stylesheets>
+   <children>
+      <VBox prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" stylesheets="@fxmlSitting.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FAFAFA;" stylesheets="@../trainingService/fxmltraining.css">
+               <children>
+                  <AnchorPane id="anchor1" prefHeight="200.0" prefWidth="1088.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" stylesheets="@../trainingService/fxmltraining.css">
+                     <children>
+                        <ImageView fx:id="imgTr3" fitHeight="118.0" fitWidth="354.0" layoutX="740.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="20.0">
+                           <image>
+                              <Image url="@../trainingService/TrainingService.png" />
+                           </image>
+                        </ImageView>
+                        <Separator layoutY="47.0" prefHeight="3.0" prefWidth="1060.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="47.0" />
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="47.0" prefWidth="1060.0" styleClass="names" stylesheets="@../../css/Master.css" text="Vous voulez garder votre animal de companie : deposer votre demande" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <padding>
+                              <Insets left="10.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="23.0" layoutY="153.0" style="-fx-font-size: 20; -fx-text-fill: #1E88E5;" stylesheets="@../trainingService/fxmltraining.css" text="Quel animal de compagnie avez vous ?" underline="true" AnchorPane.bottomAnchor="20.0" />
+                        <JFXComboBox fx:id="typePet" labelFloat="true" layoutX="444.0" layoutY="145.0" promptText="Type de votre animal" AnchorPane.bottomAnchor="20.0" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="1060.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);;" stylesheets="@../trainingService/fxmltraining.css">
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="racePet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Race" stylesheets="@../trainingService/fxmltraining.css">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="sexeM" stylesheets="@../trainingService/fxmltraining.css" text="Male">
+                           <VBox.margin>
+                              <Insets left="40.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                        <Label stylesheets="@../trainingService/fxmltraining.css" text="Sexe">
+                           <opaqueInsets>
+                              <Insets bottom="10.0" top="10.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <JFXRadioButton fx:id="sexeF" stylesheets="@../trainingService/fxmltraining.css" text="Femelle">
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="descPet" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="176.0" promptText="Description">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXButton id="retourButton" fx:id="retourB" buttonType="RAISED" onAction="#redirection" ripplerFill="WHITE" style="-fx-background-color: white;" stylesheets="@../trainingService/fxmltraining.css" text="retour">
+                           <graphic>
+                              <ImageView fitHeight="68.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../trainingService/Icone-retour-Lycee-pro.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="10.0" top="50.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox focusTraversable="true" layoutX="955.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="201.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="nomPet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Nom de votre animal">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="agePet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Age">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="colorPet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Couleur">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="dateSit" defaultColor="#005e8f" prefHeight="26.0" prefWidth="173.0" promptText="Date de Garde">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXDatePicker>
+                        <Label text="Specifiez le nombre des jours">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <JFXSlider fx:id="dureSit" max="30.0" min="1.0" value="15.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </JFXSlider>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox layoutX="978.0" layoutY="10.0" prefHeight="375.0" prefWidth="318.0">
+                     <children>
+                        <SplitPane orientation="VERTICAL" prefHeight="241.0" prefWidth="318.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <items>
+                              <AnchorPane maxHeight="243.0" prefHeight="243.0" prefWidth="316.0" style="-fx-background-color: #D1C4E9; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+                                 <children>
+                                    <JFXButton fx:id="addButton" layoutY="-2.0" onAction="#addTask" style="-fx-background-color: #7C4DFF;" text="Ajouter une tache" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                    <JFXTextField fx:id="taskText" layoutX="120.0" layoutY="4.0" prefHeight="26.0" prefWidth="176.0" promptText="Ajouez une tache à realiser" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                                    <Separator layoutY="70.0" prefHeight="3.0" prefWidth="318.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0" />
+                                    <JFXListView fx:id="listView" layoutX="14.0" layoutY="51.0" prefHeight="177.0" prefWidth="248.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="48.0" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                        <AnchorPane prefHeight="85.0" prefWidth="318.0">
+                           <children>
+                              <JFXButton fx:id="validerB" layoutX="25.0" layoutY="43.0" onAction="#ValiderTraining" style="-fx-background-color: #0091EA;" stylesheets="@../trainingService/fxmltraining.css" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="0.0" />
+                              <JFXButton fx:id="annulerB" layoutX="110.0" layoutY="43.0" onAction="#annulerTraining" style="-fx-background-color: #f44336;" stylesheets="@../trainingService/fxmltraining.css" text="Annuler" textFill="#ebebeb" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="80.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

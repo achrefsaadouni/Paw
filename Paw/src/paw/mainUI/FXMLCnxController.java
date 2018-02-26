@@ -14,7 +14,7 @@ import Service.AnnonceAdoptionService;
 import Service.AnnoncePerduServices;
 import Service.AnnonceTrainingServices;
 import Service.AnnonceTrouveServices;
-import Service.AnnonceWalkingServices;
+
 import Service.ConseilServices;
 import Service.ProduitService;
 import Service.ReclamationServices;
@@ -159,7 +159,7 @@ public class FXMLCnxController implements Initializable {
     AnnoncePerduServices perduservice = new AnnoncePerduServices();
     AnnonceTrouveServices trouveservice = new AnnonceTrouveServices();
     AnnonceTrainingServices trainingservice = new AnnonceTrainingServices();
-    AnnonceWalkingServices walkingservice = new AnnonceWalkingServices();
+    
     AnnonceAccouplementServices accouplementservice = new AnnonceAccouplementServices();
     int n;
     @FXML
@@ -726,7 +726,7 @@ public class FXMLCnxController implements Initializable {
         animal_perdu.setText(String.valueOf(perduservice.getAnnoncePe()));
         animal_trouve.setText(String.valueOf(trouveservice.getAnnoncetr()));
         training.setText(String.valueOf(trainingservice.nombre()));
-        walking.setText(String.valueOf(walkingservice.nombre()));
+
         accouplement.setText(String.valueOf(accouplementservice.nombre()));
         nbr_produit.setText("Produit total : " + String.valueOf(produitservice.nombreProduit()));
         nbr_produit_out.setText("Produit non disponible : " + String.valueOf(produitservice.nombreProduitOut()));

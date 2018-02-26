@@ -8,7 +8,7 @@ import Entity.AnnonceSitting;
 
 import Service.AnnonceServices;
 import Service.AnnonceSittingServices;
-import Service.AnnonceWalkingServices;
+
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.skins.JFXDatePickerContent;
@@ -135,7 +135,8 @@ public class FXMLAnnonceSittingController implements Initializable {
 //        {
             AnnonceSittingServices as = new AnnonceSittingServices();
               as.insererAnnonceSitting(new AnnonceSitting(java.sql.Date.valueOf(dateSitInsertion.getValue()), 
-                      typeSitInsertion.getText(),
+                      Integer.parseInt(typeSitInsertion.getText()),
+                      null,
                       0 , 
                       Integer.parseInt(ageInsertion.getText()), 
                       couleurInsertion.getText(), 
@@ -143,7 +144,8 @@ public class FXMLAnnonceSittingController implements Initializable {
                       raceInsertion.getText(), 
                       msgInsertion.getText(),
                       choixInsertion.getValue(), 
-                      null));
+                      null,
+                      0));
             dateSitInsertion.setValue(LocalDate.now());
             typeSitInsertion.setText("");
               
@@ -162,27 +164,25 @@ public class FXMLAnnonceSittingController implements Initializable {
     @FXML
     void actionModification2(ActionEvent event) 
     {
-
-            
-        
+     
 //            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
 //                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateSitModification.getValue()))&& (!"".equals(typeSitModification.getText())) && (!"".equals(typeModification.getText())))
 //        {
             AnnonceSittingServices as = new AnnonceSittingServices();
             
-            as.updateAnnonceSitting(new 
-             AnnonceSitting(
-                    
-                    java.sql.Date.valueOf(dateSitModification.getValue()),
-                    typeSitModification.getText(),
-                    0,
-                    Integer.parseInt(ageModification.getText()),
-                    couleurModification.getText(),
-                    sexModification.getText(),
-                    raceModification.getText(),
-                    msgModification.getText(),
-                    choixModification.getValue(),
-                    java.sql.Date.valueOf(dateSitModification.getValue())),Integer.parseInt(idModification.getText()));
+//            as.updateAnnonceSitting(new AnnonceSitting(
+//                    java.sql.Date.valueOf(dateSitModification.getValue()),
+//                    Integer.parseInt(typeSitModification.getText()),
+//                    null,
+//                    Integer.parseInt(idModification.getText()),
+//                    Integer.parseInt(ageModification.getText()),
+//                    couleurModification.getText(),
+//                    sexModification.getText(),
+//                    raceModification.getText(),
+//                    msgModification.getText(),
+//                    (String)choixModification.getValue(),
+//                    java.sql.Date.valueOf(dateSitModification.getValue())),
+//                    0);
                     
             
             
@@ -243,7 +243,6 @@ public class FXMLAnnonceSittingController implements Initializable {
         dateSitCol.setCellValueFactory(new PropertyValueFactory<>("dateSit"));
         
         
-	//id 	age 	couleur 	sex 	race 	message_complementaire 	type 	date 	dateSit 	typeSit 
     }
 
     private void loadTable() {

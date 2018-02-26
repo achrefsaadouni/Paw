@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSlider?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.sittingService.FXMLSittingListeAnnonceController">
+    <stylesheets>
+        <URL value="@fxmlSitting.css" />
+    </stylesheets>
+   <children>
+      <JFXSlider fx:id="dureSit" layoutX="73.0" layoutY="112.0" />
+   </children>
+</AnchorPane>

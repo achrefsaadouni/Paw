@@ -97,19 +97,15 @@ public class FXMLPayerController {
 
         if (Panier.panier.isEmpty()) {
             MyNotifications.ErrorNotification("Panier", "Votre Panier est encore vide");
-        } 
-        else if (!Panier.valide())
-        {
-             MyNotifications.ErrorNotification("Panier", "Votre Panier Contient un produit epuisé");
-        }
-
-        else {
+        } else if (!Panier.valide()) {
+            MyNotifications.ErrorNotification("Panier", "Votre Panier Contient un produit epuisé");
+        } else {
 
             if (livraison.isSelected()) {
                 validation.setVisible(true);
                 code = genererCode();
                 System.out.println(code);
-                Mail.send(recepteur, code);
+                Mail.send(recepteur, "Confirmation Du Paiement", "Pour Confimer votre Commande vueillez Utiliser ce code " + code + "\n NB: ce Code est a usage unique");
             } else if (stripe.isSelected()) {
 
                 JFXDialogLayout content = new JFXDialogLayout();
@@ -139,14 +135,14 @@ public class FXMLPayerController {
 
         Achat achat = new Achat(session.getId(), Panier.prixtotal(), Panier.panier);
         if (code.equals(valid_code.getText())) {
-            achat.setEtat("Non Payer");                    
+            achat.setEtat("Non Payer");
             if (achatservice.addAchat(achat)) {
                 MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
                 Panier.panier.clear();
             }
         } else {
             MyNotifications.ErrorNotification("Confirmation", "Code D'activation Incorrect");
-        }          
+        }
     }
 
     @FXML
@@ -154,36 +150,35 @@ public class FXMLPayerController {
             Exception {
         code = genererCode();
         System.out.println(code);
-        Mail.send(recepteur, code);
+        Mail.send(recepteur, "Confirmation Du Paiement", "Pour Confimer votre Commande vueillez Utiliser ce code " + code + "\n NB: ce Code est a usage unique");
+
     }
 
     @FXML
     private void confirmer(ActionEvent event) {
-            java.sql.Date datea = java.sql.Date.valueOf(date_expiration.getValue());
-            String tt = String.valueOf(datea);
-            String year = tt.substring(0, 4);
-            String month = tt.substring(5, 7);
-           try {
-            PaymentOrder po = new PaymentOrder(numero_carte.getText(), cvv.getText(), month, year,Panier.prixtotal(), email.getText(), ville.getText(), etat.getText(), adresse.getText(), "tunisia", code_postal.getText());
-            Charge a =po.createCharge("sk_test_s3qNFSFh0IqhB0vaSTwTe9n8",po.getAmmount(),nom_card.getText(), po.getCardnumber(), po.getExp_month(), po.getExp_year(), po.getCvv(), po.getAddress(), po.getCity(), po.getState(), po.getCountry(), po.getZip(), po.getEmail());
-            
-            if(a.getStatus().equals("succeeded"))
-            {
-               stripe_form.setVisible(false);
-               Achat achat = new Achat(session.getId(), Panier.prixtotal(), Panier.panier);
-               achat.setEtat("Payer");
-               if (achatservice.addAchat(achat)) {
-                MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
-                Panier.panier.clear();
-                 }
+        java.sql.Date datea = java.sql.Date.valueOf(date_expiration.getValue());
+        String tt = String.valueOf(datea);
+        String year = tt.substring(0, 4);
+        String month = tt.substring(5, 7);
+        try {
+            PaymentOrder po = new PaymentOrder(numero_carte.getText(), cvv.getText(), month, year, Panier.prixtotal(), email.getText(), ville.getText(), etat.getText(), adresse.getText(), "tunisia", code_postal.getText());
+            Charge a = po.createCharge("sk_test_s3qNFSFh0IqhB0vaSTwTe9n8", po.getAmmount(), nom_card.getText(), po.getCardnumber(), po.getExp_month(), po.getExp_year(), po.getCvv(), po.getAddress(), po.getCity(), po.getState(), po.getCountry(), po.getZip(), po.getEmail());
+
+            if (a.getStatus().equals("succeeded")) {
+                stripe_form.setVisible(false);
+                Achat achat = new Achat(session.getId(), Panier.prixtotal(), Panier.panier);
+                achat.setEtat("Payer");
+                if (achatservice.addAchat(achat)) {
+                    MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
+                    Panier.panier.clear();
+                }
             }
         } catch (AuthenticationException | InvalidRequestException | APIConnectionException | APIException ex) {
-           System.out.println(ex);
+            System.out.println(ex);
         } catch (CardException ex) {
             System.out.println(ex.getCode());
         }
-        
-        
+
     }
 
 }
