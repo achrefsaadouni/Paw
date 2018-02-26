@@ -846,7 +846,7 @@ public class FXMLCnxController implements Initializable {
         
         JFXDialog dialog = new JFXDialog(stackpane, content, JFXDialog.DialogTransition.TOP);
         
-        JFXButton oui = new JFXButton("Se déconecter");
+        JFXButton oui = new JFXButton("Se déconnecter");
         oui.setOnAction((e) -> {
             
             FXMLLoader loader = new FXMLLoader();

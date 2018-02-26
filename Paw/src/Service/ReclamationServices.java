@@ -255,4 +255,23 @@ public class ReclamationServices {
             return null;
         }   
     }
+
+    public Object nombreMesReclamations(int i) {
+        String req="SELECT * FROM Reclamation WHERE id_utilisateur=?" ;
+        int y=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                y++;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return y;
+    }
 }

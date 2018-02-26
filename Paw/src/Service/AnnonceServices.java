@@ -76,7 +76,7 @@ public class AnnonceServices {
     }
 
     public ArrayList<Annonce> getMesAnnonces(int i){
-        String req="SELECT * FROM annonce where utilisateur_id=?" ;
+        String req="SELECT * FROM annonce where utilisateur_id=? " ;
         ArrayList<Annonce> list =new ArrayList();
         try 
         { 
@@ -138,6 +138,25 @@ public class AnnonceServices {
         }
     
       }
+
+    public int getNbrMesAnnoncesLAF(int i) {
+        String req="SELECT * FROM annonce where utilisateur_id=? " ;
+        int y = 0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, i);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                y++;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return y;
+    }
 
     
 }
