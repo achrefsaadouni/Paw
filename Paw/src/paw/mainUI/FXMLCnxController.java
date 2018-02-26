@@ -307,7 +307,7 @@ public class FXMLCnxController implements Initializable {
                             switch (node.getAccessibleText()) {
                                 case "Training": {
                                     try {
-                                        loadSplashScreen("/paw/trainingService/FXMLTraining.fxml");
+                                        loadSplashScreen("/paw/trainingService/FXMLTrainingPrincipal.fxml");
                                         break;
                                     } catch (Exception ex) {
                                         Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
@@ -356,7 +356,7 @@ public class FXMLCnxController implements Initializable {
                                 
                                  case "sitting": {
                                     try {
-                                        loadSplashScreen("/paw/annoncesitting/FXMLAnnonceSitting.fxml");
+                                        loadSplashScreen("/paw/sittingService/FXMLSittingPrincipale.fxml");
                                         break;
                                     } catch (Exception ex) {
                                         System.out.println(ex);

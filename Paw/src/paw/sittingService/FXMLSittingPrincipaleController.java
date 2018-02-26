@@ -41,7 +41,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
     private void goToListe(ActionEvent event) {
         try{
             System.out.println("trying !!");
-            loadSplashScreen("/paw/trainingService/FXMLSittingListeAnnonce.fxml");
+            loadSplashScreen("/paw/sittingService/FXMLSittingListeAnnonce.fxml");
             System.out.println("trying !!");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,7 +51,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
     @FXML
     private void goToAjout(ActionEvent event) {
         try{
-            loadSplashScreen("/paw/trainingService/FXMLSitting.fxml");
+            loadSplashScreen("/paw/sittingService/FXMLSitting.fxml");
             System.out.println("the error is here");
         } catch (Exception ex) {
             System.out.println("the ctach is here");
@@ -62,7 +62,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
     @FXML
     private void goToConseils(ActionEvent event) {
         try{
-            loadSplashScreen("/paw/trainingService/FXMLSittingConseils.fxml");
+            loadSplashScreen("/paw/sittingService/FXMLSittingConseils.fxml");
         } catch (Exception ex) {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
         }
