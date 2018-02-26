@@ -23,11 +23,6 @@
 
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.profile.FXMLprofileController">
    <children>
-      <JFXButton layoutX="378.0" layoutY="546.0" onAction="#goToAdminRecl" prefHeight="62.0" prefWidth="160.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="ADMIN RECLAMATION">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </JFXButton>
       <AnchorPane fx:id="details" layoutX="17.0" layoutY="111.0" prefHeight="524.0" prefWidth="350.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <ImageView fx:id="avatar" fitHeight="169.0" fitWidth="175.0" layoutX="84.0" layoutY="-93.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
@@ -79,7 +74,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="385.0" layoutY="27.0" prefHeight="200.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane layoutX="385.0" layoutY="49.0" prefHeight="200.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes Participations" />
             <HBox layoutX="10.0" layoutY="57.0" prefHeight="128.0" prefWidth="678.0" spacing="16.0">
@@ -122,45 +117,12 @@
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="383.0" layoutY="255.0" onAction="#goToStatistiques" prefHeight="50.0" prefWidth="139.0" ripplerFill="#4f52ff" style="-fx-background-color: #6A7D9A;" text="Statistiques">
-         <font>
-            <Font size="20.0" />
-         </font></JFXButton>
-      <JFXButton layoutX="383.0" layoutY="327.0" onAction="#goToListeAdoption" prefHeight="62.0" prefWidth="139.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Liste Adoption">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <AnchorPane layoutX="549.0" layoutY="237.0" prefHeight="398.0" prefWidth="535.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-radius: 3; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
-         <children>
-            <Pane layoutY="-1.0" prefHeight="60.0" prefWidth="535.0" style="-fx-background-color: #F87951; -fx-background-radius: 5 5 0 0;">
-               <children>
-                  <Label layoutX="76.0" layoutY="15.0" prefHeight="30.0" prefWidth="207.0" text="Recent Notifications " textFill="#fffefe">
-                     <font>
-                        <Font name="Roboto Medium" size="18.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIconView fill="WHITE" glyphName="BELL" layoutX="14.0" layoutY="38.0" size="24.0" wrappingWidth="32.85714340209961" />
-               </children>
-            </Pane>
-            <Label layoutX="180.0" layoutY="203.0" prefHeight="30.0" prefWidth="175.0" text="No new notifications" textFill="#b2b1b1">
-               <font>
-                  <Font name="Roboto Medium" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <JFXButton layoutX="383.0" layoutY="405.0" onAction="#goToListeUtilisateurs" prefHeight="62.0" prefWidth="139.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Liste Utilisateurs">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="383.0" layoutY="475.0" onAction="#goToMesOffresAdoption" prefHeight="62.0" prefWidth="149.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Mes offres Adoptions">
+      <JFXButton layoutX="401.0" layoutY="303.0" onAction="#goToMesOffresAdoption" prefHeight="62.0" prefWidth="149.0" ripplerFill="BLACK" style="-fx-background-color: #6A7D9A;" text="Mes offres Adoptions">
          <font>
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+      <AnchorPane fx:id="modifanchor" layoutX="326.0" layoutY="97.0" prefHeight="511.0" prefWidth="461.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false">
          <children>
             <Pane prefHeight="122.0" prefWidth="461.0" style="-fx-background-color: #00AACF; -fx-background-radius: 5 5 0 0;">
                <children>
