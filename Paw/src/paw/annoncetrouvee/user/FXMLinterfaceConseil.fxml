@@ -143,24 +143,17 @@
             <AnchorPane fx:id="reclamations" prefHeight="0.0" prefWidth="866.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" />
          </children>
       </VBox>
-      <Label layoutX="157.0" layoutY="14.0" prefHeight="54.0" prefWidth="813.0" text="J'ai  mon animal de compagnie : que faire ?">
+      <Label layoutX="7.0" layoutY="18.0" prefHeight="54.0" prefWidth="813.0" text="J'ai trouveé un animal de compagnie : que faire ?" textFill="#0000006e">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Line endX="600.0" layoutX="229.0" layoutY="14.0" startX="-100.0" />
-      <Line endX="515.0" layoutX="319.0" layoutY="68.0" startX="-190.0" />
-      <Label layoutX="133.0" layoutY="68.0" prefHeight="42.0" prefWidth="911.0" text="Perdre son petit compagnon est toujours douloureux. Voici quelque démarches pour vous aider à le retrouver." textFill="#ba2f2f" underline="true">
+      <Label layoutX="4.0" layoutY="68.0" prefHeight="42.0" prefWidth="911.0" text="Perdre son petit compagnon est toujours douloureux. Voici quelque démarches pour vous aider à le retrouver." textFill="#ba2f2f" underline="true">
          <font>
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="106.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../Ressource/images/logo.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="832.0" onAction="#goToVideo" prefHeight="75.0" prefWidth="273.0" style="-fx-background-color: #546E7A;" text="Regarder Nos Conseils" textFill="#8a1616">
+      <JFXButton layoutX="800.0" layoutY="2.0" onAction="#goToVideo" prefHeight="75.0" prefWidth="273.0" style="-fx-background-color: #546E7A;" text="Regarder Nos Conseils" textFill="#8a1616">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
@@ -172,5 +165,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Separator layoutX="7.0" layoutY="67.0" prefHeight="3.0" prefWidth="717.0" />
    </children>
 </AnchorPane>

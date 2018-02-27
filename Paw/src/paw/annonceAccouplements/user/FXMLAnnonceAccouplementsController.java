@@ -80,7 +80,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
      */
         @Override
     public void initialize(URL url, ResourceBundle rb) {
-        choixInsertion.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
+        choixInsertion.getItems().setAll("Chien","Chat","Autres");
         choixInsertion.setValue("Chien");
         
         

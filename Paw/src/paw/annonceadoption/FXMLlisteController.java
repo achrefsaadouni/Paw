@@ -40,8 +40,6 @@ public class FXMLlisteController implements Initializable {
     ArrayList<AnnonceAdoption> liste;
     
     @FXML
-    private Label nom11;
-    @FXML
     private AnchorPane box;
     @FXML
     private Label typeAdoptiontypeAnimal;
@@ -243,7 +241,7 @@ public class FXMLlisteController implements Initializable {
         msgd.setText(a.getMessage_complementaire());
         dated.setText(String.valueOf(a.getDate()).substring(0, 16));
         
-        imaged.setImage(new Image("http://localhost/pawAnnonces/"+a.getImages().getPath()));
+        imaged.setImage(new Image("http://localhost/paw/web/images/pawAdoption/"+a.getImages().getName()));
         raced.setText("Race : "+a.getRace());
         sexed.setText(a.getSex());
         aged.setText("Age : "+a.getAge());
@@ -267,7 +265,7 @@ public class FXMLlisteController implements Initializable {
         emaild.setText(u.getEmail());
         numerod.setText(""+u.getNumero());
         adressed.setText(u.getAddresse());
-        imageuserd.setImage(new Image("http://localhost/pawUsers/"+u.getAvatar()));
+        imageuserd.setImage(new Image("http://localhost/paw/web/images/pawUsers/"+u.getAvatar()));
         AnnonceAdoptionService x= new AnnonceAdoptionService();
         if(x.isAnsweredByUser(a.getId(), session.getId()))
         {

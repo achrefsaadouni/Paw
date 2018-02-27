@@ -5,13 +5,14 @@
  */
 package Entity;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.File;
 
 /**
  *
  * @author gmehd
  */
-public class Vets {
+public class Vets extends RecursiveTreeObject<Vets> {
 
     private int id;
     private String nom;
@@ -159,4 +160,10 @@ public class Vets {
     public void setImages(File images) {
         this.images = images;
     }
+
+    @Override
+    public String toString() {
+        return "Vets{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", region=" + region + ", numero=" + numero + ", email=" + email + ", rate=" + rate + ", longitude=" + longitude + ", latitude=" + latitude + ", images=" + images + '}';
+    }
+    
 }

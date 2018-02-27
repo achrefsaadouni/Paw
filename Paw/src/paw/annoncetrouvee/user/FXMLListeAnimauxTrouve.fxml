@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.cell.ImageGridCell?>
 
@@ -45,7 +44,6 @@
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal1" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/avatar.png" />
@@ -93,7 +91,6 @@
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal3" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/avatar.png" />
@@ -145,7 +142,6 @@
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal2" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/avatar.png" />
@@ -193,7 +189,6 @@
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal4" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Ressource/images/avatar.png" />
@@ -222,7 +217,7 @@
       <Pagination fx:id="paginator" layoutX="498.0" layoutY="593.0" pageCount="5" prefHeight="50.0" prefWidth="168.0" />
       <ImageGridCell />
       <ImageGridCell />
-      <StackPane fx:id="consulterAnnonce" layoutX="130.0" prefHeight="150.0" prefWidth="200.0">
+      <StackPane fx:id="consulterAnnonce" layoutX="130.0" prefHeight="150.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane prefHeight="644.0" prefWidth="846.0">
                <children>

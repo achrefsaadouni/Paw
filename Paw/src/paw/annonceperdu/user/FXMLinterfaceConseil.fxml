@@ -143,13 +143,11 @@
             <AnchorPane fx:id="reclamations" prefHeight="0.0" prefWidth="866.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" />
          </children>
       </VBox>
-      <Label layoutX="13.0" layoutY="14.0" prefHeight="54.0" prefWidth="813.0" text="J'ai perdu mon animal de compagnie : que faire ?">
+      <Label layoutX="4.0" layoutY="16.0" prefHeight="54.0" prefWidth="813.0" text="J'ai perdu mon animal de compagnie : que faire ?" textFill="#00000077">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Line endX="700.0" layoutX="229.0" layoutY="14.0" startX="-100.0" translateX="-120.0" />
-      <Line endX="615.0" layoutX="319.0" layoutY="68.0" startX="-190.0" translateX="-120.0" />
       <Label layoutX="17.0" layoutY="67.0" prefHeight="42.0" prefWidth="911.0" text="Perdre son petit compagnon est toujours douloureux. Voici quelque démarches pour vous aider à le retrouver." textFill="#ba2f2f" underline="true">
          <font>
             <Font name="System Italic" size="19.0" />
@@ -167,5 +165,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <Separator layoutY="68.0" prefHeight="1.0" prefWidth="795.0" />
    </children>
 </AnchorPane>

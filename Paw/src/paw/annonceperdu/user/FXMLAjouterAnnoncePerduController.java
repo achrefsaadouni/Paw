@@ -102,7 +102,7 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
     }    
  @FXML
     private void actionInsertion2(ActionEvent event) {
-          if ((couleurInsertion.getText().trim().equals(""))|| (ageInsertion.getText().trim().equals(""))
+          if ((couleurInsertion.getText().trim().equals(""))|| (ageInsertion.getText().trim().equals(""))||(!isInteger(ageInsertion))
                  || (raceInsertion.getText().trim().equals(""))|| (msgInsertion.getText().trim().equals(""))|| (choixInsertion.getValue().isEmpty())
                  || (lieuxInsertion3.getText().trim().equals("")))
                  {
@@ -208,4 +208,12 @@ public class FXMLAjouterAnnoncePerduController implements Initializable {
     }
 
     
+    public boolean isInteger(JFXTextField input) {
+        try {
+            int prix = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

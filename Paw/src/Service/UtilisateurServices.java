@@ -33,7 +33,7 @@ public class UtilisateurServices {
     public void insererUtilisateur (Utilisateur p)
     {
         String image = "";
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar) VALUES(?,?,?,?,?,?,?,?,?,now(),?)" ; 
+        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar,code,confirmed) VALUES(?,?,?,?,?,?,?,?,?,now(),?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom().toLowerCase()) ; 
@@ -46,6 +46,8 @@ public class UtilisateurServices {
             ste.setString(8,p.getRole()) ;
             ste.setString(9,p.getSexe()) ; 
             ste.setString(10,p.getAvatar()) ;
+            ste.setString(11,"Free"+p.getCode()) ; 
+            ste.setString(12,p.getConfirmed()) ;
             
               ste.executeUpdate() ; 
             
@@ -221,7 +223,9 @@ public class UtilisateurServices {
                 String avatar = rs.getString("avatar");
                 Date dateInscription = rs.getDate("dateInscription");
                 String sexe=rs.getString("sexe");
-                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, numero, avatar, dateInscription, sexe));
+                String code=rs.getString("code");
+                String confirmed=rs.getString("confirmed");
+                list.add(new Utilisateur(id, nom, prenom, addresse, email, username, password, role, sexe, numero, avatar, dateInscription,code,confirmed));
             }
 
         } catch (SQLException ex) {
@@ -256,11 +260,12 @@ public class UtilisateurServices {
         }
     }
 
-    public boolean bloquer(int id) {
-        String req="UPDATE utilisateur SET etat='Bloqué' WHERE id =?" ; 
+    public boolean bloquer(int id,String code) {
+        String req="UPDATE utilisateur SET code=? WHERE id =?" ; 
         try { 
-            PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,id) ;
+            PreparedStatement ste = connection.prepareStatement(req) ;   
+            ste.setString(1,"Bani"+code);
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             return true ;
         } catch (SQLException ex) {
@@ -269,11 +274,12 @@ public class UtilisateurServices {
         }
     }
 
-    public boolean debloquer(int id) {
-       String req="UPDATE utilisateur SET etat='Free' WHERE id =?" ; 
+    public boolean debloquer(int id,String code) {
+       String req="UPDATE utilisateur SET code=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,id) ;
+            ste.setString(1,"Free"+code);
+            ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             return true ;
         } catch (SQLException ex) {
@@ -283,16 +289,15 @@ public class UtilisateurServices {
     }
 
     public Boolean modifierInfos(Utilisateur u) {
-        String req="UPDATE utilisateur SET email=?, nom=?, prenom=?, addresse=?, sexe=?,numero=? WHERE id =?" ; 
+        String req="UPDATE utilisateur SET nom=?, prenom=?, addresse=?, sexe=?,numero=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1, u.getEmail());
-            ste.setString(2, u.getNom());
-            ste.setString(3, u.getPrenom());
-            ste.setString(4, u.getAddresse());
-            ste.setString(5, u.getSexe());
-            ste.setInt(6,u.getNumero()) ;
-            ste.setInt(7,u.getId()) ;
+            ste.setString(1, u.getNom());
+            ste.setString(2, u.getPrenom());
+            ste.setString(3, u.getAddresse());
+            ste.setString(4, u.getSexe());
+            ste.setInt(5,u.getNumero()) ;
+            ste.setInt(6,u.getId()) ;
             ste.executeUpdate() ; 
             return true ;
         } catch (SQLException ex) {
@@ -332,5 +337,17 @@ public class UtilisateurServices {
             System.out.println("erreur affichage nombre");
         }
         return y;
+    }
+
+    public void confirmer(int id) {
+        String req="UPDATE utilisateur SET code='Free', confirmed='yes' WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1,id) ;
+            ste.executeUpdate() ; 
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
     }
 }

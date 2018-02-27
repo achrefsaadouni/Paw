@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.conseil.admin.FXMLAjoutConseilController">
-    
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.conseil.admin.FXMLAjoutConseilController">
+   <children>
+      <Separator layoutX="95.0" layoutY="61.0" prefHeight="25.0" prefWidth="928.0" />
+      <Label layoutX="364.0" layoutY="10.0" text="Ajouter un conseil" textFill="#8d8686">
+         <font>
+            <Font name="Roboto Slab Bold" size="37.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="titreInsertion" labelFloat="true" layoutX="214.0" layoutY="120.0" prefColumnCount="10" prefHeight="25.0" prefWidth="237.0" promptText="TITRE" />
+      <ChoiceBox fx:id="animalInsertion" layoutX="214.0" layoutY="198.0" prefHeight="25.0" prefWidth="132.0" />
+      <ChoiceBox fx:id="typeInsertion" layoutX="214.0" layoutY="289.0" prefHeight="25.0" prefWidth="132.0" />
+      <JFXTextArea fx:id="descriptionInsertion" layoutX="214.0" layoutY="438.0" prefHeight="110.0" prefWidth="464.0" promptText="Description ...." unFocusColor="BLACK" />
+      <JFXButton alignment="CENTER" layoutX="768.0" layoutY="591.0" onAction="#actionInsertion" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../mainUI/style.css" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+         </graphic>
+      </JFXButton>
+   </children>
 </AnchorPane>

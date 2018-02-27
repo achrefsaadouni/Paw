@@ -32,10 +32,8 @@ public class AnnonceAdoptionService {
         connection =handler.getConnection();
     }
     
-    public void inserer (AnnonceAdoption a)
+    public void inserer (AnnonceAdoption a,String taswira)
     {
-        String images="";
-        images=a.getImages().getPath().toString();
         String req="INSERT INTO `annonce`(`age`, `couleur`, `sex`, `race`, `message_complementaire`, `type`, `date`, `type_annonce`,  `utilisateur_id`, `typeAdoption`, `debutAdoption`, `finAdoption`,`images`,`etatAdoption`) VALUES (?,?,?,?,?,?,now(),?,?,?,?,?,?,?)"; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -50,7 +48,7 @@ public class AnnonceAdoptionService {
             ste.setString(9,a.getTypeAdoption()) ; 
             ste.setDate(10, (java.sql.Date) a.getDebutAdoption()) ;  
             ste.setDate(11,(java.sql.Date) a.getFinAdoption()) ;
-            ste.setString(12,images) ;
+            ste.setString(12,taswira) ;
             ste.setString(13,"Disponible") ;
                                                                                                                          
             ste.executeUpdate() ; 

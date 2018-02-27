@@ -28,6 +28,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -35,13 +37,14 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
+import paw.mainUI.FXMLCnxController;
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLreclamationController implements Initializable {
+public class FXMLreclamationController extends FXMLCnxController implements Initializable {
     List<Reclamation> liste;
         @FXML
     private JFXTreeTableView<Reclamation> ReclamationTable;
@@ -239,6 +242,15 @@ public class FXMLreclamationController implements Initializable {
             reptext.setVisible(true);
             reptext.setText(x.getText());
             rep.setVisible(true);
+    }
+
+    @FXML
+    private void gotoAjout(ActionEvent event) {
+        try {
+            loadSplashScreen("/paw/annonceadoption/FXMLajouter.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLreclamationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     

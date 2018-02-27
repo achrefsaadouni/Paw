@@ -182,3 +182,14 @@ and open the template in the editor.
     -fx-alignment: CENTER;
     -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.30), 6.0, 0.3, 0,1);
 }
+
+
+.robotoSghir{
+    -fx-text-fill: #424242;
+    -fx-font-size:20;
+}
+
+.robotoAdresse{
+    -fx-text-fill: #424242;
+    -fx-font-size:19;
+}

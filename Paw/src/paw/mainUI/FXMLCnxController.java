@@ -20,11 +20,13 @@ import Service.ProduitService;
 import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import Service.VeterinaireServices;
+import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -57,11 +59,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import paw.FXMLDocumentController;
 import paw.MyNotifications;
 import static paw.Paw.session;
@@ -190,11 +195,70 @@ public class FXMLCnxController implements Initializable {
     private ImageView logout;
     @FXML
     private StackPane stackpane;
+    @FXML
+    private StackPane stackConfirmation;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         username.setText(session.getUsername());
-        email.setText(session.getEmail());
+        if ("Admin".equals(session.getRole()))
+        {
+            email.setText(session.getEmail());
+        }
+        else
+        {
+            if(session.getConfirmed().equals("no"))
+            {
+                email.setText(session.getEmail()+"(Non confirmée)");
+                email.setOnMouseClicked((ev) -> {
+                    stackConfirmation.setMouseTransparent(false);
+                    JFXDialogLayout contentConfirmation =new JFXDialogLayout();
+                    JFXTextField codeConfirmation = new JFXTextField();
+                    
+                    
+                    contentConfirmation.setHeading(new Text("Confirmation d'email :"));
+                    contentConfirmation.setBody(new VBox(50,new Text("Entrez le code que vous avez reçu dans votre boite email :"),codeConfirmation));
+
+                    JFXDialog dialog = new JFXDialog(stackConfirmation, contentConfirmation, JFXDialog.DialogTransition.TOP);
+
+                    JFXButton oui = new JFXButton("Valider");
+                    oui.setOnAction((event) -> {
+                        if (codeConfirmation.getText().equals(session.getCode()))
+                        {
+                            UtilisateurServices us= new UtilisateurServices();
+                            us.confirmer(session.getId());
+                            email.setText(session.getEmail());
+                            session.setConfirmed("yes");
+                            session.setCode("Free");
+                            
+                            email.setOnMouseClicked((xxxx) -> {
+                                
+                            });
+                            dialog.close();
+                            Notifications.create().text("Votre adresse email a été confirmée.").title("Succès").showInformation();
+                        }
+                        else{
+                            Notifications.create().text("Veuillez vérifier le code saisi.").title("Invalide").showWarning();
+                        }
+                    });
+                    
+                    JFXButton non = new JFXButton("Annuler");
+                    non.setOnAction((evnt) -> {
+                        dialog.close();
+                        stackConfirmation.setMouseTransparent(true);
+                    });
+                    stackpane.setMouseTransparent(false);
+                    contentConfirmation.setActions(oui,non);
+                    dialog.show();
+                });
+            }
+            else
+            {
+                email.setText(session.getEmail());
+            }
+            
+        }
+        
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         try {
             AnchorPane menu = null;
@@ -262,6 +326,30 @@ public class FXMLCnxController implements Initializable {
                                 case "gerer_achat": {
                                     try {
                                         loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                 case "annonce": {
+                                    try {
+                                        loadSplashScreenAdmin("/paw/annonce/MenuAnnonce/FXMLToutesLesAnnonces.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                  case "vet/cons": {
+                                    try {
+                                       // loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                   case "dressage": {
+                                    try {
+                                       // loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
                                         break;
                                     } catch (Exception ex) {
                                         Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
@@ -571,7 +659,7 @@ public class FXMLCnxController implements Initializable {
             LigneAchat achat = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                Image img = new Image("file:///" + achat.getProduit().getImages().get(0).getPath());
+                Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + achat.getProduit().getImages().get(0).getName());
                 im.setFitHeight(50);
                 im.setFitWidth(50);
                 im.setImage(img);
@@ -589,7 +677,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/cancel.png");
+                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/cancel.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -615,7 +703,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/add-square-button.png");
+                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/add-square-button.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -640,7 +728,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("file:///E:/PIDEV/Paw/Paw/src/Ressource/images/substraction.png");
+                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/substraction.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -717,7 +805,7 @@ public class FXMLCnxController implements Initializable {
     }
 
     public void initAdmin() {
-
+        
         panier.setVisible(false);
         achat_livrer.setText(String.valueOf(achatservice.nombreAchatlivrer()));
         achat_nonpayer.setText(String.valueOf(achatservice.nombreAchatnonpayer()));

@@ -169,7 +169,7 @@ public class ProduitService {
         }
     
     }
-     public void updatequantite (int valeur,int id)
+     public void updatequantite (int id,int valeur)
     {
     String req="UPDATE `produit` SET quantite=? WHERE id =?" ; 
         try { 
@@ -202,6 +202,46 @@ public class ProduitService {
         return null;
     }
         
+         public ArrayList<Produit> findAllup() {
+        String sql = "SELECT * FROM `produit` order by prix";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+        
+         
+         
+          public ArrayList<Produit> findAlldown() {
+        String sql = "SELECT * FROM `produit` order by prix desc";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+         
          public ArrayList<Produit> findAllFiltrer(String filtre) {
         String sql = "SELECT * FROM `produit` where type=?";
          try {
@@ -220,7 +260,109 @@ public class ProduitService {
              System.out.println("erreur affichage produit");
          }
         return null;
+    }
+         
+           public ArrayList<Produit> findAllFiltrerup(String filtre) {
+        String sql = "SELECT * FROM `produit` where type=? order by prix";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setString(1,filtre);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
     }       
+         
+            public ArrayList<Produit> findAllFiltrerdown(String filtre) {
+        String sql = "SELECT * FROM `produit` where type=? order by prix desc";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             statement.setString(1,filtre);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }       
+    public ArrayList<Produit>  findAllNonDisponisble()
+    {
+                String sql = "SELECT * FROM `produit` where quantite='0'";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+         
+         
+      public ArrayList<Produit>  findAllNonDisponisbleup()
+    {
+                String sql = "SELECT * FROM `produit` where quantite='0' order by prix ";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }    
+        
+       public ArrayList<Produit>  findAllNonDisponisbledown()
+    {
+                String sql = "SELECT * FROM `produit` where quantite='0' order by prix desc";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
+      
+      
         public List<File> getFiles(String path)
         {
             List<File> res = new ArrayList<>();
@@ -237,7 +379,7 @@ public class ProduitService {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\imagesBoutique\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawBoutique\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;

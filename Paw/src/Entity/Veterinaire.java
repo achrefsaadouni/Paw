@@ -5,13 +5,14 @@
  */
 package Entity;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.File;
 
 /**
  *
  * @author gmehd
  */
-public class Veterinaire {
+public class Veterinaire extends RecursiveTreeObject<Veterinaire>{
 
     private int id;
     private String nom;

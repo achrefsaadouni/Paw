@@ -30,9 +30,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.image.Image;
@@ -204,6 +201,15 @@ public class FXMLAchatController {
         TreeItem<Achat> root = new RecursiveTreeItem<>(achats, RecursiveTreeObject::getChildren);
         achat.setRoot(root);
         achat.setShowRoot(false);
+        if(liste_achat.isEmpty())
+        {
+        info.setVisible(true);
+        ligneachat.setVisible(false);
+        rechercher_ligneachat.setVisible(false);
+        supprimer.setVisible(false);
+        pdf.setVisible(false);
+        livrer.setVisible(false);;
+        }
     }
 
     public void consulter(List<LigneAchat> liste) {
@@ -214,7 +220,7 @@ public class FXMLAchatController {
             LigneAchat ligne = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                Image img = new Image("file:///" + ligne.getProduit().getImages().get(0).getPath().toString());
+                Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + ligne.getProduit().getImages().get(0).getName());
                 im.setFitHeight(100);
                 im.setFitWidth(100);
                 im.setImage(img);

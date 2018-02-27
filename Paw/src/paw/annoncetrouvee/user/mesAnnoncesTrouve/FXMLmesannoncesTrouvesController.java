@@ -215,7 +215,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
        datedepo.setText(String.valueOf( QuatreAnnonceTrouve.get(0).getDate_trouvee()).substring(0, 10));
             System.out.println( QuatreAnnonceTrouve.get(0).getImages());
        type1.setText( QuatreAnnonceTrouve.get(0).getType());
-       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(0).getImages().getPath());
+       Image im = new Image ("http://localhost/paw/web/images/pawLostFound/" + QuatreAnnonceTrouve.get(0).getImages().getName());
        imageanimal1.setFitHeight(100);
        imageanimal1.setFitWidth(100);
        imageanimal1.setImage(im);
@@ -248,7 +248,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
        adr2.setText( QuatreAnnonceTrouve.get(1).getLieu_trouve());
        datedepo2.setText(String.valueOf( QuatreAnnonceTrouve.get(1).getDate_trouvee()).substring(0, 10));
        type2.setText( QuatreAnnonceTrouve.get(1).getType());
-       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(1).getImages().getPath());
+       Image im = new Image ("http://localhost/paw/web/images/pawLostFound/" + QuatreAnnonceTrouve.get(1).getImages().getName());
        imageanimal2.setFitHeight(100);
        imageanimal2.setFitWidth(100);
        imageanimal2.setImage(im);
@@ -278,7 +278,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
        adr3.setText( QuatreAnnonceTrouve.get(2).getLieu_trouve());
        datedepo3.setText(String.valueOf( QuatreAnnonceTrouve.get(2).getDate_trouvee()).substring(0, 10));
        type3.setText( QuatreAnnonceTrouve.get(2).getType());
-       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(2).getImages().getPath());
+       Image im = new Image ("http://localhost/paw/web/images/pawLostFound/" + QuatreAnnonceTrouve.get(2).getImages().getName());
        imageanimal3.setFitHeight(100);
        imageanimal3.setFitWidth(100);
        imageanimal3.setImage(im);
@@ -308,7 +308,7 @@ public class FXMLmesannoncesTrouvesController implements Initializable {
        adr4.setText( QuatreAnnonceTrouve.get(3).getLieu_trouve());
        datedepo4.setText(String.valueOf( QuatreAnnonceTrouve.get(3).getDate_trouvee()).substring(0, 10));
        type4.setText( QuatreAnnonceTrouve.get(3).getType());
-       Image im = new Image ("file:///" + QuatreAnnonceTrouve.get(3).getImages().getPath());
+       Image im = new Image ("http://localhost/paw/web/images/pawLostFound/" + QuatreAnnonceTrouve.get(3).getImages().getName());
        imageanimal4.setFitHeight(100);
        imageanimal4.setFitWidth(100);
        imageanimal4.setImage(im);

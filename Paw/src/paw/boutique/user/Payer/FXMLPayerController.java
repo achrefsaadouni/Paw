@@ -139,6 +139,8 @@ public class FXMLPayerController {
             if (achatservice.addAchat(achat)) {
                 MyNotifications.infoNotification("Achat", "Votre Achat a eté effectué avec succes ");
                 Panier.panier.clear();
+                validation.setVisible(false);
+                valid_code.setText("");
             }
         } else {
             MyNotifications.ErrorNotification("Confirmation", "Code D'activation Incorrect");
