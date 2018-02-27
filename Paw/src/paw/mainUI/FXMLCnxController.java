@@ -20,11 +20,13 @@ import Service.ProduitService;
 import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import Service.VeterinaireServices;
+import com.jfoenix.controls.JFXBadge;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -57,11 +59,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import paw.FXMLDocumentController;
 import paw.MyNotifications;
 import static paw.Paw.session;
@@ -190,6 +195,8 @@ public class FXMLCnxController implements Initializable {
     private ImageView logout;
     @FXML
     private StackPane stackpane;
+    @FXML
+    private StackPane stackConfirmation;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -203,6 +210,47 @@ public class FXMLCnxController implements Initializable {
             if(session.getConfirmed().equals("no"))
             {
                 email.setText(session.getEmail()+"(Non confirmée)");
+                email.setOnMouseClicked((ev) -> {
+                    stackConfirmation.setMouseTransparent(false);
+                    JFXDialogLayout contentConfirmation =new JFXDialogLayout();
+                    JFXTextField codeConfirmation = new JFXTextField();
+                    
+                    
+                    contentConfirmation.setHeading(new Text("Confirmation d'email :"));
+                    contentConfirmation.setBody(new VBox(50,new Text("Entrez le code que vous avez reçu dans votre boite email :"),codeConfirmation));
+
+                    JFXDialog dialog = new JFXDialog(stackConfirmation, contentConfirmation, JFXDialog.DialogTransition.TOP);
+
+                    JFXButton oui = new JFXButton("Valider");
+                    oui.setOnAction((event) -> {
+                        if (codeConfirmation.getText().equals(session.getCode()))
+                        {
+                            UtilisateurServices us= new UtilisateurServices();
+                            us.confirmer(session.getId());
+                            email.setText(session.getEmail());
+                            session.setConfirmed("yes");
+                            session.setCode("Free");
+                            
+                            email.setOnMouseClicked((xxxx) -> {
+                                
+                            });
+                            dialog.close();
+                            Notifications.create().text("Votre adresse email a été confirmée.").title("Succès").showInformation();
+                        }
+                        else{
+                            Notifications.create().text("Veuillez vérifier le code saisi.").title("Invalide").showWarning();
+                        }
+                    });
+                    
+                    JFXButton non = new JFXButton("Annuler");
+                    non.setOnAction((evnt) -> {
+                        dialog.close();
+                        stackConfirmation.setMouseTransparent(true);
+                    });
+                    stackpane.setMouseTransparent(false);
+                    contentConfirmation.setActions(oui,non);
+                    dialog.show();
+                });
             }
             else
             {

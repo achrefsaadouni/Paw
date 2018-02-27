@@ -8,7 +8,10 @@ package paw;
 import Entity.Connexion;
 import Service.ConnexionServices;
 import Service.LoginServices;
+import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
@@ -22,6 +25,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import paw.mainUI.FXMLCnxController;
@@ -39,6 +45,8 @@ public class FXMLDocumentController implements Initializable {
     private JFXPasswordField passw;
     @FXML
     private ImageView close;
+    @FXML
+    private StackPane stackpane;
   
     
    @Override
@@ -51,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
     private void connexionButton(ActionEvent event) throws IOException {
         LoginServices service = new LoginServices();
         int x =service.Valide(usern.getText(), passw.getText());
-        if(x!=-1 && x!=0)
+        if(x!=-1 && x!=0 && x!=-2)
         {
             closeStage();
             Paw.session=service.getInformation(x);
@@ -66,8 +74,20 @@ public class FXMLDocumentController implements Initializable {
             }
             loadMain();  
         }
-        else{
-            
+        else if ( x == 0)
+        {
+            // information fausse
+            messageInformationFausses();
+        }
+        else if ( x == -1)
+        {
+            // Erreur, réesseyée plus tard
+            messageErreur();
+        }
+        else
+        {
+            // Utilisateur bloqué
+            messageIsBloqued();
             
         }
     }
@@ -115,6 +135,67 @@ public class FXMLDocumentController implements Initializable {
     private void closeWindow(MouseEvent event) {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
+    }
+
+    private void messageInformationFausses() {
+        stackpane.setMouseTransparent(false);
+        JFXDialogLayout contentConfirmation =new JFXDialogLayout();
+
+        contentConfirmation.setHeading(new Text("Informatons invalides"));
+        contentConfirmation.setBody(new Text("Veuillez vérifier votre nom d'utilisateur et votre \n"
+                                            + "mot de passe"));
+
+        JFXDialog dialog = new JFXDialog(stackpane, contentConfirmation, JFXDialog.DialogTransition.TOP);
+
+        JFXButton ok = new JFXButton("Annuler");
+        ok.setOnAction((event) -> {
+            dialog.close();
+            stackpane.setMouseTransparent(true);
+        });
+        stackpane.setMouseTransparent(false);
+        contentConfirmation.setActions(ok);
+        dialog.show();
+    }
+
+    private void messageErreur() {
+        stackpane.setMouseTransparent(false);
+        JFXDialogLayout contentConfirmation =new JFXDialogLayout();
+
+        contentConfirmation.setHeading(new Text("Erreur"));
+        contentConfirmation.setBody(new Text("Le serveur semble être hors de porté."));
+
+        JFXDialog dialog = new JFXDialog(stackpane, contentConfirmation, JFXDialog.DialogTransition.TOP);
+
+        JFXButton ok = new JFXButton("Annuler");
+        ok.setOnAction((event) -> {
+            dialog.close();
+            stackpane.setMouseTransparent(true);
+        });
+
+        stackpane.setMouseTransparent(false);
+        contentConfirmation.setActions(ok);
+        dialog.show();
+    }
+
+    private void messageIsBloqued() {
+        stackpane.setMouseTransparent(false);
+        JFXDialogLayout contentConfirmation =new JFXDialogLayout();
+
+        contentConfirmation.setHeading(new Text("Votre compte est bloqué"));
+        contentConfirmation.setBody(new Text("Votre compte a été bloqué, si vous pensez que ceci \n"
+                                            + "est une erreur vous pouvez contacter notre equipe \n"
+                                            + " à travers l'adresse : pawzcorporation@gmail.com"));
+
+        JFXDialog dialog = new JFXDialog(stackpane, contentConfirmation, JFXDialog.DialogTransition.TOP);
+
+        JFXButton ok = new JFXButton("Annuler");
+        ok.setOnAction((event) -> {
+            dialog.close();
+            stackpane.setMouseTransparent(true);
+        });
+        stackpane.setMouseTransparent(false);
+        contentConfirmation.setActions(ok);
+        dialog.show();
     }
 
     

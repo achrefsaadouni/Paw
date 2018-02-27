@@ -186,7 +186,12 @@ public class FXMLinscriptionController implements Initializable {
                             {
                                 sexe="Femme";
                             }
-                            String code ="statique";
+                            String code ="";
+                            try {
+                                code = genererCode();
+                            } catch (Exception ex) {
+                                Logger.getLogger(FXMLinscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             Utilisateur p = new Utilisateur(
                                     0, 
                                     nom.getText(), 
@@ -200,15 +205,10 @@ public class FXMLinscriptionController implements Initializable {
                                     Integer.parseInt(numero.getText()), 
                                     chaine, 
                                     null,                    
-                                    code,
+                                    "Free"+code,
                                     "no");
                             s.insererUtilisateur(p);
-                            try {
-                                code = genererCode();
-                            } catch (Exception ex) {
-                                Logger.getLogger(FXMLinscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            System.out.println(code);
+                            
                             Mail.send(email.getText(), "Confirmation de l'adresse Email", "Bienvenue à la famille Paw : \n Pour Confimer votre adresse email veuillez utiliser ce code : " + code + "\n");
 
                             Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();

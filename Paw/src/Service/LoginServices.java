@@ -36,7 +36,13 @@ public class LoginServices {
             ResultSet rs = ste.executeQuery(); 
             if (rs.next())
             {
-                return rs.getInt("id");
+                if (rs.getString("code").startsWith("Bani"))
+                {
+                    return -2;
+                }
+                else{
+                    return rs.getInt("id");
+                }
             }
             else
             {

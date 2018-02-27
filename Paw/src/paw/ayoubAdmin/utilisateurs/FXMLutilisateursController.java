@@ -29,6 +29,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -86,6 +88,8 @@ public class FXMLutilisateursController implements Initializable {
     private JFXButton btn;
     @FXML
     private Pane infos;
+    @FXML
+    private ImageView image;
     /**
      * Initializes the controller class.
      */
@@ -95,6 +99,7 @@ public class FXMLutilisateursController implements Initializable {
           selectionnez.setVisible(true);
           tableau.setVisible(false);
           boutons.setVisible(false);
+          image.setVisible(false);
         
           initUtilisateurs();
     }    
@@ -213,54 +218,56 @@ public class FXMLutilisateursController implements Initializable {
             });
         }
     ////////////////////////////////////////////////////////////////////////////////    
-//        if(r.getEtat().equals("Free"))
-//        {
-//            btnbanir.setText("Bloquer");
-//            btnbanir.setOnAction((ActionEvent) ->{
-//            UtilisateurServices s = new UtilisateurServices();
-//            if(s.bloquer(r.getId()))
-//            {
-//                liste=s.getListePourAdmin(session.getId());
-//                initUtilisateurs();
-//                Utilisateur n = r ;
-//                n.setEtat("Bloqué");
-//                voirUtilisateur(n);
-//                JFXSnackbar snack = new JFXSnackbar(infos);
-//                snack.show("Vous avez bloqué "+r.getEsm(), 2000);
-//            }
-//            else
-//            {
-//                JFXSnackbar snack = new JFXSnackbar(infos);
-//                snack.show("Erreur", 2000);
-//            }
-//            });
-//        }
-//        else
-//        {
-//            btnbanir.setText("Débloquer");
-//            btnbanir.setOnAction((ActionEvent) ->{
-//            UtilisateurServices s = new UtilisateurServices();
-//            if(s.debloquer(r.getId()))
-//            {
-//                liste=s.getListePourAdmin(session.getId());
-//                initUtilisateurs();
-//                Utilisateur n = r ;
-//                n.setEtat("Free");
-//                voirUtilisateur(n);
-//                JFXSnackbar snack = new JFXSnackbar(infos);
-//                snack.show("Vous avez débloqué "+r.getEsm(), 2000);
-//            }
-//            else
-//            {
-//                JFXSnackbar snack = new JFXSnackbar(infos);
-//                snack.show("Erreur", 2000);
-//            }
-//            });
-//        }
+        if(r.getEtat().equals("Free"))
+        {
+            btnbanir.setText("Bloquer");
+            btnbanir.setOnAction((ActionEvent) ->{
+            UtilisateurServices s = new UtilisateurServices();
+            if(s.bloquer(r.getId(),r.getCode()))
+            {
+                liste=s.getListePourAdmin(session.getId());
+                initUtilisateurs();
+                Utilisateur n = r ;
+                n.setEtat("Bani");
+                voirUtilisateur(n);
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Vous avez bloqué "+r.getEsm(), 2000);
+            }
+            else
+            {
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Erreur", 2000);
+            }
+            });
+        }
+        else
+        {
+            btnbanir.setText("Débloquer");
+            btnbanir.setOnAction((ActionEvent) ->{
+            UtilisateurServices s = new UtilisateurServices();
+            if(s.debloquer(r.getId(),r.getCode()))
+            {
+                liste=s.getListePourAdmin(session.getId());
+                initUtilisateurs();
+                Utilisateur n = r ;
+                n.setEtat("Free");
+                voirUtilisateur(n);
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Vous avez débloqué "+r.getEsm(), 2000);
+            }
+            else
+            {
+                JFXSnackbar snack = new JFXSnackbar(infos);
+                snack.show("Erreur", 2000);
+            }
+            });
+        }
          ////////////////////////////////////////////////////////////
         selectionnez.setVisible(false);
+        image.setVisible(true);
         tableau.setVisible(true);
         boutons.setVisible(true);
+        image.setImage(new Image("http://localhost/pawUsers/"+r.getAvatar()));
         nomu.setText(r.getNom());
         prenomu.setText(r.getPrenom());
         adresseu.setText(r.getAddresse());
