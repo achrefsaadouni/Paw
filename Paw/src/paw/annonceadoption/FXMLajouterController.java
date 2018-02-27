@@ -15,6 +15,8 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.io.File;
 import java.net.URL;
 import java.nio.file.Files;
@@ -23,6 +25,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,6 +42,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import org.controlsfx.control.Notifications;
 import static paw.Paw.session;
 import paw.mainUI.FXMLinscriptionController;
 
@@ -84,6 +89,44 @@ public class FXMLajouterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        NumberValidator nv = new NumberValidator();
+        nv.setMessage("Veuillez saisir une age valide");
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Veuillez saisir la couleur");
+        RequiredFieldValidator rf1 = new RequiredFieldValidator();
+        rf1.setMessage("Veuillez donner plus de détails");
+        age.getValidators().add(nv);
+        age.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    age.validate();
+                }
+            }
+        });
+        couleur.getValidators().add(rf);
+        couleur.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    couleur.validate();
+                }
+            }
+        });
+        msg.getValidators().add(rf1);
+        msg.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    msg.validate();
+                }
+            }
+        });
+        
+        
+        
+        
+        
         chaine="";
         ToggleGroup groupsexe = new ToggleGroup();
         male.setToggleGroup(groupsexe);
@@ -93,31 +136,56 @@ public class FXMLajouterController implements Initializable {
         
         debut.setValue(LocalDate.now());
         fin.setValue(LocalDate.now());
+        
+        debut.setVisible(false);
+        fin.setVisible(false);
+        
+        typeAdoption.setOnAction((event) -> {
+            if (debut.isVisible())
+            {
+               debut.setVisible(false);
+                fin.setVisible(false);
+            }
+            else
+            {
+                debut.setVisible(true);
+                fin.setVisible(true);
+            }
+        });
         ObservableList<String> items = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Poisson");
+            "Chien","Chat","Rongeur","Oiseau","Poisson");
         type.setItems(items);
         
         ObservableList<String> Chien = FXCollections.observableArrayList(
-            "Berger","Pitbull","Dalmatien","Kangal","Caniche","Chihuahua","Autre");
+            "Berger","Pitbull","Dalmatien","Kangal","Caniche","Chihuahua","Mastiff","Boxer","Rottweiler","Dobermann","Beagle","Husky","Autre");
         ObservableList<String> Chat = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Autre");
-        ObservableList<String> Chèvre = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Autre");
-        ObservableList<String> Chevale = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Autre");
+            "Siamois","Persan","Main Coon","Sacré de Birmanie","Bengal","Chartreux","British Shorthair","Norvégien","Ragdoll","Exotic Shorthair","Sphynx","Autre");
         ObservableList<String> Rongeur = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Autre");
+            "Hamster","Lapin nain","Cochon d’Inde","Chinchilla","Souris","Rat","Gerbille","Octodon","Autre");
         ObservableList<String> Oiseau = FXCollections.observableArrayList(
-            "Peluche","Canari","Chèvre","Cheval","Rongeur","Oiseau","Autre");
+            "Perruche","Canari","Amazone","Gris du Gabon","Rossignol","Diamant","Autre");
         ObservableList<String> Poisson = FXCollections.observableArrayList(
-            "Chien","Chat","Chèvre","Cheval","Rongeur","Oiseau","Autre");
-        race.setItems(Chien);
+            "Combattant","Platty","Poisson rouge","Colisa","Betta","Tilapia","Oscar","Barbus","Autre");
+        //race.setItems(Chien);
+        type.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            switch (newValue)
+            {
+                case "Chien" : race.setItems(Chien); break;
+                case "Chat" : race.setItems(Chat); break;
+                case "Rongeur" : race.setItems(Rongeur); break;
+                case "Oiseau" : race.setItems(Oiseau); break;
+                case "Poisson" : race.setItems(Poisson); break;
+            }
+        }
+        ); 
+        
+
         
     }
 
     @FXML
     private void fileChoosing(ActionEvent event) {
-               Node source = (Node) event.getSource();
+        Node source = (Node) event.getSource();
         Window theStage = source.getScene().getWindow();
         FileChooser fileChoser = new FileChooser();
         fileChoser.setTitle("Sélectionnez Des images");
@@ -155,38 +223,89 @@ public class FXMLajouterController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image pour votre annonce", ButtonType.CLOSE);
             alert.show();
             upload.requestFocus();
+            
+
         }
         else{
             String sexe="Male";
             if (female.isSelected())
             {
                 sexe="Female";
-            }                    
+            }                   
+            boolean test = true ;
             String adoptionType ="Permanante";
             if (typeAdoption.isSelected()){
                 adoptionType="Temporaire";
+                test = valideDate(fin.getValue(),debut.getValue());
             }
+            
+            //test sur les date
+            
 
-            AnnonceAdoptionService service = new AnnonceAdoptionService();
-            service.inserer(new AnnonceAdoption(
-                    adoptionType, 
-                    java.sql.Date.valueOf(debut.getValue()), 
-                    java.sql.Date.valueOf(fin.getValue()), 
-                    0, 
-                    Integer.parseInt(age.getText()), 
-                    couleur.getText(), 
-                    sexe, 
-                    race.getValue(), 
-                    msg.getText(), 
-                    type.getValue(), 
-                    null, 
-                    session.getId(), 
-                    file, 
-                    "Disponible"), chaine);
+            if(age.validate() && couleur.validate() && race.getValue()!=null && type.getValue()!=null && msg.validate())
+            {
+                if(test)
+                {
+                    AnnonceAdoptionService service = new AnnonceAdoptionService();
+                    service.inserer(new AnnonceAdoption(
+                                        adoptionType, 
+                                        java.sql.Date.valueOf(debut.getValue()), 
+                                        java.sql.Date.valueOf(fin.getValue()), 
+                                        0, 
+                                        Integer.parseInt(age.getText()), 
+                                        couleur.getText(), 
+                                        sexe, 
+                                        race.getValue(), 
+                                        msg.getText(), 
+                                        type.getValue(), 
+                                        null, 
+                                        session.getId(), 
+                                        file, 
+                                        "Disponible")
+                                    ,chaine);
+
+                    Notifications.create().title("Offre enregstrée").text("Votre offre d'adoption est publiée.").show();
+                    debut.setValue(LocalDate.now());
+                    fin.setValue(LocalDate.now());
+                    age.setText("");
+                    couleur.setText("");
+                    msg.setText("");
+                    chaine="";
+                    type.setValue("");
+                    race.setValue("");
+                    race.setItems(null);
+                }
+                else{
+                    Notifications.create()
+                      .title("Informations manquantes")
+                      .text("Veuillez choisir l'objet de votre réclamation")
+                      .showWarning();
+                }
+            }
+            else{
+                
+            }
+            
         }
         
     }
 
+    public boolean isInteger(JFXTextField input) {
+        try {
+            int prix = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     
+    public boolean valideDate(LocalDate x , LocalDate y)
+    {
+        if (x.compareTo(y) < 0)
+            return false;
+        else
+            return true;
+                
+    }
 }
 

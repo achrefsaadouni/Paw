@@ -16,13 +16,13 @@
 
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLajouterController">
    <children>
-      <JFXTextField fx:id="age" layoutX="127.0" layoutY="71.0" text="AGE" />
-      <JFXTextField fx:id="couleur" layoutX="127.0" layoutY="118.0" text="COULEUR" />
+      <JFXTextField fx:id="age" layoutX="127.0" layoutY="67.0" promptText="L'age" />
+      <JFXTextField fx:id="couleur" layoutX="127.0" layoutY="124.0" promptText="La couleur" />
       <JFXComboBox fx:id="type" layoutX="127.0" layoutY="14.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir l'animal" />
-      <JFXComboBox fx:id="race" layoutX="127.0" layoutY="229.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir la race" />
-      <JFXRadioButton fx:id="male" layoutX="179.0" layoutY="166.0" selected="true" text="Male" />
-      <JFXRadioButton fx:id="female" layoutX="179.0" layoutY="196.0" text="Female" />
-      <JFXTextArea fx:id="msg" layoutX="99.0" layoutY="525.0" prefHeight="88.0" prefWidth="464.0" promptText="Veuillez donner plus de détails" />
+      <JFXComboBox fx:id="race" layoutX="127.0" layoutY="259.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir la race" />
+      <JFXRadioButton fx:id="male" layoutX="179.0" layoutY="179.0" selected="true" text="Male" />
+      <JFXRadioButton fx:id="female" layoutX="179.0" layoutY="209.0" text="Female" />
+      <JFXTextArea fx:id="msg" layoutX="92.0" layoutY="482.0" prefHeight="88.0" prefWidth="464.0" promptText="Veuillez donner plus de détails" />
       <JFXToggleButton fx:id="typeAdoption" layoutX="219.0" layoutY="303.0" prefHeight="58.0" prefWidth="66.0" text=" " />
       <Label layoutX="140.0" layoutY="323.0" text="Permanante" />
       <Label layoutX="293.0" layoutY="323.0" text="Temporaire" />
