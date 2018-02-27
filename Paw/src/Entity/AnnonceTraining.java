@@ -35,6 +35,8 @@ public class AnnonceTraining  extends Annonce{
 
     
 
+    
+
     public Date getDateTr() {
         return dateTr;
     }

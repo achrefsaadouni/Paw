@@ -93,19 +93,19 @@ public class AnnonceTrainingServices {
     
     public void updateAnnonceTraining (AnnonceTraining a, int id )
     {
-    String req="UPDATE annonce SET age=?,couleur=?,sex=?,type=?,race=?,message_complementaire=?,nomPet=?,dateTr=?,typeTR=? WHERE id =?" ; 
+    String req="UPDATE annonce SET age=?,couleur=?,sex=?,type=?,race=?,message_complementaire=?,nomPet=?,dateTr=?,typeTr=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-           ste.setInt(10,id) ;
            ste.setInt(1,a.getAge()) ; 
            ste.setString(2,a.getCouleur()) ; 
            ste.setString(3,a.getSex()) ; 
-           ste.setString(4,a.getType()) ; 
+           ste.setString(4,a.getTypePet()) ; 
            ste.setString(5,a.getRace()) ; 
            ste.setString(6,a.getMessage_complementaire()) ; 
            ste.setString(7, a.getNomPet());
            ste.setDate(8, (java.sql.Date) a.getDateTr()) ;  
            ste.setString(9,a.getTypeTr()) ; 
+           ste.setInt(10,id) ;
            ste.executeUpdate() ; 
             
         } catch (SQLException ex) {
@@ -115,13 +115,14 @@ public class AnnonceTrainingServices {
     }
      public void DeleteAnnonceTraining (int id )
     {
-    String req="DELETE  from annoncetr where  id =?" ; 
+    String req="DELETE  from annonce where  id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
             
             ste.setInt(1,id) ;
             ste.executeUpdate() ; 
+            System.out.println("delete Annonce Succes !");
            
         } catch (SQLException ex) {
             System.out.println("Problème delete Annonce");
@@ -131,12 +132,13 @@ public class AnnonceTrainingServices {
 
     }
     
-      public ArrayList<AnnonceTraining> getAnnonceTraining() {
-        String req="SELECT * FROM annonce WHERE type_annonce like 'Annonce Training'" ;
+      public ArrayList<AnnonceTraining> getAnnonceTraining(int idUser) {
+        String req="SELECT * FROM annonce WHERE type_annonce like 'Annonce Training' and utilisateur_id=?" ;
         ArrayList<AnnonceTraining> list = new ArrayList();
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, idUser);
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {

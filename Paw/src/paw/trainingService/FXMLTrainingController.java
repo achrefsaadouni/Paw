@@ -23,11 +23,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import paw.FXMLSplashController;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
 import paw.profile.FXMLprofileController;
 
-public class FXMLTrainingController implements Initializable {
+public class FXMLTrainingController extends FXMLCnxController implements Initializable {
 
     @FXML
     private TextField racePet;
@@ -59,6 +62,8 @@ public class FXMLTrainingController implements Initializable {
     private ImageView imgTr3;
     @FXML
     private JFXButton retourB;
+    @FXML
+    private AnchorPane window;
     
 
     @Override
@@ -131,19 +136,8 @@ public class FXMLTrainingController implements Initializable {
     }
 
     @FXML
-    private void redirection(ActionEvent event) throws IOException {
-        try{
-//            loadSplashScreen("/paw/trainingService/FXMLTrainingPrincipal.fxml");
-            System.out.println("redirection in progress !!");
-            Parent trainingPrincipalParent = FXMLLoader.load(getClass().getResource("FXMLTrainingPrincipal.fxml"));
-            Scene trainingPrincipalScene = new Scene(trainingPrincipalParent);  
-            Stage app_stage =  (Stage)((Node)event.getSource()).getScene().getWindow();
-            app_stage.setScene(trainingPrincipalScene);
-            app_stage.show();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void redirection(ActionEvent event) {
+            loadSplashScreen("/paw/trainingService/FXMLTrainingPrincipal.fxml");
     }
 
  
