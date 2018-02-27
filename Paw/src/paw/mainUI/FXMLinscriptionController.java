@@ -132,8 +132,7 @@ public class FXMLinscriptionController implements Initializable {
         if (file != null) {
             Image im = new Image("file:///" + file.toPath().toString());
             imajout1.setImage(im);
-                   
-           
+                              
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());

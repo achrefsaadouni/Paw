@@ -190,7 +190,7 @@ public class FXMLmesoffresadoptionController implements Initializable {
             age.setText(String.valueOf(liste.get(i).getAge()));
             msg.setText(liste.get(i).getMessage_complementaire());
             couleur.setText(liste.get(i).getCouleur());
-            image.setImage(new Image("http://localhost/pawAnnonces/"+liste.get(i).getImages()));
+            image.setImage(new Image("http://localhost/paw/web/images/pawAdoption/"+liste.get(i).getImages().getName()));
             if(liste.get(i).getTypeAdoption().equals("Permanante"))
             {
                 datedeb.setVisible(false);
