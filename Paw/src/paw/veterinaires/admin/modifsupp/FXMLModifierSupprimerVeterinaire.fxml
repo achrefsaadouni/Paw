@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.admin.modifsupp.FXMLModifierSupprimerVeterinaireController">
+   <children>
+      <JFXTreeTableView fx:id="VeterinaireTable" layoutX="1.0" layoutY="50.0" prefHeight="591.0" prefWidth="1115.0">
+         <columns>
+            <TreeTableColumn fx:id="nom" prefWidth="107.00000762939453" text="Nom" />
+            <TreeTableColumn fx:id="prenom" minWidth="3.0" prefWidth="96.33332824707031" text="Prenom" />
+            <TreeTableColumn fx:id="adresse" prefWidth="137.0" text="Adresse" />
+            <TreeTableColumn fx:id="region" prefWidth="95.66668701171875" text="Region" />
+            <TreeTableColumn fx:id="numero" prefWidth="98.66668701171875" text="Telephone" />
+            <TreeTableColumn fx:id="email" prefWidth="141.33331298828125" text="Email" />
+            <TreeTableColumn fx:id="longitude" prefWidth="111.0" text="Longitude" />
+            <TreeTableColumn fx:id="latitude" prefWidth="111.0" text="Latitude" />
+            <TreeTableColumn fx:id="gerer" prefWidth="207.0" text="Gerer">
+               <columns>
+                  <TreeTableColumn fx:id="modifcol" prefWidth="75.0" text="Modifier" />
+                  <TreeTableColumn fx:id="suppcol" prefWidth="75.0" text="Supprimer" />
+               </columns></TreeTableColumn>
+         </columns>
+      </JFXTreeTableView>
+      <JFXTextField fx:id="filtre" layoutX="902.0" layoutY="9.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
+      <AnchorPane fx:id="modifVet" layoutX="97.0" layoutY="50.0" prefHeight="545.0" prefWidth="947.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" visible="false">
+         <children>
+            <Separator layoutX="431.0" layoutY="78.0" orientation="VERTICAL" prefHeight="458.0" prefWidth="18.0" />
+            <Separator layoutX="20.0" layoutY="53.0" prefHeight="25.0" prefWidth="905.0" />
+            <Label layoutX="348.0" layoutY="18.0" text="Modifier un vétérinaire" textFill="#8d8686">
+               <font>
+                  <Font name="Roboto Slab Bold" size="27.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="nomInsertion" labelFloat="true" layoutX="42.0" layoutY="133.0" prefColumnCount="10" prefHeight="25.0" prefWidth="160.0" promptText="NOM" />
+            <JFXTextField fx:id="prenomInsertion" labelFloat="true" layoutX="41.0" layoutY="216.0" prefColumnCount="10" prefHeight="25.0" prefWidth="160.0" promptText="PRENOM" />
+            <JFXTextField fx:id="adresseInsertion" labelFloat="true" layoutX="19.0" layoutY="458.0" prefColumnCount="10" prefHeight="25.0" prefWidth="325.0" promptText="ADRESSE" />
+            <JFXTextField fx:id="numeroInsertion" layoutX="41.0" layoutY="385.0" prefHeight="25.0" prefWidth="160.0" promptText="NUMERO" />
+            <JFXTextField fx:id="emailInsertion" labelFloat="true" layoutX="40.0" layoutY="304.0" prefColumnCount="10" prefHeight="25.0" prefWidth="160.0" promptText="EMAIL" />
+            <Label layoutX="269.0" layoutY="135.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Gouvernorat" />
+            <JFXButton alignment="CENTER" layoutX="254.0" layoutY="502.0" onAction="#actionInsertion" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../../mainUI/style.css" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton layoutX="80.0" layoutY="502.0" onAction="#fermer" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Fermer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+            <JFXComboBox fx:id="gouv" layoutX="254.0" layoutY="158.0" onMouseClicked="#zoomGouv" prefHeight="25.0" prefWidth="122.0" />
+            <AnchorPane layoutX="439.0" layoutY="66.0" prefHeight="469.0" prefWidth="507.0">
+               <children>
+                  <GoogleMapView fx:id="mapView" prefHeight="470.0" prefWidth="507.0" />
+                  <TextField fx:id="addressTextField" layoutX="5.0" layoutY="10.0" onAction="#addressTextFieldAction" prefHeight="32.0" prefWidth="274.0" promptText="Recherche ..." />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

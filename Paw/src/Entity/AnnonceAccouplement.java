@@ -25,6 +25,7 @@ public class AnnonceAccouplement extends Annonce {
         this.vaccin = vaccin;
         this.dossier = dossier;
         this.lieu = lieu;
+        System.out.println("xx");
     }
     public AnnonceAccouplement(String type_poil, String vaccin, String dossier, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, File images) {
         super(id, age, couleur, sex, race, message_complementaire, type, date);
@@ -111,6 +112,7 @@ public class AnnonceAccouplement extends Annonce {
     public void setLieu(String lieu) {
         this.lieu = lieu;
     }
+    
     
     
     

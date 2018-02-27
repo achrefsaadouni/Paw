@@ -238,6 +238,6 @@ public class AnnonceAccouplementServices {
         }
         return y;
     }
-    
+   
 
 }
