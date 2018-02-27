@@ -204,9 +204,11 @@ public class FXMLCnxController implements Initializable {
         if ("Admin".equals(session.getRole()))
         {
             email.setText(session.getEmail());
+            profile.setMouseTransparent(true);
         }
         else
         {
+            profile.setMouseTransparent(false);
             if(session.getConfirmed().equals("no"))
             {
                 email.setText(session.getEmail()+"(Non confirmée)");
