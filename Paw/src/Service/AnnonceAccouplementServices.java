@@ -39,7 +39,7 @@ public class AnnonceAccouplementServices {
 
     public void insererAnnonceAccouplement(AnnonceAccouplement a) {
         String images = "";
-       images = a.getImages().getPath().toString();
+       images = imageSave(a.getImages());
         String req = "INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,lieu_trouve,type_poil,vaccin,dossier,images,utilisateur_id) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -71,7 +71,7 @@ public class AnnonceAccouplementServices {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "C:\\Users\\gmehd\\Desktop\\Documents\\Paw\\Paw\\src\\Ressource\\images\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawPets\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;

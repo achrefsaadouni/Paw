@@ -39,7 +39,7 @@ public class VeterinaireServices {
 
     public void insererVeterinaire(Veterinaire p) {
         String images = "";
-        images = p.getImages().getPath();
+        images = imageSave(p.getImages());
         String req = "INSERT INTO Veterinaire (nom,prenom,adresse,region,numero,email,longitude,latitude,images) VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -223,7 +223,7 @@ public class VeterinaireServices {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "C:\\Users\\gmehd\\Documents\\Paw\\Paw\\src\\Ressource\\images\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawVets\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;

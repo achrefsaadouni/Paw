@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonce.MenuAnnonce;
+package paw.veterinaires;
 
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
@@ -20,21 +20,22 @@ import paw.mainUI.FXMLCnxController;
  *
  * @author achref
  */
-public class FXMLToutesLesAnnoncesController extends FXMLCnxController{
+public class FXMLveterinairePrincipaleController extends FXMLCnxController{
 
     @FXML
     private Label nom12;
     @FXML
-    private JFXButton los;
+    private JFXButton vets;
     @FXML
-    private JFXButton trou;
+    private JFXButton conseil;
     @FXML
-    private JFXButton tr;
+    private JFXButton CONS;
     @FXML
-    private JFXButton acc;
+    private JFXButton conseil1;
+    @FXML
+    private AnchorPane FXMLAjoutVeterinaire;
     @FXML
     private AnchorPane admin_window;
-
     /**
      * Initializes the controller class.
      */
@@ -43,28 +44,23 @@ public class FXMLToutesLesAnnoncesController extends FXMLCnxController{
         // TODO
     }    
 
-    @FXML
-    private void goToMesAnnoncesPErdus(ActionEvent event) {
-        loadSplashScreenAdmin("/paw/annonceperdu/user/modificationAnnonce/FXMLModifierAnnoncePerdu.fxml");
+    private void GOtoVet(ActionEvent event) {
+           loadSplashScreenAdmin("/paw/veterinaires/admin/modifsupp/FXMLModifierSupprimerVeterinaire.fxml");
     }
 
     @FXML
-    private void goTomesAnnoncesTrouvee(ActionEvent event) {
-        loadSplashScreenAdmin("/paw/annoncetrouvee/admin/FXMLAdmin.fxml");
+    private void gotoConseil(ActionEvent event) {
+           loadSplashScreenAdmin("/paw/conseil/admin/FXMLModifierSupprimerConseil.fxml");
     }
 
     @FXML
-    private void goToTraining(ActionEvent event) {
-        
+    private void ajouterVET(ActionEvent event) {
+        loadSplashScreenAdmin("/paw/veterinaires/admin/FXMLAjoutVeterinaire.fxml");
     }
 
     @FXML
-    private void goToAccouplement(ActionEvent event) {
-        loadSplashScreenAdmin("/paw/annonceAccouplements/user/admin/FXMLAnnoncesAccouplementsAdmin.fxml");
-    }
-
-    @FXML
-    private void goToAdoption(ActionEvent event) {
+    private void ajouterConseil(ActionEvent event) {
+        loadSplashScreenAdmin("/paw/conseil/admin/FXMLAjoutConseil.fxml");
     }
     
 }

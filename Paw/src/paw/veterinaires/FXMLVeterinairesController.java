@@ -30,9 +30,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Rating;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
 
 
-public class FXMLVeterinairesController implements Initializable, MapComponentInitializedListener {
+public class FXMLVeterinairesController extends FXMLCnxController implements Initializable, MapComponentInitializedListener {
 
     @FXML
     private Label nom1;
@@ -153,6 +154,10 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
     private ImageView photo3;
     @FXML
     private ImageView photo4;
+    @FXML
+    private JFXButton rr;
+    @FXML
+    private AnchorPane window;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -168,6 +173,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             box4.setVisible(false);
             paginator.setVisible(false);
             vide.setVisible(true);
+            rr.setVisible(false);
         } else {
             paginator.setVisible(true);
             setNbPages();
@@ -228,7 +234,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(0).getImages());
+            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(0).getImages().getName());
 //            photo1.setFitHeight(225);
 //            photo1.setFitWidth(250);
             photo1.setImage(im);
@@ -302,7 +308,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
             } else {
                 note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
             }
-            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(1).getImages());
+            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(1).getImages().getName());
 //            photo2.setFitHeight(225);
 //            photo2.setFitWidth(250);
             photo2.setImage(im);
@@ -375,7 +381,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(2).getImages());
+            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(2).getImages().getName());
 //            photo3.setFitHeight(225);
 //            photo3.setFitWidth(250);
             photo3.setImage(im);
@@ -451,7 +457,7 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
                 note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/pawVets/" + QuatreVeterinaires.get(3).getImages());
+            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(3).getImages().getName());
 //            photo4.setFitHeight(225);
 //            photo4.setFitWidth(250);
             photo4.setImage(im);
@@ -545,6 +551,11 @@ public class FXMLVeterinairesController implements Initializable, MapComponentIn
 
         map = mapView.createMap(mapOptions);
 
+    }
+
+    @FXML
+    private void rechercher(ActionEvent event) {
+        loadSplashScreen("/paw/veterinaires/user/FXMLRechercheVets.fxml");
     }
 
 }
