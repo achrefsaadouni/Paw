@@ -79,7 +79,7 @@ public class AnnoncePerduServices
     {
          String images="";
 
-        images=a.getImages().getPath().toString();
+        images=imageSave(a.getImages());
         String req="INSERT INTO annonce (age,couleur,sex,race,message_complementaire,type,date,type_annonce,colier,date_perte,lieu_perdu,utilisateur_id,images) VALUES(?,?,?,?,?,?,now(),?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
@@ -109,7 +109,7 @@ public class AnnoncePerduServices
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\PIDEV\\Paw\\Paw\\src\\Ressource\\imagesBoutique\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawLostFound\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;
