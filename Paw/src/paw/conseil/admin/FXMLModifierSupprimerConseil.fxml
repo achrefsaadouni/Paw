@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.conseil.admin.FXMLModifierSupprimerConseilController">
+   <children>
+      <JFXTreeTableView fx:id="ConseilTable" layoutX="2.0" layoutY="44.0" prefHeight="591.0" prefWidth="1115.0">
+         <columns>
+            <TreeTableColumn fx:id="id" prefWidth="75.0" text="ID" visible="false" />
+            <TreeTableColumn fx:id="titre" prefWidth="225.6666717529297" resizable="false" text="Titre" />
+            <TreeTableColumn fx:id="animal" minWidth="3.0" prefWidth="104.66668701171875" resizable="false" text="Animal" />
+            <TreeTableColumn fx:id="type" prefWidth="94.0" resizable="false" text="Type" />
+            <TreeTableColumn fx:id="description" prefWidth="511.0" resizable="false" text="Description" />
+            <TreeTableColumn fx:id="gerer" prefWidth="178.0" resizable="false" text="Gerer">
+               <columns>
+                  <TreeTableColumn fx:id="modifcol" prefWidth="85.3333740234375" text="Modifier" />
+                  <TreeTableColumn fx:id="suppcol" prefWidth="93.6666259765625" text="Supprimer" />
+               </columns>
+            </TreeTableColumn>
+         </columns>
+      </JFXTreeTableView>
+      <JFXTextField fx:id="filtre" layoutX="910.0" layoutY="6.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
+      <AnchorPane fx:id="modifConseil" layoutX="121.0" layoutY="87.0" prefHeight="473.0" prefWidth="868.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" visible="false">
+         <children>
+            <JFXButton layoutX="280.0" layoutY="423.0" onAction="#fermer" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: #FE2E64;" text="Fermer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" layoutX="454.0" layoutY="424.0" onAction="#actionInsertion" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../mainUI/style.css" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXTextField fx:id="titreInsertion1" labelFloat="true" layoutX="175.0" layoutY="83.0" prefColumnCount="10" promptText="TITRE" />
+            <ChoiceBox fx:id="animalInsertion1" layoutX="175.0" layoutY="190.0" prefHeight="25.0" prefWidth="132.0" />
+            <ChoiceBox fx:id="typeInsertion1" layoutX="175.0" layoutY="140.0" prefHeight="25.0" prefWidth="132.0" />
+            <JFXTextArea fx:id="descriptionInsertion1" layoutX="175.0" layoutY="231.0" prefHeight="156.0" prefWidth="464.0" promptText="Description ...." unFocusColor="BLACK" />
+            <Separator layoutX="-3.0" layoutY="44.0" prefHeight="25.0" prefWidth="905.0" />
+            <Label layoutX="296.0" layoutY="8.0" text="Modifier un conseil" textFill="#8d8686">
+               <font>
+                  <Font name="Roboto Slab Bold" size="27.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="idInsertion" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -6,10 +6,8 @@
 package paw.annonceAccouplements.user.admin;
 
 import Entity.AnnonceAccouplement;
-import Entity.Vets;
 import Service.AnnonceAccouplementServices;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
@@ -27,8 +25,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class FXMLAnnoncesAccouplementsAdminController implements Initializable {
 
-    @FXML
-    private JFXTextField filtre;
     @FXML
     private TableView<AnnonceAccouplement> AnnonceTable;
     @FXML
@@ -61,6 +57,7 @@ public class FXMLAnnoncesAccouplementsAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         
         initCol();
         loadTable();
     }    

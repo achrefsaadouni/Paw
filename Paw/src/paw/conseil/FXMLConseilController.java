@@ -84,7 +84,7 @@ public class FXMLConseilController implements Initializable {
         if ((!"".equals(titreInsertion1.getText()))&&(!"".equals(animalInsertion1.getValue()))&&(!"".equals(descriptionInsertion1.getText()))&&(!"".equals(typeInsertion1.getValue())))
         {
             ConseilServices service = new ConseilServices();
-            service.updateConseil(new Conseil(0,titreInsertion1.getText(),animalInsertion1.getValue(),typeInsertion1.getValue(),descriptionInsertion1.getText(),null),Integer.parseInt(idInsertion1.getText()));
+           // service.updateConseil(new Conseil(0,titreInsertion1.getText(),animalInsertion1.getValue(),typeInsertion1.getValue(),descriptionInsertion1.getText(),null),Integer.parseInt(idInsertion1.getText()));
             titreInsertion1.setText("");
             animalInsertion1.setValue("CHIEN");
             typeInsertion1.setValue("NUTRITION");

@@ -1,5 +1,6 @@
 package paw.veterinaires.admin.modifsupp;
 
+import Entity.Veterinaire;
 import Entity.Vets;
 import Service.VeterinaireServices;
 import com.jfoenix.controls.JFXButton;
@@ -10,10 +11,13 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.lynden.gmapsfx.javascript.object.LatLong;
 import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
@@ -37,6 +41,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import netscape.javascript.JSObject;
 
 public class FXMLModifierSupprimerVeterinaireController implements Initializable, MapComponentInitializedListener {
 
@@ -113,14 +118,28 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
     private TreeTableColumn<Vets, String> modifcol;
     @FXML
     private TreeTableColumn<Vets, String> suppcol;
+    @FXML
+    private TreeTableColumn<Vets, String> id;
+    @FXML
+    private JFXTextField idInsertion;
 
     @FXML
     void actionInsertion(ActionEvent event) {
+        if ((!"".equals(idInsertion.getText())) && (!"".equals(emailInsertion.getText())) && (!"".equals(nomInsertion.getText())) && (!"".equals(prenomInsertion.getText())) && (!"".equals(gouv.getValue())) && (!"".equals(adresseInsertion.getText())) && (!"".equals(numeroInsertion.getText()))) {
+            VeterinaireServices service = new VeterinaireServices();
+            //service.updateVeterinaire(new Vets(Integer.parseInt(idInsertion.getText()),nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getValue(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText()));
+            emailInsertion.setText("");
+            nomInsertion.setText("");
+            prenomInsertion.setText("");
+            gouv.setValue("");
+            adresseInsertion.setText("");
+            numeroInsertion.setText("");
+        }
 
     }
 
-    @FXML
-    void addressTextFieldAction(ActionEvent event) {
+   @FXML
+    private void addressTextFieldAction(ActionEvent event) {
         geocodingService.geocode(address.get(), (GeocodingResult[] results, GeocoderStatus status) -> {
 
             LatLong latLong = null;
@@ -140,10 +159,7 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
             map.setCenter(latLong);
 
         });
-
     }
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -153,23 +169,22 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 
         initVet();
 
-        
-        address.bind(addressTextField.textProperty());
-
         ObservableList<String> items = FXCollections.observableArrayList(
                 "Ariana", "Beja", "Ben Arous", "Bizerte", "Gabes", "Gafsa", "Jendouba", "Kairouan", "Kasserine", "Kebili", "Le Kef",
                 "Mahdia", "La Manouba", "Medenine", "Monastir", "Nabeul", "Sfax", "Sidi Bouzid", "Siliana", "Sousse", "Tataouine",
                 "Tozeur", "Tunis", "Zaghouan");
         gouv.setItems(items);
         mapView.addMapInializedListener(this);
+        address.bind(addressTextField.textProperty());
     }
 
     @Override
     public void mapInitialized() {
+
+        geocodingService = new GeocodingService();
         MapOptions mapOptions = new MapOptions();
 
-        //mapOptions.center(x)
-        mapOptions.center(new LatLong(33.8869, 9.5375))
+        mapOptions.center(new LatLong(34.17372841, 9.76475011))
                 .mapType(MapTypeIdEnum.ROADMAP)
                 .overviewMapControl(false)
                 .panControl(false)
@@ -177,35 +192,45 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
                 .scaleControl(false)
                 .streetViewControl(false)
                 .zoomControl(false)
-                .zoom(6);
+                .zoom(7);
 
         map = mapView.createMap(mapOptions);
 
-//        MarkerOptions markerOptions = new MarkerOptions();
-//
-//        map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
-//            map.clearMarkers();
-//            LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
-//
-//            markerOptions.position(new LatLong(ll.getLatitude(), ll.getLongitude()))
-//                    .visible(Boolean.TRUE)
-//                    .title("My Marker");
-//
-//            Marker marker = new Marker(markerOptions);
-//
-//            map.addMarker(marker);
-//           
-//        });
+        MarkerOptions markerOptions = new MarkerOptions();
+
+        map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
+            map.clearMarkers();
+            LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
+
+            markerOptions.position(new LatLong(ll.getLatitude(), ll.getLongitude()))
+                    .visible(Boolean.TRUE)
+                    .title("My Marker");
+
+            Marker marker = new Marker(markerOptions);
+
+            map.addMarker(marker);
+           
+        });
+        
+
     }
 
     private void supprimerVeterinaire(int id) {
         VeterinaireServices as = new VeterinaireServices();
         as.DeleteVeterinaire(id);
+        refresh();
     }
 
     private void initVet() {
         VeterinaireServices serviceVet = new VeterinaireServices();
         liste = serviceVet.getList();
+
+        id.setCellValueFactory(param -> {
+            SimpleStringProperty property = new SimpleStringProperty();
+            Vets v = (Vets) param.getValue().getValue();
+            property.set(String.valueOf(v.getId()));
+            return property;
+        });
 
         nom.setCellValueFactory(param -> {
             SimpleStringProperty property = new SimpleStringProperty();
@@ -272,18 +297,9 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
             modifier.setOnAction((ActionEvent e) -> {
                 modifVet.setVisible(true);
                 System.out.println(v);
-                //modifier(v);
-                
-//                 
-                
-                
-                            
-                
-                
-                
-                
-                
+                modifier(v);
 
+//                 
             });
             property.set(modifier);
             return property;
@@ -297,17 +313,14 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 
             supprimer.setOnAction((ActionEvent ea) -> {
                 supprimerVeterinaire(v.getId());
-                initVet();
+                //initVet();
             });
 
             property.set(supprimer);
             return property;
         });
 
-        ObservableList<Vets> vetos = FXCollections.observableArrayList(liste);
-        TreeItem<Vets> root = new RecursiveTreeItem<>(vetos, RecursiveTreeObject::getChildren);
-        VeterinaireTable.setRoot(root);
-        VeterinaireTable.setShowRoot(false);
+        refresh();
 
         filtre.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -329,12 +342,14 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 
     private void modifier(Vets v) {
         nomInsertion.setText(v.getNom());
-        prenomInsertion.setText(String.valueOf(v.getPrenom()));
+        prenomInsertion.setText(v.getPrenom());
         emailInsertion.setText(v.getEmail());
         numeroInsertion.setText(String.valueOf(v.getNumero()));
         adresseInsertion.setText(v.getAdresse());
         gouv.setValue(v.getRegion());
-
+        id.setText(String.valueOf(v.getId()));
+        mapView.addMapInializedListener(this);
+        address.bind(addressTextField.textProperty());
 //        map.clearMarkers();
 //                MarkerOptions markerOptions = new MarkerOptions();
 //                System.out.println();
@@ -348,12 +363,12 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 //                x=new LatLong(v.getLatitude(), v.getLongitude());
 //                map.setCenter(x);
 //                map.setZoom(9);
-        
     }
 
     @FXML
     private void fermer(ActionEvent event) {
         modifVet.setVisible(false);
+        refresh();
     }
 
     @FXML
@@ -383,22 +398,22 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 //        setViewGouv("Tunis",36.8383903,10.0304474 );
 //        setViewGouv("Zaghouan", 36.3528152,9.4229962);
     }
-    
-    private void setViewGouv(String nom, double latit, double longit){
-    if(gouv.getValue().equals(nom)){
+
+    private void setViewGouv(String nom, double latit, double longit) {
+        if (gouv.getValue().equals(nom)) {
             MapOptions mapOptions = new MapOptions();
             //x=new LatLong(latit, longit);
-        mapOptions.center(new LatLong(latit,longit))
-                .mapType(MapTypeIdEnum.ROADMAP)
-                .overviewMapControl(false)
-                .panControl(false)
-                .rotateControl(false)
-                .scaleControl(false)
-                .streetViewControl(false)
-                .zoomControl(false)
-                .zoom(9);
-        map = mapView.createMap(mapOptions);
-        
+            mapOptions.center(new LatLong(latit, longit))
+                    .mapType(MapTypeIdEnum.ROADMAP)
+                    .overviewMapControl(false)
+                    .panControl(false)
+                    .rotateControl(false)
+                    .scaleControl(false)
+                    .streetViewControl(false)
+                    .zoomControl(false)
+                    .zoom(9);
+            map = mapView.createMap(mapOptions);
+
 //        MarkerOptions markerOptions = new MarkerOptions();
 //
 //        map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
@@ -416,6 +431,20 @@ public class FXMLModifierSupprimerVeterinaireController implements Initializable
 //            
 //        });
         }
+    }
+
+    public void refresh() {
+        VeterinaireServices serviceVet = new VeterinaireServices();
+        liste = serviceVet.getList();
+        ObservableList<Vets> vetos = FXCollections.observableArrayList(liste);
+        TreeItem<Vets> root = new RecursiveTreeItem<>(vetos, RecursiveTreeObject::getChildren);
+        VeterinaireTable.setRoot(root);
+        VeterinaireTable.setShowRoot(false);
+
+//        ObservableList<Vets> vetos = FXCollections.observableArrayList(liste);
+//        TreeItem<Vets> root = new RecursiveTreeItem<>(vetos, RecursiveTreeObject::getChildren);
+//        VeterinaireTable.setRoot(root);
+//        VeterinaireTable.setShowRoot(false);
     }
 
 }
