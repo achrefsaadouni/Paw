@@ -240,9 +240,7 @@ public class FXMLMesAchatController{
             
             box3.setVisible(false);
             
-        }
-
-      
+        }  
     }
     
     public void achatVide() {

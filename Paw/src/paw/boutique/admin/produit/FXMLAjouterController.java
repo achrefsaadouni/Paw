@@ -269,7 +269,7 @@ public class FXMLAjouterController {
             @Override
             public void handle(TreeTableColumn.CellEditEvent<Produit, Number> event) {
                 TreeItem<Produit> curseur = produitsTableView.getTreeItem(event.getTreeTablePosition().getRow());
-                produitservice.updatequantite(event.getNewValue().intValue(), curseur.getValue().getId_produit());
+                produitservice.updatequantite(curseur.getValue().getId_produit(),event.getNewValue().intValue());
                 MyNotifications.infoNotification("Modification", "quantite edite avec Succès");
                 refresh();
             }
