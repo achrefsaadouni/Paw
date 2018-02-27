@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.user.FXMLRechercheVetsController">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.user.FXMLRechercheVetsController">
    <children>
       <GoogleMapView fx:id="mapView" layoutX="3.0" layoutY="3.0" prefHeight="644.0" prefWidth="1094.0" />
       <TextField fx:id="addressTextField" layoutX="8.0" layoutY="13.0" onAction="#addressTextFieldAction" prefHeight="32.0" prefWidth="274.0" promptText="Recherche ..." />

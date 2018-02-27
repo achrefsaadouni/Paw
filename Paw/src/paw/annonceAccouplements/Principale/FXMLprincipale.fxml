@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceAccouplements.Principale.FXMLprincipaleController">
+   <children>
+      <VBox layoutX="95.0" layoutY="195.0" prefHeight="325.0" prefWidth="1000.0">
+         <children>
+            <AnchorPane fx:id="reclamations" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <JFXButton onAction="#goToListeaccouplement" prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #EEEEEE;" text="Consulter la liste des annonces d'accouplement">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="72.0" fitWidth="67.0" layoutX="90.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/icons/ic_sort_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations1" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+               <children>
+                  <JFXButton onAction="#goToAjoutaccouplement" prefHeight="163.0" prefWidth="1000.0" style="-fx-background-color: #90A4AE;" text="Déposez une annonce d'accouplement">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="72.0" fitWidth="67.0" layoutX="90.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Ressource/images/contract.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="reclamations11" layoutX="10.0" layoutY="141.0" prefHeight="600.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="67.0" fitWidth="81.0" layoutX="481.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" rotate="-93.6">
+         <image>
+            <Image url="@../../../Ressource/icons/ic_reply_black_48dp.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="159.0" layoutY="21.0" prefHeight="29.0" prefWidth="1080.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Vous cherchez à accoupler votre animal ?" />
+      <Separator layoutX="123.0" layoutY="59.0" prefHeight="4.0" prefWidth="1080.0" />
+   </children>
+</AnchorPane>

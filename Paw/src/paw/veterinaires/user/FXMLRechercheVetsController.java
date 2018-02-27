@@ -34,6 +34,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import netscape.javascript.JSObject;
 import org.controlsfx.control.Rating;
@@ -75,6 +76,8 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
     private Label note;
     @FXML
     private StackPane afficheVet;
+    @FXML
+    private AnchorPane window;
 
     /**
      * Initializes the controller class.
