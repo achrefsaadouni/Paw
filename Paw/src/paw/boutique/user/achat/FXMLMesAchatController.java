@@ -250,6 +250,7 @@ public class FXMLMesAchatController{
       box1.setVisible(false);
       box2.setVisible(false);
       box3.setVisible(false);
+      paginator.setVisible(false);
     }
     
     
@@ -268,7 +269,7 @@ public class FXMLMesAchatController{
             LigneAchat ligne = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-              Image  img = new Image("file:///" + ligne.getProduit().getImages().get(0).getPath().toString());
+              Image  img = new Image("http://localhost/paw/web/images/pawBoutique/" + ligne.getProduit().getImages().get(0).getName());
                 im.setFitHeight(100);
                 im.setFitWidth(100);
                 im.setImage(img);

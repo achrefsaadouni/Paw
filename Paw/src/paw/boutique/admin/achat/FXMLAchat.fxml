@@ -107,11 +107,11 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <StackPane fx:id="stackpane" layoutX="200.0" layoutY="150.0" prefHeight="298.0" prefWidth="496.0" visible="false">
+      <StackPane fx:id="stackpane" layoutX="200.0" layoutY="150.0" prefHeight="298.0" prefWidth="496.0" style="-fx-background-color: white;" visible="false">
          <children>
-            <JFXDialogLayout fx:id="layout">
+            <JFXDialogLayout fx:id="layout" style="-fx-background-color: white;">
                <children>
-                  <VBox prefHeight="250.0" prefWidth="496.0">
+                  <VBox prefHeight="250.0" prefWidth="496.0" style="-fx-background-color: white;">
                      <children>
                         <Pane prefHeight="90.0" prefWidth="496.0" />
                         <Label prefHeight="27.0" prefWidth="492.0" text="   Vous etes Sure de vous voulez supprimer cette achat" textFill="RED">

@@ -349,7 +349,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(0));
             });
             
-            Image img = new Image("file:///" + article_page.get(0).getImages().get(0).toPath().toString());
+            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(0).getImages().get(0).getName());
             im1.setImage(img);
             im1.setOnMouseClicked(value -> {
                 
@@ -380,7 +380,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(1));
             });
             
-            Image img = new Image("file:///" + article_page.get(1).getImages().get(0).toPath().toString());
+            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(1).getImages().get(0).getName());
             im2.setImage(img);
             im2.setOnMouseClicked(value -> {
                 
@@ -411,7 +411,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(2));
             });
             
-            Image img = new Image("file:///" + article_page.get(2).getImages().get(0).toPath().toString());
+            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(2).getImages().get(0).getName());
             im3.setImage(img);
             im3.setOnMouseClicked(value -> {
                 
@@ -442,7 +442,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(3));
             });
             
-            Image img = new Image("file:///" + article_page.get(3).getImages().get(0).toPath().toString());
+            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(3).getImages().get(0).getName());
             im4.setImage(img);
             im4.setOnMouseClicked(value -> {
                 
@@ -496,10 +496,10 @@ public class FXMLProduitController {
            Panier.addProduit(article);  
         });
         
-        Image img = new Image("file:///" + article.getImages().get(0).toPath().toString());
+        Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(0).getName());
         image_id.setImage(img);
         
-        img = new Image("file:///" + article.getImages().get(0).toPath().toString());
+        img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(0).getName());
         
         image_1.setImage(img);
         
@@ -511,7 +511,7 @@ public class FXMLProduitController {
             
         });
         
-        img = new Image("file:///" + article.getImages().get(1).toPath().toString());
+        img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(1).getName());
         image_2.setImage(img);
         image_2.setVisible(true);
         image_2.setOnMouseClicked((event) -> {

@@ -169,7 +169,7 @@ public class ProduitService {
         }
     
     }
-     public void updatequantite (int valeur,int id)
+     public void updatequantite (int id,int valeur)
     {
     String req="UPDATE `produit` SET quantite=? WHERE id =?" ; 
         try { 
