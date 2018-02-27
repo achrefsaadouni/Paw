@@ -72,7 +72,16 @@ public class FXMLAjoutController implements Initializable {
 
     @FXML
     void actionInsertion2(ActionEvent event) {
-        if (!file.exists()) {
+          if ((couleurInsertion.getText().trim().equals(""))|| (ageInsertion.getText().trim().equals(""))
+                 || (raceInsertion.getText().trim().equals(""))|| (msgInsertion.getText().trim().equals(""))|| (choixInsertion.getValue().isEmpty())
+                 || (lieuxInsertion3.getText().trim().equals("")))
+                 {
+        Alert fail= new Alert(Alert.AlertType.INFORMATION);
+        fail.setHeaderText("erreur");
+        fail.setContentText("Vous avez oublier de remplir un champs");
+        fail.showAndWait();
+                 }   
+       else if (!file.exists()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image ou bien des  donnes concernant l'annonce ", ButtonType.CLOSE);
             alert.show();
             upload.requestFocus();

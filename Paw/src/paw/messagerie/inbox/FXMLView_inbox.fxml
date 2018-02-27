@@ -11,15 +11,15 @@
 
 <AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="547.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.messagerie.inbox.FXMLView_inboxController">
    <children>
-      <JFXButton fx:id="repondre" layoutX="622.0" layoutY="71.0" onAction="#LoadMessage" text="Répondre" />
-      <JFXButton fx:id="redi" layoutX="622.0" layoutY="27.0" onAction="#redirection" text="Envoyer un nouveau message" />
+      <JFXButton fx:id="repondre" layoutX="622.0" layoutY="71.0" onAction="#LoadMessage" style="-fx-background-color: green;" text="Répondre" />
+      <JFXButton fx:id="redi" layoutX="622.0" layoutY="27.0" onAction="#redirection" style="-fx-background-color: #00695C;" text="Envoyer un nouveau message" />
       <JFXListView fx:id="listView" layoutX="224.0" layoutY="108.0" prefHeight="411.0" prefWidth="263.0" />
       <JFXListView fx:id="conversation" layoutX="495.0" layoutY="108.0" prefHeight="331.0" prefWidth="363.0" />
       <StackPane layoutX="495.0" layoutY="117.0" prefHeight="40.0" prefWidth="161.0" />
       <StackPane layoutX="326.0" layoutY="464.0" prefHeight="40.0" prefWidth="161.0" />
-      <JFXButton fx:id="supprimer" layoutX="744.0" layoutY="71.0" onAction="#deleteConversation" text="Supprimer" />
+      <JFXButton fx:id="supprimer" layoutX="744.0" layoutY="71.0" onAction="#deleteConversation" style="-fx-background-color: #ff1744;" text="Supprimer" />
       <JFXTextField fx:id="contenuMsg" layoutX="495.0" layoutY="450.0" prefHeight="68.0" prefWidth="284.0" />
-      <JFXButton fx:id="envoyer" layoutX="787.0" layoutY="469.0" onAction="#sendMessage" text="Envoyer" />
+      <JFXButton fx:id="envoyer" layoutX="787.0" layoutY="469.0" onAction="#sendMessage" style="-fx-background-color: #69F0AE;" text="Envoyer" />
       <JFXDrawer fx:id="drawer" prefHeight="546.0" prefWidth="202.0" />
       <Label layoutX="224.0" layoutY="-1.0" prefHeight="86.0" prefWidth="316.0" text="Paw   Inbox" textFill="#b124b9">
          <font>

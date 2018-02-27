@@ -79,11 +79,6 @@
                </font>
             </Label>
             <ChoiceBox fx:id="choixInsertion" layoutX="380.0" layoutY="125.0" prefWidth="150.0" />
-            <ImageView fitHeight="139.0" fitWidth="190.0" layoutX="948.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Ressource/images/27935165_2006035676387100_2123038319_n.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </children>
