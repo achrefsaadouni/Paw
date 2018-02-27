@@ -240,46 +240,56 @@ public class FXMLajouterController implements Initializable {
             }
             
             //test sur les date
-            
-
-            if(age.validate() && couleur.validate() && race.getValue()!=null && type.getValue()!=null && msg.validate())
+            couleur.validate();
+            age.validate();
+            msg.validate();
+            if(age.validate() && couleur.validate() && msg.validate())
             {
-                if(test)
+                if(race.getValue()!=null && type.getValue()!=null)
                 {
-                    AnnonceAdoptionService service = new AnnonceAdoptionService();
-                    service.inserer(new AnnonceAdoption(
-                                        adoptionType, 
-                                        java.sql.Date.valueOf(debut.getValue()), 
-                                        java.sql.Date.valueOf(fin.getValue()), 
-                                        0, 
-                                        Integer.parseInt(age.getText()), 
-                                        couleur.getText(), 
-                                        sexe, 
-                                        race.getValue(), 
-                                        msg.getText(), 
-                                        type.getValue(), 
-                                        null, 
-                                        session.getId(), 
-                                        file, 
-                                        "Disponible")
-                                    ,chaine);
+                    if(test)
+                    {
+                        AnnonceAdoptionService service = new AnnonceAdoptionService();
+                        service.inserer(new AnnonceAdoption(
+                                            adoptionType, 
+                                            java.sql.Date.valueOf(debut.getValue()), 
+                                            java.sql.Date.valueOf(fin.getValue()), 
+                                            0, 
+                                            Integer.parseInt(age.getText()), 
+                                            couleur.getText(), 
+                                            sexe, 
+                                            race.getValue(), 
+                                            msg.getText(), 
+                                            type.getValue(), 
+                                            null, 
+                                            session.getId(), 
+                                            file, 
+                                            "Disponible")
+                                        ,chaine);
 
-                    Notifications.create().title("Offre enregstrée").text("Votre offre d'adoption est publiée.").show();
-                    debut.setValue(LocalDate.now());
-                    fin.setValue(LocalDate.now());
-                    age.setText("");
-                    couleur.setText("");
-                    msg.setText("");
-                    chaine="";
-                    type.setValue("");
-                    race.setValue("");
-                    race.setItems(null);
+                        Notifications.create().title("Offre enregstrée").text("Votre offre d'adoption est publiée.").show();
+                        debut.setValue(LocalDate.now());
+                        fin.setValue(LocalDate.now());
+                        age.setText("");
+                        couleur.setText("");
+                        msg.setText("");
+                        chaine="";
+                        type.setValue("");
+                        race.setValue("");
+                        race.setItems(null);
+                    }
+                    else{
+                        Notifications.create()
+                          .title("Date invalide")
+                          .text("Date de fin doit être supérieur à la date de début")
+                          .showWarning();
+                    }
                 }
                 else{
                     Notifications.create()
-                      .title("Informations manquantes")
-                      .text("Veuillez choisir l'objet de votre réclamation")
-                      .showWarning();
+                          .title("Informations manquantes")
+                          .text("Veuillez choisir la race")
+                          .showWarning();
                 }
             }
             else{
