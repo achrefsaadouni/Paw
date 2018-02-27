@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceAccouplements.user.admin.FXMLAnnoncesAccouplementsAdminController">
    <children>
-      <JFXTextField fx:id="filtre" layoutX="885.0" layoutY="6.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
       <TableView fx:id="AnnonceTable" layoutX="10.0" layoutY="50.0" prefHeight="592.0" prefWidth="1080.0">
         <columns>
-          <TableColumn fx:id="animal" prefWidth="75.0" text="Animal" />
-          <TableColumn fx:id="race" prefWidth="75.0" text="Race" />
-            <TableColumn fx:id="sexe" prefWidth="75.0" text="Sexe" />
-            <TableColumn fx:id="age" prefWidth="75.0" text="Age" />
+          <TableColumn fx:id="animal" prefWidth="76.00003051757812" resizable="false" text="Animal" />
+          <TableColumn fx:id="race" prefWidth="76.0" resizable="false" text="Race" />
+            <TableColumn fx:id="sexe" prefWidth="73.0" resizable="false" text="Sexe" />
+            <TableColumn fx:id="age" prefWidth="75.0" resizable="false" text="Age" />
             <TableColumn fx:id="couleur" prefWidth="75.0" text="Couleur" />
-            <TableColumn fx:id="poil" prefWidth="75.0" text="Type poil" />
+            <TableColumn fx:id="poil" prefWidth="75.0" resizable="false" text="Type poil" />
             <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-            <TableColumn fx:id="lieu" prefWidth="75.0" text="Lieu" />
-            <TableColumn fx:id="message" prefWidth="75.0" text="Message Complementaire" />
-            <TableColumn fx:id="vaccin" prefWidth="75.0" text="Vaccin MÀJ" />
-            <TableColumn fx:id="dossier" prefWidth="75.0" text="Dossier médical" />
-            <TableColumn fx:id="supprimer" prefWidth="75.0" text="Supprimer" />
+            <TableColumn fx:id="lieu" prefWidth="75.0" resizable="false" text="Lieu" />
+            <TableColumn fx:id="message" prefWidth="160.0" text="Message Complementaire" />
+            <TableColumn fx:id="vaccin" prefWidth="103.0" resizable="false" text="Vaccin MÀJ" />
+            <TableColumn fx:id="dossier" prefWidth="107.0" resizable="false" text="Dossier médical" />
+            <TableColumn fx:id="supprimer" prefWidth="108.0" resizable="false" text="Supprimer" />
         </columns>
       </TableView>
    </children>

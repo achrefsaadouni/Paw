@@ -19,20 +19,33 @@ import javafx.util.converter.LongStringConverter;
 public class AnnonceSitting extends Annonce{
     private Date dateSit; 
     private int dureSit;
-    private ArrayList<String> toDoList;
+    private String toDoList;
+    private String typePet;
 
-    public AnnonceSitting(Date dateSit, int dureSit, ArrayList<String> toDoList, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, java.util.Date date, int id_utilisateur, File images) {
-        super(id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur, images);
-        this.dateSit = dateSit;
-        this.dureSit = dureSit;
-        this.toDoList = toDoList;
-    }
-
-    public AnnonceSitting(Date dateSit, int dureSit, ArrayList<String> toDoList, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, java.util.Date date, int id_utilisateur) {
+    public AnnonceSitting(Date dateSit, int dureSit, String toDoList, String typePet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, java.util.Date date, int id_utilisateur) {
         super(id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur);
         this.dateSit = dateSit;
         this.dureSit = dureSit;
         this.toDoList = toDoList;
+        this.typePet = typePet;
+    }
+
+    
+
+    public Date getDateSit() {
+        return dateSit;
+    }
+
+    public int getDureSit() {
+        return dureSit;
+    }
+
+    public String getToDoList() {
+        return toDoList;
+    }
+
+    public String getTypePet() {
+        return typePet;
     }
 
     public void setDateSit(Date dateSit) {
@@ -43,23 +56,13 @@ public class AnnonceSitting extends Annonce{
         this.dureSit = dureSit;
     }
 
-    public void setToDoList(ArrayList<String> toDoList) {
+    public void setToDoList(String toDoList) {
         this.toDoList = toDoList;
     }
 
-    public Date getDateSit() {
-        return dateSit;
+    public void setTypePet(String typePet) {
+        this.typePet = typePet;
     }
 
-    public int getDureSit() {
-        return dureSit;
-    }
-
-    public ArrayList<String> getToDoList() {
-        return toDoList;
-    }
-
-    
-
+      
 }
-

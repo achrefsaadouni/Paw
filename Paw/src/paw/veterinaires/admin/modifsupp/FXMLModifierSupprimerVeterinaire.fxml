@@ -17,6 +17,7 @@
    <children>
       <JFXTreeTableView fx:id="VeterinaireTable" layoutX="1.0" layoutY="50.0" prefHeight="591.0" prefWidth="1115.0">
          <columns>
+            <TreeTableColumn fx:id="id" prefWidth="75.0" text="ID" visible="false" />
             <TreeTableColumn fx:id="nom" prefWidth="107.00000762939453" text="Nom" />
             <TreeTableColumn fx:id="prenom" minWidth="3.0" prefWidth="96.33332824707031" text="Prenom" />
             <TreeTableColumn fx:id="adresse" prefWidth="137.0" text="Adresse" />
@@ -33,7 +34,7 @@
          </columns>
       </JFXTreeTableView>
       <JFXTextField fx:id="filtre" layoutX="902.0" layoutY="9.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
-      <AnchorPane fx:id="modifVet" layoutX="97.0" layoutY="50.0" prefHeight="545.0" prefWidth="947.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" visible="false">
+      <AnchorPane fx:id="modifVet" layoutX="97.0" layoutY="50.0" prefHeight="545.0" prefWidth="947.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Separator layoutX="431.0" layoutY="78.0" orientation="VERTICAL" prefHeight="458.0" prefWidth="18.0" />
             <Separator layoutX="20.0" layoutY="53.0" prefHeight="25.0" prefWidth="905.0" />
@@ -65,9 +66,10 @@
                </graphic>
             </JFXButton>
             <JFXComboBox fx:id="gouv" layoutX="254.0" layoutY="158.0" onMouseClicked="#zoomGouv" prefHeight="25.0" prefWidth="122.0" />
+            <JFXTextField fx:id="idInsertion" visible="false" />
             <AnchorPane layoutX="439.0" layoutY="66.0" prefHeight="469.0" prefWidth="507.0">
                <children>
-                  <GoogleMapView fx:id="mapView" prefHeight="470.0" prefWidth="507.0" />
+                  <GoogleMapView fx:id="mapView" prefHeight="469.0" prefWidth="506.0" />
                   <TextField fx:id="addressTextField" layoutX="5.0" layoutY="10.0" onAction="#addressTextFieldAction" prefHeight="32.0" prefWidth="274.0" promptText="Recherche ..." />
                </children>
             </AnchorPane>

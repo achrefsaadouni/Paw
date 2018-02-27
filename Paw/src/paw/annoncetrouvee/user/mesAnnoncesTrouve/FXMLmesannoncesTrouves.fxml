@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.cell.ImageGridCell?>
 
@@ -42,12 +41,11 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <JFXButton fx:id="modifier1" layoutX="52.0" layoutY="9.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
+                        <JFXButton fx:id="modifier1" buttonType="RAISED" layoutX="52.0" layoutY="9.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton fx:id="supprimer1" layoutX="272.0" layoutY="10.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
+                        <JFXButton fx:id="supprimer1" buttonType="RAISED" layoutX="272.0" layoutY="10.0" prefHeight="32.0" prefWidth="185.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal1" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Ressource/images/avatar.png" />
@@ -91,12 +89,11 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <JFXButton fx:id="modifier3" layoutX="29.0" layoutY="9.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
+                        <JFXButton fx:id="modifier3" buttonType="RAISED" layoutX="29.0" layoutY="9.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton fx:id="supprimer3" layoutX="268.0" layoutY="8.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
+                        <JFXButton fx:id="supprimer3" buttonType="RAISED" layoutX="268.0" layoutY="8.0" prefHeight="32.0" prefWidth="200.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal3" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Ressource/images/avatar.png" />
@@ -144,12 +141,11 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <JFXButton fx:id="modifier2" layoutX="72.0" layoutY="9.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
+                        <JFXButton fx:id="modifier2" buttonType="RAISED" layoutX="72.0" layoutY="9.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton fx:id="supprimer2" layoutX="286.0" layoutY="9.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
+                        <JFXButton fx:id="supprimer2" buttonType="RAISED" layoutX="286.0" layoutY="9.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal2" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Ressource/images/avatar.png" />
@@ -193,12 +189,11 @@
                   </Label>
                   <Pane layoutY="200.0" prefHeight="50.0" prefWidth="504.0" style="-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 0;">
                      <children>
-                        <JFXButton fx:id="modifier4" layoutX="80.0" layoutY="9.0" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
+                        <JFXButton fx:id="modifier4" buttonType="RAISED" layoutX="80.0" layoutY="9.0" prefHeight="32.0" prefWidth="168.0" style="-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;" text="Modifier" />
                         <HBox alignment="CENTER" layoutX="293.0" layoutY="20.0" spacing="3.0" />
-                        <JFXButton fx:id="supprimer4" layoutX="297.0" layoutY="11.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
+                        <JFXButton fx:id="supprimer4" buttonType="RAISED" layoutX="297.0" layoutY="11.0" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #F50057; -fx-text-fill: white; -fx-font-size: 14;" text="Supprimer" />
                      </children>
                   </Pane>
-                  <Circle fill="#e5e8eb" layoutX="433.0" layoutY="104.0" radius="75.0" stroke="#c3c3c3" strokeType="INSIDE" />
                   <ImageView fx:id="imageanimal4" fitHeight="120.0" fitWidth="120.0" layoutX="373.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Ressource/images/avatar.png" />
@@ -227,7 +222,7 @@
       <Pagination fx:id="paginator" layoutX="498.0" layoutY="583.0" pageCount="5" prefHeight="50.0" prefWidth="168.0" />
       <ImageGridCell />
       <ImageGridCell />
-      <StackPane fx:id="consulterAnnonce" layoutX="170.0" prefHeight="150.0" prefWidth="200.0">
+      <StackPane fx:id="consulterAnnonce" layoutX="170.0" prefHeight="150.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane prefHeight="644.0" prefWidth="672.0">
                <children>

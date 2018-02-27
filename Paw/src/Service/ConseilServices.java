@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +48,34 @@ public class ConseilServices {
     
     }
     
+    public ArrayList<Conseil> getList() {
+        String req="SELECT * FROM Conseil" ;
+        ArrayList<Conseil> list = new ArrayList();
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ResultSet rs = ste.executeQuery(); 
+
+            while (rs.next())
+            {
+
+                int id = rs.getInt("id");
+                String titre = rs.getString("titre");
+                String animal = rs.getString("animal");
+                String type = rs.getString("type");
+                String description = rs.getString("description");
+                Date date = rs.getDate("date");
+
+                list.add(new Conseil(id, titre, animal, type, description, date));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Problème importation liste Conseil");
+        }
+        return list;
+        
+    }
+    
     public ObservableList<Conseil> getAll(){
         String req="SELECT * FROM Conseil" ;
         ObservableList<Conseil> list = FXCollections.observableArrayList();
@@ -54,17 +83,17 @@ public class ConseilServices {
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ResultSet rs = ste.executeQuery(); 
-            System.out.println("    Hani hne mriguel");
+
             while (rs.next())
             {
-                System.out.println("    fel lawel");
+
                 int id = rs.getInt("id");
                 String titre = rs.getString("titre");
                 String animal = rs.getString("animal");
                 String type = rs.getString("type");
                 String description = rs.getString("description");
                 Date date = rs.getDate("date");
-                System.out.println("    Hani hne mriguel");
+
                 list.add(new Conseil(id, titre, animal, type, description, date));
             }
 
@@ -74,7 +103,7 @@ public class ConseilServices {
         return list;
     }
      
-    public void updateConseil (Conseil p, int id )
+    public void updateConseil (Conseil p)
     {
     String req="UPDATE Conseil SET titre=?,animal=?,type=?,description=?,date=now() WHERE id =?" ; 
         try { 
@@ -85,7 +114,7 @@ public class ConseilServices {
             ste.setString(3,p.getType()) ; 
             ste.setString(4,p.getDescription()) ; 
             
-            ste.setInt(5,id) ;
+            ste.setInt(5,p.getId()) ;
             ste.executeUpdate() ; 
             
         } catch (SQLException ex) {

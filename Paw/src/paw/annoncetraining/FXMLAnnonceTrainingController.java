@@ -169,8 +169,8 @@ public class FXMLAnnonceTrainingController implements Initializable {
 //            if ((!"".equals(idModification.getText()))&&(!"".equals(couleurModification.getText()))&& (!"".equals(ageModification.getText()))&& (!"".equals(sexModification.getText()))
 //                 && (!"".equals(raceModification.getText()))&& (!"".equals(msgModification.getText()))&& (!"".equals(dateTrModification.getValue()))&& (!"".equals(dureTrModification.getText())) &&(!"".equals(typeTrModification.getText())) && (!"".equals(typeModification.getText())))
 //        {
-            AnnonceTrainingServices as = new AnnonceTrainingServices();
-            
+//            AnnonceTrainingServices as = new AnnonceTrainingServices();
+//            
 //            as.updateAnnonceTraining(new 
 //             AnnonceTraining(
 //                    
@@ -186,22 +186,22 @@ public class FXMLAnnonceTrainingController implements Initializable {
 //                    typeModification.getText(),
 //                    java.sql.Date.valueOf(dateModification.getValue())),Integer.parseInt(idModification.getText()));
 //                    
+////            
 //            
-            
-            
-            
-            idModification.setText("");
-            ageModification.setText("");
-            couleurModification.setText("");
-            sexModification.setText("");
-            raceModification.setText("");
-            msgModification.setText("");
-             typeModification.setText("Chien");
-             dateModification.setValue(LocalDate.now());
-             dureeModification.setText("");
-             typeModification.setText("");
-             
-            loadTable();
+//            
+//            
+//            idModification.setText("");
+//            ageModification.setText("");
+//            couleurModification.setText("");
+//            sexModification.setText("");
+//            raceModification.setText("");
+//            msgModification.setText("");
+//             typeModification.setText("Chien");
+//             dateModification.setValue(LocalDate.now());
+//             dureeModification.setText("");
+//             typeModification.setText("");
+//             
+//            loadTable();
 //                   
 //        }
 

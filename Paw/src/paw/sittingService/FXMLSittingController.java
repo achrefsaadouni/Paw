@@ -13,6 +13,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,11 +22,13 @@ import javafx.scene.control.ListView;
 
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
-import static jdk.nashorn.internal.objects.NativeJava.type;
+import javafx.scene.layout.AnchorPane;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
+import paw.profile.FXMLprofileController;
 
 
-public class FXMLSittingController implements Initializable {
+public class FXMLSittingController extends FXMLCnxController implements Initializable {
 
     @FXML
     private ImageView imgTr3;
@@ -39,8 +43,6 @@ public class FXMLSittingController implements Initializable {
     
     ToggleGroup sexe = new ToggleGroup();
     
-    @FXML
-    private JFXTextField nomPet;
     @FXML
     private JFXTextField agePet;
     @FXML
@@ -69,6 +71,8 @@ public class FXMLSittingController implements Initializable {
     private ListView<String> listView;
     
     ArrayList<String> toDoList = new ArrayList();
+    @FXML
+    private AnchorPane window;
 
   
     @Override
@@ -87,6 +91,11 @@ public class FXMLSittingController implements Initializable {
 
     @FXML
     private void redirection(ActionEvent event) {
+        try{
+            loadSplashScreen("/paw/sittingService/FXMLSittingPrincipale.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -109,12 +118,13 @@ public class FXMLSittingController implements Initializable {
         String typeAnnonce = "Annonce Sitting";
         
         AnnonceSittingServices as = new AnnonceSittingServices();
-//        System.out.println(session.getId());
+        System.out.println(toDoList);
             as.insererAnnonceSitting(
                     new AnnonceSitting(
                     java.sql.Date.valueOf(dateSit.getValue()), 
                     (int)dureSit.getValue(),
-                    toDoList,
+                    toDoList.toString(),
+                    typePet.getValue(),
                     0,
                     Integer.parseInt(agePet.getText()), 
                     colorPet.getText(), 
@@ -123,10 +133,13 @@ public class FXMLSittingController implements Initializable {
                     descPet.getText(),
                     typeAnnonce,
                     Date.valueOf(LocalDate.now()),
-//                    session.getId()));
-                    0));
+                    session.getId()));
+                    
             
 //            initialisation des champs
+           
+            System.out.println((int)dureSit.getValue());
+            System.out.println(session.getId());
             
             dateSit.setValue(null);
             dureSit.setValue(15);
@@ -142,7 +155,18 @@ public class FXMLSittingController implements Initializable {
 
     @FXML
     private void annulerTraining(ActionEvent event) {
-        listView.setItems(null);
+        
+        //            initialisation des champs
+            
+            dateSit.setValue(null);
+            dureSit.setValue(15);
+            listView.setItems(null);
+            agePet.setText("");
+            racePet.setText("");
+            descPet.setText("");
+            colorPet.setText("");
+            typePet.setValue("");
+            
     }
 
     @FXML

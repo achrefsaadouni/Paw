@@ -331,6 +331,30 @@ public class FXMLCnxController implements Initializable {
                                         Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                 }
+                                 case "annonce": {
+                                    try {
+                                        loadSplashScreenAdmin("/paw/annonce/MenuAnnonce/FXMLToutesLesAnnonces.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                  case "vet/cons": {
+                                    try {
+                                       // loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                                   case "dressage": {
+                                    try {
+                                       // loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                        break;
+                                    } catch (Exception ex) {
+                                        Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
                                    case "acceuil": {
                                     try {
 

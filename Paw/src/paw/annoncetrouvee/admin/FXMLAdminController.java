@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annonceAccouplements.user.admin;
+package paw.annoncetrouvee.admin;
 
-import Entity.AnnonceAccouplement;
-import Service.AnnonceAccouplementServices;
+import Entity.AnnoncePerdu;
+import Entity.AnnonceTrouvee;
+import Service.AnnonceTrouveServices;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,71 +22,63 @@ import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * FXML Controller class
  *
- * @author gmehd
+ * @author achref
  */
-public class FXMLAnnoncesAccouplementsAdminController implements Initializable {
+public class FXMLAdminController implements Initializable {
 
     @FXML
-    private TableView<AnnonceAccouplement> AnnonceTable;
+    private TableView<AnnonceTrouvee> AnnonceTable;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> animal;
+    private TableColumn<AnnonceTrouvee, String> race;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> race;
+    private TableColumn<AnnonceTrouvee, String> sexe;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> sexe;
+    private TableColumn<AnnonceTrouvee, String> age;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> age;
+    private TableColumn<AnnonceTrouvee, String> couleur;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> couleur;
+    private TableColumn<AnnonceTrouvee, String> date;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> poil;
+    private TableColumn<AnnonceTrouvee, String> lieu;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> lieu;
+    private TableColumn<AnnonceTrouvee, String> message;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> date;
+    private TableColumn<AnnonceTrouvee, String> datetrouve;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> message;
+    private TableColumn<AnnonceTrouvee, String> colier;
     @FXML
-    private TableColumn<AnnonceAccouplement, String> vaccin;
-    @FXML
-    private TableColumn<AnnonceAccouplement, String> dossier;
-    @FXML
-    private TableColumn<AnnonceAccouplement, String> supprimer;
+    private TableColumn<AnnonceTrouvee, String> supprimer;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         
         initCol();
         loadTable();
     }    
     
-    
-    private void initCol() {
+     private void initCol() {
         age.setCellValueFactory(new PropertyValueFactory<>("age"));
         sexe.setCellValueFactory(new PropertyValueFactory<>("sex"));
         race.setCellValueFactory(new PropertyValueFactory<>("race"));
         message.setCellValueFactory(new PropertyValueFactory<>("message_complementaire"));
-        couleur.setCellValueFactory(new PropertyValueFactory<>("couleur"));
-        animal.setCellValueFactory(new PropertyValueFactory<>("type"));
+        couleur.setCellValueFactory(new PropertyValueFactory<>("couleur")); 
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        poil.setCellValueFactory(new PropertyValueFactory<>("type_poil"));
-        vaccin.setCellValueFactory(new PropertyValueFactory<>("vaccin"));
-        dossier.setCellValueFactory(new PropertyValueFactory<>("dossier"));
+        datetrouve.setCellValueFactory(new PropertyValueFactory<>("date_trouvee"));
+        colier.setCellValueFactory(new PropertyValueFactory<>("colier"));
         lieu.setCellValueFactory( new PropertyValueFactory<>("lieu"));
     }
 
     private void loadTable() {
             
-           AnnonceAccouplementServices rs = new AnnonceAccouplementServices();
+           AnnonceTrouveServices rs = new AnnonceTrouveServices();
            AnnonceTable.getItems().setAll(rs.getList());
-           rs.getList().forEach(e -> System.out.println(e.getLieu()));
+           rs.getList().forEach(e -> System.out.println(e.getLieu_trouve()));
            
            supprimer.setCellValueFactory(param -> {
             SimpleObjectProperty property = new SimpleObjectProperty();
-            AnnonceAccouplement a = (AnnonceAccouplement) param.getValue();
+            AnnonceTrouvee a = (AnnonceTrouvee) param.getValue();
             JFXButton supprimer = new JFXButton("Supprimer");
             supprimer.setStyle("-fx-background-color: #FE2E64;-fx-text-fill: white;");
 
@@ -101,11 +94,17 @@ public class FXMLAnnoncesAccouplementsAdminController implements Initializable {
 
     private void supprimerAnnonce(int id) {
 
-            AnnonceAccouplementServices ps = new AnnonceAccouplementServices();
-            ps.DeleteAnnonceAccouplement(id);
+            AnnonceTrouveServices ps = new AnnonceTrouveServices();
+            ps.DeleteAnnonceTrouvee(id);
             
 
     }
 
+    
+    
+    
+    
+    
+    
     
 }

@@ -118,7 +118,7 @@ public class VeterinaireServices {
         return listeRates;
     }
 
-    public void updateVeterinaire(Veterinaire p, int id) {
+    public void updateVeterinaire(Veterinaire p) {
         String req = "UPDATE Veterinaire SET nom=?,prenom=?, adresse=?, region=?, numero=?,email=? WHERE id=?";
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -129,7 +129,7 @@ public class VeterinaireServices {
             ste.setString(4, p.getRegion());
             ste.setInt(5, p.getNumero());
             ste.setString(6, p.getEmail());
-            ste.setInt(7, id);
+            ste.setInt(7, p.getId());
             
             ste.executeUpdate();
 

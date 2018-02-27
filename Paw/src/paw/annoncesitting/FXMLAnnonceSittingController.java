@@ -133,19 +133,19 @@ public class FXMLAnnonceSittingController implements Initializable {
 //         if ((!"".equals(couleurInsertion.getText()))&& (!"".equals(ageInsertion.getText()))&& (!"".equals(sexInsertion.getText()))
 //                 && (!"".equals(raceInsertion.getText()))&& (!"".equals(msgInsertion.getText()))&& (!"".equals(typeSitInsertion.getText()))&& (!"".equals(choixInsertion.getValue())))
 //        {
-            AnnonceSittingServices as = new AnnonceSittingServices();
-              as.insererAnnonceSitting(new AnnonceSitting(java.sql.Date.valueOf(dateSitInsertion.getValue()), 
-                      Integer.parseInt(typeSitInsertion.getText()),
-                      null,
-                      0 , 
-                      Integer.parseInt(ageInsertion.getText()), 
-                      couleurInsertion.getText(), 
-                      sexInsertion.getText(), 
-                      raceInsertion.getText(), 
-                      msgInsertion.getText(),
-                      choixInsertion.getValue(), 
-                      null,
-                      0));
+//            AnnonceSittingServices as = new AnnonceSittingServices();
+//              as.insererAnnonceSitting(new AnnonceSitting(java.sql.Date.valueOf(dateSitInsertion.getValue()), 
+//                      Integer.parseInt(typeSitInsertion.getText()),
+//                      null,
+//                      0 , 
+//                      Integer.parseInt(ageInsertion.getText()), 
+//                      couleurInsertion.getText(), 
+//                      sexInsertion.getText(), 
+//                      raceInsertion.getText(), 
+//                      msgInsertion.getText(),
+//                      choixInsertion.getValue(), 
+//                      null,
+//                      0));
             dateSitInsertion.setValue(LocalDate.now());
             typeSitInsertion.setText("");
               
