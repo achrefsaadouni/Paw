@@ -226,18 +226,17 @@ public class Utilisateur extends RecursiveTreeObject<Utilisateur> {
     }
 
 
-//    public String getEtat() {
-//        
-//        return etat;
-//    }
-//
-//    public void setEtat(String s) {
-//        this.etat=s;
-//    }
-//    
+    public String getEtat() {
+        return code.substring(0, 4);
+    }
+
+    public void setEtat(String s) {
+        this.code= s+this.getCode();
+    }
+    
 
     public String getCode() {
-        return code;
+        return code.substring(4);
     }
 
     public void setCode(String code) {
