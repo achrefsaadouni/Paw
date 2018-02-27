@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
@@ -12,6 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.trainingService.FXMLTrainingListeAnnonceController">
@@ -135,10 +139,61 @@
             <Pagination fx:id="paginator" layoutX="40.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" />
             <Circle fill="#1f93ff18" layoutX="169.0" layoutY="80.0" radius="66.0" stroke="#000000ab" strokeType="INSIDE" />
             <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="194.0" layoutX="69.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
-            <JFXButton fx:id="ModifButton" layoutX="325.0" layoutY="49.0" onAction="#modifAnnonce" style="-fx-background-color: #00C853;" stylesheets="@fxmltraining.css" text="Modifier" />
-            <JFXButton fx:id="SuppButton" layoutX="314.0" layoutY="14.0" onAction="#suppAnnonce" style="-fx-background-color: #f44336;" stylesheets="@fxmltraining.css" text="Supprimer" />
+            <JFXButton fx:id="ModifButton" layoutX="325.0" layoutY="49.0" style="-fx-background-color: #00C853;" stylesheets="@fxmltraining.css" text="Modifier" />
+            <JFXButton fx:id="SuppButton" layoutX="314.0" layoutY="14.0" style="-fx-background-color: #f44336;" stylesheets="@fxmltraining.css" text="Supprimer" />
          </children>
       </Pane>
-      <Pane layoutX="468.0" layoutY="80.0" prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: #E8F5E9;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
+      <StackPane fx:id="stackModif" layoutX="565.0" layoutY="151.0" prefHeight="408.0" prefWidth="400.0">
+         <children>
+            <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+               <stylesheets>
+                  <URL value="@fxmltraining.css" />
+               </stylesheets>
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" style="-fx-font-size: 16;" styleClass="names" stylesheets="@../../css/Master.css" text="Modification de votre annonce" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Separator layoutY="37.0" prefHeight="3.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0" />
+                  <GridPane fx:id="tableau1" alignment="CENTER" layoutX="15.0" layoutY="53.0" prefHeight="295.0" prefWidth="370.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="185.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="0.0" prefWidth="185.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Animal" />
+                        <Label text="RACE" GridPane.rowIndex="1" />
+                        <Label text="SEXE" GridPane.rowIndex="2" />
+                        <Label text="AGE" GridPane.rowIndex="3" />
+                        <Label text="COULEUR" GridPane.rowIndex="4" />
+                        <Label text="NOM" GridPane.rowIndex="5" />
+                        <Label text="DATE DE DRESSAGE" GridPane.rowIndex="6" />
+                        <Label text="TYPE DE DRESSAGE" GridPane.rowIndex="7" />
+                        <Label text="DESCRIPTION" GridPane.rowIndex="8" />
+                        <JFXTextField fx:id="typePetM" GridPane.columnIndex="1" />
+                        <JFXTextField fx:id="raceM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXTextField fx:id="sexeM" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="ageM" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="couleurM" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <JFXTextField fx:id="nomM" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <JFXDatePicker fx:id="dateTrM" prefHeight="25.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <JFXComboBox fx:id="typeTrM" prefHeight="25.0" prefWidth="190.0" promptText="Choisissez un type" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <JFXTextField fx:id="descM" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                     </children>
+                  </GridPane>
+                  <JFXButton fx:id="confirmModif" layoutX="314.0" layoutY="369.0" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: #00C853;" stylesheets="@fxmltraining.css" text="Confirmer" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="10.0" />
+                  <JFXButton fx:id="quitModif" layoutX="14.0" layoutY="373.0" onAction="#quitterModif" style="-fx-background-color: #f44336;" stylesheets="@fxmltraining.css" text="Quitter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="328.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

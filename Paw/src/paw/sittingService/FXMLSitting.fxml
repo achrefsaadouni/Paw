@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingController">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingController">
     <stylesheets>
         <URL value="@fxmlSitting.css" />
     </stylesheets>
@@ -107,11 +107,6 @@
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox focusTraversable="true" layoutX="955.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="201.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="nomPet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Nom de votre animal">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </JFXTextField>
                         <JFXTextField fx:id="agePet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Age">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -129,7 +124,7 @@
                         </JFXDatePicker>
                         <Label text="Specifiez le nombre des jours">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
                            </VBox.margin>
                         </Label>
                         <JFXSlider fx:id="dureSit" max="30.0" min="1.0" value="15.0">
