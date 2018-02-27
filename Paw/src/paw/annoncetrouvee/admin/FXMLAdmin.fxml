@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annoncetrouvee.admin.FXMLAdminController">
+   <children>
+      <TableView fx:id="AnnonceTable" layoutX="41.0" layoutY="51.0" prefHeight="592.0" prefWidth="1080.0">
+         <columns>
+            <TableColumn fx:id="race" prefWidth="76.0" resizable="false" text="Race" />
+            <TableColumn fx:id="sexe" prefWidth="73.0" resizable="false" text="Sexe" />
+            <TableColumn fx:id="age" prefWidth="75.0" resizable="false" text="Age" />
+            <TableColumn fx:id="couleur" prefWidth="75.0" text="Couleur" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="lieu" prefWidth="75.0" resizable="false" text="Lieu trouvee" />
+            <TableColumn fx:id="message" prefWidth="160.0" text="Message Complementaire" />
+            <TableColumn fx:id="datetrouve" prefWidth="103.0" resizable="false" text="date trouvee" />
+            <TableColumn fx:id="colier" prefWidth="76.0" resizable="false" text="colier" />
+            <TableColumn fx:id="supprimer" prefWidth="108.0" resizable="false" text="Supprimer" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

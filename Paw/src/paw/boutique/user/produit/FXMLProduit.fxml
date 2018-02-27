@@ -22,38 +22,54 @@
    <children>
       <StackPane fx:id="payement" layoutX="300.0" layoutY="200.0" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" />
       <Separator layoutX="10.0" layoutY="65.0" prefHeight="4.0" prefWidth="1080.0" />
-      <Pane fx:id="filter_type" layoutX="14.0" layoutY="246.0" prefHeight="379.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
+      <Pane fx:id="filter_type" layoutX="14.0" layoutY="158.0" prefHeight="467.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
             <Label fx:id="filt" layoutX="14.0" layoutY="22.0" prefHeight="17.0" prefWidth="50.0" text="Filtrer :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Pane layoutX="2.0" layoutY="58.0" prefHeight="306.0" prefWidth="163.0">
+            <Pane layoutX="2.0" layoutY="58.0" prefHeight="310.0" prefWidth="163.0">
                <children>
-                  <JFXRadioButton fx:id="tous" prefHeight="17.0" prefWidth="163.0" selected="true" text="Tous">
+                  <JFXRadioButton fx:id="tous" layoutY="50.0" onAction="#Tous" prefHeight="17.0" prefWidth="163.0" selected="true" text="Tous">
                      <toggleGroup>
                         <ToggleGroup fx:id="type" />
                      </toggleGroup>
                   </JFXRadioButton>
-                  <JFXRadioButton fx:id="laisse" layoutY="32.0" prefHeight="17.0" prefWidth="163.0" text="Laisse, Collier" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="lit" layoutY="60.0" prefHeight="17.0" prefWidth="163.0" text="Lits et Couvertures" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Shampoings" layoutY="89.0" prefHeight="17.0" prefWidth="163.0" text="Shampoings" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="vetement" layoutY="120.0" prefHeight="17.0" prefWidth="163.0" text="Vetements" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Bols" layoutY="146.0" prefHeight="17.0" prefWidth="163.0" text="Bols" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Cadeaux" layoutY="176.0" prefHeight="17.0" prefWidth="163.0" text="Cadeaux" toggleGroup="$type" />
-                  <JFXButton fx:id="filter" buttonType="RAISED" layoutX="45.0" layoutY="270.0" onAction="#filtrerBoutique" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #3C8DBC #3C8DBC;" text="Filtrer" textFill="WHITE">
-                     <graphic>
-                        <ImageView fx:id="acheter_produit114" fitHeight="20.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Ressource/images/ic_autorenew_black_48dp.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></JFXButton>
-                  <JFXRadioButton fx:id="Gâteries" layoutY="210.0" prefHeight="17.0" prefWidth="163.0" text="Gâteries Et Nourritures" toggleGroup="$type" />
-                  <JFXRadioButton fx:id="Jouets" layoutY="237.0" prefHeight="17.0" prefWidth="163.0" text="Jouets" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="laisse" layoutY="82.0" onAction="#LaisseCollier" prefHeight="17.0" prefWidth="163.0" text="Laisse, Collier" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="lit" layoutY="110.0" onAction="#ListCouverture" prefHeight="17.0" prefWidth="163.0" text="Lits et Couvertures" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Shampoings" layoutY="139.0" onAction="#Shompoin" prefHeight="17.0" prefWidth="163.0" text="Shampoings" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="vetement" layoutY="170.0" onAction="#Vetement" prefHeight="17.0" prefWidth="163.0" text="Vetements" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Bols" layoutY="196.0" onAction="#Bol" prefHeight="17.0" prefWidth="163.0" text="Bols" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Cadeaux" layoutY="226.0" onAction="#Cadeaux" prefHeight="17.0" prefWidth="163.0" text="Cadeaux" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Gâteries" layoutY="260.0" onAction="#Gateries" prefHeight="17.0" prefWidth="163.0" text="Gâteries Et Nourritures" toggleGroup="$type" />
+                  <JFXRadioButton fx:id="Jouets" layoutY="287.0" onAction="#Jouet" prefHeight="17.0" prefWidth="163.0" text="Jouets" toggleGroup="$type" />
+                  <Separator layoutX="17.0" layoutY="24.0" prefHeight="16.0" prefWidth="153.0" />
+                  <JFXRadioButton fx:id="nondisponible" layoutY="7.0" onAction="#nondisponible" prefHeight="17.0" prefWidth="163.0" text="Non Disponible" toggleGroup="$type" />
                </children>
             </Pane>
+            <Label fx:id="filt1" layoutX="14.0" layoutY="383.0" prefHeight="17.0" prefWidth="50.0" text="Trié :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <JFXRadioButton fx:id="prixup" layoutX="2.0" layoutY="407.0" onAction="#prixup" prefHeight="17.0" prefWidth="115.0" text="Prix">
+               <toggleGroup>
+                  <ToggleGroup fx:id="type3" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="prixdown" layoutX="2.0" layoutY="439.0" onAction="#prixdown" prefHeight="17.0" prefWidth="113.0" text="Prix " toggleGroup="$type3" />
+            <Separator layoutX="20.0" layoutY="366.0" prefHeight="16.0" prefWidth="153.0" />
+            <ImageView fitHeight="28.0" fitWidth="40.0" layoutX="74.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Ressource/images/up-arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="28.0" layoutX="74.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Ressource/images/down-arrow.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
         <Pane fx:id="div_articles" layoutX="217.0" layoutY="75.0" prefHeight="570.0" prefWidth="852.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">

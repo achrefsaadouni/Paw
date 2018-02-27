@@ -57,8 +57,6 @@ public class FXMLProduitController {
     @FXML
     private JFXButton fermer;
     
-    @FXML
-    private Pane imageBox;
     
     @FXML
     private ImageView image_1;
@@ -201,17 +199,26 @@ public class FXMLProduitController {
     @FXML
     private ToggleGroup type;
     @FXML
-    private JFXButton filter;
-    @FXML
-    private ImageView acheter_produit114;
-    @FXML
     private ImageView acheter_produit111;
     @FXML
     private ImageView acheter_produit112;
     @FXML
     private ImageView acheter_produit113;
+    @FXML
+    private StackPane payement;
+    @FXML
+    private JFXRadioButton nondisponible;
+    @FXML
+    private Label filt1;
+    @FXML
+    private JFXRadioButton prixup;
+    @FXML
+    private JFXRadioButton prixdown;
+    @FXML
+    private ToggleGroup type3;
+    
      @FXML
-    void initialize() {
+     void initialize() {
         
         produitservice = ProduitService.getProduitService();
         all_articles = produitservice.findAll();
@@ -248,85 +255,7 @@ public class FXMLProduitController {
         }
         return all_articles.subList(0, 3);
     }
-    
-    @FXML
-    void filtrerBoutique(ActionEvent event) {
-        
-        if (tous.isSelected()) {
-            all_articles = produitservice.findAll();
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {                
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (laisse.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Laisse, Collier et Harnais");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (lit.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Lits et Couvertures");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (Shampoings.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Shampoings et Conditionneurs");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (vetement.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Vetements");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (Bols.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Bols");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (Cadeaux.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Cadeaux");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (Gâteries.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Gâteries Et Nourritures");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        } else if (Jouets.isSelected()) {
-            all_articles = produitservice.findAllFiltrer("Jouets");
-            if (all_articles.isEmpty()) {
-                boutiqueVide();
-            } else {
-                setNbPages();
-                initBoutiquePage(0);
-            }            
-        }
-        
-    }
+
     
     public void initBoutiquePage(int index) {
         pagination.setCurrentPageIndex(index);
@@ -460,7 +389,7 @@ public class FXMLProduitController {
     }
     
     public void boutiqueVide() {      
-        pagination.setPageCount(1);
+        pagination.setVisible(false);
         info.setVisible(true);
         div1.setVisible(false);
         div2.setVisible(false);
@@ -527,6 +456,296 @@ public class FXMLProduitController {
             dialogPane.setVisible(false);
         });
         
+    }
+
+    @FXML
+    private void Tous(ActionEvent event) {
+        
+         all_articles = produitservice.findAll();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {                
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void LaisseCollier(ActionEvent event) {
+        
+         all_articles = produitservice.findAllFiltrer("Laisse, Collier et Harnais");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void ListCouverture(ActionEvent event) {
+        
+         all_articles = produitservice.findAllFiltrer("Lits et Couvertures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void Shompoin(ActionEvent event) {
+         all_articles = produitservice.findAllFiltrer("Shampoings et Conditionneurs");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void Vetement(ActionEvent event) {
+        
+         all_articles = produitservice.findAllFiltrer("Vetements");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void Bol(ActionEvent event) {
+         all_articles = produitservice.findAllFiltrer("Bols");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }          
+    }
+
+    @FXML
+    private void Cadeaux(ActionEvent event) {
+        
+         all_articles = produitservice.findAllFiltrer("Cadeaux");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }         
+    }
+
+    @FXML
+    private void Gateries(ActionEvent event) {
+        
+         all_articles = produitservice.findAllFiltrer("Gâteries Et Nourritures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void Jouet(ActionEvent event) {
+         all_articles = produitservice.findAllFiltrer("Jouets");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void nondisponible(ActionEvent event) {
+        all_articles = produitservice.findAllNonDisponisble();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+    }
+
+    @FXML
+    private void prixup(ActionEvent event) {
+        
+         if (tous.isSelected()) {
+            all_articles = produitservice.findAllup();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {                
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (laisse.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Laisse, Collier et Harnais");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (lit.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Lits et Couvertures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Shampoings.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Shampoings et Conditionneurs");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (vetement.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Vetements");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Bols.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Bols");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Cadeaux.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Cadeaux");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Gâteries.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Gâteries Et Nourritures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Jouets.isSelected()) {
+            all_articles = produitservice.findAllFiltrerup("Jouets");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        }
+         else if (nondisponible.isSelected()) {
+            all_articles = produitservice.findAllNonDisponisbleup();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        }
+    }
+
+    @FXML
+    private void prixdown(ActionEvent event) {
+        
+         if (tous.isSelected()) {
+            all_articles = produitservice.findAlldown();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {                
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (laisse.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Laisse, Collier et Harnais");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (lit.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Lits et Couvertures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Shampoings.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Shampoings et Conditionneurs");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (vetement.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Vetements");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Bols.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Bols");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Cadeaux.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Cadeaux");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Gâteries.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Gâteries Et Nourritures");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        } else if (Jouets.isSelected()) {
+            all_articles = produitservice.findAllFiltrerdown("Jouets");
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        }
+         else if (nondisponible.isSelected()) {
+            all_articles = produitservice.findAllNonDisponisbledown();
+            if (all_articles.isEmpty()) {
+                boutiqueVide();
+            } else {
+                setNbPages();
+                initBoutiquePage(0);
+            }            
+        }
     }
     
 }
