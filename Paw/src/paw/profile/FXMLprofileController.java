@@ -103,11 +103,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         fmodif.setSelectedColor(Color.rgb(51, 122, 183));
         modifanchor.setVisible(false);
         try{
-            avatar.setImage(new Image("http://localhost/pawUsers/"+session.getAvatar()));
+            avatar.setImage(new Image("http://localhost/paw/web/images/pawUsers/"+session.getAvatar()));
             avatar.setFitWidth(175);
             avatar.setFitHeight(169);
             
-            avatarmodif.setImage(new Image("http://localhost/pawUsers/"+session.getAvatar()));
+            avatarmodif.setImage(new Image("http://localhost/paw/web/images/pawUsers/"+session.getAvatar()));
             
         }
         catch(Exception e)

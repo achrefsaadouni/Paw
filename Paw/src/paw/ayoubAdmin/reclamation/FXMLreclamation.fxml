@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.ayoubAdmin.reclamation.FXMLreclamationController">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.ayoubAdmin.reclamation.FXMLreclamationController">
    <children>
       <JFXTreeTableView fx:id="ReclamationTable" layoutX="50.0" layoutY="90.0" prefHeight="550.0" prefWidth="1000.0">
          <columns>
@@ -49,5 +49,6 @@
       </AnchorPane>
       <Label fx:id="lab" layoutX="964.0" layoutY="42.0" text="Label" visible="false" />
       <JFXTextField fx:id="filtre" layoutX="758.0" layoutY="36.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
+      <JFXButton layoutX="225.0" layoutY="47.0" onAction="#gotoAjout" text="gotoAjout" />
    </children>
 </AnchorPane>
