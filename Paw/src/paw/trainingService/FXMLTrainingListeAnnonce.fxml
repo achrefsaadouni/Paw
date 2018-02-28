@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.trainingService.FXMLTrainingListeAnnonceController">
     <stylesheets>
@@ -25,9 +24,9 @@
    <children>
       <Label layoutX="14.0" layoutY="14.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes demandes de dressage" />
       <Separator layoutY="52.0" prefHeight="3.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0" />
-      <Pane fx:id="annonce" layoutX="33.0" layoutY="80.0" prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" stylesheets="@fxmltraining.css">
+      <Pane fx:id="annonce" layoutX="33.0" layoutY="178.0" prefHeight="450.0" prefWidth="400.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" stylesheets="@fxmltraining.css" AnchorPane.bottomAnchor="70.0">
          <children>
-            <GridPane fx:id="tableau" alignment="CENTER" layoutX="15.0" layoutY="158.0" prefHeight="295.0" prefWidth="370.0">
+            <GridPane fx:id="tableau" alignment="CENTER" layoutX="15.0" layoutY="86.0" prefHeight="295.0" prefWidth="370.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0" minWidth="10.0" prefWidth="136.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="234.0" minWidth="0.0" prefWidth="234.0" />
@@ -136,13 +135,16 @@
                   <Label fx:id="desc" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="378.0" text="desc" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                </children>
             </GridPane>
-            <Pagination fx:id="paginator" layoutX="40.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" />
-            <Circle fill="#1f93ff18" layoutX="169.0" layoutY="80.0" radius="66.0" stroke="#000000ab" strokeType="INSIDE" />
-            <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="194.0" layoutX="69.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+            <Pagination fx:id="paginator" layoutX="100.0" layoutY="241.0" prefHeight="200.0" prefWidth="200.0" />
             <JFXButton fx:id="ModifButton" layoutX="325.0" layoutY="49.0" style="-fx-background-color: #00C853;" stylesheets="@fxmltraining.css" text="Modifier" />
             <JFXButton fx:id="SuppButton" layoutX="314.0" layoutY="14.0" style="-fx-background-color: #f44336;" stylesheets="@fxmltraining.css" text="Supprimer" />
          </children>
       </Pane>
+      <ImageView fitHeight="408.0" fitWidth="309.0" layoutX="582.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ListeAnnonce.jpg" />
+         </image>
+      </ImageView>
       <StackPane fx:id="stackModif" layoutX="565.0" layoutY="151.0" prefHeight="408.0" prefWidth="400.0">
          <children>
             <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">

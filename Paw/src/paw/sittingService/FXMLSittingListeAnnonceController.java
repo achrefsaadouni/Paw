@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.ImageView;
@@ -202,6 +203,16 @@ public class FXMLSittingListeAnnonceController {
     }
     
     private void confirmModif(int id) {
+        System.out.println(listView1.getItems().toString());
+        if ((couleurM.getText().trim().equals(""))
+                || (typeM.getText().trim().equals(""))|| (listView1.getItems().toString().trim().equals(""))|| (ageM.getText().trim().equals(""))||(!isInteger(ageM))
+                || (raceM.getText().trim().equals(""))|| (descM.getText().trim().equals("")))
+                 {
+                    Alert fail= new Alert(Alert.AlertType.INFORMATION);
+                    fail.setHeaderText("erreur");
+                    fail.setContentText("Vous devez remplir touts les champs");
+                    fail.showAndWait();
+                 }else{
         AnnonceSittingServices as = new AnnonceSittingServices();
             
             as.updateAnnonceSitting(new 
@@ -222,6 +233,7 @@ public class FXMLSittingListeAnnonceController {
                     session.getId()),id);
        
        stackModif.setVisible(false);
+        }
     }
 
     @FXML
@@ -236,6 +248,15 @@ public class FXMLSittingListeAnnonceController {
             liste = service.getAnnonceSitting(session.getId()); 
             setNbPages();
             initAnnoncePage(1); 
+    }
+
+    private boolean isInteger(JFXTextField input) {
+        try {
+            int age = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 
