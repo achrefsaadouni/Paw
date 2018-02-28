@@ -21,6 +21,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -29,6 +31,10 @@ import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,6 +109,7 @@ public class FXMLinscriptionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        chaine="";
         ToggleGroup groupsexe = new ToggleGroup();
         homme.setToggleGroup(groupsexe);
         femme.setToggleGroup(groupsexe);
@@ -114,6 +121,106 @@ public class FXMLinscriptionController implements Initializable {
             "Tozeur","Tunis","Zaghouan");
         ville.setItems(items);
         JFXSnackbar snack = new JFXSnackbar(anchor);
+        
+        
+        
+        ////////////////////
+        /////validators/////
+        ///////////////////
+        
+        NumberValidator nv = new NumberValidator();
+        nv.setMessage("Veuillez saisir un numéro valide");
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf1 = new RequiredFieldValidator();
+        rf1.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf2 = new RequiredFieldValidator();
+        rf2.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf3 = new RequiredFieldValidator();
+        rf3.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf4 = new RequiredFieldValidator();
+        rf4.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf5 = new RequiredFieldValidator();
+        rf5.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator rf6 = new RequiredFieldValidator();
+        rf6.setMessage("Veuillez remplir ce champs");
+        RequiredFieldValidator ev = new RequiredFieldValidator();
+        ev.setMessage("Veuillez saisir une adresse valide");
+        
+        nom.getValidators().add(rf);
+        nom.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    nom.validate();
+                }
+            }
+        });
+        prenom.getValidators().add(rf1);
+        prenom.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    prenom.validate();
+                }
+            }
+        });
+        rue.getValidators().add(rf2);
+        rue.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    rue.validate();
+                }
+            }
+        });
+        numero.getValidators().add(nv);
+        numero.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    numero.validate();
+                }
+            }
+        });
+        username.getValidators().add(rf3);
+        username.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    username.validate();
+                }
+            }
+        });
+        password.getValidators().add(rf4);
+        password.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    password.validate();
+                }
+            }
+        });
+        email.getValidators().add(ev);
+        email.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    email.validate();
+                }
+            }
+        });
+        confirmer.getValidators().add(rf5);
+        confirmer.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    if (!confirmer.getText().equals(confirmer.getText()))
+                    confirmer.validate();
+                }
+            }
+        });
+        
         
     }    
 
@@ -136,7 +243,7 @@ public class FXMLinscriptionController implements Initializable {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "c:\\wamp64\\www\\pawUsers\\"+imageName + extension;
+            String filePath = "c:\\wamp64\\www\\paw\\web\\images\\pawUsers\\"+imageName + extension;
             chaine =imageName + extension;
             System.out.println(chaine);
             File dest = new File(filePath);
@@ -154,8 +261,8 @@ public class FXMLinscriptionController implements Initializable {
 
     @FXML
     private void inscriptionButton(ActionEvent event) throws IOException {
-        if (!file.exists()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image ou bien des  donnes concernant l'annonce ", ButtonType.CLOSE);
+        if (chaine.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Vous avez oublié de télécharger une image pour votre profile ", ButtonType.CLOSE);
             alert.show();
             upload.requestFocus();
         }
@@ -167,8 +274,7 @@ public class FXMLinscriptionController implements Initializable {
                 !confirmer.getText().equals("") &&
                 !rue.getText().equals("") &&
                 !ville.getValue().equals("") &&    
-                !numero.getText().equals("") &&    
-                !email.getText().equals("") &&
+                isInteger(numero) &&    
                 !username.getText().equals("")
                 )
             {
@@ -207,8 +313,8 @@ public class FXMLinscriptionController implements Initializable {
                                     "Free"+code,
                                     "no");
                             s.insererUtilisateur(p);
-                            
                             Mail.send(email.getText(), "Confirmation de l'adresse Email", "Bienvenue à la famille Paw : \n Pour Confimer votre adresse email veuillez utiliser ce code : " + code + "\n");
+                            
 
                             Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();
                             LoginServices servicelogin = new LoginServices();
@@ -259,8 +365,19 @@ public class FXMLinscriptionController implements Initializable {
             }
             else
             {
-                JFXSnackbar snack = new JFXSnackbar(anchor);
-                snack.show("Veuillez remplir tout les champs", 1000);
+                nom.validate();
+                prenom.validate();
+                password.validate();
+                confirmer.validate();
+                rue.validate();
+                //ville.validate();
+                System.out.println("*"+ville.getValue()+"*");
+                numero.validate();  
+                username.validate();
+                email.validate();
+                
+//                JFXSnackbar snack = new JFXSnackbar(anchor);
+//                snack.show("Veuillez remplir tout les champs", 1000);
             }
         }
             
@@ -287,17 +404,30 @@ public class FXMLinscriptionController implements Initializable {
         
     }
     
+    public boolean isInteger(JFXTextField input) {
+        try {
+            int prix = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
     @FXML
     private void closeWindow(MouseEvent event) {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
+    
+    public static boolean isEmailAdress(String email){
+        Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+        Matcher m = p.matcher(email.toUpperCase());
+        return m.matches();
+    }
 
     @FXML
     private void seconnecterAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-//        UtilisateurServices o = new UtilisateurServices();
-//                o.utilisateurMois(0);
         loader.setLocation(getClass().getResource("/paw/FXMLDocument.fxml"));
         loader.load();
         FXMLDocumentController cnt = loader.getController();

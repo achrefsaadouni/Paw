@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.admin.modifsupp.FXMLModifierSupprimerVeterinaireController">
+<AnchorPane id="AnchorPane" fx:id="admin_window" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.veterinaires.admin.modifsupp.FXMLModifierSupprimerVeterinaireController">
    <children>
       <JFXTreeTableView fx:id="VeterinaireTable" layoutX="1.0" layoutY="50.0" prefHeight="591.0" prefWidth="1115.0">
          <columns>

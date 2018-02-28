@@ -148,22 +148,22 @@ public class FXMLmesoffresadoptionController implements Initializable {
             
             
             initAnnoncePage(newIndex.intValue());
-            AnnonceAdoptionService servrep = new AnnonceAdoptionService();
-            reponses= servrep.getRep(liste.get(newIndex.intValue()).getId());
-            setNbrep();
-            isconfirmed.setVisible(false);
-            if(reponses.isEmpty())
-            {
-            }
-            else if (liste.get(newIndex.intValue()).getEtatAoption().equals("Non Disponible"))
-            {   
-                isconfirmed.setVisible(true);
-            }
-            else
-            {
-                initReponse(0);
-            }
-            
+//            AnnonceAdoptionService servrep = new AnnonceAdoptionService();
+//            reponses= servrep.getRep(liste.get(newIndex.intValue()).getId());
+//            setNbrep();
+//            isconfirmed.setVisible(false);
+//            if(reponses.isEmpty())
+//            {
+//            }
+//            else if (liste.get(newIndex.intValue()).getEtatAoption().equals("Non Disponible"))
+//            {   
+//                isconfirmed.setVisible(true);
+//            }
+//            else
+//            {
+//                initReponse(0);
+//            }
+//            
         });
     }
     private void setNbrep() {

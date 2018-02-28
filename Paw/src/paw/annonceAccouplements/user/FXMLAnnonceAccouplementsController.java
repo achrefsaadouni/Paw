@@ -193,21 +193,6 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
             Image im = new Image("file:///" + file.toPath().toString());
             imajout1.setImage(im);
                    
-           
-        try {
-            String imageName = Checksum.createChecksum(file.getAbsolutePath());
-            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "C:\\wamp64\\www\\pawPets\\"+imageName + extension;
-            chaine =imageName + extension;
-            System.out.println(chaine);
-            File dest = new File(filePath);
-            Files.copy(
-                    file.toPath(), 
-                    dest.toPath(), 
-                    StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLAnnonceAccouplementsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     }
 }

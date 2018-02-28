@@ -45,6 +45,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import netscape.javascript.JSObject;
@@ -89,6 +90,8 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
     private String chaine;
     
     private File file;
+    @FXML
+    private AnchorPane admin_window;
     /**
      * Initializes the controller class.
      */
@@ -235,8 +238,7 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
          if ((!"".equals(emailInsertion.getText()))&&(!"".equals(nomInsertion.getText()))&& (!"".equals(prenomInsertion.getText()))&&(!"".equals(adresseInsertion.getText()))&&(!"".equals(numeroInsertion.getText())))
         {
             VeterinaireServices service = new VeterinaireServices();
-            File img = new File(chaine);
-            service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getSelectionModel().getSelectedItem(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText(),x.getLongitude(),x.getLatitude(), img));
+            service.insererVeterinaire(new Veterinaire(0,nomInsertion.getText(),prenomInsertion.getText(),adresseInsertion.getText(),gouv.getSelectionModel().getSelectedItem(),Integer.parseInt(numeroInsertion.getText()),emailInsertion.getText(),x.getLongitude(),x.getLatitude(), file));
             emailInsertion.setText("");
             nomInsertion.setText("");
             prenomInsertion.setText("");
@@ -261,20 +263,6 @@ public class FXMLAjoutVeterinaireController implements Initializable, MapCompone
             imajout1.setImage(im);
                    
            
-        try {
-            String imageName = Checksum.createChecksum(file.getAbsolutePath());
-            String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "C:\\wamp64\\www\\pawVets\\"+imageName + extension;
-            chaine =imageName + extension;
-            System.out.println(chaine);
-            File dest = new File(filePath);
-            Files.copy(
-                    file.toPath(), 
-                    dest.toPath(), 
-                    StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLAjoutVeterinaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
     }
 }

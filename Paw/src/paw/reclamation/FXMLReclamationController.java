@@ -11,10 +11,13 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -110,7 +113,18 @@ public class FXMLReclamationController implements Initializable {
             vide.setVisible(false);
             setNbPages();
             initReclamationPage(0);
-        }       
+        }  
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Veuillez nous expliquer le sujet de votre réclamation");
+        msg.getValidators().add(rf);
+        msg.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    msg.validate();
+                }
+            }
+        });
     }    
 
     @FXML
@@ -121,31 +135,49 @@ public class FXMLReclamationController implements Initializable {
             t="Remerciment";
         }
         
-        if(service.insererReclamation(new Reclamation(session.getId(), titre.getValue(), msg.getText(), t)))
-        {
-            Notifications.create()
-              .title("Reclamation envoyée")
-              .text("Merci pour votre collaboration !")
-              .showInformation();
-            type.setSelected(false);
-            titre.setValue("");
-            msg.setText("");
-            mesReclamations = service.getReclamationUtilisateur(session.getId());
-
-            setNbPages();
-            initReclamationPage(paginator.getCurrentPageIndex());
-        }
-        else
-        {
-            Notifications.create()
-              .title("Erreur")
-              .text("Veuillez vérifier votre connexion")
-              .showError();
-        }
         
-                                
-    }
+        
+        if((titre.getValue() == null))
+        {
+            Notifications.create()
+                      .title("Informations manquantes")
+                      .text("Veuillez choisir l'objet de votre réclamation")
+                      .showWarning();
+        }
+        else{
+            if(msg.validate())
+            {
+                if(service.insererReclamation(new Reclamation(session.getId(), titre.getValue(), msg.getText(), t)))
+                {
+                    Notifications.create()
+                      .title("Reclamation envoyée")
+                      .text("Merci pour votre collaboration !")
+                      .showInformation();
+                    type.setSelected(false);
+                    titre.setValue("");
+                    msg.setText("");
+                    mesReclamations = service.getReclamationUtilisateur(session.getId());
 
+                    setNbPages();
+                    initReclamationPage(paginator.getCurrentPageIndex());
+                }
+                else
+                {
+                    Notifications.create()
+                      .title("Erreur")
+                      .text("Veuillez vérifier votre connexion")
+                      .showError();
+                }
+            }
+            else
+            {
+                Notifications.create()
+                      .title("Informations manquantes")
+                      .text("Veuillez expliquer encore votre reclamation")
+                      .showWarning();
+            }
+    }
+}
     private void setNbPages() {
        if (mesReclamations.size() % 3 != 0) {
             paginator.setPageCount((mesReclamations.size() / 3) + 1);
