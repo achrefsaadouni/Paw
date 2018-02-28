@@ -61,8 +61,6 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
     
     ArrayList<AnnonceTraining> liste ;
     @FXML
-    private ImageView avatar;
-    @FXML
     private JFXButton ModifButton;
     @FXML
     private JFXButton SuppButton;
@@ -96,6 +94,8 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
     
     @FXML
     private JFXButton quitModif;
+    @FXML
+    private StackPane aucunAnnonce;
 
     
     @Override
@@ -108,14 +108,12 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
         liste= service.getAnnonceTraining(session.getId());
         if (liste.isEmpty()) {
             tableau.setVisible(false);
-//            paginator2.setVisible(false);
             paginator.setVisible(false);
-//            listevide.setVisible(true);
-            paginator.setVisible(false);
+            aucunAnnonce.setVisible(true);
         } else {
+            aucunAnnonce.setVisible(false);
             tableau.setVisible(true);
             paginator.setVisible(true);
-//            listevide.setVisible(false);
             setNbPages();
             initAnnoncePage(0);
         }

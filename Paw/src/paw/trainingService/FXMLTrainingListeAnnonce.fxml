@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.trainingService.FXMLTrainingListeAnnonceController">
     <stylesheets>
@@ -195,6 +196,15 @@
                   <JFXButton fx:id="quitModif" layoutX="14.0" layoutY="373.0" onAction="#quitterModif" style="-fx-background-color: #f44336;" stylesheets="@fxmltraining.css" text="Quitter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="328.0" />
                </children>
             </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="aucunAnnonce" layoutY="256.0" prefHeight="150.0" prefWidth="573.0">
+         <children>
+            <Label text="Vous n'avez pas encore poster des demanes " textFill="#69bbeb">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
          </children>
       </StackPane>
    </children>

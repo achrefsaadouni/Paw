@@ -68,8 +68,6 @@ public class FXMLSittingListeAnnonceController {
     @FXML
     private Pagination paginator;
 
-    @FXML
-    private ImageView avatar;
 
     @FXML
     private JFXButton ModifButton;
@@ -117,6 +115,8 @@ public class FXMLSittingListeAnnonceController {
     @FXML
     private JFXDatePicker dateSitM;
     String type="Annonce Sitting";
+    @FXML
+    private StackPane aucunAnnonce;
 
     @FXML
     void addTask(ActionEvent event) {
@@ -124,7 +124,6 @@ public class FXMLSittingListeAnnonceController {
         taskText.setText("");
     }
     ArrayList<AnnonceSitting> liste = null;
-    @FXML
     void initialize() {
         
         stackModif.setVisible(false);
@@ -132,9 +131,12 @@ public class FXMLSittingListeAnnonceController {
         AnnonceSittingServices service = new AnnonceSittingServices();    
             
            liste = service.getAnnonceSitting(session.getId());
-           if(liste.isEmpty())
+           if(liste.isEmpty()){
             annonce.setVisible(false);
-            else{
+            paginator.setVisible(false);
+            aucunAnnonce.setVisible(true);
+           }else{
+            aucunAnnonce.setVisible(false);
             annonce.setVisible(true);
             paginator.setVisible(true);
 //            listevide.setVisible(false);

@@ -299,5 +299,14 @@
             </AnchorPane>
          </children>
       </StackPane>
+      <StackPane fx:id="aucunAnnonce" layoutX="20.0" layoutY="279.0" prefHeight="150.0" prefWidth="573.0">
+         <children>
+            <Label text="Vous n'avez pas encore poster des demanes " textFill="#69bbeb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
