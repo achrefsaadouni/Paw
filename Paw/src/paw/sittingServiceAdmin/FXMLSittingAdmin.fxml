@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.sittingServiceAdmin.FXMLSittingAdminController">
+   <children>
+      <TableView fx:id="AnnonceTable" prefHeight="592.0" prefWidth="1080.0">
+         <columns>
+            <TableColumn fx:id="age" prefWidth="75.0" resizable="false" text="Age" />
+            <TableColumn fx:id="couleur" prefWidth="75.0" text="Couleur" />
+            <TableColumn fx:id="sexe" prefWidth="73.0" resizable="false" text="Sexe" />
+            <TableColumn fx:id="typePet" prefWidth="76.0" resizable="false" text="type Pet" />
+            <TableColumn fx:id="race" prefWidth="76.0" resizable="false" text="Race" />
+            <TableColumn fx:id="message" prefWidth="160.0" text="Message Complementaire" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="dateSit" prefWidth="75.0" resizable="false" text="dateSit" />
+            <TableColumn fx:id="dureSit" prefWidth="103.0" resizable="false" text="dureSit" />
+            <TableColumn fx:id="toDoList" prefWidth="103.0" resizable="false" text="toDoList" />
+            <TableColumn fx:id="supprimer" prefWidth="108.0" resizable="false" text="Supprimer" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

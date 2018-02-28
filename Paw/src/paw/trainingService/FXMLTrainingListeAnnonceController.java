@@ -2,6 +2,7 @@ package paw.trainingService;
 
 import Entity.AnnonceTraining;
 import Service.AnnonceTrainingServices;
+import Service.TypeTrainingServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
@@ -98,9 +99,8 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        typeTrM.getItems().add("Puppy Training");
-        typeTrM.getItems().add("Beginner Training");
-        typeTrM.getItems().add("Advanced Training");
+        TypeTrainingServices ss = new TypeTrainingServices();
+        typeTrM.setItems(ss.getString());
         stackModif.setVisible(false);
         AnnonceTrainingServices service = new AnnonceTrainingServices();
         liste= new ArrayList<>();

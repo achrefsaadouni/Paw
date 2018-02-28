@@ -70,7 +70,7 @@ public class AnnonceSittingServices {
     
     }
      public ObservableList<AnnonceSitting> getAll1(){
-        String req="SELECT * FROM annonce WHERE type_annonce like 'Annonce Training' and utilisateur_id=?" ;
+        String req="SELECT * FROM annonce WHERE type_annonce like 'Annonce Sitting'" ;
         ObservableList<AnnonceSitting> list = FXCollections.observableArrayList();
         try 
         { 

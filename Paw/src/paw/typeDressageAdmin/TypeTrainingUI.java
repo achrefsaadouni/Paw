@@ -1,4 +1,4 @@
-package paw.trainingService;
+package paw.typeDressageAdmin;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -7,11 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TrainingServiceUI extends Application {
+public class TypeTrainingUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrainingPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLTypeDressageAdmin.fxml"));
         
         Scene scene = new Scene(root);
         

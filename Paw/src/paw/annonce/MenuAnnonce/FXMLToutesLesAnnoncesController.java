@@ -34,6 +34,8 @@ public class FXMLToutesLesAnnoncesController extends FXMLCnxController{
     private JFXButton acc;
     @FXML
     private AnchorPane admin_window;
+    @FXML
+    private JFXButton sit;
 
     /**
      * Initializes the controller class.
@@ -55,7 +57,8 @@ public class FXMLToutesLesAnnoncesController extends FXMLCnxController{
 
     @FXML
     private void goToTraining(ActionEvent event) {
-        
+        loadSplashScreenAdmin("/paw/trainingServiceAdmin/FXMLTrainingAdmin.fxml");
+
     }
 
     @FXML
@@ -65,6 +68,12 @@ public class FXMLToutesLesAnnoncesController extends FXMLCnxController{
 
     @FXML
     private void goToAdoption(ActionEvent event) {
+    }
+
+    @FXML
+    private void goToSitting(ActionEvent event) {
+        loadSplashScreenAdmin("/paw/sittingServiceAdmin/FXMLSittingAdmin.fxml");
+
     }
     
 }

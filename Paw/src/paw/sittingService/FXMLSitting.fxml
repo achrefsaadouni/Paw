@@ -84,18 +84,6 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </JFXTextField>
-                        <JFXButton id="retourButton" fx:id="retourB" buttonType="RAISED" onAction="#redirection" ripplerFill="WHITE" style="-fx-background-color: white;" stylesheets="@../trainingService/fxmltraining.css" text="retour">
-                           <graphic>
-                              <ImageView fitHeight="68.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../trainingService/Icone-retour-Lycee-pro.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <VBox.margin>
-                              <Insets bottom="15.0" left="10.0" top="50.0" />
-                           </VBox.margin>
-                        </JFXButton>
                      </children>
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />

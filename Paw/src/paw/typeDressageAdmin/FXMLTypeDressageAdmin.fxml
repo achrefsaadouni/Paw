@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="paw.typeDressageAdmin.FXMLTypeDressageAdminController">
+   <children>
+      <VBox alignment="CENTER" layoutX="113.0" layoutY="120.0" prefHeight="530.0" prefWidth="987.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="1153.0">
+                     <children>
+                        <Label layoutX="126.0" layoutY="42.0" text="Ajouter un Type de dressage" AnchorPane.leftAnchor="50.0" />
+                        <JFXTextField fx:id="addText" layoutX="300.0" layoutY="38.0" prefHeight="25.0" prefWidth="203.0" promptText="Saisir le type de dressage a ajouter" AnchorPane.leftAnchor="300.0" />
+                        <JFXButton fx:id="add" buttonType="RAISED" layoutX="582.0" layoutY="38.0" onAction="#ajouterType" style="-fx-background-color: #0091EA;" text="Ajouer" AnchorPane.rightAnchor="354.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="285.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="1278.0">
+                     <children>
+                        <Label layoutX="48.0" layoutY="42.0" text="Modifier un type de dressage" AnchorPane.leftAnchor="50.0" />
+                        <JFXTextField fx:id="modifID" layoutX="260.0" layoutY="38.0" prefHeight="25.0" prefWidth="48.0" promptText="ID" AnchorPane.leftAnchor="300.0" />
+                        <JFXTextField fx:id="modifText" layoutX="360.0" layoutY="38.0" prefHeight="25.0" prefWidth="152.0" promptText="Saisir le type de dressage" />
+                        <JFXButton fx:id="modif" buttonType="RAISED" layoutX="578.0" layoutY="37.0" onAction="#modifType" style="-fx-background-color: #00C853;" text="Modifier" AnchorPane.rightAnchor="348.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="235.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="1322.0">
+                     <children>
+                        <Label layoutX="54.0" layoutY="42.0" text="Supprimer un type de dressage" AnchorPane.leftAnchor="50.0" />
+                        <JFXTextField fx:id="suppID" layoutX="341.0" layoutY="38.0" prefHeight="25.0" prefWidth="48.0" promptText="ID" AnchorPane.leftAnchor="300.0" />
+                        <JFXButton fx:id="supp" buttonType="RAISED" layoutX="573.0" layoutY="37.0" onAction="#suppType" style="-fx-background-color: #f44336;" text="Supprimer" AnchorPane.rightAnchor="342.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <TableView fx:id="table" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0">
+              <columns>
+                <TableColumn fx:id="idCol" prefWidth="75.0" text="id" />
+                <TableColumn fx:id="typeCol" prefWidth="224.0" text="type de Dressage" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="150.0" right="150.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+      <Label layoutX="10.0" layoutY="10.0" text="Gerer les type de dressage" textFill="#6a7d9a">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutY="46.0" prefHeight="3.0" prefWidth="1100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0" />
+   </children>
+</AnchorPane>
