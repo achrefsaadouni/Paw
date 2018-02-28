@@ -7,7 +7,9 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,39 +18,53 @@
 
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLajouterController">
    <children>
-      <JFXTextField fx:id="age" layoutX="127.0" layoutY="67.0" promptText="L'age" />
-      <JFXTextField fx:id="couleur" layoutX="127.0" layoutY="124.0" promptText="La couleur" />
-      <JFXComboBox fx:id="type" layoutX="127.0" layoutY="14.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir l'animal" />
-      <JFXComboBox fx:id="race" layoutX="127.0" layoutY="259.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir la race" />
-      <JFXRadioButton fx:id="male" layoutX="179.0" layoutY="179.0" selected="true" text="Male" />
-      <JFXRadioButton fx:id="female" layoutX="179.0" layoutY="209.0" text="Female" />
-      <JFXTextArea fx:id="msg" layoutX="92.0" layoutY="482.0" prefHeight="88.0" prefWidth="464.0" promptText="Veuillez donner plus de détails" />
-      <JFXToggleButton fx:id="typeAdoption" layoutX="219.0" layoutY="303.0" prefHeight="58.0" prefWidth="66.0" text=" " />
-      <Label layoutX="140.0" layoutY="323.0" text="Permanante" />
-      <Label layoutX="293.0" layoutY="323.0" text="Temporaire" />
-      <JFXDatePicker fx:id="debut" layoutX="119.0" layoutY="404.0" promptText="Date Début" />
-      <JFXDatePicker fx:id="fin" layoutX="379.0" layoutY="404.0" promptText="Date Fin" />
-      <Pane layoutX="424.0" layoutY="85.0" prefHeight="203.0" prefWidth="217.0">
+      <AnchorPane fx:id="box" layoutX="13.0" layoutY="75.0" prefHeight="566.0" prefWidth="1076.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="52.0" layoutY="163.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="117.0" ripplerFill="#f5e5ff" style="-fx-background-color: #337ab7;" text="Avatar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+            <AnchorPane layoutX="440.0" layoutY="60.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);" />
+            <Pane layoutX="685.0" layoutY="46.0" prefHeight="203.0" prefWidth="217.0">
+               <children>
+                  <JFXButton id="button" fx:id="upload" buttonType="RAISED" layoutX="52.0" layoutY="163.0" onAction="#fileChoosing" prefHeight="38.0" prefWidth="117.0" ripplerFill="#f5e5ff" style="-fx-background-color: #337ab7;" text="Avatar" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Ressource/icons/ic_add_a_photo_black_48dp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <ImageView fx:id="imajout1" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Ressource/icons/ic_add_a_photo_black_48dp.png" />
+                        <Image url="@../../Ressource/images/logo.png" />
                      </image>
                   </ImageView>
+               </children>
+            </Pane>
+            <JFXComboBox fx:id="type" layoutX="127.0" layoutY="60.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir l'animal" />
+            <JFXTextField fx:id="age" layoutX="127.0" layoutY="122.0" prefHeight="25.0" prefWidth="231.0" promptText="L'age" />
+            <JFXTextField fx:id="couleur" layoutX="127.0" layoutY="184.0" prefHeight="25.0" prefWidth="231.0" promptText="La couleur" />
+            <JFXRadioButton fx:id="male" layoutX="270.0" layoutY="239.0" selected="true" text="Male" />
+            <JFXRadioButton fx:id="female" layoutX="270.0" layoutY="289.0" text="Female" />
+            <JFXComboBox fx:id="race" layoutX="127.0" layoutY="344.0" prefHeight="25.0" prefWidth="231.0" promptText="Choisir la race" />
+            <JFXToggleButton fx:id="typeAdoption" layoutX="200.0" layoutY="388.0" prefHeight="58.0" prefWidth="66.0" text=" " />
+            <Label layoutX="273.0" layoutY="410.0" text="Temporaire" />
+            <Label layoutX="123.0" layoutY="410.0" text="Permanante" />
+            <JFXDatePicker fx:id="debut" layoutX="127.0" layoutY="490.0" promptText="Date Début" />
+            <JFXDatePicker fx:id="fin" layoutX="342.0" layoutY="490.0" promptText="Date Fin" />
+            <JFXTextArea fx:id="msg" layoutX="564.0" layoutY="326.0" prefHeight="88.0" prefWidth="464.0" promptText="Veuillez donner plus de détails" />
+            <JFXButton fx:id="valider" alignment="CENTER" layoutX="719.0" layoutY="487.0" onAction="#insertion" prefHeight="31.0" prefWidth="149.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Poster" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                </graphic>
             </JFXButton>
-            <ImageView fx:id="imajout1" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Ressource/images/logo.png" />
-               </image>
-            </ImageView>
          </children>
-      </Pane>
-      <JFXButton fx:id="valider" layoutX="563.0" layoutY="513.0" onAction="#insertion" prefHeight="25.0" prefWidth="135.0" text="Valider" />
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="26.0" layoutY="23.0" prefHeight="39.0" prefWidth="443.0" styleClass="names" stylesheets="@../../css/Master.css" text="Postez une offre d'adoption" />
+      <Separator layoutX="23.0" layoutY="58.0" prefHeight="4.0" prefWidth="1064.0" />
    </children>
 </AnchorPane>

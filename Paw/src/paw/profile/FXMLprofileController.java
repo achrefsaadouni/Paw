@@ -15,10 +15,14 @@ import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -94,7 +98,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        //System.out.println(session.getAvatar());
+        
         ToggleGroup togGroup = new ToggleGroup();
         usermodif.setText(session.getUsername());
         fmodif.setToggleGroup(togGroup);
@@ -114,6 +118,52 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, e);
         }
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Veuillez remplir ce champs");
+        nommodif.getValidators().add(rf);
+        nommodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    nommodif.validate();
+                }
+            }
+        });
+        RequiredFieldValidator rf1 = new RequiredFieldValidator();
+        rf1.setMessage("Veuillez remplir ce champs");
+        prenommodif.getValidators().add(rf1);
+        prenommodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    prenommodif.validate();
+                }
+            }
+        });
+        RequiredFieldValidator rf2 = new RequiredFieldValidator();
+        rf2.setMessage("Veuillez remplir ce champs");
+        adressemodif.getValidators().add(rf2);
+        adressemodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    adressemodif.validate();
+                }
+            }
+        });
+        NumberValidator nv = new NumberValidator();
+        nv.setMessage("Veuillez saisir un numéro valide");
+        numeromodif.getValidators().add(rf);
+        numeromodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    numeromodif.validate();
+                }
+            }
+        });
+        
+        
         loadDetails();
     }    
 
@@ -175,14 +225,16 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         {
             x = "Homme";
         }
-        if(s.modifierInfos( new Utilisateur(session.getId(), nommodif.getText(), prenommodif.getText(), adressemodif.getText(), emailmodif.getText(), null, null, null, Integer.parseInt(numeromodif.getText()), null, null, x)))
+        
+        if(nommodif.validate()&&prenommodif.validate()&&adressemodif.validate()&&numeromodif.validate())
         {
+            s.modifierInfos( new Utilisateur(session.getId(), nommodif.getText(), prenommodif.getText(), adressemodif.getText(), "", null, null, null, Integer.parseInt(numeromodif.getText()), null, null, x));
             LoginServices service = new LoginServices();
             session= service.getInformation(session.getId());
             modifanchor.setVisible(false);
             loadDetails();
             JFXSnackbar snack = new JFXSnackbar(details);
-            snack.show("Informations mises à jours", 2000);
+            snack.show("Informations mises à jours", 3000);
         }
         else{
             

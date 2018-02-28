@@ -84,6 +84,8 @@ public class FXMLajouterController implements Initializable {
 
     private File file;
     private String chaine ;
+    @FXML
+    private AnchorPane box;
     /**
      * Initializes the controller class.
      */
@@ -202,7 +204,7 @@ public class FXMLajouterController implements Initializable {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "c:\\wamp64\\www\\paw\\web\\images\\pawAdoption\\"+imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawAdoption\\"+imageName + extension;
             chaine =imageName + extension;
             File dest = new File(filePath);
             Files.copy(
@@ -311,7 +313,7 @@ public class FXMLajouterController implements Initializable {
     
     public boolean valideDate(LocalDate x , LocalDate y)
     {
-        if (x.compareTo(y) < 0)
+        if (x.compareTo(y) <= 0)
             return false;
         else
             return true;

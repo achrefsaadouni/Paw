@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.Separator?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLmesoffresadoptionController">
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLmesoffresadoptionController">
    <children>
       <Pane fx:id="infos" layoutX="25.0" layoutY="74.0" prefHeight="549.0" prefWidth="415.0" style="-fx-background-color: white; -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-padding: 4;">
          <children>
@@ -130,7 +131,7 @@
          </children>
       </Pane>
       <Label alignment="CENTER" layoutX="16.0" layoutY="18.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes offres d'adoption" />
-      <Separator layoutX="12.0" layoutY="53.0" prefHeight="4.0" prefWidth="630.0" />
+      <Separator layoutX="12.0" layoutY="53.0" prefHeight="4.0" prefWidth="447.0" />
       <StackPane fx:id="repvide" layoutX="550.0" layoutY="246.0" prefHeight="159.0" prefWidth="485.0">
          <children>
             <Label prefHeight="173.0" prefWidth="415.0" text="Vous n'avez pas de réponses pour cette offre" textAlignment="CENTER" textFill="#42a5f5" wrapText="true">
@@ -148,7 +149,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="nomrep" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+            <Label fx:id="nomrep" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -160,12 +161,12 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="emailrep" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+            <Label fx:id="emailrep" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -178,7 +179,7 @@
                </graphic>
             </Label>
             <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
-            <Label fx:id="numerorep" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="367.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+            <Label fx:id="numerorep" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="367.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -204,7 +205,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="nomrep1" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+            <Label fx:id="nomrep1" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="332.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -216,12 +217,12 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="emailrep1" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+            <Label fx:id="emailrep1" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="376.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -234,7 +235,7 @@
                </graphic>
             </Label>
             <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
-            <Label fx:id="numerorep1" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="376.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+            <Label fx:id="numerorep1" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="376.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -260,7 +261,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="nomrep2" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="324.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
+            <Label fx:id="nomrep2" layoutX="30.0" layoutY="14.0" prefHeight="32.0" prefWidth="324.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -272,12 +273,12 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
+            <Label layoutX="75.0" layoutY="45.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Coordonnées" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="emailrep2" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="391.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
+            <Label fx:id="emailrep2" layoutX="30.0" layoutY="86.0" prefHeight="32.0" prefWidth="391.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Email" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -290,7 +291,7 @@
                </graphic>
             </Label>
             <Separator layoutX="18.0" layoutY="75.0" prefHeight="4.0" prefWidth="301.0" />
-            <Label fx:id="numerorep2" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="391.0" styleClass="contenunoir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
+            <Label fx:id="numerorep2" layoutX="30.0" layoutY="128.0" prefHeight="32.0" prefWidth="391.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Numero" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
@@ -314,5 +315,13 @@
             <Font name="Roboto Slab Regular" size="24.0" />
          </font>
       </Label>
+      <JFXButton alignment="CENTER" layoutX="694.0" layoutY="40.0" onAction="#goToAjoutAdoption" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #1de9b6;" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Ajouter une offre" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
