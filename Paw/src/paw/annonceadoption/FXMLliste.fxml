@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
@@ -15,8 +16,8 @@
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.annonceadoption.FXMLlisteController">
    <children>
       <Pagination fx:id="paginator" layoutX="6.0" layoutY="584.0" pageCount="100" prefHeight="57.0" prefWidth="1091.0" />
-      <Label alignment="CENTER" layoutX="16.0" layoutY="13.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Les offres d'adoption" />
-      <Separator layoutX="13.0" layoutY="48.0" prefHeight="4.0" prefWidth="1064.0" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="13.0" prefHeight="39.0" prefWidth="532.0" styleClass="names" stylesheets="@../../css/Master.css" text="Les offres d'adoption disponibles" />
+      <Separator layoutX="13.0" layoutY="53.0" prefHeight="4.0" prefWidth="1064.0" />
       <AnchorPane fx:id="box" layoutX="15.0" layoutY="65.0" prefHeight="160.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimal" layoutX="37.0" layoutY="10.0" prefHeight="39.0" prefWidth="412.0" styleClass="textnoir" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
@@ -33,10 +34,17 @@
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_local_hospital_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="440.0" layoutY="60.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
-                  <ScrollPane prefHeight="79.0" prefWidth="433.0">
+                  <ScrollPane prefHeight="79.0" prefWidth="600.0">
                     <content>
                       <AnchorPane prefHeight="38.0" prefWidth="412.0">
                            <children>
@@ -51,10 +59,29 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <Label fx:id="user" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+            <Label fx:id="sexe" layoutX="39.0" layoutY="65.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="sexe" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/male.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="age" layoutX="210.0" layoutY="65.0" prefHeight="32.0" prefWidth="150.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="age" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_plus_one_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
          </children>
       </AnchorPane>
@@ -74,10 +101,17 @@
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_local_hospital_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="440.0" layoutY="60.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
-                  <ScrollPane prefHeight="79.0" prefWidth="433.0">
+                  <ScrollPane prefHeight="79.0" prefWidth="600.0">
                      <content>
                         <AnchorPane prefHeight="91.0" prefWidth="412.0">
                            <children>
@@ -92,10 +126,29 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <Label fx:id="user1" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+            <Label fx:id="sexe1" layoutX="39.0" layoutY="65.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="sexe" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/male.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="age1" layoutX="210.0" layoutY="65.0" prefHeight="32.0" prefWidth="150.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="age" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_plus_one_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
          </children>
       </AnchorPane>
@@ -115,10 +168,17 @@
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_local_hospital_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <AnchorPane layoutX="600.0" layoutY="34.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+            <AnchorPane layoutX="440.0" layoutY="60.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
                <children>
-                  <ScrollPane prefHeight="79.0" prefWidth="433.0">
+                  <ScrollPane prefHeight="79.0" prefWidth="600.0">
                      <content>
                         <AnchorPane prefHeight="91.0" prefWidth="412.0">
                            <children>
@@ -133,10 +193,29 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <Label fx:id="user11" layoutX="39.0" layoutY="52.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="Utilisateur" wrapText="true">
+            <Label fx:id="sexe11" layoutX="39.0" layoutY="65.0" prefHeight="32.0" prefWidth="219.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="sexe" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/male.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="age11" layoutX="210.0" layoutY="65.0" prefHeight="32.0" prefWidth="150.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="age" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Ressource/icons/ic_plus_one_black_48dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
          </children>
       </AnchorPane>
@@ -149,7 +228,7 @@
             </Label>
          </children>
       </StackPane>
-      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-padding: 4;" visible="false">
+      <AnchorPane fx:id="details" layoutX="160.0" layoutY="110.0" prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-radius: 3; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 6 0 0 0; -fx-padding: 4;">
          <children>
             <Label fx:id="typeAdoptiontypeAnimald" layoutX="48.0" layoutY="21.0" prefHeight="39.0" prefWidth="467.0" styleClass="titre" stylesheets="@../../css/Master.css" text="typeAdoptiontypeAnimal">
                <font>
@@ -163,8 +242,6 @@
             </Label>
             <Label fx:id="dated" layoutX="581.0" layoutY="21.0" prefHeight="32.0" prefWidth="210.0" styleClass="date" stylesheets="@../../css/Master.css" text="DATE" />
             <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
-            <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="418.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
-            <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="418.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
             <Separator fx:id="separator" layoutX="53.0" layoutY="257.0" prefHeight="11.0" prefWidth="696.0" />
             <ImageView fx:id="imageuserd" fitHeight="134.0" fitWidth="160.0" layoutX="40.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="nomd" layoutX="207.0" layoutY="264.0" prefHeight="32.0" prefWidth="332.0" styleClass="robotoSghir" stylesheets="@../../css/Master.css" text="NOM" wrapText="true">
@@ -276,7 +353,31 @@
                   </Label>
                </children>
             </StackPane>
+            <JFXButton fx:id="btnAnnuler" alignment="CENTER" layoutX="150.0" layoutY="418.0" onAction="#annuler" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #DD4B39;" text="Annuler" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnEnregistrer" alignment="CENTER" layoutX="520.0" layoutY="418.0" onAction="#enregistrer" prefHeight="31.0" prefWidth="149.0" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Adopter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
          </children>
       </AnchorPane>
+      <JFXButton alignment="CENTER" layoutX="721.0" layoutY="19.0" onAction="#goToAjoutAdoption" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #1de9b6;" styleClass="headerbar" stylesheets="@../mainUI/style.css" text="Ajouter une offre" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

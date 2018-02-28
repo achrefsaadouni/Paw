@@ -274,5 +274,14 @@
             </AnchorPane>
          </children>
       </StackPane>
+      <StackPane fx:id="vide" layoutX="170.0" layoutY="250.0" prefHeight="149.0" prefWidth="743.0" visible="false">
+         <children>
+            <Label text="Aucune annonce à afficher !" textAlignment="CENTER" textFill="#3b28eb">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

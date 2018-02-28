@@ -14,30 +14,30 @@
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.reclamation.FXMLReclamationController">
    <children>
-      <AnchorPane fx:id="reclamations" layoutX="385.0" layoutY="289.0" prefHeight="347.0" prefWidth="700.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane fx:id="reclamations" layoutX="15.0" layoutY="289.0" prefHeight="347.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes reclamations" />
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
-            <Pagination fx:id="paginator" layoutX="181.0" layoutY="294.0" pageCount="300" prefHeight="47.0" prefWidth="344.0" />
-            <AnchorPane fx:id="box1" layoutX="15.0" layoutY="52.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+            <Pagination fx:id="paginator" layoutX="150.0" layoutY="294.0" pageCount="300" prefHeight="47.0" prefWidth="800.0" />
+            <AnchorPane fx:id="box1" layoutX="15.0" layoutY="52.0" prefHeight="72.0" prefWidth="1040.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
                <children>
                   <Label fx:id="titre1" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text1" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
-                  <Label fx:id="date1" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date1" layoutX="880.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="box2" layoutX="15.0" layoutY="134.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+            <AnchorPane fx:id="box2" layoutX="15.0" layoutY="134.0" prefHeight="72.0" prefWidth="1040.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
                <children>
                   <Label fx:id="titre2" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text2" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable" wrapText="true" />
-                  <Label fx:id="date2" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date2" layoutX="880.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="box3" layoutX="15.0" layoutY="216.0" prefHeight="72.0" prefWidth="670.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
+            <AnchorPane fx:id="box3" layoutX="15.0" layoutY="216.0" prefHeight="72.0" prefWidth="1040.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
                <children>
                   <Label fx:id="titre3" layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="395.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Alert" />
                   <Label fx:id="text3" layoutX="14.0" layoutY="32.0" prefHeight="30.0" prefWidth="646.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Warning alert preview. This alert is dismissable AZEEEEEEEEA A A A AAZEAZEZAEZAE ZAEAZEAZEZA AZEAZEZAE AZEAZE" wrapText="true" />
-                  <Label fx:id="date3" layoutX="510.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
+                  <Label fx:id="date3" layoutX="880.0" layoutY="4.0" prefHeight="30.0" prefWidth="155.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="DATE" textFill="#b8b8b8" />
                </children>
             </AnchorPane>
          </children>
@@ -78,13 +78,7 @@
             <JFXComboBox fx:id="titre" layoutX="211.0" layoutY="73.0" prefHeight="25.0" prefWidth="467.0" promptText="Choisissez l'objet de la réclamation" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="20.0" layoutY="289.0" prefHeight="347.0" prefWidth="353.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" AnchorPane.leftAnchor="15.0">
-         <children>
-            <Label fx:id="nom12" alignment="CENTER" layoutX="24.0" layoutY="8.0" prefHeight="39.0" prefWidth="226.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes statistiques" />
-            <Separator layoutX="8.0" layoutY="43.0" prefHeight="4.0" prefWidth="337.0" />
-         </children>
-      </AnchorPane>
-      <StackPane fx:id="vide" layoutX="410.0" layoutY="380.0" prefHeight="149.0" prefWidth="650.0">
+      <StackPane fx:id="vide" layoutX="235.0" layoutY="380.0" prefHeight="149.0" prefWidth="650.0">
          <children>
             <Label text="Aucune reclamation à afficher !" textAlignment="CENTER" textFill="#42a5f5">
                <font>
@@ -93,5 +87,24 @@
             </Label>
          </children>
       </StackPane>
+      <AnchorPane fx:id="rep" layoutX="230.0" layoutY="222.0" prefHeight="314.0" prefWidth="663.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
+         <children>
+            <Label fx:id="reptext" layoutX="79.0" layoutY="96.0" prefHeight="149.0" prefWidth="504.0" text="Label" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Separator fx:id="separator" layoutX="39.0" layoutY="53.0" prefHeight="4.0" prefWidth="598.0" />
+            <Label fx:id="repdate" layoutX="249.0" layoutY="14.0" prefHeight="32.0" prefWidth="414.0" styleClass="date" stylesheets="@../../css/Master.css" text="Label" />
+            <JFXButton alignment="CENTER" layoutX="263.0" layoutY="265.0" onAction="#annulation" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #DD4B39;" text="Annuler" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

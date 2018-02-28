@@ -57,7 +57,7 @@ public class AnnonceTrainingServices {
     
     }
      public ObservableList<AnnonceTraining> getAll1(){
-        String req="SELECT * FROM annoncetr" ; //WHERE typeSit LIKE 'QuickVisit'" ;
+        String req="SELECT * FROM annonce WHERE type_annonce like 'Annonce Training'" ;
         ObservableList<AnnonceTraining> list = FXCollections.observableArrayList();
         try 
         { 
@@ -69,14 +69,14 @@ public class AnnonceTrainingServices {
                 int agePet = rs.getInt("age");
                 String colorPet = rs.getString("couleur");
                 String  sexePet= rs.getString("sex");
-                String typePet=rs.getString("typePet");
+                String typePet=rs.getString("type");
                 String  racePet= rs.getString("race");
                 String  descPet= rs.getString("message_complementaire");
                 String nomPet = rs.getString("nomPet");
                 int id_utilisateur = rs.getInt("utilisateur_id");
                 Date  dateTr= rs.getDate("dateTr");
                 String  typeTr= rs.getString("typeTr");
-                String  type= rs.getString("type");
+                String  type= rs.getString("type_annonce");
                 Timestamp date=rs.getTimestamp("date");
                 
 
@@ -90,6 +90,8 @@ public class AnnonceTrainingServices {
         }
         return list;
     }
+     
+     
     
     public void updateAnnonceTraining (AnnonceTraining a, int id )
     {

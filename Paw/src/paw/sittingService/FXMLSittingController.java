@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 
 import javafx.scene.control.ToggleGroup;
@@ -116,6 +117,15 @@ public class FXMLSittingController extends FXMLCnxController implements Initiali
             s="Female";
         }
         String typeAnnonce = "Annonce Sitting";
+         if ((toDoList.isEmpty())
+                 || (colorPet.getText().trim().equals(""))|| (agePet.getText().trim().equals(""))||(!isInteger(agePet))
+                || (racePet.getText().trim().equals(""))|| (descPet.getText().trim().equals(""))|| (typePet.getValue().isEmpty()))
+                 {
+                    Alert fail= new Alert(Alert.AlertType.INFORMATION);
+                    fail.setHeaderText("erreur");
+                    fail.setContentText("Vous devez remplir touts les champs");
+                    fail.showAndWait();
+                 }else{
         
         AnnonceSittingServices as = new AnnonceSittingServices();
         System.out.println(toDoList);
@@ -135,7 +145,7 @@ public class FXMLSittingController extends FXMLCnxController implements Initiali
                     Date.valueOf(LocalDate.now()),
                     session.getId()));
                     
-            
+         }
 //            initialisation des champs
            
             System.out.println((int)dureSit.getValue());
@@ -174,4 +184,15 @@ public class FXMLSittingController extends FXMLCnxController implements Initiali
         listView.getItems().add(taskText.getText());   
         taskText.setText("");
     }    
+
+    private boolean isInteger(JFXTextField input) {
+        try {
+            int age = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
+
+  

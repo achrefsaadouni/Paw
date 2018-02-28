@@ -20,7 +20,7 @@
                         <Font name="System Bold Italic" size="27.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="conseil" buttonType="RAISED" onAction="#gotoConseil" prefHeight="143.0" prefWidth="371.0" style="-fx-background-color: #616161;" text="Consulter Liste Veterinaire" textFill="#ebe5e5">
+                  <JFXButton fx:id="conseil" buttonType="RAISED" onAction="#GOtoVet" prefHeight="143.0" prefWidth="371.0" style="-fx-background-color: #616161;" text="Consulter Liste Veterinaire" textFill="#ebe5e5">
                      <font>
                         <Font name="System Bold Italic" size="27.0" />
                      </font>

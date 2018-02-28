@@ -7,6 +7,7 @@ package paw.ayoubAdmin.statistiques;
 
 import Service.AnnoncePerduServices;
 import Service.ReclamationServices;
+import Service.UtilisateurServices;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.layout.StackPane;
 
 
 /**
@@ -31,14 +33,16 @@ import javafx.scene.chart.PieChart;
  */
 public class FXMLstatistiquesController implements Initializable {
 
-    @FXML
     private PieChart ReclamationsRemerciments;
     @FXML
     private PieChart TraiteeNonTraitee;
     @FXML
     private PieChart lostandfound;
-    @FXML
     private BarChart<String,Integer> barC;
+    @FXML
+    private StackPane xtx;
+    @FXML
+    private StackPane recl;
 
     /**
      * Initializes the controller class.
@@ -47,11 +51,11 @@ public class FXMLstatistiquesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationServices recS = new ReclamationServices();
         AnnoncePerduServices as= new AnnoncePerduServices() ; 
-        ObservableList<PieChart.Data> D = FXCollections.observableArrayList(
-             new PieChart.Data("Remerciments", recS.getRemerciment()),
-             new PieChart.Data("Reclamations", recS.getReclamation())
-         );        
-        ReclamationsRemerciments.setData(D);
+//        ObservableList<PieChart.Data> D = FXCollections.observableArrayList(
+//             new PieChart.Data("Remerciments", recS.getRemerciment()),
+//             new PieChart.Data("Reclamations", recS.getReclamation())
+//         );        
+//        ReclamationsRemerciments.setData(D);
         
         ObservableList<PieChart.Data> a= FXCollections.observableArrayList(
              new PieChart.Data("Annonce Perdu", as.getAnnoncePe()),
@@ -83,7 +87,7 @@ public class FXMLstatistiquesController implements Initializable {
                 CategoryAxis xAxis = new CategoryAxis();
                 xAxis.setCategories(FXCollections.<String>observableArrayList(map.keySet()));
                 NumberAxis yAxis = new NumberAxis(0, 
-                                                  map.values().stream().max((a1,a2)-> a1-a2).get() , 
+                                                  map.values().stream().max((a1,a2)-> a1-a2).get()+1 , 
                                                   1);
                 ObservableList<BarChart.Series> barChartData = FXCollections.observableArrayList() ;
                 
@@ -95,15 +99,39 @@ public class FXMLstatistiquesController implements Initializable {
                     
                 });           
                 BarChart<String,Integer> m = new BarChart(xAxis, yAxis,barChartData);
-                barC.setData(new BarChart(xAxis, yAxis, barChartData).getData());
-                //barC.setData(new BarChart(xAxis, yAxis, barChartData, 25.0d).getData());
+//                barC.setData(new BarChart(xAxis, yAxis, barChartData).getData());
+//                //barC.setData(new BarChart(xAxis, yAxis, barChartData, 25.0d).getData());
+                recl.getChildren().add(new BarChart(xAxis, yAxis, barChartData,25.0d));
+                xtx.getChildren().add(createBarChart());
             }
         }
         catch (Exception ex) {
             System.out.println(ex.getMessage());
         }    
         
+    }       
+    public BarChart createBarChart(){
+        
+        ArrayList<String> y = new ArrayList();
+        y.add("Confirmés");
+        y.add("Non Confirmés");
 
+        UtilisateurServices serv = new UtilisateurServices();
+        ArrayList<Integer> nbr = new ArrayList();
+        nbr.add(serv.nbrConfirmes());
+        nbr.add(serv.nombreNonConfirmes());
 
+        
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setCategories(FXCollections.<String>observableArrayList(y));
+        NumberAxis yAxis = new NumberAxis("Nombre d'Utilisateurs", 0, nbr.stream().max((a1,a2)-> a1-a2).get()+2, 2);
+        ObservableList<BarChart.Series> barChartData = FXCollections.observableArrayList(
+            new BarChart.Series("Utilisateurs", FXCollections.observableArrayList(
+               new BarChart.Data(y.get(0), nbr.get(0)),
+               new BarChart.Data(y.get(1), nbr.get(1))
+            ))
+        );
+        
+        return  new BarChart(xAxis, yAxis, barChartData, 25.0d);
     }
 }

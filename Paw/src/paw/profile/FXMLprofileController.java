@@ -7,18 +7,24 @@ package paw.profile;
 
 import Entity.Utilisateur;
 import Service.AchatService;
+import Service.AnnonceAccouplementServices;
 import Service.AnnonceAdoptionService;
 import Service.AnnonceServices;
+import Service.AnnonceSittingServices;
 import Service.LoginServices;
 import Service.ReclamationServices;
 import Service.UtilisateurServices;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.NumberValidator;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,7 +84,6 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     private JFXRadioButton hmodif;
     @FXML
     private JFXRadioButton fmodif;
-    @FXML
     private JFXTextField emailmodif;
     @FXML
     private StackPane stack;
@@ -88,13 +93,17 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     private Label reclamations;
     @FXML
     private Label mesoffresadoption;
+    @FXML
+    private Label mesaccouplements;
+    @FXML
+    private Label sitting;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        //System.out.println(session.getAvatar());
+        
         ToggleGroup togGroup = new ToggleGroup();
         usermodif.setText(session.getUsername());
         fmodif.setToggleGroup(togGroup);
@@ -114,6 +123,52 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         {
             Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, e);
         }
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Veuillez remplir ce champs");
+        nommodif.getValidators().add(rf);
+        nommodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    nommodif.validate();
+                }
+            }
+        });
+        RequiredFieldValidator rf1 = new RequiredFieldValidator();
+        rf1.setMessage("Veuillez remplir ce champs");
+        prenommodif.getValidators().add(rf1);
+        prenommodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    prenommodif.validate();
+                }
+            }
+        });
+        RequiredFieldValidator rf2 = new RequiredFieldValidator();
+        rf2.setMessage("Veuillez remplir ce champs");
+        adressemodif.getValidators().add(rf2);
+        adressemodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    adressemodif.validate();
+                }
+            }
+        });
+        NumberValidator nv = new NumberValidator();
+        nv.setMessage("Veuillez saisir un numéro valide");
+        numeromodif.getValidators().add(rf);
+        numeromodif.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    numeromodif.validate();
+                }
+            }
+        });
+        
+        
         loadDetails();
     }    
 
@@ -175,14 +230,16 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         {
             x = "Homme";
         }
-        if(s.modifierInfos( new Utilisateur(session.getId(), nommodif.getText(), prenommodif.getText(), adressemodif.getText(), emailmodif.getText(), null, null, null, Integer.parseInt(numeromodif.getText()), null, null, x)))
+        
+        if(nommodif.validate()&&prenommodif.validate()&&adressemodif.validate()&&numeromodif.validate())
         {
+            s.modifierInfos( new Utilisateur(session.getId(), nommodif.getText(), prenommodif.getText(), adressemodif.getText(), "", null, null, null, Integer.parseInt(numeromodif.getText()), null, null, x));
             LoginServices service = new LoginServices();
             session= service.getInformation(session.getId());
             modifanchor.setVisible(false);
             loadDetails();
             JFXSnackbar snack = new JFXSnackbar(details);
-            snack.show("Informations mises à jours", 2000);
+            snack.show("Informations mises à jours", 3000);
         }
         else{
             
@@ -205,6 +262,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         mesoffresadoption.setText(String.valueOf(aas.nombreMesOffres(session.getId())));
         ReclamationServices rs = new ReclamationServices();
         reclamations.setText(String.valueOf(rs.nombreMesReclamations(session.getId())));
+        
+        AnnonceSittingServices ass = new AnnonceSittingServices();
+        sitting.setText(String.valueOf(ass.nombreMesAnnonces(session.getId())));
+        AnnonceAccouplementServices annaccser = new AnnonceAccouplementServices();
+        mesaccouplements.setText(String.valueOf(annaccser.nombreMesAnnonces(session.getId())));
     }
 
     @FXML
@@ -219,6 +281,26 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @FXML
     private void annulation(ActionEvent event) {
         modifanchor.setVisible(false);
+    }
+
+    @FXML
+    private void goToMesAccouplements(MouseEvent event) {
+        try {
+           
+            loadSplashScreen("/paw/annonceAccouplements/user/FXMLListeAnnonceAccouplement.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToSitting(MouseEvent event) {
+        try {
+           
+            loadSplashScreen("/paw/sittingService/FXMLSittingListeAnnonce.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

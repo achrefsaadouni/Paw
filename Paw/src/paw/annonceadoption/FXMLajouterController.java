@@ -84,6 +84,8 @@ public class FXMLajouterController implements Initializable {
 
     private File file;
     private String chaine ;
+    @FXML
+    private AnchorPane box;
     /**
      * Initializes the controller class.
      */
@@ -311,7 +313,7 @@ public class FXMLajouterController implements Initializable {
     
     public boolean valideDate(LocalDate x , LocalDate y)
     {
-        if (x.compareTo(y) < 0)
+        if (x.compareTo(y) <= 0)
             return false;
         else
             return true;

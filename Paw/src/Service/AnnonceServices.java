@@ -140,7 +140,7 @@ public class AnnonceServices {
       }
 
     public int getNbrMesAnnoncesLAF(int i) {
-        String req="SELECT * FROM annonce where utilisateur_id=? " ;
+        String req="SELECT * FROM annonce where utilisateur_id=? and type_annonce in ('annonce_perte','annonce_trouvee')" ;
         int y = 0;
         try 
         { 

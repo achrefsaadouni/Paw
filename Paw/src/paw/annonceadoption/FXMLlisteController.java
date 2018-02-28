@@ -29,13 +29,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Notifications;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLlisteController implements Initializable {
+public class FXMLlisteController extends FXMLCnxController  implements Initializable {
 
     ArrayList<AnnonceAdoption> liste;
     
@@ -86,12 +87,6 @@ public class FXMLlisteController implements Initializable {
     @FXML
     private Separator separator;
     @FXML
-    private Label user;
-    @FXML
-    private Label user1;
-    @FXML
-    private Label user11;
-    @FXML
     private Label typeAdoptiontypeAnimald;
     @FXML
     private Label msgd;
@@ -121,6 +116,18 @@ public class FXMLlisteController implements Initializable {
     private ImageView imaged;
     @FXML
     private StackPane repondu;
+    @FXML
+    private Label sexe;
+    @FXML
+    private Label age;
+    @FXML
+    private Label sexe1;
+    @FXML
+    private Label age1;
+    @FXML
+    private Label sexe11;
+    @FXML
+    private Label age11;
 
     /**
      * Initializes the controller class.
@@ -167,7 +174,9 @@ public class FXMLlisteController implements Initializable {
             typeAdoptiontypeAnimal.setText("Adoption "+TroisAnnonces.get(0).getTypeAdoption()+" : "+TroisAnnonces.get(0).getType());
             message.setText(TroisAnnonces.get(0).getMessage_complementaire());
             date.setText(String.valueOf(TroisAnnonces.get(0).getDate()).substring(0, 16));
-            race.setText(TroisAnnonces.get(0).getRace());
+            race.setText("Race : "+TroisAnnonces.get(0).getRace());
+            sexe.setText(TroisAnnonces.get(0).getSex());
+            age.setText("Age : "+String.valueOf(TroisAnnonces.get(0).getAge()));
             box.setOnMouseClicked((MouseEvent e) -> {
                 initialiserDetails(TroisAnnonces.get(0));
                 details.setVisible(true);
@@ -185,8 +194,9 @@ public class FXMLlisteController implements Initializable {
             typeAdoptiontypeAnimal1.setText("Adoption "+TroisAnnonces.get(1).getTypeAdoption()+" : "+TroisAnnonces.get(1).getType());
             message1.setText(TroisAnnonces.get(1).getMessage_complementaire());
             date1.setText(String.valueOf(TroisAnnonces.get(1).getDate()).substring(0, 16));
-            race1.setText(TroisAnnonces.get(1).getRace());
-            
+            race1.setText("Race : "+TroisAnnonces.get(1).getRace());
+            sexe1.setText(TroisAnnonces.get(1).getSex());
+            age1.setText("Age : "+String.valueOf(TroisAnnonces.get(1).getAge()));
             box1.setOnMouseClicked((MouseEvent e) -> {
                 initialiserDetails(TroisAnnonces.get(1));
                 details.setVisible(true);
@@ -203,7 +213,9 @@ public class FXMLlisteController implements Initializable {
             typeAdoptiontypeAnimal11.setText("Adoption "+TroisAnnonces.get(2).getTypeAdoption()+" : "+TroisAnnonces.get(2).getType());
             message11.setText(TroisAnnonces.get(2).getMessage_complementaire());
             date11.setText(String.valueOf(TroisAnnonces.get(2).getDate()).substring(0, 16));
-            race11.setText(TroisAnnonces.get(2).getRace());
+            race11.setText("Race : "+TroisAnnonces.get(2).getRace());
+            sexe11.setText(TroisAnnonces.get(2).getSex());
+            age11.setText("Age : "+String.valueOf(TroisAnnonces.get(2).getAge()));
             box11.setOnMouseClicked((MouseEvent e) -> {
                 initialiserDetails(TroisAnnonces.get(2));
                 details.setVisible(true);
@@ -285,6 +297,11 @@ public class FXMLlisteController implements Initializable {
         });
         }
         
+    }
+
+    @FXML
+    private void goToAjoutAdoption(ActionEvent event) {
+        loadSplashScreen("/paw/annonceadoption/FXMLajouter.fxml");
     }
     
 }

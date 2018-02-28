@@ -57,7 +57,7 @@ public class AnnonceAccouplementServices {
             ste.setString(12, images);
             ste.setInt(13, a.getId_utilisateur());
             
-            //System.out.println("avant");
+            
             ste.executeUpdate();
 
         } catch (SQLException ex) {
@@ -72,6 +72,9 @@ public class AnnonceAccouplementServices {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
             String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawPets\\" + imageName + extension;
+            
+            
+            //
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;
@@ -235,6 +238,42 @@ public class AnnonceAccouplementServices {
             }
         } catch (SQLException ex) {
             System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+ public int getAnnonceAcc(int id) {
+        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_accouplement' where id=?" ;
+        int x=0;
+        try 
+        { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                x= rs.getInt("a");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return x;    
+    }
+
+    public int nombreMesAnnonces(int id) {
+        int y=0;    
+            String req="SELECT * FROM annonce WHERE utilisateur_id=? and type_annonce like 'annonce_accouplement'" ;
+            try {
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                y++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("getAnnonceAdoptionUtilisateur");
         }
         return y;
     }

@@ -171,10 +171,6 @@ public class Annonce extends RecursiveTreeObject<AnnoncePerdu>
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "Annonce{" + "id=" + id + ", age=" + age + ", couleur=" + couleur + ", sex=" + sex + ", race=" + race + ", message_complementaire=" + message_complementaire + ", type=" + type + '}';
-    }
 
    
     @Override

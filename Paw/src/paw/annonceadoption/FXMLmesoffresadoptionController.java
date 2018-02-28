@@ -23,19 +23,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Notifications;
 import paw.Paw;
 import static paw.Paw.session;
+import paw.mainUI.FXMLCnxController;
 
 /**
  * FXML Controller class
  *
  * @author AYOUB
  */
-public class FXMLmesoffresadoptionController implements Initializable {
+public class FXMLmesoffresadoptionController extends FXMLCnxController implements Initializable {
 
     
     ArrayList<AnnonceAdoption> liste ;
@@ -112,6 +114,8 @@ public class FXMLmesoffresadoptionController implements Initializable {
     private ImageView image;
     @FXML
     private Label isconfirmed;
+    @FXML
+    private AnchorPane window;
     /**
      * Initializes the controller class.
      */
@@ -353,6 +357,11 @@ public class FXMLmesoffresadoptionController implements Initializable {
             }
         }
         return reponses.subList(0, 2);
+    }
+
+    @FXML
+    private void goToAjoutAdoption(ActionEvent event) {
+        loadSplashScreen("/paw/annonceadoption/FXMLajouter.fxml");
     }
 
     @FXML

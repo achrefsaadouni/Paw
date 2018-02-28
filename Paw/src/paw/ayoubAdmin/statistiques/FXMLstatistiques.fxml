@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.ayoubAdmin.statistiques.FXMLstatistiquesController">
    <children>
@@ -16,14 +14,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <BarChart fx:id="barC" alternativeRowFillVisible="false" barGap="1.0" categoryGap="1.0" layoutX="283.0" layoutY="106.0" prefHeight="434.0" prefWidth="803.0" title="Nombres de reclamations par type">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
+                        <StackPane layoutX="185.0" layoutY="117.0" prefHeight="356.0" prefWidth="745.0" fx:id="xtx" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -39,8 +30,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <PieChart fx:id="ReclamationsRemerciments" layoutX="74.0" layoutY="105.0" />
-                        <PieChart fx:id="TraiteeNonTraitee" layoutX="550.0" layoutY="115.0" />
+                        <PieChart fx:id="TraiteeNonTraitee" layoutX="622.0" layoutY="110.0" prefHeight="381.0" prefWidth="465.0" />
+                        <StackPane fx:id="recl" layoutX="29.0" layoutY="103.0" prefHeight="431.0" prefWidth="637.0" />
                      </children>
                   </AnchorPane>
               </content>
