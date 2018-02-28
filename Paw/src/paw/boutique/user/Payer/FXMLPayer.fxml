@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Text layoutX="65.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tous Achat qui depasse le 30 dinars sa Livraison est gratuite" />
+            <Text layoutX="65.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tous Achat qui depasse les 30 dinars sa Livraison est gratuite Sinon un frais de 5 dinars s'ajoutera a votre commande" wrappingWidth="268.13671226086444" />
          </children>
       </Pane>
       <Pane fx:id="validation" layoutX="653.0" layoutY="96.0" prefHeight="200.0" prefWidth="399.0" style="-fx-background-color: white; -fx-border-color: #3C8DBC; -fx-border-radius: 3; -fx-border-width: 4 0 0 0; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false">

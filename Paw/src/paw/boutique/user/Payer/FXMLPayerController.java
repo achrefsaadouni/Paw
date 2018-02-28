@@ -152,7 +152,7 @@ public class FXMLPayerController {
             Exception {
         code = genererCode();
         System.out.println(code);
-        Mail.send(recepteur, "Confirmation Du Paiement", "Pour Confimer votre Commande vueillez Utiliser ce code " + code + "\n NB: ce Code est a usage unique");
+        Mail.send(recepteur, "Confirmation Du Paiement", "Pour Confimer votre Commande vueillez Utiliser ce code " + code + "\n NB: ce code est a usage unique");
 
     }
 

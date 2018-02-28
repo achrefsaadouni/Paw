@@ -413,7 +413,7 @@ public class FXMLAjouterController {
                 produitsTableView.setPredicate(new Predicate<TreeItem<Produit>>() {
                     @Override
                     public boolean test(TreeItem<Produit> t) {
-                        boolean flag = t.getValue().getLibelle().contains(newValue) || String.valueOf(t.getValue().getId_produit()).contains(newValue) || String.valueOf(t.getValue().getPrix()).contains(newValue) || String.valueOf(t.getValue().getType()).contains(newValue);
+                        boolean flag = t.getValue().getLibelle().toLowerCase().contains(newValue.toLowerCase()) || String.valueOf(t.getValue().getId_produit()).toLowerCase().contains(newValue.toLowerCase()) || String.valueOf(t.getValue().getPrix()).toLowerCase().contains(newValue.toLowerCase()) || String.valueOf(t.getValue().getType()).toLowerCase().contains(newValue.toLowerCase());
                         return flag;
                     }
                 });
@@ -478,7 +478,9 @@ public class FXMLAjouterController {
     public boolean isFloat(JFXTextField input) {
         try {
             float prix = Float.parseFloat(input.getText());
+            if (prix >=0)
             return true;
+            else return false ;
         } catch (Exception e) {
             return false;
         }
@@ -487,7 +489,9 @@ public class FXMLAjouterController {
     public boolean isInteger(JFXTextField input) {
         try {
             int prix = Integer.parseInt(input.getText());
+            if (prix >=0)
             return true;
+            else return false ;
         } catch (Exception e) {
             return false;
         }

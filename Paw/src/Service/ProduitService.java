@@ -184,7 +184,7 @@ public class ProduitService {
     
     }  
         public ArrayList<Produit> findAll() {
-        String sql = "SELECT * FROM `produit`";
+        String sql = "SELECT * FROM `produit` where quantite <> '0'";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              ResultSet results =  statement.executeQuery();
@@ -203,7 +203,7 @@ public class ProduitService {
     }
         
          public ArrayList<Produit> findAllup() {
-        String sql = "SELECT * FROM `produit` order by prix";
+        String sql = "SELECT * FROM `produit` where quantite <> '0' order by prix";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              ResultSet results =  statement.executeQuery();
@@ -224,7 +224,7 @@ public class ProduitService {
          
          
           public ArrayList<Produit> findAlldown() {
-        String sql = "SELECT * FROM `produit` order by prix desc";
+        String sql = "SELECT * FROM `produit` where quantite <> '0'  order by prix desc";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              ResultSet results =  statement.executeQuery();
@@ -243,7 +243,7 @@ public class ProduitService {
     }
          
          public ArrayList<Produit> findAllFiltrer(String filtre) {
-        String sql = "SELECT * FROM `produit` where type=?";
+        String sql = "SELECT * FROM `produit` where type=? and quantite <> '0'";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              statement.setString(1,filtre);
@@ -263,7 +263,7 @@ public class ProduitService {
     }
          
            public ArrayList<Produit> findAllFiltrerup(String filtre) {
-        String sql = "SELECT * FROM `produit` where type=? order by prix";
+        String sql = "SELECT * FROM `produit` where type=? and quantite <> '0' order by prix";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              statement.setString(1,filtre);
@@ -283,7 +283,7 @@ public class ProduitService {
     }       
          
             public ArrayList<Produit> findAllFiltrerdown(String filtre) {
-        String sql = "SELECT * FROM `produit` where type=? order by prix desc";
+        String sql = "SELECT * FROM `produit` where type=? and quantite <> '0' order by prix desc";
          try {
              PreparedStatement statement = this.connection.prepareStatement(sql);
              statement.setString(1,filtre);
