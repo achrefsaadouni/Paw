@@ -27,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.validation.RequiredFieldValidator;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,6 +85,8 @@ public class FXMLreclamationController extends FXMLCnxController implements Init
     private JFXButton btnAnnuler;
     @FXML
     private JFXTextField filtre;
+    @FXML
+    private AnchorPane window;
     
 
     /**
@@ -92,6 +95,19 @@ public class FXMLreclamationController extends FXMLCnxController implements Init
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReclamationServices serviceRec = new ReclamationServices();
+        
+        RequiredFieldValidator rf = new RequiredFieldValidator();
+        rf.setMessage("Vous devez répondre à la réclamation.");
+        reponser.getValidators().add(rf);
+        reponser.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if (!newValue) {
+                    reponser.validate();
+                }
+            }
+        });
+        
         
         rep.setVisible(false);
         
@@ -209,12 +225,15 @@ public class FXMLreclamationController extends FXMLCnxController implements Init
 
     @FXML
     private void enregistrer(ActionEvent event) {
-        RepRecServices s=new RepRecServices();
-        s.insererRepReclamation(new RepRec (Integer.parseInt(lab.getText()),reponser.getText()));
-        ReclamationServices r= new ReclamationServices();
-        r.traiterReclamation(Integer.parseInt(lab.getText()));
-        initReclamation();
-        rep.setVisible(false);
+        if (reponser.validate())
+        {
+            RepRecServices s=new RepRecServices();
+            s.insererRepReclamation(new RepRec (Integer.parseInt(lab.getText()),reponser.getText()));
+            ReclamationServices r= new ReclamationServices();
+            r.traiterReclamation(Integer.parseInt(lab.getText()));
+            initReclamation();
+            rep.setVisible(false);
+        }
     }
 
     @FXML
@@ -244,7 +263,6 @@ public class FXMLreclamationController extends FXMLCnxController implements Init
             rep.setVisible(true);
     }
 
-    @FXML
     private void gotoAjout(ActionEvent event) {
         try {
             loadSplashScreen("/paw/annonceadoption/FXMLajouter.fxml");

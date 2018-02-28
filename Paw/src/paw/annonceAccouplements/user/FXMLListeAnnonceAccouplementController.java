@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
@@ -27,6 +29,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import paw.MyNotifications;
 
 /**
  * FXML Controller class
@@ -149,6 +152,8 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
     private JFXButton valider;
     @FXML
     private JFXTextField lieu;
+    @FXML
+    private StackPane vide;
 
     /**
      * Initializes the controller class.
@@ -158,54 +163,44 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
         AnnonceAccouplementServices service = new AnnonceAccouplementServices();
 
         list = service.getMesAnnoncesAccouplements(2);
-        
+
         if (list.isEmpty()) {
             box1.setVisible(false);
             box2.setVisible(false);
             box3.setVisible(false);
             box4.setVisible(false);
             paginator.setVisible(false);
-            //vide.setVisible(true);
+            vide.setVisible(true);
         } else {
             paginator.setVisible(true);
             setNbPages();
             initAnnonceAccouplementPage(0);
-            //vide.setVisible(false);
+            vide.setVisible(false);
 
         }
-       
-        choixInsertion1.getItems().setAll("Chien","Chat","Chèvre","Cheval","Rongeur");
-        
-        
-        
-        poilInsertion1.getItems().setAll("Nus","Sans sous-poil","Double pelage","Poils courts","Poils longs");
-        
-        
-        
-        
+
+        choixInsertion1.getItems().setAll("Chien", "Chat", "Autres");
+
+        poilInsertion1.getItems().setAll("Nus", "Sans sous-poil", "Double pelage", "Poils courts", "Poils longs");
+
         ToggleGroup groupi = new ToggleGroup();
         ToggleGroup groupm = new ToggleGroup();
-        
+
         ToggleGroup groupvi = new ToggleGroup();
         ToggleGroup groupvm = new ToggleGroup();
-        
-        
+
         ToggleGroup groupdi = new ToggleGroup();
         ToggleGroup groupdm = new ToggleGroup();
-        
+
         male1.setToggleGroup(groupi);
         female1.setToggleGroup(groupi);
-        
-        
-        
+
         vouiInsertion1.setToggleGroup(groupvm);
         vnonInsertion1.setToggleGroup(groupvm);
-        
-       
-        
+
         douiInsertion1.setToggleGroup(groupdm);
         dnonInsertion1.setToggleGroup(groupdm);
-        
+
     }
 
     private void setNbPages() {
@@ -242,7 +237,6 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
         if (QuatreAnnonceAccouplements.size() >= 1) {
             box1.setVisible(true);
 
-           
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(0).getId_utilisateur());
             animal1.setText(QuatreAnnonceAccouplements.get(0).getType());
             lieu1.setText(QuatreAnnonceAccouplements.get(0).getLieu());
@@ -250,19 +244,17 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             sexe1.setText(QuatreAnnonceAccouplements.get(0).getSex());
             age1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getAge()));
             date1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(0).getImages());
-            
+
             Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(0).getImages());
             photo1.setFitHeight(225);
             photo1.setFitWidth(250);
             photo1.setImage(im);
-            
 
             modif1.setOnAction((ActionEvent e) -> {
                 modifierannonce(QuatreAnnonceAccouplements.get(0), u);
                 valider.setOnAction((ActionEvent el) -> {
-                modifier(QuatreAnnonceAccouplements.get(0).getId());
-            });
+                    modifier(QuatreAnnonceAccouplements.get(0).getId());
+                });
             });
             supp1.setOnAction((ActionEvent e) -> {
                 supprimerannonce(QuatreAnnonceAccouplements.get(0).getId());
@@ -275,7 +267,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
         ///////////////////////////////////////////////////////
         if (QuatreAnnonceAccouplements.size() >= 2) {
             box2.setVisible(true);
-            
+
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(1).getId_utilisateur());
             animal2.setText(QuatreAnnonceAccouplements.get(1).getType());
             lieu2.setText(QuatreAnnonceAccouplements.get(1).getLieu());
@@ -283,24 +275,22 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             sexe2.setText(QuatreAnnonceAccouplements.get(1).getSex());
             age2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getAge()));
             date2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(1).getImages());
-            
+
             Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(1).getImages());
             photo2.setFitHeight(225);
             photo2.setFitWidth(250);
             photo2.setImage(im);
-            
 
             modif2.setOnAction((ActionEvent e) -> {
                 modifierannonce(QuatreAnnonceAccouplements.get(1), u);
                 valider.setOnAction((ActionEvent e1) -> {
-                modifier(QuatreAnnonceAccouplements.get(1).getId());
-            });
+                    modifier(QuatreAnnonceAccouplements.get(1).getId());
+                });
             });
             supp2.setOnAction((ActionEvent e) -> {
                 supprimerannonce(QuatreAnnonceAccouplements.get(1).getId());
             });
-            
+
         } else {
             box2.setVisible(false);
         }
@@ -308,8 +298,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
 
         if (QuatreAnnonceAccouplements.size() >= 3) {
             box3.setVisible(true);
-            
-            
+
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(2).getId_utilisateur());
             animal3.setText(QuatreAnnonceAccouplements.get(2).getType());
             lieu3.setText(QuatreAnnonceAccouplements.get(2).getLieu());
@@ -317,25 +306,23 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             sexe3.setText(QuatreAnnonceAccouplements.get(2).getSex());
             age3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getAge()));
             date3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(2).getImages());
-            
+
+
             Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(2).getImages());
             photo3.setFitHeight(225);
             photo3.setFitWidth(250);
             photo3.setImage(im);
-            
 
             modif3.setOnAction((ActionEvent e) -> {
                 modifierannonce(QuatreAnnonceAccouplements.get(2), u);
                 valider.setOnAction((ActionEvent el) -> {
-                modifier(QuatreAnnonceAccouplements.get(2).getId());
-            });
+                    modifier(QuatreAnnonceAccouplements.get(2).getId());
+                });
             });
             supp3.setOnAction((ActionEvent e) -> {
                 supprimerannonce(QuatreAnnonceAccouplements.get(2).getId());
             });
-            
-            
+
         } else {
             box3.setVisible(false);
         }
@@ -346,147 +333,139 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
 
             Utilisateur u = utilisateurservice.rechercher(QuatreAnnonceAccouplements.get(3).getId_utilisateur());
             animal4.setText(QuatreAnnonceAccouplements.get(3).getType());
-            //lieu4.setText(QuatreAnnonceAccouplements.get(3).getLieu());
+            lieu4.setText(QuatreAnnonceAccouplements.get(3).getLieu());
             race4.setText(QuatreAnnonceAccouplements.get(3).getRace());
             sexe4.setText(QuatreAnnonceAccouplements.get(3).getSex());
             age4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getAge()));
             date4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(3).getImages());
-            
+
+
             Image im = new Image("http://localhost/pawPets/" + QuatreAnnonceAccouplements.get(3).getImages());
             photo4.setFitHeight(225);
             photo4.setFitWidth(250);
             photo4.setImage(im);
-            
 
             modif4.setOnAction((ActionEvent e) -> {
                 modifierannonce(QuatreAnnonceAccouplements.get(3), u);
                 valider.setOnAction((ActionEvent el) -> {
-                modifier(QuatreAnnonceAccouplements.get(3).getId());
-            });
+                    modifier(QuatreAnnonceAccouplements.get(3).getId());
+                });
             });
             supp4.setOnAction((ActionEvent e) -> {
                 supprimerannonce(QuatreAnnonceAccouplements.get(3).getId());
             });
-            
+
         } else {
             box4.setVisible(false);
         }
 
     }
-    
+
     private void modifierannonce(AnnonceAccouplement a, Utilisateur u) {
-     
-            if(a.getSex().equals("Female"))
-            {
-                female1.setSelected(true);
-            }
-            else{
-                male1.setSelected(true);
-            }
-            
-            
-            if(a.getVaccin().equals("NON"))
-            {
-                vnonInsertion1.setSelected(true);
-            }
-            else{
-                vouiInsertion1.setSelected(true);
-            }
-            
-            
-            if(a.getDossier().equals("NON"))
-            {
-                dnonInsertion1.setSelected(true);
-            }
-            else{
-                douiInsertion1.setSelected(true);
-            }
-            
-            
-            poilInsertion1.setValue(a.getType_poil());
-            ageInsertion1.setText(String.valueOf(a.getAge()));
-            raceInsertion1.setText(a.getRace());
-            lieu.setText(a.getLieu());
-            msgInsertion1.setText(a.getMessage_complementaire());
-            couleurInsertion1.setText(a.getCouleur());
-            choixInsertion1.setValue(a.getType());
-            modifAnnonceAccouplement.setVisible(true);     
-            
-    
+
+        if (a.getSex().equals("Female")) {
+            female1.setSelected(true);
+        } else {
+            male1.setSelected(true);
+        }
+
+        if (a.getVaccin().equals("NON")) {
+            vnonInsertion1.setSelected(true);
+        } else {
+            vouiInsertion1.setSelected(true);
+        }
+
+        if (a.getDossier().equals("NON")) {
+            dnonInsertion1.setSelected(true);
+        } else {
+            douiInsertion1.setSelected(true);
+        }
+
+        poilInsertion1.setValue(a.getType_poil());
+        ageInsertion1.setText(String.valueOf(a.getAge()));
+        raceInsertion1.setText(a.getRace());
+        lieu.setText(a.getLieu());
+        msgInsertion1.setText(a.getMessage_complementaire());
+        couleurInsertion1.setText(a.getCouleur());
+        choixInsertion1.setValue(a.getType());
+        modifAnnonceAccouplement.setVisible(true);
+
     }
 
     private void modifier(int id) {
-       if ((!"".equals(couleurInsertion1.getText()))&& (!"".equals(ageInsertion1.getText())) && (!"".equals(lieu.getText()))
-                 && (!"".equals(raceInsertion1.getText()))&& (!"".equals(msgInsertion1.getText()))&& (!"".equals(choixInsertion1.getValue()))&& (!"".equals(poilInsertion1.getValue())))
-        {
-              AnnonceAccouplementServices as = new AnnonceAccouplementServices();
-            String sexe="Male";
-            if (female1.isSelected())
-            {
-                sexe="Female";
-            }
-            
-            String vaccin="OUI";
-            if (vnonInsertion1.isSelected())
-            {
-                vaccin="NON";
-            }
-            
-            String dossier="OUI";
-            if (dnonInsertion1.isSelected())
-            {
-                dossier="NON";
-            }
-            
-//            System.out.println(new AnnonceAccouplement(poilInsertion1.getValue(), vaccin, dossier,0 , Integer.parseInt(ageInsertion1.getText()), couleurInsertion1.getText(), sexe, raceInsertion1.getText(), msgInsertion1.getText(),choixInsertion1.getValue(), null));
-//            System.out.println(id);
-            as.updateAnnonceAccouplement(new AnnonceAccouplement(
-                    poilInsertion1.getValue(), 
-                    vaccin, 
-                    dossier,
-                    lieu.getText(), 
-                    0 , 
-                    Integer.parseInt(ageInsertion1.getText()), 
-                    couleurInsertion1.getText(), 
-                    sexe, 
-                    raceInsertion1.getText(), 
-                    msgInsertion1.getText(),
-                    choixInsertion1.getValue(),
-                    null,null,0),id);
-
-           
-            poilInsertion1.setValue("Nus");
-            ageInsertion1.setText("");
-            lieu.setText("");
-            raceInsertion1.setText("");
-            msgInsertion1.setText("");
-            couleurInsertion1.setText("");
-            choixInsertion1.setValue("Chien");
-            //loadTable();
-            AnnonceAccouplementServices service = new AnnonceAccouplementServices();
-            list = service.getMesAnnoncesAccouplements(2);
-                    if (list.isEmpty()) {
-            box1.setVisible(false);
-            box2.setVisible(false);
-            box3.setVisible(false);
-            box4.setVisible(false);
+        if ((couleurInsertion1.getText().trim().equals("")) || (ageInsertion1.getText().trim().equals(""))
+                || (raceInsertion1.getText().trim().equals("")) || (msgInsertion1.getText().trim().equals("")) || (choixInsertion1.getValue().isEmpty())
+                || (lieu.getText().trim().equals(""))) {
+            Alert fail = new Alert(Alert.AlertType.INFORMATION);
+            fail.setHeaderText("erreur");
+            fail.setContentText("Vous avez oublier de remplir un champs");
+            fail.showAndWait();
         } else {
-            setNbPages();
-            initAnnonceAccouplementPage(0);
-        }
+            AnnonceAccouplementServices as = new AnnonceAccouplementServices();
+            String sexe = "Male";
+            if (female1.isSelected()) {
+                sexe = "Female";
+            }
+
+            String vaccin = "OUI";
+            if (vnonInsertion1.isSelected()) {
+                vaccin = "NON";
+            }
+
+            String dossier = "OUI";
+            if (dnonInsertion1.isSelected()) {
+                dossier = "NON";
+            }
+            if ((!isInteger(ageInsertion1))) {
+                Alert alert = new Alert(Alert.AlertType.WARNING, "Le champs age doit être un entier", ButtonType.CLOSE);
+                alert.show();
+            } else {
+                as.updateAnnonceAccouplement(new AnnonceAccouplement(
+                        poilInsertion1.getValue(),
+                        vaccin,
+                        dossier,
+                        lieu.getText(),
+                        0,
+                        Integer.parseInt(ageInsertion1.getText()),
+                        couleurInsertion1.getText(),
+                        sexe,
+                        raceInsertion1.getText(),
+                        msgInsertion1.getText(),
+                        choixInsertion1.getValue(),
+                        null, null, 0), id);
+
+                poilInsertion1.setValue("Nus");
+                ageInsertion1.setText("");
+                lieu.setText("");
+                raceInsertion1.setText("");
+                msgInsertion1.setText("");
+                couleurInsertion1.setText("");
+                choixInsertion1.setValue("Chien");
+                MyNotifications.infoNotification("Modification", "Votre annonce a été modifiée avec Succès");
+                AnnonceAccouplementServices service = new AnnonceAccouplementServices();
+                list = service.getMesAnnoncesAccouplements(2);
+                if (list.isEmpty()) {
+                    box1.setVisible(false);
+                    box2.setVisible(false);
+                    box3.setVisible(false);
+                    box4.setVisible(false);
+                } else {
+                    setNbPages();
+                    initAnnonceAccouplementPage(0);
+                }
+            }
         }
     }
 
     private void supprimerannonce(int id) {
-                AnnonceAccouplementServices as = new AnnonceAccouplementServices();
-                as.DeleteAnnonceAccouplement(id);
-                     modifAnnonceAccouplement.setVisible(false);
+        AnnonceAccouplementServices as = new AnnonceAccouplementServices();
+        as.DeleteAnnonceAccouplement(id);
+        MyNotifications.infoNotification("Suppression", "Votre annonce a été supprimée avec Succès");
+        modifAnnonceAccouplement.setVisible(false);
         AnnonceAccouplementServices service = new AnnonceAccouplementServices();
-      
-             
+
         list = service.getMesAnnoncesAccouplements(2);
-        
+
         if (list.isEmpty()) {
             box1.setVisible(false);
             box2.setVisible(false);
@@ -496,19 +475,26 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
             setNbPages();
             initAnnonceAccouplementPage(0);
         }
-        
-        
-        
+
     }
 
     @FXML
     private void actionModification2(ActionEvent event) {
-         
+
     }
 
     @FXML
     private void fermer(ActionEvent event) {
         modifAnnonceAccouplement.setVisible(false);
+    }
+
+    public boolean isInteger(JFXTextField input) {
+        try {
+            int a = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

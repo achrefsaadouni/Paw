@@ -130,6 +130,8 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
     private Label date;
     @FXML
     private Label lieu;
+    @FXML
+    private StackPane vide;
     /**
      * Initializes the controller class.
      */
@@ -139,19 +141,19 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
         AnnonceAccouplementServices service = new AnnonceAccouplementServices();
 
         list = service.getList();
-        System.out.println(list);
+        
         if (list.isEmpty()) {
             box1.setVisible(false);
             box2.setVisible(false);
             box3.setVisible(false);
             box4.setVisible(false);
             paginator.setVisible(false);
-            //vide.setVisible(true);
+            vide.setVisible(true);
         } else {
             paginator.setVisible(true);
             setNbPages();
             initAnnonceAccouplementPage(0);
-            //vide.setVisible(false);
+            vide.setVisible(false);
 
         }
     }
@@ -198,7 +200,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             sexe1.setText(QuatreAnnonceAccouplements.get(0).getSex());
             age1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getAge()));
             date1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(0).getImages());
+
             
             Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(0).getImages().getName());
             photo1.setFitHeight(225);
@@ -227,7 +229,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             sexe2.setText(QuatreAnnonceAccouplements.get(1).getSex());
             age2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getAge()));
             date2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(1).getImages());
+           
             
             Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(1).getImages().getName());
             photo2.setFitHeight(225);
@@ -255,7 +257,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             sexe3.setText(QuatreAnnonceAccouplements.get(2).getSex());
             age3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getAge()));
             date3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(2).getImages());
+           
             
             Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(2).getImages().getName());
             photo3.setFitHeight(225);
@@ -283,7 +285,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             sexe4.setText(QuatreAnnonceAccouplements.get(3).getSex());
             age4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getAge()));
             date4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getDate()).substring(0, 10));
-            //System.out.println(QuatreAnnonceAccouplements.get(3).getImages());
+            
             
             Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(3).getImages().getName());
             photo4.setFitHeight(225);

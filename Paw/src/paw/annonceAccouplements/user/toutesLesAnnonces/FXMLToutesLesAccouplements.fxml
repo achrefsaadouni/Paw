@@ -46,6 +46,11 @@
             </JFXButton>
             <Label layoutX="7.0" layoutY="235.0" prefHeight="29.0" prefWidth="259.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Je propose à la reproduction un :" />
             <FontAwesomeIconView fill="WHITE" glyphName="SUPPRIMER" layoutX="13.0" layoutY="576.0" size="16" wrappingWidth="25.0" />
+            <Label fx:id="race1" layoutX="56.0" layoutY="327.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
+            <Label fx:id="sexe1" layoutX="55.0" layoutY="353.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
+            <Label fx:id="lieu1" layoutX="73.0" layoutY="302.0" prefHeight="26.0" prefWidth="189.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
+            <Label fx:id="age1" layoutX="56.0" layoutY="379.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
+            <Label fx:id="date1" layoutX="142.0" layoutY="409.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="box2" layoutX="273.0" layoutY="5.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
@@ -85,12 +90,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <Pagination fx:id="paginator" layoutX="465.0" layoutY="606.0" pageCount="50" prefHeight="49.0" prefWidth="200.0" />
-      <Label fx:id="race1" layoutX="57.0" layoutY="332.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la race" />
-      <Label fx:id="sexe1" layoutX="57.0" layoutY="358.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le sexe" />
-      <Label fx:id="lieu1" layoutX="75.0" layoutY="307.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="le lieu" />
-      <Label fx:id="age1" layoutX="57.0" layoutY="387.0" prefHeight="26.0" prefWidth="200.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="l'age" />
-      <Label fx:id="date1" layoutX="147.0" layoutY="414.0" prefHeight="26.0" prefWidth="122.0" style="-fx-font-size: 14; -fx-text-fill: #6a7d9a; -fx-font-weight: bold;" text="la date" />
+      <Pagination fx:id="paginator" layoutX="465.0" layoutY="599.0" pageCount="50" prefHeight="49.0" prefWidth="200.0" />
       <AnchorPane fx:id="box3" layoutX="550.0" layoutY="6.0" prefHeight="599.0" prefWidth="259.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
          <children>
             <Label fx:id="animal3" layoutX="26.0" layoutY="263.0" prefHeight="29.0" prefWidth="207.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
@@ -257,6 +257,15 @@
                   <Label fx:id="lieu" layoutX="210.0" layoutY="409.0" styleClass="labels" stylesheets="@../../../../css/mehdiNormal.css" text="Label" />
                </children>
             </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="vide" layoutX="170.0" layoutY="250.0" prefHeight="149.0" prefWidth="743.0" visible="false">
+         <children>
+            <Label text="Aucune annonce à afficher !" textAlignment="CENTER" textFill="#3b28eb">
+               <font>
+                  <Font name="System Bold" size="52.0" />
+               </font>
+            </Label>
          </children>
       </StackPane>
    </children>

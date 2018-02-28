@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TreeTableColumn?>
@@ -36,8 +37,6 @@
             <Label fx:id="dater" layoutX="583.0" layoutY="21.0" prefHeight="32.0" prefWidth="198.0" styleClass="date" stylesheets="@../../../css/Master.css" text="Label" />
             <Label fx:id="utilisateurr" layoutX="100.0" layoutY="61.0" prefHeight="39.0" prefWidth="425.0" styleClass="names" stylesheets="@../../../css/Master.css" text="Label" textFill="#575454" />
             <JFXTextArea fx:id="reponser" layoutX="125.0" layoutY="215.0" prefHeight="150.0" prefWidth="550.0" promptText="Entrez votre réponse ..." visible="false" wrapText="true" />
-            <JFXButton fx:id="btnEnregistrer" buttonType="RAISED" layoutX="520.0" layoutY="386.0" onAction="#enregistrer" prefHeight="25.0" prefWidth="150.0" text="Enregistrer" />
-            <JFXButton fx:id="btnAnnuler" buttonType="RAISED" layoutX="150.0" layoutY="386.0" onAction="#annuler" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #D50000;" text="Annuler" textFill="WHITE" />
             <Label fx:id="reptext" layoutX="150.0" layoutY="260.0" prefHeight="100.0" prefWidth="500.0" text="Label" wrapText="true">
                <font>
                   <Font name="System Italic" size="20.0" />
@@ -45,10 +44,25 @@
             </Label>
             <Separator fx:id="separator" layoutX="53.0" layoutY="207.0" prefHeight="4.0" prefWidth="696.0" />
             <Label fx:id="datereponse" layoutX="369.0" layoutY="226.0" prefHeight="32.0" prefWidth="414.0" styleClass="date" stylesheets="@../../../css/Master.css" text="Label" />
+            <JFXButton fx:id="btnEnregistrer" alignment="CENTER" layoutX="520.0" layoutY="386.0" onAction="#enregistrer" prefHeight="31.0" prefWidth="149.0" styleClass="headerbar" stylesheets="@../../mainUI/style.css" text="Enregistrer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnAnnuler" alignment="CENTER" layoutX="150.0" layoutY="386.0" onAction="#annuler" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #DD4B39;" text="Annuler" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" wrappingWidth="25.0" />
+               </graphic>
+            </JFXButton>
          </children>
       </AnchorPane>
       <Label fx:id="lab" layoutX="964.0" layoutY="42.0" text="Label" visible="false" />
       <JFXTextField fx:id="filtre" layoutX="758.0" layoutY="36.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
-      <JFXButton layoutX="225.0" layoutY="47.0" onAction="#gotoAjout" text="gotoAjout" />
    </children>
 </AnchorPane>
