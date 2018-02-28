@@ -16,7 +16,7 @@
          <children>
             <AnchorPane fx:id="reclamations" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="300.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="listButton" buttonType="RAISED" onAction="#goToListe" prefHeight="383.0" prefWidth="300.0" style="-fx-background-color: #EEEEEE;" text="Consulter vos annonces">
+                  <JFXButton fx:id="listButton" buttonType="RAISED" onAction="#goToListe" prefHeight="383.0" prefWidth="300.0" style="-fx-background-color: #B3E5FC;" text="Consulter vos annonces">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
@@ -33,7 +33,7 @@
             </AnchorPane>
             <AnchorPane fx:id="reclamations1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="300.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="ajoutButton" buttonType="RAISED" onAction="#goToAjout" prefHeight="380.0" prefWidth="300.0" style="-fx-background-color: #90A4AE;" text="Déposez votre annonce dans la section &quot;Sitting Pets&quot;" textAlignment="CENTER" wrapText="true">
+                  <JFXButton fx:id="ajoutButton" buttonType="RAISED" onAction="#goToAjout" prefHeight="380.0" prefWidth="300.0" style="-fx-background-color: #42A5F5;" text="Déposez votre annonce dans la section &quot;Sitting Pets&quot;" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="17.0" />
                      </font>
@@ -50,7 +50,7 @@
             </AnchorPane>
             <AnchorPane fx:id="reclamations11" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="conseilButton" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToConseils" prefHeight="383.0" prefWidth="300.0" style="-fx-background-color: #607D8B;" text="Consultez notre page d'aide afin de savoir plus d'informations sur notre service" textAlignment="CENTER" wrapText="true">
+                  <JFXButton fx:id="conseilButton" buttonType="RAISED" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#goToConseils" prefHeight="383.0" prefWidth="300.0" style="-fx-background-color: #1976D2;" text="Consultez notre page d'aide afin de savoir plus d'informations sur notre service" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>

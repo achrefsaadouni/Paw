@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -83,9 +84,17 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
 
     @FXML
     private void ValiderTraining(ActionEvent event) {
-        System.out.println(typeTr.getValue());
-        String type = "Annonce Training";
+        if ((typeTr.getValue().isEmpty())
+                 || (colorPet.getText().trim().equals(""))|| (agePet.getText().trim().equals(""))||(!isInteger(agePet))
+                || (racePet.getText().trim().equals(""))|| (descPet.getText().trim().equals(""))|| (typePet.getValue().isEmpty()))
+                 {
+                    Alert fail= new Alert(Alert.AlertType.INFORMATION);
+                    fail.setHeaderText("erreur");
+                    fail.setContentText("Vous avez oublier de remplir un ou plusieurs champs");
+                    fail.showAndWait();
+                 }else{
         
+        String type = "Annonce Training";
         String s="";
         if (sexeM.isSelected())
         {
@@ -95,6 +104,8 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
         {
             s="Female";
         }
+        
+        
         AnnonceTrainingServices as = new AnnonceTrainingServices();
         System.out.println(session.getId());
             as.insererAnnonceTraining(
@@ -122,6 +133,7 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
             typePet.setValue("");
             dateTr.setValue(null);
     }
+    }
 
     @FXML
     private void annulerTraining(ActionEvent event) {
@@ -138,6 +150,15 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
     @FXML
     private void redirection(ActionEvent event) {
             loadSplashScreen("/paw/trainingService/FXMLTrainingPrincipal.fxml");
+    }
+
+    private boolean isInteger(TextField input) {
+        try {
+            int age = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
  

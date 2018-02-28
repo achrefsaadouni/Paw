@@ -11,7 +11,7 @@ public class SittingServiceUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLSittingListeAnnonce.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLSittingConseils.fxml"));
         
         Scene scene = new Scene(root);
         

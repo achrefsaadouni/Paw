@@ -3,14 +3,64 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<fx:root id="AnchorPane" fx:id="windows" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" styleClass="mainFxmlClass" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingConseilsController">
+<fx:root id="AnchorPane" fx:id="windows" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #E3F2FD;" styleClass="mainFxmlClass" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingConseilsController">
     <stylesheets>
         <URL value="@fxmlSitting.css" />
     </stylesheets>
    <children>
       <Label layoutX="10.0" layoutY="10.0" styleClass="names" stylesheets="@../../css/Master.css" text="Conseils de grade des animaux" />
       <Separator layoutY="51.0" prefHeight="3.0" prefWidth="1100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0" />
+      <ImageView fitHeight="429.0" fitWidth="451.0" layoutX="50.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0">
+         <image>
+            <Image url="@res/Dog-Walking-Company.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="301.0" fitWidth="470.0" layoutX="600.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="50.0">
+         <image>
+            <Image url="@res/f078459d66687338b3a9ec748d8d871b.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="96.0" layoutY="582.0" text="VOTRE ANIMAL EST ENTRE DE BONNES MAINS">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="WHITE" />
+                  <Stop color="WHITE" offset="0.007662835249042145" />
+                  <Stop color="#ff5050" offset="0.8850574712643676" />
+                  <Stop color="#ff5050" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="674.0" layoutY="582.0" text="PROFITEZ PLEINEMENT DE VOS VACANCES">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="WHITE" />
+                  <Stop color="WHITE" offset="0.007662835249042145" />
+                  <Stop color="#ff5050" offset="0.8850574712643676" />
+                  <Stop color="#ff5050" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="175.0" layoutY="115.0" prefHeight="170.0" prefWidth="768.0" text="Vous vous absentez pour des vacances et vous n’avez personne pour chouchouter votre animal de compagnie ? Paw a la solution pour faire garder votre chien, chat et tout autre animal de compagnie. Qu’il s’agisse d’une promenade, d’un gardiennage de chien à domicile, de dog sitting tard le soir, Paw dispose d’une multitude de profils près de chez vous et disponibles pour vous faciliter la vie." textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>
