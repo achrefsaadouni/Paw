@@ -229,7 +229,7 @@
                      <children>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #337AB7;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #B71C1C;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Adoption" />
@@ -240,7 +240,7 @@
                         </Pane>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #00A65A;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #E53935;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Animal Perdu" />
@@ -251,7 +251,7 @@
                         </Pane>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #F39C12;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #E57373;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Animal Trouvé" />
@@ -267,7 +267,7 @@
                      <children>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #E53935;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #212121;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Entrainement" />
@@ -278,7 +278,7 @@
                         </Pane>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #616161;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #757575;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Balade" />
@@ -289,7 +289,7 @@
                         </Pane>
                         <Pane prefHeight="128.0" prefWidth="277.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
                            <children>
-                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #FFEBEE;" />
+                              <Pane prefHeight="128.0" prefWidth="60.0" style="-fx-background-color: #E0E0E0;" />
                               <VBox layoutX="70.0" layoutY="25.0">
                                  <children>
                                     <Label prefHeight="40.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Accouplement" />

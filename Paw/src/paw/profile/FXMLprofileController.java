@@ -7,8 +7,10 @@ package paw.profile;
 
 import Entity.Utilisateur;
 import Service.AchatService;
+import Service.AnnonceAccouplementServices;
 import Service.AnnonceAdoptionService;
 import Service.AnnonceServices;
+import Service.AnnonceSittingServices;
 import Service.LoginServices;
 import Service.ReclamationServices;
 import Service.UtilisateurServices;
@@ -82,7 +84,6 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     private JFXRadioButton hmodif;
     @FXML
     private JFXRadioButton fmodif;
-    @FXML
     private JFXTextField emailmodif;
     @FXML
     private StackPane stack;
@@ -92,6 +93,10 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     private Label reclamations;
     @FXML
     private Label mesoffresadoption;
+    @FXML
+    private Label mesaccouplements;
+    @FXML
+    private Label sitting;
 
     /**
      * Initializes the controller class.
@@ -257,6 +262,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         mesoffresadoption.setText(String.valueOf(aas.nombreMesOffres(session.getId())));
         ReclamationServices rs = new ReclamationServices();
         reclamations.setText(String.valueOf(rs.nombreMesReclamations(session.getId())));
+        
+        AnnonceSittingServices ass = new AnnonceSittingServices();
+        sitting.setText(String.valueOf(ass.nombreMesAnnonces(session.getId())));
+        AnnonceAccouplementServices annaccser = new AnnonceAccouplementServices();
+        mesaccouplements.setText(String.valueOf(annaccser.nombreMesAnnonces(session.getId())));
     }
 
     @FXML
@@ -271,6 +281,26 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
     @FXML
     private void annulation(ActionEvent event) {
         modifanchor.setVisible(false);
+    }
+
+    @FXML
+    private void goToMesAccouplements(MouseEvent event) {
+        try {
+           
+            loadSplashScreen("/paw/annonceAccouplements/user/FXMLListeAnnonceAccouplement.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void goToSitting(MouseEvent event) {
+        try {
+           
+            loadSplashScreen("/paw/sittingService/FXMLSittingListeAnnonce.fxml");
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

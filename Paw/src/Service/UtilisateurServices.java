@@ -324,9 +324,9 @@ public class UtilisateurServices {
             System.out.println(ex);
         }
     }
-        public int nombre() {
+    public int nombre() {
         int y = 0;
-        String sql = "SELECT count(*) as nbr FROM `utilisateur`";
+        String sql = "SELECT count(*) as nbr FROM `utilisateur` where role='Membre'";
         try {
             PreparedStatement statement = this.connection.prepareStatement(sql);
             ResultSet results = statement.executeQuery();
@@ -339,6 +339,34 @@ public class UtilisateurServices {
         return y;
     }
 
+    public int nombreNonConfirmes() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='no' and role='Membre'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
+    public int nbrConfirmes() {
+        int y = 0;
+        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='yes' and role='Membre'";
+        try {
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            ResultSet results = statement.executeQuery();
+            while (results.next()) {
+                y = results.getInt("nbr");
+            }
+        } catch (SQLException ex) {
+            System.out.println("erreur affichage nombre");
+        }
+        return y;
+    }
     public void confirmer(int id) {
         String req="UPDATE utilisateur SET code='Free', confirmed='yes' WHERE id =?" ; 
         try { 

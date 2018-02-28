@@ -30,6 +30,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import paw.MyNotifications;
+import static paw.Paw.session;
 
 /**
  * FXML Controller class
@@ -162,7 +163,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         AnnonceAccouplementServices service = new AnnonceAccouplementServices();
 
-        list = service.getMesAnnoncesAccouplements(2);
+        list = service.getMesAnnoncesAccouplements(session.getId());
 
         if (list.isEmpty()) {
             box1.setVisible(false);
@@ -443,7 +444,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
                 choixInsertion1.setValue("Chien");
                 MyNotifications.infoNotification("Modification", "Votre annonce a été modifiée avec Succès");
                 AnnonceAccouplementServices service = new AnnonceAccouplementServices();
-                list = service.getMesAnnoncesAccouplements(2);
+                list = service.getMesAnnoncesAccouplements(session.getId());
                 if (list.isEmpty()) {
                     box1.setVisible(false);
                     box2.setVisible(false);
@@ -464,7 +465,7 @@ public class FXMLListeAnnonceAccouplementController implements Initializable {
         modifAnnonceAccouplement.setVisible(false);
         AnnonceAccouplementServices service = new AnnonceAccouplementServices();
 
-        list = service.getMesAnnoncesAccouplements(2);
+        list = service.getMesAnnoncesAccouplements(session.getId());
 
         if (list.isEmpty()) {
             box1.setVisible(false);

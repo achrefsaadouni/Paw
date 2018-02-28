@@ -259,6 +259,24 @@ public class AnnonceAccouplementServices {
         }
         return x;    
     }
+
+    public int nombreMesAnnonces(int id) {
+        int y=0;    
+            String req="SELECT * FROM annonce WHERE utilisateur_id=? and type_annonce like 'annonce_accouplement'" ;
+            try {
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery(); 
+            while (rs.next())
+            {
+                y++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AnnonceAdoptionService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("getAnnonceAdoptionUtilisateur");
+        }
+        return y;
+    }
    
 
 }
