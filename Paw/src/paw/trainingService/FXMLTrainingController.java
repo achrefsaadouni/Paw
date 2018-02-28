@@ -84,13 +84,13 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
 
     @FXML
     private void ValiderTraining(ActionEvent event) {
-        if ((typeTr.getValue().isEmpty())
+        if ((typeTr.getValue()==null)
                  || (colorPet.getText().trim().equals(""))|| (agePet.getText().trim().equals(""))||(!isInteger(agePet))
                 || (racePet.getText().trim().equals(""))|| (descPet.getText().trim().equals(""))|| (typePet.getValue().isEmpty()))
                  {
                     Alert fail= new Alert(Alert.AlertType.INFORMATION);
                     fail.setHeaderText("erreur");
-                    fail.setContentText("Vous avez oublier de remplir un ou plusieurs champs");
+                    fail.setContentText("Vous devez remplir touts les champs");
                     fail.showAndWait();
                  }else{
         

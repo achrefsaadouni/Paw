@@ -16,14 +16,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="window" maxHeight="650.0" maxWidth="1100.0" minHeight="650.0" minWidth="1100.0" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paw.sittingService.FXMLSittingListeAnnonceController">
    <children>
+      <ImageView fitHeight="480.0" fitWidth="377.0" layoutX="654.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@res/b58d12c1bf346d9d727ae0cc15a8f6a7.jpg" />
+         </image>
+      </ImageView>
       <Label styleClass="names" stylesheets="@../../css/Master.css" text="Mes demandes de garde" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
       <Separator layoutY="49.0" prefHeight="3.0" prefWidth="1100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
-      <Pane fx:id="annonce" layoutX="200.0" layoutY="80.0" prefHeight="550.0" prefWidth="573.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0">
+      <Pane fx:id="annonce" layoutX="200.0" layoutY="101.0" prefHeight="529.0" prefWidth="573.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="101.0">
          <children>
             <GridPane fx:id="tableau" alignment="CENTER" layoutX="15.0" layoutY="158.0" prefHeight="295.0" prefWidth="370.0">
                <columnConstraints>
@@ -124,9 +128,7 @@
                   <Label fx:id="desc" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="378.0" text="desc" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                </children>
             </GridPane>
-            <Pagination fx:id="paginator" layoutX="173.0" layoutY="351.0" prefHeight="200.0" prefWidth="200.0" />
-            <Circle fill="#1f93ff18" layoutX="169.0" layoutY="80.0" radius="66.0" stroke="#000000ab" strokeType="INSIDE" />
-            <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="194.0" layoutX="69.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+            <Pagination fx:id="paginator" layoutX="187.0" layoutY="322.0" prefHeight="200.0" prefWidth="200.0" />
             <JFXButton fx:id="ModifButton" layoutX="499.0" layoutY="49.0" style="-fx-background-color: #00C853;" stylesheets="@../trainingService/fxmltraining.css" text="Modifier" />
             <JFXButton fx:id="SuppButton" layoutX="489.0" layoutY="14.0" style="-fx-background-color: #f44336;" stylesheets="@../trainingService/fxmltraining.css" text="Supprimer" />
             <AnchorPane layoutX="350.0" layoutY="184.0" maxHeight="247.0" prefHeight="247.0" prefWidth="203.0" style="-fx-background-color: #D1C4E9; -fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5);">
@@ -146,7 +148,7 @@
             </AnchorPane>
          </children>
       </Pane>
-      <StackPane fx:id="stackModif" layoutX="616.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="470.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="616.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="115.0">
+      <StackPane fx:id="stackModif" layoutX="616.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="470.0" style="-fx-background-color: #E3F2FD; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="616.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="115.0">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="470.0" stylesheets="@../../css/Master.css">
                <children>
@@ -297,10 +299,14 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <ImageView fitHeight="480.0" fitWidth="377.0" layoutX="654.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@res/b58d12c1bf346d9d727ae0cc15a8f6a7.jpg" />
-         </image>
-      </ImageView>
+      <StackPane fx:id="aucunAnnonce" layoutX="20.0" layoutY="279.0" prefHeight="150.0" prefWidth="573.0">
+         <children>
+            <Label text="Vous n'avez pas encore poster des demanes " textFill="#69bbeb">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

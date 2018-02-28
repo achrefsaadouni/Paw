@@ -44,7 +44,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
             loadSplashScreen("/paw/sittingService/FXMLSittingListeAnnonce.fxml");
             System.out.println("trying !!");
         } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLSittingPrincipaleController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -55,7 +55,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
             System.out.println("the error is here");
         } catch (Exception ex) {
             System.out.println("the ctach is here");
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLSittingPrincipaleController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -64,7 +64,7 @@ public class FXMLSittingPrincipaleController extends FXMLCnxController implement
         try{
             loadSplashScreen("/paw/sittingService/FXMLSittingConseils.fxml");
         } catch (Exception ex) {
-            Logger.getLogger(FXMLprofileController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLSittingPrincipaleController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

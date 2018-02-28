@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.image.ImageView;
@@ -60,8 +61,6 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
     
     ArrayList<AnnonceTraining> liste ;
     @FXML
-    private ImageView avatar;
-    @FXML
     private JFXButton ModifButton;
     @FXML
     private JFXButton SuppButton;
@@ -95,6 +94,8 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
     
     @FXML
     private JFXButton quitModif;
+    @FXML
+    private StackPane aucunAnnonce;
 
     
     @Override
@@ -107,14 +108,12 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
         liste= service.getAnnonceTraining(session.getId());
         if (liste.isEmpty()) {
             tableau.setVisible(false);
-//            paginator2.setVisible(false);
             paginator.setVisible(false);
-//            listevide.setVisible(true);
-            paginator.setVisible(false);
+            aucunAnnonce.setVisible(true);
         } else {
+            aucunAnnonce.setVisible(false);
             tableau.setVisible(true);
             paginator.setVisible(true);
-//            listevide.setVisible(false);
             setNbPages();
             initAnnoncePage(0);
         }
@@ -167,7 +166,15 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
         nomM.setText(liste.get(i).getNomPet());
         typeTrM.setValue(liste.get(i).getTypeTr());
         descM.setText(liste.get(i).getMessage_complementaire());
-        
+        if ((typeTrM.getValue().isEmpty())
+                 || (couleurM.getText().trim().equals(""))|| (ageM.getText().trim().equals(""))||(!isInteger(ageM))
+                || (raceM.getText().trim().equals(""))|| (descM.getText().trim().equals(""))|| (typePetM.getText().trim().equals("")))
+                 {
+                    Alert fail= new Alert(Alert.AlertType.INFORMATION);
+                    fail.setHeaderText("erreur");
+                    fail.setContentText("Vous devez remplir touts les champs");
+                    fail.showAndWait();
+                 }else{
         stackModif.setVisible(true);
         confirmModif.setOnAction((event) -> {
                     
@@ -177,11 +184,21 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
                    initAnnoncePage(i);
                     
                 });
-        initAnnoncePage(i); 
+        initAnnoncePage(i);
+        }
         
     }
     
     private void confirmModif(int id) {
+         if ((typeTrM.getValue()==null) 
+                 || (couleurM.getText().trim().equals(""))|| (ageM.getText().trim().equals(""))||(!isInteger(ageM))
+                || (raceM.getText().trim().equals(""))|| (descM.getText().trim().equals(""))|| (typePetM.getText().trim().equals("")))
+                 {
+                    Alert fail= new Alert(Alert.AlertType.INFORMATION);
+                    fail.setHeaderText("erreur");
+                    fail.setContentText("Vous devez remplir touts les champs");
+                    fail.showAndWait();
+                 }else{
         AnnonceTrainingServices as = new AnnonceTrainingServices();
             
             as.updateAnnonceTraining(new 
@@ -201,6 +218,7 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
                     java.sql.Date.valueOf(LocalDate.now()), 
                     session.getId()),id);
         stackModif.setVisible(false);
+         }
     }
 
     @FXML
@@ -215,6 +233,16 @@ public class FXMLTrainingListeAnnonceController implements Initializable {
             liste = service.getAnnonceTraining(session.getId()); 
             setNbPages();
             initAnnoncePage(1); 
+    }
+
+    private boolean isInteger(JFXTextField input) {
+        try {
+            int age = Integer.parseInt(input.getText());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+        
     }
 
 
