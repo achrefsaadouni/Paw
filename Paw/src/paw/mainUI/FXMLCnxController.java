@@ -351,7 +351,7 @@ public class FXMLCnxController implements Initializable {
                                 }
                                    case "dressage": {
                                     try {
-                                       // loadSplashScreenAdmin("/paw/boutique/admin/achat/FXMLAchat.fxml");
+                                       loadSplashScreenAdmin("/paw/typeDressageAdmin/FXMLTypeDressageAdmin.fxml");
                                         break;
                                     } catch (Exception ex) {
                                         Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);

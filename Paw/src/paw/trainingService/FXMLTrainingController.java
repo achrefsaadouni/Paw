@@ -2,6 +2,7 @@ package paw.trainingService;
 
 import Entity.AnnonceTraining;
 import Service.AnnonceTrainingServices;
+import Service.TypeTrainingServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -68,9 +69,8 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        typeTr.getItems().add("Puppy Training");
-        typeTr.getItems().add("Beginner Training");
-        typeTr.getItems().add("Advanced Training");
+        TypeTrainingServices ss = new TypeTrainingServices();
+        typeTr.setItems(ss.getString());
         typePet.getItems().add("Chien");
         typePet.getItems().add("Chat");
         typePet.getItems().add("Autre");
