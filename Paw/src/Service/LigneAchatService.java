@@ -32,7 +32,7 @@ public class LigneAchatService {
      }
     
     
-    public LigneAchatService() {
+    private LigneAchatService() {
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }

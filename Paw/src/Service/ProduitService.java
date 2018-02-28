@@ -44,7 +44,7 @@ public class ProduitService {
      }
     
     
-    public ProduitService() {
+    private ProduitService() {
         handler = DbHandler.getDBHandler();
         connection =handler.getConnection();
     }
@@ -201,7 +201,24 @@ public class ProduitService {
          }
         return null;
     }
-        
+        public ArrayList<Produit> findAllAdmin() {
+        String sql = "SELECT * FROM `produit`";
+         try {
+             PreparedStatement statement = this.connection.prepareStatement(sql);
+             ResultSet results =  statement.executeQuery();
+             ArrayList<Produit> produits = new ArrayList<>();
+             Produit produit;
+             while (results.next()) {
+                 produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
+                 produit.setImages(getFiles(results.getString("images")));
+                 produits.add(produit);
+             }
+             return produits;
+         } catch (SQLException ex) {
+             System.out.println("erreur affichage produit");
+         }
+        return null;
+    }
          public ArrayList<Produit> findAllup() {
         String sql = "SELECT * FROM `produit` where quantite <> '0' order by prix";
          try {

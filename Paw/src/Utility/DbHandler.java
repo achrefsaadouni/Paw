@@ -9,6 +9,9 @@ public class DbHandler extends Configs {
     static DbHandler dbHandler ; 
     protected Connection dbconnection;
 
+    private DbHandler() {
+    }
+
     public static DbHandler getDBHandler(){
         if (dbHandler==null)
         {
@@ -16,6 +19,7 @@ public class DbHandler extends Configs {
         }
         return dbHandler;
     }
+    
     
     public Connection getConnection() {
         final String ConnectionString = "jdbc:mysql://" + Configs.dbhost + ":" + Configs.dbport + "/" + Configs.dbname;

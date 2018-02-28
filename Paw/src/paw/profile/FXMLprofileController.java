@@ -256,7 +256,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         
         AnnonceServices a = new AnnonceServices();
         annonces.setText(String.valueOf(a.getNbrMesAnnoncesLAF(session.getId())));
-        AchatService s = new AchatService();
+        AchatService s = AchatService.getAchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
         AnnonceAdoptionService aas = new AnnonceAdoptionService();
         mesoffresadoption.setText(String.valueOf(aas.nombreMesOffres(session.getId())));

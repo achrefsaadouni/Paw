@@ -422,7 +422,7 @@ public class FXMLAjouterController {
     }
 
     public void refresh() {
-        myproduits = produitservice.findAll();
+        myproduits = produitservice.findAllAdmin();
         ObservableList<Produit> articles = FXCollections.observableArrayList(myproduits);
         TreeItem<Produit> root = new RecursiveTreeItem<>(articles, RecursiveTreeObject::getChildren);
         produitsTableView.setRoot(root);

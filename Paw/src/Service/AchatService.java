@@ -32,7 +32,7 @@ public class AchatService {
         return achatservice;
     }
 
-    public AchatService() {
+    private AchatService() {
         handler = DbHandler.getDBHandler();
         connection = handler.getConnection();
     }

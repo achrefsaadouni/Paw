@@ -27,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import paw.MyNotifications;
+import paw.Paw;
 
 /**
  * FXML Controller class
@@ -152,7 +153,7 @@ public class FXMLAnnonceAccouplementsController implements Initializable {
                             choixInsertion.getValue(),
                             null,
                             file,
-                            2));
+                            Paw.session.getId()));
 
                     poilInsertion.setValue("Nus");
                     ageInsertion.setText("");

@@ -124,6 +124,7 @@ public class FXMLSittingListeAnnonceController {
         taskText.setText("");
     }
     ArrayList<AnnonceSitting> liste = null;
+    @FXML
     void initialize() {
         
         stackModif.setVisible(false);
