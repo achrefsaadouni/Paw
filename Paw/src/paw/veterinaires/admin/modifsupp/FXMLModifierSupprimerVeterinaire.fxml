@@ -4,11 +4,9 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
-<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -34,11 +32,10 @@
          </columns>
       </JFXTreeTableView>
       <JFXTextField fx:id="filtre" layoutX="902.0" layoutY="9.0" prefHeight="31.0" prefWidth="192.0" promptText="Rechercher" />
-      <AnchorPane fx:id="modifVet" layoutX="97.0" layoutY="50.0" prefHeight="545.0" prefWidth="947.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
+      <AnchorPane fx:id="modifVet" layoutX="310.0" layoutY="50.0" prefHeight="554.0" prefWidth="466.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" visible="false">
          <children>
-            <Separator layoutX="431.0" layoutY="78.0" orientation="VERTICAL" prefHeight="458.0" prefWidth="18.0" />
-            <Separator layoutX="20.0" layoutY="53.0" prefHeight="25.0" prefWidth="905.0" />
-            <Label layoutX="348.0" layoutY="18.0" text="Modifier un vétérinaire" textFill="#8d8686">
+            <Separator layoutX="63.0" layoutY="44.0" prefHeight="25.0" prefWidth="348.0" />
+            <Label layoutX="91.0" layoutY="12.0" text="Modifier un vétérinaire" textFill="#8d8686">
                <font>
                   <Font name="Roboto Slab Bold" size="27.0" />
                </font>
@@ -47,7 +44,7 @@
             <JFXTextField fx:id="prenomInsertion" labelFloat="true" layoutX="41.0" layoutY="216.0" prefColumnCount="10" prefHeight="25.0" prefWidth="160.0" promptText="PRENOM" />
             <JFXTextField fx:id="adresseInsertion" labelFloat="true" layoutX="19.0" layoutY="458.0" prefColumnCount="10" prefHeight="25.0" prefWidth="325.0" promptText="ADRESSE" />
             <JFXTextField fx:id="numeroInsertion" layoutX="41.0" layoutY="385.0" prefHeight="25.0" prefWidth="160.0" promptText="NUMERO" />
-            <JFXTextField fx:id="emailInsertion" labelFloat="true" layoutX="40.0" layoutY="304.0" prefColumnCount="10" prefHeight="25.0" prefWidth="160.0" promptText="EMAIL" />
+            <JFXTextField fx:id="emailInsertion" labelFloat="true" layoutX="40.0" layoutY="304.0" prefColumnCount="10" prefHeight="25.0" prefWidth="204.0" promptText="EMAIL" />
             <Label layoutX="269.0" layoutY="135.0" styleClass="labels" stylesheets="@../../../../css/mehdi.css" text="Gouvernorat" />
             <JFXButton alignment="CENTER" layoutX="254.0" layoutY="502.0" onAction="#actionInsertion" prefHeight="31.0" prefWidth="120.0" styleClass="headerbar" stylesheets="@../../../mainUI/style.css" text="Modifier" textFill="WHITE">
                <font>
@@ -65,14 +62,8 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="16" wrappingWidth="19.0" />
                </graphic>
             </JFXButton>
-            <JFXComboBox fx:id="gouv" layoutX="254.0" layoutY="158.0" onMouseClicked="#zoomGouv" prefHeight="25.0" prefWidth="122.0" />
+            <JFXComboBox fx:id="gouv" layoutX="254.0" layoutY="158.0" prefHeight="25.0" prefWidth="122.0" />
             <JFXTextField fx:id="idInsertion" visible="false" />
-            <AnchorPane layoutX="439.0" layoutY="66.0" prefHeight="469.0" prefWidth="507.0">
-               <children>
-                  <GoogleMapView fx:id="mapView" prefHeight="469.0" prefWidth="506.0" />
-                  <TextField fx:id="addressTextField" layoutX="5.0" layoutY="10.0" onAction="#addressTextFieldAction" prefHeight="32.0" prefWidth="274.0" promptText="Recherche ..." />
-               </children>
-            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

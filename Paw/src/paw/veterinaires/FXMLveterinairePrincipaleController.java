@@ -33,8 +33,6 @@ public class FXMLveterinairePrincipaleController extends FXMLCnxController{
     @FXML
     private JFXButton conseil1;
     @FXML
-    private AnchorPane FXMLAjoutVeterinaire;
-    @FXML
     private AnchorPane admin_window;
     /**
      * Initializes the controller class.
@@ -44,6 +42,7 @@ public class FXMLveterinairePrincipaleController extends FXMLCnxController{
         // TODO
     }    
 
+    @FXML
     private void GOtoVet(ActionEvent event) {
            loadSplashScreenAdmin("/paw/veterinaires/admin/modifsupp/FXMLModifierSupprimerVeterinaire.fxml");
     }
