@@ -6,7 +6,9 @@
 package paw.reclamation;
 
 import Entity.Reclamation;
+import Entity.RepRec;
 import Service.ReclamationServices;
+import Service.RepRecServices;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -25,6 +27,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
+import javafx.scene.control.Separator;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import org.controlsfx.control.Notifications;
@@ -81,14 +85,21 @@ public class FXMLReclamationController implements Initializable {
     @FXML
     private AnchorPane box3;
     @FXML
-    private Label nom12;
-    @FXML
     private StackPane vide;
+    @FXML
+    private AnchorPane rep;
+    @FXML
+    private Label reptext;
+    @FXML
+    private Separator separator;
+    @FXML
+    private Label repdate;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        rep.setVisible(false);
         ReclamationServices service= new ReclamationServices();
         ObservableList<String> types = FXCollections.observableArrayList(
             "Service Lost&Found",
@@ -205,7 +216,8 @@ public class FXMLReclamationController implements Initializable {
 
     private void initReclamationPage(int index) {
         paginator.setCurrentPageIndex(index);
-        List<Reclamation> TroisReclamations = getReclamationsPage(index);       
+        List<Reclamation> TroisReclamations = getReclamationsPage(index);  
+        ReclamationServices serv = new ReclamationServices();
         if (TroisReclamations.size() >= 1) {
             vide.setVisible(false);
             box1.setVisible(true);
@@ -220,6 +232,20 @@ public class FXMLReclamationController implements Initializable {
             titre1.setText(TroisReclamations.get(0).getObjet());
             text1.setText(TroisReclamations.get(0).getText());
             date1.setText(String.valueOf(TroisReclamations.get(0).getDate()).substring(0, 16));
+            
+            if (TroisReclamations.get(0).getEtat().equals("Traitée"))
+            {
+                box1.setOnMouseClicked((MouseEvent e) -> {
+                    initialiserDetails(TroisReclamations.get(0));
+                    rep.setVisible(true);
+                });
+            }
+            else
+            {
+                box1.setOnMouseClicked((MouseEvent e) -> {
+                });
+            }
+            
 
         } 
         else { 
@@ -240,6 +266,18 @@ public class FXMLReclamationController implements Initializable {
             titre2.setText(TroisReclamations.get(1).getObjet());
             text2.setText(TroisReclamations.get(1).getText());
             date2.setText(String.valueOf(TroisReclamations.get(1).getDate()).substring(0, 16));
+            if (TroisReclamations.get(1).getEtat().equals("Traitée"))
+            {    
+                box2.setOnMouseClicked((MouseEvent e) -> {
+                    initialiserDetails(TroisReclamations.get(1));
+                    rep.setVisible(true);
+                });
+            }
+            else
+            {
+                box2.setOnMouseClicked((MouseEvent e) -> {
+                });
+            }
         } 
         else{
             box2.setVisible(false);
@@ -259,11 +297,35 @@ public class FXMLReclamationController implements Initializable {
             titre3.setText(TroisReclamations.get(2).getObjet());
             text3.setText(TroisReclamations.get(2).getText());
             date3.setText(String.valueOf(TroisReclamations.get(2).getDate()).substring(0, 16));
+            if (TroisReclamations.get(2).getEtat().equals("Traitée"))
+            {  
+                box3.setOnMouseClicked((MouseEvent e) -> {
+                    initialiserDetails(TroisReclamations.get(2));
+                    rep.setVisible(true);
+                });
+            }
+            else
+            {
+                box3.setOnMouseClicked((MouseEvent e) -> {
+                });
+            }
         } 
         else{
             box3.setVisible(false); 
         }
 
+    }
+
+    @FXML
+    private void annulation(ActionEvent event) {
+        rep.setVisible(false);
+    }
+
+    private void initialiserDetails(Reclamation get) {
+        RepRecServices sdetails = new RepRecServices();
+        RepRec lareponse = sdetails.getReponse(get.getId());
+        repdate.setText("Réponse rédigée le : "+String.valueOf(lareponse.getDate()).substring(0, 16));
+        reptext.setText(lareponse.getText());
     }
     
 }
