@@ -72,7 +72,7 @@ public class AnnonceTrouveServices {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawLostFound\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawLostFound\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             return filePath;
