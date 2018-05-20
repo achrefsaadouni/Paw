@@ -77,7 +77,7 @@ public class AnnonceAccouplementServices {
             //
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            return filePath;
+            return imageName + extension;
         } catch (Exception ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
