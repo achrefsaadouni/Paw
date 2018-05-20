@@ -53,7 +53,7 @@ public class AnnonceTrouveServices {
             ste.setString(4, a.getRace());
             ste.setString(5, a.getMessage_complementaire());
             ste.setString(6, a.getType());
-            ste.setString(7, "annonce_trouvee");
+            ste.setString(7, "annonce_trouve");
             ste.setString(8, a.getColier());
             ste.setString(9, a.getLieu_trouve());
             ste.setInt(10, a.getId_utilisateur());
@@ -83,7 +83,7 @@ public class AnnonceTrouveServices {
     }
 
     public ObservableList<AnnonceTrouvee> getAll1() {
-        String req = "SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_trouvee'";
+        String req = "SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_trouve'";
         ObservableList<AnnonceTrouvee> list = FXCollections.observableArrayList();
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -149,7 +149,7 @@ public class AnnonceTrouveServices {
     }
 
     public ArrayList<AnnonceTrouvee> getMesAnnoncesTrouve(int i) {
-        String req = "SELECT * FROM annonce where type_annonce LIKE 'annonce_trouvee' and utilisateur_id=?";
+        String req = "SELECT * FROM annonce where type_annonce LIKE 'annonce_trouve' and utilisateur_id=?";
         ArrayList<AnnonceTrouvee> list = new ArrayList();
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -184,7 +184,7 @@ public class AnnonceTrouveServices {
     }
 
     public ArrayList<AnnonceTrouvee> getList() {
-        String req = "SELECT * FROM annonce a where a.type_annonce LIKE 'annonce_trouvee'";
+        String req = "SELECT * FROM annonce a where a.type_annonce LIKE 'annonce_trouve'";
         ArrayList<AnnonceTrouvee> list = new ArrayList();
         try {
             PreparedStatement ste = connection.prepareStatement(req);
@@ -315,7 +315,7 @@ public class AnnonceTrouveServices {
     }
 
     public int getAnnoncetr() {
-        String req = "SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_trouvee' ";
+        String req = "SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_trouve' ";
         int x = 0;
         try {
             PreparedStatement ste = connection.prepareStatement(req);

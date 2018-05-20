@@ -112,11 +112,11 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         fmodif.setSelectedColor(Color.rgb(51, 122, 183));
         modifanchor.setVisible(false);
         try{
-            avatar.setImage(new Image("http://localhost/paw/web/images/pawUsers/"+session.getAvatar()));
+            avatar.setImage(new Image("http://localhost/paw_web/web/images/pawUsers/"+session.getAvatar()));
             avatar.setFitWidth(175);
             avatar.setFitHeight(169);
             
-            avatarmodif.setImage(new Image("http://localhost/paw/web/images/pawUsers/"+session.getAvatar()));
+            avatarmodif.setImage(new Image("http://localhost/paw_web/web/images/pawUsers/"+session.getAvatar()));
             
         }
         catch(Exception e)
@@ -207,7 +207,6 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         nommodif.setText(session.getNom());
         prenommodif.setText(session.getPrenom());
         adressemodif.setText(session.getAddresse());
-        emailmodif.setText(session.getEmail());
         numeromodif.setText(String.valueOf(session.getNumero()));
         if (session.getSexe().equals("Homme"))
         {
@@ -256,7 +255,7 @@ public class FXMLprofileController extends FXMLCnxController implements Initiali
         
         AnnonceServices a = new AnnonceServices();
         annonces.setText(String.valueOf(a.getNbrMesAnnoncesLAF(session.getId())));
-        AchatService s = AchatService.getAchatService();
+        AchatService s =AchatService.getAchatService();
         achats.setText(String.valueOf(s.nombreAchat(session.getId())));
         AnnonceAdoptionService aas = new AnnonceAdoptionService();
         mesoffresadoption.setText(String.valueOf(aas.nombreMesOffres(session.getId())));

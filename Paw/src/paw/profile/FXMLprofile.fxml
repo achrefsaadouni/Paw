@@ -79,6 +79,24 @@
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
          </children>
       </AnchorPane>
+      <Pane layoutX="464.0" layoutY="446.0" onMouseClicked="#goToMesAccouplements" prefHeight="128.0" prefWidth="200.0" style="-fx-background-color: #546E7A; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <Pane layoutY="101.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #37474F;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" prefHeight="25.0" prefWidth="200.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="Consulter" />
+               </children>
+            </Pane>
+            <VBox layoutY="12.0" prefHeight="90.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="mesaccouplements" prefHeight="43.0" prefWidth="64.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="150" />
+                  <Label alignment="TOP_LEFT" prefHeight="58.0" prefWidth="190.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="Mes annonces d'accouplement" wrapText="true" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </Pane>
       <Pane layoutX="814.0" layoutY="266.0" onMouseClicked="#goToCours" prefHeight="128.0" prefWidth="200.0" style="-fx-background-color: #DD4B39; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
          <children>
             <Pane layoutY="101.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #B13C2E;">
@@ -89,7 +107,7 @@
             <VBox layoutY="12.0" prefHeight="66.0" prefWidth="155.0">
                <children>
                   <Label fx:id="reclamations" prefHeight="43.0" prefWidth="64.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="150" />
-                  <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="Mes réclamations" />
+                  <Label prefHeight="25.0" prefWidth="145.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="Mes FeedBacks" />
                </children>
                <padding>
                   <Insets left="10.0" />
@@ -212,24 +230,6 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <Pane layoutX="464.0" layoutY="446.0" onMouseClicked="#goToMesAccouplements" prefHeight="128.0" prefWidth="200.0" style="-fx-background-color: #546E7A; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
-         <children>
-            <Pane layoutY="101.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #37474F;">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" prefHeight="25.0" prefWidth="200.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #F0F0F0;" text="Consulter" />
-               </children>
-            </Pane>
-            <VBox layoutY="12.0" prefHeight="90.0" prefWidth="200.0">
-               <children>
-                  <Label fx:id="mesaccouplements" prefHeight="43.0" prefWidth="64.0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: white;" text="150" />
-                  <Label alignment="TOP_LEFT" prefHeight="58.0" prefWidth="190.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="Mes annonces d'accouplement" wrapText="true" />
-               </children>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </VBox>
-         </children>
-      </Pane>
       <Pane layoutX="814.0" layoutY="446.0" onMouseClicked="#goToSitting" prefHeight="128.0" prefWidth="200.0" style="-fx-background-color: #8E24AA; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
          <children>
             <Pane layoutY="101.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #6A1B9A;">

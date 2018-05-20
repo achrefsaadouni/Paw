@@ -173,7 +173,7 @@ public class FXMLutilisateursController implements Initializable {
     }
 
     private void voirUtilisateur(Utilisateur r) {
-        if(r.getRole().equals("Membre"))
+        if(r.getRole().equals("a:0:{}"))
         {
             btn.setText("Rendre Administrateur");
             btn.setOnAction((ActionEvent) ->{
@@ -183,7 +183,7 @@ public class FXMLutilisateursController implements Initializable {
                 liste=s.getListePourAdmin(session.getId());
                 initUtilisateurs();
                 Utilisateur n = r ;
-                n.setRole("Admin");
+                n.setRole("a:1:{i:0;s:10:\"ROLE_ADMIN\";}");
                 voirUtilisateur(n);
                 JFXSnackbar snack = new JFXSnackbar(infos);
                 snack.show(r.getEsm()+" est désormais Admin", 2000);
@@ -205,7 +205,7 @@ public class FXMLutilisateursController implements Initializable {
                 liste=s.getListePourAdmin(session.getId());
                 initUtilisateurs();
                 Utilisateur n = r ;
-                n.setRole("Membre");
+                n.setRole("a:0:{}");
                 voirUtilisateur(n);
                 JFXSnackbar snack = new JFXSnackbar(infos);
                 snack.show(r.getEsm()+" est désormais un simple Membre", 2000);
@@ -217,8 +217,9 @@ public class FXMLutilisateursController implements Initializable {
             }
             });
         }
-    ////////////////////////////////////////////////////////////////////////////////    
-        if(r.getEtat().equals("Free"))
+    ////////////////////////////////////////////////////////////////////////////////   
+        System.out.println(r.getConfirmed());
+        if(r.getConfirmed().equals("1"))
         {
             btnbanir.setText("Bloquer");
             btnbanir.setOnAction((ActionEvent) ->{
@@ -228,7 +229,7 @@ public class FXMLutilisateursController implements Initializable {
                 liste=s.getListePourAdmin(session.getId());
                 initUtilisateurs();
                 Utilisateur n = r ;
-                n.setEtat("Bani");
+                n.setEtat("0");
                 voirUtilisateur(n);
                 JFXSnackbar snack = new JFXSnackbar(infos);
                 snack.show("Vous avez bloqué "+r.getEsm(), 2000);
@@ -250,7 +251,7 @@ public class FXMLutilisateursController implements Initializable {
                 liste=s.getListePourAdmin(session.getId());
                 initUtilisateurs();
                 Utilisateur n = r ;
-                n.setEtat("Free");
+                n.setEtat("1");
                 voirUtilisateur(n);
                 JFXSnackbar snack = new JFXSnackbar(infos);
                 snack.show("Vous avez débloqué "+r.getEsm(), 2000);
@@ -263,6 +264,7 @@ public class FXMLutilisateursController implements Initializable {
             });
         }
          ////////////////////////////////////////////////////////////
+         btnbanir.setVisible(false);
         selectionnez.setVisible(false);
         image.setVisible(true);
         tableau.setVisible(true);
@@ -276,7 +278,12 @@ public class FXMLutilisateursController implements Initializable {
         usernameu.setText(r.getUsername());
         dateinscriptionu.setText(String.valueOf(r.getDateInscription()));
         sexeu.setText(r.getSexe());
-        roleu.setText(r.getRole());
+        String zez="Admin";
+        if(r.getRole().equals("a:0:{}"))
+        {
+            zez="Membre";
+        }
+        roleu.setText(zez);
     }
 
     

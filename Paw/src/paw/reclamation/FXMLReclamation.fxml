@@ -16,7 +16,7 @@
    <children>
       <AnchorPane fx:id="reclamations" layoutX="15.0" layoutY="289.0" prefHeight="347.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;">
          <children>
-            <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes reclamations" />
+            <Label fx:id="nom1" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="301.0" styleClass="names" stylesheets="@../../css/Master.css" text="Mes FeedBacks" />
             <Separator layoutX="2.0" layoutY="43.0" prefHeight="4.0" prefWidth="696.0" />
             <Pagination fx:id="paginator" layoutX="150.0" layoutY="294.0" pageCount="300" prefHeight="47.0" prefWidth="800.0" />
             <AnchorPane fx:id="box1" layoutX="15.0" layoutY="52.0" prefHeight="72.0" prefWidth="1040.0" style="-fx-background-color: #00A65A; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: #008448; -fx-border-width: 0 0 0 4;">
@@ -44,9 +44,9 @@
       </AnchorPane>
       <AnchorPane layoutX="20.0" layoutY="17.0" prefHeight="261.0" prefWidth="1070.0" style="-fx-effect: dropshadow(gaussian,rgb(0.0,0.0,0.0,0.15),6.0,0.7,0.0,1.5); -fx-background-color: white;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
-            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Ajouter une reclamation" />
+            <Label fx:id="nom11" alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="368.0" styleClass="names" stylesheets="@../../css/Master.css" text="Ajouter un FeedBack" />
             <Separator layoutX="3.0" layoutY="43.0" prefHeight="4.0" prefWidth="1064.0" />
-            <JFXTextArea fx:id="msg" layoutX="210.0" layoutY="105.0" prefHeight="62.0" prefWidth="825.0" promptText="Expliquez nous en plus la réclamation..." />
+            <JFXTextArea fx:id="msg" layoutX="210.0" layoutY="105.0" prefHeight="62.0" prefWidth="825.0" promptText="Expliquez nous en plus .." />
             <Label layoutX="87.0" layoutY="66.0" styleClass="aaaroboto" stylesheets="@../../css/Master.css" text="Objet">
                <font>
                   <Font size="20.0" />
@@ -75,7 +75,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="titre" layoutX="211.0" layoutY="73.0" prefHeight="25.0" prefWidth="467.0" promptText="Choisissez l'objet de la réclamation" />
+            <JFXComboBox fx:id="titre" layoutX="211.0" layoutY="73.0" prefHeight="25.0" prefWidth="467.0" promptText="Choisissez l'objet du FeedBack" />
          </children>
       </AnchorPane>
       <StackPane fx:id="vide" layoutX="235.0" layoutY="380.0" prefHeight="149.0" prefWidth="650.0">

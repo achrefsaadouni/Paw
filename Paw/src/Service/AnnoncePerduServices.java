@@ -89,7 +89,7 @@ public class AnnoncePerduServices
             ste.setString(4,a.getRace()) ;
             ste.setString(5,a.getMessage_complementaire()) ;
             ste.setString(6,a.getType()) ;
-            ste.setString(7,"annonce_perte");
+            ste.setString(7,"annonce perdu");
             ste.setString(8, a.getColier());
             ste.setDate(9, (java.sql.Date) a.getDate_perte());
             ste.setString(10, a.getLieu_perdu());
@@ -122,7 +122,7 @@ public class AnnoncePerduServices
      
      
     public ObservableList<AnnoncePerdu> getAll1(){
-        String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce_perte'" ;
+        String req="SELECT * FROM annonce WHERE type_annonce LIKE 'annonce perdu'" ;
         ObservableList<AnnoncePerdu> list = FXCollections.observableArrayList();
         try 
         { 
@@ -156,7 +156,7 @@ public class AnnoncePerduServices
     }
      
     public ArrayList<AnnoncePerdu> getList(){
-        String req="SELECT * FROM annonce a where a.type_annonce LIKE 'annonce_perte'" ;
+        String req="SELECT * FROM annonce a where a.type_annonce LIKE 'annonce perdu'" ;
         ArrayList<AnnoncePerdu> list = new ArrayList();
         try 
         { 
@@ -258,7 +258,7 @@ public class AnnoncePerduServices
       }
 
        public ArrayList<AnnoncePerdu> getMesAnnoncesPerdus(int i){
-        String req="SELECT * FROM annonce where type_annonce LIKE 'annonce_perte' and utilisateur_id=?" ;
+        String req="SELECT * FROM annonce where type_annonce LIKE 'annonce perdu' and utilisateur_id=?" ;
         ArrayList<AnnoncePerdu> list = new ArrayList();
         try 
         { 
@@ -403,12 +403,12 @@ public class AnnoncePerduServices
     }   
            
             public int getAnnoncePe() {
-        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_perte' " ;
+        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce perdu' " ;
         int x=0;
         try 
         { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            //ste.setString(1, "annonce_perte");
+            //ste.setString(1, "annonce perdu");
             ResultSet rs = ste.executeQuery(); 
             while (rs.next())
             {
@@ -423,7 +423,7 @@ public class AnnoncePerduServices
             
             
             public double getAnnonceTrou() {
-        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_trouvee' " ;
+        String req="SELECT count(*) as a FROM annonce WHERE type_annonce like 'annonce_trouve' " ;
         double x=0;
         try 
         { 

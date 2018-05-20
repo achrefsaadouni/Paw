@@ -32,11 +32,11 @@ public class LoginServices {
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,usern) ; 
-            ste.setString(2,DigestUtils.shaHex(passw)) ;     
+            ste.setString(2,MD5(passw)) ;     
             ResultSet rs = ste.executeQuery(); 
             if (rs.next())
             {
-                if (rs.getString("code").startsWith("Bani"))
+                if (rs.getString("enabled").startsWith("0"))
                 {
                     return -2;
                 }
@@ -68,13 +68,13 @@ public class LoginServices {
             String email=rs.getString("email");
             String username=rs.getString("username");
             String password=rs.getString("password");
-            String role=rs.getString("role");
+            String role=rs.getString("roles");
             String avatar=rs.getString("avatar");
             String sexe=rs.getString("sexe");
             Date dateInscription=rs.getDate("dateInscription");
             int numero=rs.getInt("numero");
             String code=rs.getString("code");
-            String confirmed=rs.getString("confirmed");
+            String confirmed=rs.getString("enabled");
             return new Utilisateur(
                     id,
                     nom,
@@ -96,5 +96,20 @@ public class LoginServices {
         }
         return null;
     }
-   
-}
+    
+    
+    public String MD5(String md5) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(md5.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+              sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+           }
+            return sb.toString();
+        } 
+        catch (java.security.NoSuchAlgorithmException e) {
+        }
+            return null;
+        }
+    }

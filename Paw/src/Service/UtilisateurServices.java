@@ -6,6 +6,7 @@
 package Service;
 
 import Entity.Utilisateur;
+import Utility.Checksum;
 import Utility.DbHandler;
 import java.sql.Connection;
 import java.sql.Date;
@@ -33,21 +34,24 @@ public class UtilisateurServices {
     public void insererUtilisateur (Utilisateur p)
     {
         String image = "";
-        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar,code,confirmed) VALUES(?,?,?,?,?,?,?,?,?,now(),?,?,?)" ; 
+        String req="INSERT INTO utilisateur (nom,prenom,email,username,password,addresse,numero,role,sexe,dateInscription,avatar,code,confirmed,username_canonical,email_canonical,enabled,roles) VALUES(?,?,?,?,?,?,?,?,?,now(),?,?,?,?,?,1,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getNom().toLowerCase()) ; 
             ste.setString(2,p.getPrenom().toLowerCase()) ;
             ste.setString(3,p.getEmail().toLowerCase()) ; 
             ste.setString(4,p.getUsername().toLowerCase()) ; 
-            ste.setString(5,DigestUtils.shaHex(p.getPassword())) ; 
+            ste.setString(5,MD5(p.getPassword())) ; 
             ste.setString(6,p.getAddresse()) ; 
             ste.setInt(7,p.getNumero()) ; 
-            ste.setString(8,p.getRole()) ;
+            ste.setString(8,"a:0:{}") ;
             ste.setString(9,p.getSexe()) ; 
             ste.setString(10,p.getAvatar()) ;
             ste.setString(11,"Free"+p.getCode()) ; 
             ste.setString(12,p.getConfirmed()) ;
+            ste.setString(13,p.getUsername().toLowerCase()) ;
+            ste.setString(14,p.getEmail().toLowerCase()) ;
+            ste.setString(15,"a:0:{}");
             
               ste.executeUpdate() ; 
             
@@ -74,7 +78,7 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                String role = rs.getString("role");
+                String role = rs.getString("roles");
                 int numero = rs.getInt("numero");
                 list.add(new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role));
             }
@@ -110,7 +114,7 @@ public class UtilisateurServices {
     }
     public void updateUtilisateur (Utilisateur p, int id )
     {
-    String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,addresse=?,numero=?,role=? WHERE id =?" ; 
+    String req="UPDATE utilisateur SET nom=?,prenom=?, email=?, username=?, password=?,addresse=?,numero=?,roles=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
              
@@ -163,7 +167,7 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                String role = rs.getString("role");
+                String role = rs.getString("roles");
                 String sexe = rs.getString("sexe");
                 int numero = rs.getInt("numero");
                 return new Utilisateur(id, nom, prenom, email, username, password,addresse,numero,role,sexe);
@@ -218,7 +222,7 @@ public class UtilisateurServices {
                 String email = rs.getString("email");
                 String username = rs.getString("username");
                 String password = rs.getString("password");
-                String role = rs.getString("role");
+                String role = rs.getString("roles");
                 int numero = rs.getInt("numero");
                 String avatar = rs.getString("avatar");
                 Date dateInscription = rs.getDate("dateInscription");
@@ -235,10 +239,12 @@ public class UtilisateurServices {
     }
 
     public Boolean rendreAdmin(int id) {
-        String req="UPDATE utilisateur SET role='Admin' WHERE id =?" ; 
+        String req="UPDATE utilisateur SET roles=? , role=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,id) ;
+            ste.setString(1, "a:1:{i:0;s:10:\"ROLE_ADMIN\";}");
+            ste.setString(2, "a:1:{i:0;s:10:\"ROLE_ADMIN\";}");
+            ste.setInt(3,id) ;
             ste.executeUpdate() ;  
             return true ;
         } catch (SQLException ex) {
@@ -248,10 +254,12 @@ public class UtilisateurServices {
     }
 
     public Boolean rendreMembre(int id) {
-        String req="UPDATE utilisateur SET role='Membre' WHERE id =?" ; 
+        String req="UPDATE utilisateur SET roles=? , role=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setInt(1,id) ;
+            ste.setString(1, "a:0:{}");
+            ste.setString(2, "a:0:{}");
+            ste.setInt(3,id) ;
             ste.executeUpdate() ; 
             return true ;
         } catch (SQLException ex) {
@@ -261,10 +269,10 @@ public class UtilisateurServices {
     }
 
     public boolean bloquer(int id,String code) {
-        String req="UPDATE utilisateur SET code=? WHERE id =?" ; 
+        String req="UPDATE utilisateur SET enabled=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;   
-            ste.setString(1,"Bani"+code);
+            ste.setInt(1,0);
             ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             return true ;
@@ -275,10 +283,10 @@ public class UtilisateurServices {
     }
 
     public boolean debloquer(int id,String code) {
-       String req="UPDATE utilisateur SET code=? WHERE id =?" ; 
+       String req="UPDATE utilisateur SET enabled=? WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1,"Free"+code);
+            ste.setInt(1,1);
             ste.setInt(2,id) ;
             ste.executeUpdate() ; 
             return true ;
@@ -341,9 +349,10 @@ public class UtilisateurServices {
 
     public int nombreNonConfirmes() {
         int y = 0;
-        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='no' and role='Membre'";
+        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='0' and roles=?";
         try {
             PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setString(1, "a:0:{}");
             ResultSet results = statement.executeQuery();
             while (results.next()) {
                 y = results.getInt("nbr");
@@ -355,9 +364,10 @@ public class UtilisateurServices {
     }
     public int nbrConfirmes() {
         int y = 0;
-        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='yes' and role='Membre'";
+        String sql = "SELECT count(*) as nbr FROM `utilisateur` where confirmed='1' and roles=?";
         try {
             PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setString(1, "a:0:{}");
             ResultSet results = statement.executeQuery();
             while (results.next()) {
                 y = results.getInt("nbr");
@@ -378,4 +388,18 @@ public class UtilisateurServices {
             System.out.println(ex);
         }
     }
+    public String MD5(String md5) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(md5.getBytes());
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < array.length; ++i) {
+              sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+           }
+            return sb.toString();
+        } 
+        catch (java.security.NoSuchAlgorithmException e) {
+        }
+            return null;
+        }
 }

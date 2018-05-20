@@ -201,16 +201,12 @@ public class FXMLCnxController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         username.setText(session.getUsername());
-        if ("Admin".equals(session.getRole()))
-        {
-            email.setText(session.getEmail());
-            profile.setMouseTransparent(true);
-        }
-        else
+        if ("a:0:{}".equals(session.getRole()))
         {
             profile.setMouseTransparent(false);
             if(session.getConfirmed().equals("no"))
-            {
+            {   email.setText(session.getEmail());
+                /*
                 email.setText(session.getEmail()+"(Non confirmée)");
                 email.setOnMouseClicked((ev) -> {
                     stackConfirmation.setMouseTransparent(false);
@@ -253,18 +249,25 @@ public class FXMLCnxController implements Initializable {
                     contentConfirmation.setActions(oui,non);
                     dialog.show();
                 });
+                   */
             }
             else
             {
                 email.setText(session.getEmail());
             }
+        }
+        else
+        {
+            email.setText(session.getEmail());
+            profile.setMouseTransparent(true);
+            
             
         }
         
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         try {
             AnchorPane menu = null;
-            if ("Admin".equals(session.getRole())) {
+            if (!"a:0:{}".equals(session.getRole())) {
                 menu = FXMLLoader.load(getClass().getResource("/paw/mainUI/FXMLAdmin.fxml"));
 
                 menu.setOnMouseClicked(e -> {
@@ -488,7 +491,7 @@ public class FXMLCnxController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLCnxController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if ("Admin".equals(session.getRole())) {
+        if (!"a:0:{}".equals(session.getRole())) {
             initAdmin();
         } else {
             initpanier();
@@ -503,7 +506,7 @@ public class FXMLCnxController implements Initializable {
 
     @FXML
     private void goToProfile(MouseEvent event) throws IOException {
-         if ("Admin".equals(session.getRole())) {
+         if (!"a:0:{}".equals(session.getRole())) {
              loadSplashScreenAdmin("/paw/profile/FXMLprofile.fxml");
          }
          else 

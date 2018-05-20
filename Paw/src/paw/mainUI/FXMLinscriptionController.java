@@ -9,6 +9,7 @@ import Entity.Connexion;
 import Entity.Utilisateur;
 import Service.ConnexionServices;
 import Service.InscriptionService;
+import Service.UtilisateurServices;
 import Service.LoginServices;
 import Service.ProduitService;
 import Service.UtilisateurServices;
@@ -243,7 +244,7 @@ public class FXMLinscriptionController implements Initializable {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawUsers\\"+imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawUsers\\"+imageName + extension;
             chaine =imageName + extension;
             System.out.println(chaine);
             File dest = new File(filePath);
@@ -273,7 +274,7 @@ public class FXMLinscriptionController implements Initializable {
                 !password.getText().equals("") && 
                 !confirmer.getText().equals("") &&
                 !rue.getText().equals("") &&
-                !ville.getValue().equals("") &&    
+                ville.getValue()!=null &&    
                 isInteger(numero) &&    
                 !username.getText().equals("")
                 )
@@ -305,7 +306,7 @@ public class FXMLinscriptionController implements Initializable {
                                     email.getText(), 
                                     username.getText(), 
                                     password.getText(), 
-                                    "Membre", 
+                                    "a:0:{}", 
                                     sexe,
                                     Integer.parseInt(numero.getText()), 
                                     chaine, 
@@ -313,10 +314,10 @@ public class FXMLinscriptionController implements Initializable {
                                     "Free"+code,
                                     "no");
                             s.insererUtilisateur(p);
-                            Mail.send(email.getText(), "Confirmation de l'adresse Email", "Bienvenue à la famille Paw : \n Pour Confimer votre adresse email veuillez utiliser ce code : " + code + "\n");
+                            //Mail.send(email.getText(), "Confirmation de l'adresse Email", "Bienvenue à la famille Paw : \n Pour Confimer votre adresse email veuillez utiliser ce code : " + code + "\n");
                             
 
-                            Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();
+                            //Notifications.create().text("Un code de confirmation à été envoyé à "+p.getEmail()).title("Bienvenue chez Paw").show();
                             LoginServices servicelogin = new LoginServices();
                             int x =servicelogin.Valide(username.getText(), password.getText());
                             if(x!=-1 && x!=0)
