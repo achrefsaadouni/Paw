@@ -234,7 +234,7 @@ public class FXMLVeterinairesController extends FXMLCnxController implements Ini
                 note1.setText(String.valueOf((QuatreVeterinaires.get(0).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(0).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawVets/" + QuatreVeterinaires.get(0).getImages().getName());
 //            photo1.setFitHeight(225);
 //            photo1.setFitWidth(250);
             photo1.setImage(im);
@@ -308,7 +308,7 @@ public class FXMLVeterinairesController extends FXMLCnxController implements Ini
             } else {
                 note2.setText(String.valueOf((QuatreVeterinaires.get(1).getRate()).intValue()) + "/5");
             }
-            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(1).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawVets/" + QuatreVeterinaires.get(1).getImages().getName());
 //            photo2.setFitHeight(225);
 //            photo2.setFitWidth(250);
             photo2.setImage(im);
@@ -381,7 +381,7 @@ public class FXMLVeterinairesController extends FXMLCnxController implements Ini
                 note3.setText(String.valueOf((QuatreVeterinaires.get(2).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(2).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawVets/" + QuatreVeterinaires.get(2).getImages().getName());
 //            photo3.setFitHeight(225);
 //            photo3.setFitWidth(250);
             photo3.setImage(im);
@@ -457,7 +457,7 @@ public class FXMLVeterinairesController extends FXMLCnxController implements Ini
                 note4.setText(String.valueOf((QuatreVeterinaires.get(3).getRate()).intValue()) + "/5");
             }
             
-            Image im = new Image("http://localhost/paw/web/images/pawVets/" + QuatreVeterinaires.get(3).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawVets/" + QuatreVeterinaires.get(3).getImages().getName());
 //            photo4.setFitHeight(225);
 //            photo4.setFitWidth(250);
             photo4.setImage(im);

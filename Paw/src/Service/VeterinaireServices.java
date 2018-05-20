@@ -223,10 +223,10 @@ public class VeterinaireServices {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawVets\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawVets\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            return filePath;
+            return imageName + extension;
         } catch (Exception ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -163,7 +163,7 @@ public class FXMLRechercheVetsController implements Initializable, MapComponentI
                 } else {
                     note.setText(String.valueOf((v.getRate()).intValue()) + "/5");
                 }
-                Image im = new Image("http://localhost/pawVets/" + v.getImages());
+                Image im = new Image("http://localhost/paw_web/web/images/pawVets/" + v.getImages());
 //            photo1.setFitHeight(225);
 //            photo1.setFitWidth(250);
                 avatar.setImage(im);

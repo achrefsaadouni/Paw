@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -202,7 +204,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date1.setText(String.valueOf(QuatreAnnonceAccouplements.get(0).getDate()).substring(0, 10));
 
             
-            Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(0).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawPets/" + QuatreAnnonceAccouplements.get(0).getImages().getName());
             photo1.setFitHeight(225);
             photo1.setFitWidth(250);
             photo1.setImage(im);
@@ -231,7 +233,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date2.setText(String.valueOf(QuatreAnnonceAccouplements.get(1).getDate()).substring(0, 10));
            
             
-            Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(1).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawPets/" + QuatreAnnonceAccouplements.get(1).getImages().getName());
             photo2.setFitHeight(225);
             photo2.setFitWidth(250);
             photo2.setImage(im);
@@ -259,7 +261,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date3.setText(String.valueOf(QuatreAnnonceAccouplements.get(2).getDate()).substring(0, 10));
            
             
-            Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(2).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawPets/" + QuatreAnnonceAccouplements.get(2).getImages().getName());
             photo3.setFitHeight(225);
             photo3.setFitWidth(250);
             photo3.setImage(im);
@@ -287,7 +289,7 @@ public class FXMLToutesLesAccouplementsController implements Initializable {
             date4.setText(String.valueOf(QuatreAnnonceAccouplements.get(3).getDate()).substring(0, 10));
             
             
-            Image im = new Image("http://localhost/paw/web/images/pawPets/" + QuatreAnnonceAccouplements.get(3).getImages().getName());
+            Image im = new Image("http://localhost/paw_web/web/images/pawPets/" + QuatreAnnonceAccouplements.get(3).getImages().getName());
             photo4.setFitHeight(225);
             photo4.setFitWidth(250);
             photo4.setImage(im);

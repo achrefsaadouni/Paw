@@ -71,7 +71,7 @@ public class AnnonceAccouplementServices {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawPets\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawPets\\" + imageName + extension;
             
             
             //
