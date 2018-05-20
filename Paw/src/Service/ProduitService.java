@@ -49,11 +49,11 @@ public class ProduitService {
         connection =handler.getConnection();
     }
     
-    public void addProduit(Produit p)
+    public void addProduit(Produit p,List<File> files)
     {
-        String images="";
-        images = p.getImages().stream().map((i) -> imageSave(i)+";").reduce(images, String::concat);
-        String req="INSERT INTO `produit` (`libelle`,`prix`,`quantite`,`description`,`type`,`images`) VALUES(?,?,?,?,?,?)" ; 
+        p.setImage1(imageSave(files.get(0)));
+        p.setImage2( imageSave(files.get(1)));
+        String req="INSERT INTO `produit` (`libelle`,`prix`,`quantite`,`description`,`type`,`image1`,`image2`) VALUES(?,?,?,?,?,?,?)" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
             ste.setString(1,p.getLibelle()) ;
@@ -61,11 +61,13 @@ public class ProduitService {
             ste.setInt(3,p.getQuantite()) ; 
             ste.setString(4,p.getDescription()) ; 
             ste.setString(5,p.getType()) ; 
-            ste.setString(6,images) ; 
+            ste.setString(6,p.getImage1()) ;
+            ste.setString(7,p.getImage2()) ;
             ste.executeUpdate() ; 
         } catch (SQLException ex) {
             System.out.println("Problème insertion Produit");
         }
+        
         
     }
     
@@ -87,28 +89,43 @@ public class ProduitService {
         
         Produit p =rechercher(id);
         String images="";
+        
         if (index ==0)
         {
-          deleteImage(p.getImages().get(0));
-          images = imageSave(f)+";"+p.getImages().get(1).toPath().toString();
-          
-        }
-        else if(index==1)
-        {
-            deleteImage(p.getImages().get(1));
-            images =p.getImages().get(0).toPath().toString()+";"+imageSave(f);
-            
-        }
-        String req="UPDATE `produit` set images=?  WHERE id =?" ; 
+          String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawBoutique\\" +p.getImage1();
+          deleteImage(new File(filePath));
+          p.setImage1(imageSave(f));
+             String req="UPDATE `produit` set image1=?  WHERE id =?" ; 
         try { 
             PreparedStatement ste = connection.prepareStatement(req) ;
-            ste.setString(1,images) ;
+            ste.setString(1,p.getImage1()) ;
             ste.setInt(2,id) ;
             ste.executeUpdate() ;
             
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+          
+        }
+        else if(index==1)
+        {
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawBoutique\\" +p.getImage2();
+            deleteImage(new File(filePath));
+              p.setImage2(imageSave(f));
+              
+                 String req="UPDATE `produit` set image2=?  WHERE id =?" ; 
+        try { 
+            PreparedStatement ste = connection.prepareStatement(req) ;
+            ste.setString(1,p.getImage2()) ;
+            ste.setInt(2,id) ;
+            ste.executeUpdate() ;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+            
+        }
+     
     
     }
 
@@ -192,7 +209,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                 produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -210,7 +228,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                 produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -228,7 +247,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -249,7 +269,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -269,7 +290,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -289,7 +311,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -309,7 +332,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -328,7 +352,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -349,7 +374,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -369,7 +395,8 @@ public class ProduitService {
              Produit produit;
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                   produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
                  produits.add(produit);
              }
              return produits;
@@ -396,10 +423,10 @@ public class ProduitService {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawBoutique\\" + imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawBoutique\\" + imageName + extension;
             File dest = new File(filePath);
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            return filePath;
+            return imageName + extension;
         } catch (Exception ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -416,7 +443,8 @@ public class ProduitService {
              
              while (results.next()) {
                  produit = new Produit(results.getInt("id"),results.getString("libelle"),results.getFloat("prix"),results.getInt("quantite"),results.getString("description"),results.getString("type"));
-                 produit.setImages(getFiles(results.getString("images")));
+                    produit.setImage1(results.getString("image1"));
+                 produit.setImage2(results.getString("image2"));
              }
              
          } catch (SQLException ex) {

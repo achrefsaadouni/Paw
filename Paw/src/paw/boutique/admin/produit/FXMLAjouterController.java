@@ -152,9 +152,9 @@ public class FXMLAjouterController {
             alert.show();
             upload.requestFocus();
         } else {
-            Produit produit = new Produit(libelle.getText(), Float.valueOf(prix.getText()), Integer.valueOf(quantite.getText()), description.getText(), files, type.getValue());
+            Produit produit = new Produit(libelle.getText(), Float.valueOf(prix.getText()), Integer.valueOf(quantite.getText()), description.getText(), files.get(0).getName(),files.get(1).getName(), type.getValue());
             produitservice = ProduitService.getProduitService();
-            produitservice.addProduit(produit);
+            produitservice.addProduit(produit,files);
             MyNotifications.infoNotification("Ajout", "Produit ajouté avec Succès");
             refresh();
         }
@@ -318,7 +318,7 @@ public class FXMLAjouterController {
             Produit produit = (Produit) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                img = new Image("http://localhost/paw/web/images/pawBoutique/" + produit.getImages().get(0).getName());
+                img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + produit.getImage1());
                 im.setFitHeight(100);
                 im.setFitWidth(100);
                 im.setImage(img);
@@ -335,7 +335,7 @@ public class FXMLAjouterController {
             Produit produit = (Produit) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                img1 = new Image("http://localhost/paw/web/images/pawBoutique/" + produit.getImages().get(1).getName());
+                img1 = new Image("http://localhost/paw_web/web/images/pawBoutique/" + produit.getImage2());
                 im.setFitHeight(100);
                 im.setFitWidth(100);
                 im.setImage(img1);
@@ -379,7 +379,7 @@ public class FXMLAjouterController {
 
             ImageView im = new ImageView();
             try {
-                img1 = new Image("http://localhost/paw/web/images/pawIcons/cancel.png");
+                img1 = new Image("http://localhost/paw_web/web/images/pawIcons/cancel.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -506,7 +506,7 @@ public class FXMLAjouterController {
         type.setValue("");
         Image im = null;
         try {
-            im = new Image("http://localhost/paw/web/images/pawIcons/logo.png");
+            im = new Image("http://localhost/paw_web/web/images/pawIcons/logo.png");
         } catch (Exception e) {
             System.out.println(e);
         }

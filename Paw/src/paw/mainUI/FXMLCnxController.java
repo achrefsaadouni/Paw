@@ -670,7 +670,7 @@ public class FXMLCnxController implements Initializable {
             LigneAchat achat = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + achat.getProduit().getImages().get(0).getName());
+                Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + achat.getProduit().getImage1());
                 im.setFitHeight(50);
                 im.setFitWidth(50);
                 im.setImage(img);
@@ -688,7 +688,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/cancel.png");
+                Image img1 = new Image("http://localhost/paw_web/web/images/pawIcons/cancel.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -714,7 +714,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/add-square-button.png");
+                Image img1 = new Image("http://localhost/paw_web/web/images/pawIcons/add-square-button.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);
@@ -739,7 +739,7 @@ public class FXMLCnxController implements Initializable {
 
             ImageView im = new ImageView();
             try {
-                Image img1 = new Image("http://localhost/paw/web/images/pawIcons/substraction.png");
+                Image img1 = new Image("http://localhost/paw_web/web/images/pawIcons/substraction.png");
                 im.setFitHeight(20);
                 im.setFitWidth(20);
                 im.setImage(img1);

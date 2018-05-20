@@ -278,7 +278,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(0));
             });
             
-            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(0).getImages().get(0).getName());
+            Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article_page.get(0).getImage1());
             im1.setImage(img);
             im1.setOnMouseClicked(value -> {
                 
@@ -309,7 +309,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(1));
             });
             
-            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(1).getImages().get(0).getName());
+            Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article_page.get(1).getImage1());
             im2.setImage(img);
             im2.setOnMouseClicked(value -> {
                 
@@ -340,7 +340,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(2));
             });
             
-            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(2).getImages().get(0).getName());
+            Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article_page.get(2).getImage1());
             im3.setImage(img);
             im3.setOnMouseClicked(value -> {
                 
@@ -371,7 +371,7 @@ public class FXMLProduitController {
                 showdetail(article_page.get(3));
             });
             
-            Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article_page.get(3).getImages().get(0).getName());
+            Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article_page.get(3).getImage1());
             im4.setImage(img);
             im4.setOnMouseClicked(value -> {
                 
@@ -425,10 +425,10 @@ public class FXMLProduitController {
            Panier.addProduit(article);  
         });
         
-        Image img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(0).getName());
+        Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article.getImage1());
         image_id.setImage(img);
         
-        img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(0).getName());
+        img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article.getImage1());
         
         image_1.setImage(img);
         
@@ -440,7 +440,7 @@ public class FXMLProduitController {
             
         });
         
-        img = new Image("http://localhost/paw/web/images/pawBoutique/" + article.getImages().get(1).getName());
+        img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + article.getImage2());
         image_2.setImage(img);
         image_2.setVisible(true);
         image_2.setOnMouseClicked((event) -> {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paw.annoncetrouvee.user.modificationAnnoncesTrouve;
+/*package paw.annoncetrouvee.user.modificationAnnoncesTrouve;
 
 import Entity.AnnoncePerdu;
 import Entity.AnnonceTrouvee;
@@ -38,11 +38,11 @@ import paw.MyNotifications;
  *
  * @author Guideinfo
  */
-//public class FXMLModifierAnnonceTrouvéController implements Initializable {
-/*
+/*public class FXMLModifierAnnonceTrouvéController implements Initializable {
+
    List<AnnonceTrouvee> liste;
     @FXML
-    private JFXTreeTableView<AnnonceTrouv> consultertable;
+    private JFXTreeTableView<AnnonceTrouvee> consultertable;
 
     @FXML
     private TreeTableColumn<AnnonceTrouvee,Number> age;
@@ -303,6 +303,6 @@ import paw.MyNotifications;
                 as.DeleteAnnoncePerdu(id);
                 
     }
-    */
     
+  */  
 //}

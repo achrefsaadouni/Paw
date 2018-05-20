@@ -267,7 +267,7 @@ public class FXMLMesAchatController{
             LigneAchat ligne = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-              Image  img = new Image("http://localhost/paw/web/images/pawBoutique/" + ligne.getProduit().getImages().get(0).getName());
+              Image  img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + ligne.getProduit().getImage1());
                 im.setFitHeight(100);
                 im.setFitWidth(100);
                 im.setImage(img);

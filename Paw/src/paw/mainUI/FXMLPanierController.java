@@ -67,7 +67,7 @@ public class FXMLPanierController  extends FXMLCnxController {
             LigneAchat achat = (LigneAchat) param.getValue().getValue();
             ImageView im = new ImageView();
             try {
-                Image img = new Image("file:///" + achat.getProduit().getImages().get(0).getPath());
+                Image img = new Image("http://localhost/paw_web/web/images/pawBoutique/" + achat.getProduit().getImage1());
                 im.setFitHeight(50);
                 im.setFitWidth(50);
                 im.setImage(img);
