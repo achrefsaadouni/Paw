@@ -194,7 +194,7 @@ public class FXMLmesoffresadoptionController extends FXMLCnxController implement
             age.setText(String.valueOf(liste.get(i).getAge()));
             msg.setText(liste.get(i).getMessage_complementaire());
             couleur.setText(liste.get(i).getCouleur());
-            image.setImage(new Image("http://localhost/paw/web/images/pawAdoption/"+liste.get(i).getImages().getName()));
+            image.setImage(new Image("http://localhost/paw_web/web/images/pawAdoption/"+liste.get(i).getImages().getName()));
             if(liste.get(i).getTypeAdoption().equals("Permanante"))
             {
                 datedeb.setVisible(false);

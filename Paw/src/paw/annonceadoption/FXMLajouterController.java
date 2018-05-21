@@ -204,7 +204,7 @@ public class FXMLajouterController implements Initializable {
         try {
             String imageName = Checksum.createChecksum(file.getAbsolutePath());
             String extension = file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-            String filePath = "E:\\xampp\\htdocs\\paw\\web\\images\\pawAdoption\\"+imageName + extension;
+            String filePath = "E:\\xampp\\htdocs\\paw_web\\web\\images\\pawAdoption\\"+imageName + extension;
             chaine =imageName + extension;
             File dest = new File(filePath);
             Files.copy(

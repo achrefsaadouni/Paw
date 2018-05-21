@@ -269,7 +269,7 @@ public class FXMLutilisateursController implements Initializable {
         image.setVisible(true);
         tableau.setVisible(true);
         boutons.setVisible(true);
-        image.setImage(new Image("http://localhost/pawUsers/"+r.getAvatar()));
+        image.setImage(new Image("http://localhost/paw_web/web/images/pawUsers/"+r.getAvatar()));
         nomu.setText(r.getNom());
         prenomu.setText(r.getPrenom());
         adresseu.setText(r.getAddresse());
