@@ -113,7 +113,6 @@ public class FXMLTrainingController extends FXMLCnxController implements Initial
                     java.sql.Date.valueOf(dateTr.getValue()), 
                     (String)typeTr.getValue(),
                     (String)typePet.getValue(),
-                            nomPet.getText() , 
                             0,
                             Integer.parseInt(agePet.getText()), 
                             colorPet.getText(), 

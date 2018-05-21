@@ -97,11 +97,6 @@
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
                   <VBox focusTraversable="true" layoutX="955.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="201.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField fx:id="nomPet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Nom de votre animal">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </JFXTextField>
                         <JFXTextField fx:id="agePet" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="150.0" promptText="Age">
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

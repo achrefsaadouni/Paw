@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -32,6 +33,24 @@ public class AnnonceTraining  extends Annonce{
         this.typePet = typePet;
         this.nomPet = nomPet;
     }
+
+    public AnnonceTraining(Date dateTr, String typeTr, String typePet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, int id_utilisateur, File images) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur, images);
+        this.dateTr = dateTr;
+        this.typeTr = typeTr;
+        this.typePet = typePet;
+    }
+
+    public AnnonceTraining(Date dateTr, String typeTr, String typePet, int id, int age, String couleur, String sex, String race, String message_complementaire, String type, Date date, int id_utilisateur) {
+        super(id, age, couleur, sex, race, message_complementaire, type, date, id_utilisateur);
+        this.dateTr = dateTr;
+        this.typeTr = typeTr;
+        this.typePet = typePet;
+    }
+
+    
+
+    
 
     
 
